@@ -2,11 +2,19 @@
 
 Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        'Check if the textboxes are empty
         If TextBox1.Text = "" Or TextBox2.Text = "" Or TextBox3.Text = "" Then
+
+            'If any of the textboxes are empty, show a message box
             MessageBox.Show("fill all the fields")
             Return
         End If
-        CreateNewFile(TextBox1.Text, TextBox2.Text, TextBox3.Text)
+
+        'If all the textboxes are filled, pass the values to the WriteOnFile method
+        WriteOnFile(TextBox1.Text, TextBox2.Text, TextBox3.Text)
+
+        'Clear the textboxes
         TextBox1.Text = ""
         TextBox2.Text = ""
         TextBox3.Text = ""
@@ -29,20 +37,29 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim NameSurAge = ReadFromFile()
-        Dim parts = NameSurAge.Split(","c)
-        Dim printstring(2) As String
-        If parts.Length >= 3 Then
+
+        'Retreve json string from file
+        Dim JsonString = ReadFromFile()
+
+        'Split the json string into segments
+        Dim SegmentedStrings = JsonString.Split(","c)
+
+        'Array to hold the data
+        Dim Data(2) As String
+
+        'Check if there are all the three segments
+        If SegmentedStrings.Length >= 3 Then
             For index = 0 To 2
-                printstring(index) = parts(index).Split(":"c)(1)
+
+                'Name of the Data from the SegmentedStrings
+                Data(index) = SegmentedStrings(index).Split(":"c)(1)
             Next
-            TextBox1.Text = printstring(0)
-            TextBox2.Text = printstring(1)
-            TextBox3.Text = printstring(2)
-        Else
-            TextBox1.Text = ""
-            TextBox2.Text = ""
-            TextBox3.Text = ""
+
+            'Set the textboxes with the data
+            TextBox1.Text = Data(0)
+            TextBox2.Text = Data(1)
+            TextBox3.Text = Data(2)
+
         End If
     End Sub
 

@@ -38,7 +38,7 @@ Partial Class Form1
         Button1.Name = "Button1"
         Button1.Size = New Size(100, 23)
         Button1.TabIndex = 0
-        Button1.Text = "SalvaFile"
+        Button1.Text = "Save/Update"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' TextBox1
@@ -79,7 +79,7 @@ Partial Class Form1
         Button2.Name = "Button2"
         Button2.Size = New Size(100, 23)
         Button2.TabIndex = 5
-        Button2.Text = "ReadFromFile"
+        Button2.Text = "Show"
         Button2.UseVisualStyleBackColor = True
         ' 
         ' Label3
