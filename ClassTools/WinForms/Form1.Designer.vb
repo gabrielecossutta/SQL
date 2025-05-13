@@ -34,7 +34,7 @@ Partial Class Form1
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(273, 241)
+        Button1.Location = New Point(182, 235)
         Button1.Name = "Button1"
         Button1.Size = New Size(100, 23)
         Button1.TabIndex = 0
@@ -43,14 +43,14 @@ Partial Class Form1
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(273, 212)
+        TextBox1.Location = New Point(182, 206)
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(100, 23)
         TextBox1.TabIndex = 1
         ' 
         ' TextBox2
         ' 
-        TextBox2.Location = New Point(379, 212)
+        TextBox2.Location = New Point(288, 206)
         TextBox2.Name = "TextBox2"
         TextBox2.Size = New Size(100, 23)
         TextBox2.TabIndex = 2
@@ -58,24 +58,24 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(304, 194)
+        Label1.Location = New Point(182, 188)
         Label1.Name = "Label1"
-        Label1.Size = New Size(39, 15)
+        Label1.Size = New Size(100, 15)
         Label1.TabIndex = 3
-        Label1.Text = "Name"
+        Label1.Text = "ConnectionString"
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(408, 194)
+        Label2.Location = New Point(300, 188)
         Label2.Name = "Label2"
-        Label2.Size = New Size(54, 15)
+        Label2.Size = New Size(66, 15)
         Label2.TabIndex = 4
-        Label2.Text = "Surname"
+        Label2.Text = "ServicePort"
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(485, 241)
+        Button2.Location = New Point(394, 235)
         Button2.Name = "Button2"
         Button2.Size = New Size(100, 23)
         Button2.TabIndex = 5
@@ -85,15 +85,15 @@ Partial Class Form1
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(514, 194)
+        Label3.Location = New Point(410, 188)
         Label3.Name = "Label3"
-        Label3.Size = New Size(28, 15)
+        Label3.Size = New Size(84, 15)
         Label3.TabIndex = 7
-        Label3.Text = "Age"
+        Label3.Text = "ProtocolName"
         ' 
         ' TextBox3
         ' 
-        TextBox3.Location = New Point(485, 212)
+        TextBox3.Location = New Point(394, 206)
         TextBox3.Name = "TextBox3"
         TextBox3.Size = New Size(100, 23)
         TextBox3.TabIndex = 6

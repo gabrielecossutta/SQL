@@ -49,4 +49,12 @@ Public Class Form1
     Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
 
     End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

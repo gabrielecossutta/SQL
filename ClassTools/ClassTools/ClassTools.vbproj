@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessFile.vb" />
-    <Compile Include="Person.vb" />
+    <Compile Include="ConnectionInfo.vb" />
     <Compile Include="Crud.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

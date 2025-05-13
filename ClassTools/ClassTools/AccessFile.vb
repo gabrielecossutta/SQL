@@ -7,13 +7,14 @@ Public Module AccessFile
 
 
 
-    Public Sub CreateNewFile(name As String, surname As String, age As String)
-        Dim NewPerson As New Person()
-        NewPerson.Name = name
-        NewPerson.Surname = surname
-        NewPerson.Age = age
+    Public Sub CreateNewFile(par1 As String, par2 As String, par3 As String) 'if there is already a file just modify the file in the other function
+        Dim connection As New Connection()
+        'connectionStrings can contain more than one string
+        connection.ConnectionStrings = par1
+        connection.ServicePort = par2
+        connection.ProtocolName = par3
 
-        Dim json As String = JsonConvert.SerializeObject(NewPerson)
+        Dim json As String = JsonConvert.SerializeObject(connection)
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
         Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.Parent.Parent.FullName 'poi metterlo nella directory dell'eseguibile
         Dim filePath As String = parentPath & "\FILE.json"
@@ -31,9 +32,9 @@ Public Module AccessFile
         End If
 
         Dim jsonString As String = File.ReadAllText(filePath)
-        Dim person As Person = JsonConvert.DeserializeObject(Of Person)(jsonString)
+        Dim connection As Connection = JsonConvert.DeserializeObject(Of Connection)(jsonString)
 
-        Return $"Name: {person.Name}" + "," + $"Surname: {person.Surname}" + "," + $"Age: {person.Age}"
+        Return $"ConnectionString: {connection.ConnectionStrings}" + "," + $"ServicePort: {connection.ServicePort}" + "," + $"ProtocolName: {connection.ProtocolName}"
     End Function
 
 
