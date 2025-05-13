@@ -5,11 +5,12 @@ Imports Newtonsoft.Json
 Public Module AccessFile
     Public Sub WriteOnFile(par1 As String, par2 As String, par3 As String)
 
+        '-----------------------qua passerai il connection lo serializzi e lo scrivi nel file----------------
         'Create a new instance of the Connection class
-        Dim connection As New Connection()
+        Dim connection As New Connections()
 
         'Populate the Class with the values from the textboxes
-        connection.ConnectionStrings = par1
+        'connection.ConnectionStrings = par1
         connection.ServicePort = par2
         connection.ProtocolName = par3
 
@@ -39,7 +40,7 @@ Public Module AccessFile
 
     End Sub
 
-    Public Function ReadFromFile() As String
+    Public Function ReadFromFile() As Connections
 
         'Get the base path of the application
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
@@ -52,17 +53,19 @@ Public Module AccessFile
 
         'Check if the file exists
         If Not File.Exists(filePath) Then
-            Return "File not found"
+            Return Nothing
         End If
 
         'Read the JSON string from the file
         Dim jsonString As String = File.ReadAllText(filePath)
 
         'Deserialize the JSON string to the Connection class
-        Dim connection As Connection = JsonConvert.DeserializeObject(Of Connection)(jsonString)
+        Dim connection As Connections = JsonConvert.DeserializeObject(Of Connections)(jsonString)
 
-        'Return the values from the class _______________ Remove this line to return the entire json string
-        Return $"ConnectionString: {connection.ConnectionStrings}" + "," + $"ServicePort: {connection.ServicePort}" + "," + $"ProtocolName: {connection.ProtocolName}"
+
+
+        '---------------------------------------qua ritorna tutto il json che gestirai in unaltra funzione--magari anche popolare---------------------
+        Return connection
 
     End Function
 End Module

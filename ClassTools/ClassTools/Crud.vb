@@ -1,18 +1,15 @@
 ﻿Public Class Crud
     Private Sub Create()
-        'create a new row/collumn?
+        'Insert a new row
 
     End Sub
     Private Sub Read()
-        'read from a cell
         'read a row
-        'read a column
     End Sub
     Private Sub Update()
-        'update a cell a row and collumn
+        'update a cell
     End Sub
     Private Sub Delete()
-        'delete a row
-        'delete a column?
+        'delete all the fields of a row
     End Sub
 End Class

@@ -1,0 +1,24 @@
+﻿{
+  "ServicePort": "123344",
+  "ProtocolName": "Create",
+  "ConnectionStrings": [
+    {
+      "NomeServerSQL": "SQLExpress",
+      "NomeDatabase": "Northwind",
+      "NomeUtente": "NorthwindUser",
+      "Password": "123"
+    },
+    {
+      "NomeServerSQL": "SQLServer01",
+      "NomeDatabase": "AdventureWorks",
+      "NomeUtente": "AdminUser",
+      "Password": "456"
+    },
+    {
+      "NomeServerSQL": "RemoteSQL",
+      "NomeDatabase": "SalesDB",
+      "NomeUtente": "SalesUser",
+      "Password": "789"
+    }
+  ]
+}

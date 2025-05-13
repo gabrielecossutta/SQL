@@ -7,23 +7,15 @@
       "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\accessfile.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\applicationevents.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\applicationevents.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\form1.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\form1.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
@@ -34,71 +26,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "ConnectionInfo.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
+              "RelativeDocumentMoniker": "ClassTools\\ConnectionInfo.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
+              "RelativeToolTip": "ClassTools\\ConnectionInfo.vb",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-13T14:11:22.022Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb",
+              "RelativeDocumentMoniker": "WinForms\\Form1.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb",
+              "RelativeToolTip": "WinForms\\Form1.vb",
+              "ViewState": "AgIAABwAAAAAAAAAAAA6wCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-12T15:20:56.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Form1.vb [Progettazione]",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb",
               "RelativeDocumentMoniker": "WinForms\\Form1.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb [Progettazione]",
               "RelativeToolTip": "WinForms\\Form1.vb [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T07:27:56.621Z",
+              "WhenOpened": "2025-05-13T13:51:21.861Z",
               "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ConnectionInfo.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
-              "RelativeDocumentMoniker": "ClassTools\\ConnectionInfo.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
-              "RelativeToolTip": "ClassTools\\ConnectionInfo.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-13T06:00:03.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form1.Designer.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.Designer.vb",
-              "RelativeDocumentMoniker": "WinForms\\Form1.Designer.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.Designer.vb",
-              "RelativeToolTip": "WinForms\\Form1.Designer.vb",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAQwDQAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-12T15:42:35.055Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ApplicationEvents.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\ApplicationEvents.vb",
-              "RelativeDocumentMoniker": "WinForms\\ApplicationEvents.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\ApplicationEvents.vb",
-              "RelativeToolTip": "WinForms\\ApplicationEvents.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-12T15:42:32.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb",
-              "RelativeDocumentMoniker": "WinForms\\Form1.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form1.vb",
-              "RelativeToolTip": "WinForms\\Form1.vb",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwBUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-12T15:20:56.841Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -108,7 +75,7 @@
               "RelativeDocumentMoniker": "ClassTools\\AccessFile.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\AccessFile.vb",
               "RelativeToolTip": "ClassTools\\AccessFile.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-05-12T14:38:11.119Z",
               "EditorCaption": ""
