@@ -38,6 +38,7 @@ Partial Class Form1
         TextBox5 = New TextBox()
         Label6 = New Label()
         TextBox6 = New TextBox()
+        Button3 = New Button()
         CType(ConnectionStringBindingSource, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -164,11 +165,21 @@ Partial Class Form1
         TextBox6.Size = New Size(123, 23)
         TextBox6.TabIndex = 12
         ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(238, 125)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(75, 23)
+        Button3.TabIndex = 17
+        Button3.Text = "Login"
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(550, 153)
+        Controls.Add(Button3)
         Controls.Add(ComboBox1)
         Controls.Add(Label5)
         Controls.Add(TextBox5)
@@ -207,5 +218,6 @@ Partial Class Form1
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ConnectionStringBindingSource As BindingSource
+    Friend WithEvents Button3 As Button
 
 End Class

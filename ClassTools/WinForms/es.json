@@ -3,34 +3,34 @@
     "ProtocolName": "Create",
     "ConnectionStrings": [
         {
-            "SQLServerName": "SQLExpress",
+            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
             "DatabaseName": "Northwind",
             "UserName": "NorthwindUser",
             "Password": "123"
         },
         {
-            "SQLServerName": "SQLServer01",
-            "DatabaseName": "AdventureWorks",
-            "UserName": "AdminUser",
-            "Password": "456"
+            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
+            "DatabaseName": "Northwind",
+            "UserName": "sa",
+            "Password": "123"
         },
         {
-            "SQLServerName": "000",
-            "DatabaseName": "000",
-            "UserName": "000",
-            "Password": "000"
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "<empty>",
+            "Password": "<empty>"
         },
         {
-            "SQLServerName": "111",
-            "DatabaseName": "111",
-            "UserName": "111",
-            "Password": "111"
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "<empty>",
+            "Password": "<empty>"
         },
         {
-            "SQLServerName": "222",
-            "DatabaseName": "222",
-            "UserName": "222",
-            "Password": "222"
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "<empty>",
+            "Password": "<empty>"
         }
     ]
 }

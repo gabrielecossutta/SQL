@@ -1,18 +1,24 @@
 ﻿Imports System.Text.Json.Nodes
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports ClassTools
-
+Imports Microsoft.Data.SqlClient
 Public Class Form1
 
     'reference of the class connection
     Dim connection As Connections
-
     'Index of the selected Username in the combobox
     Dim index As Integer
+
+    'ConnectionToServerOpen
+    Dim connectionToServer As SqlConnection
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         'Skip if the connection is not initialized
         If connection Is Nothing Then Return
+
+        'Message for the log
+        WriteLogMessage("Sovrascritto File JSON")
 
         'pass the connection to the function to write it on the file
         WriteOnFile(connection)
@@ -26,6 +32,9 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        'Message for the log
+        WriteLogMessage("Caricati dati File JSON")
 
         'Load the information of the connections from the file
         connection = ReadFromFile()
@@ -50,7 +59,6 @@ Public Class Form1
 
         'save the selected index
         index = ComboBox1.SelectedIndex
-
         'Set the textboxes with the connection information of the selected index
         TextBox4.Text = connection.ConnectionStrings(index).Password
         TextBox6.Text = connection.ConnectionStrings(index).SQLServerName
@@ -100,5 +108,26 @@ Public Class Form1
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
         If connection Is Nothing Then Return
         connection.ConnectionStrings(index).DatabaseName = TextBox5.Text
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        '
+        connectionToServer = ConnectToTheServer(ComboBox1.Text, TextBox4.Text, TextBox6.Text, TextBox5.Text)
+        If connectionToServer IsNot Nothing Then
+            If connectionToServer.State = ConnectionState.Open Then
+
+                'Create the second form and pass the connection to it and this form
+                Dim Form2 As New Form2(Me, connectionToServer)
+
+                'Show the second form
+                Form2.Show()
+
+                'Hide this form
+                Me.Hide()
+
+            End If
+        Else
+            MessageBox.Show("Connection failed. Please check your credentials.")
+        End If
     End Sub
 End Class

@@ -1,7 +1,8 @@
-﻿Public Class Crud
+﻿
+
+Public Class Crud
     Private Sub Create()
         'Insert a new row
-
     End Sub
     Private Sub Read()
         'read a row

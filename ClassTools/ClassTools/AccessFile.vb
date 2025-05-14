@@ -20,11 +20,36 @@ Public Module AccessFile
         'Create a stream writer to write the JSON string to the file
         Dim file As IO.StreamWriter
 
-        'Create the file if it doesn't exist
+        'Open the file and write the JSON string, overwriting any existing content
         file = My.Computer.FileSystem.OpenTextFileWriter(filePath, False)
 
         'Write the JSON string to the file
         file.WriteLine(JsonString)
+
+        'Close the file
+        file.Close()
+
+    End Sub
+
+    Public Sub WriteLogMessage(log As String)
+
+        'Get the base path of the application
+        Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
+
+        'Backtrack to the executable directory
+        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.Parent.Parent.FullName 'poi metterlo nella directory dell'eseguibile
+
+        'Create the file path
+        Dim filePath As String = parentPath & "\Log.txt"
+
+        'Create a stream writer to write on the TXT file
+        Dim file As IO.StreamWriter
+
+        'Open the file and write the log message without overwriting
+        file = My.Computer.FileSystem.OpenTextFileWriter(filePath, True)
+
+        'Write the log message to the file with the current time
+        file.WriteLine(My.Computer.Clock.LocalTime + " " + log + ";")
 
         'Close the file
         file.Close()
@@ -52,7 +77,6 @@ Public Module AccessFile
 
         'Deserialize the JSON string to the Connection class
         Dim connection As Connections = JsonConvert.DeserializeObject(Of Connections)(jsonString)
-
         Return connection
 
     End Function
