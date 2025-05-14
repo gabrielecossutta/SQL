@@ -1,24 +1,36 @@
 ﻿{
-  "ServicePort": "123344",
-  "ProtocolName": "Create",
-  "ConnectionStrings": [
-    {
-      "NomeServerSQL": "SQLExpress",
-      "NomeDatabase": "Northwind",
-      "NomeUtente": "NorthwindUser",
-      "Password": "123"
-    },
-    {
-      "NomeServerSQL": "SQLServer01",
-      "NomeDatabase": "AdventureWorks",
-      "NomeUtente": "AdminUser",
-      "Password": "456"
-    },
-    {
-      "NomeServerSQL": "RemoteSQL",
-      "NomeDatabase": "SalesDB",
-      "NomeUtente": "SalesUser",
-      "Password": "789"
-    }
-  ]
+    "ServicePort": "123344",
+    "ProtocolName": "Create",
+    "ConnectionStrings": [
+        {
+            "SQLServerName": "SQLExpress",
+            "DatabaseName": "Northwind",
+            "UserName": "NorthwindUser",
+            "Password": "123"
+        },
+        {
+            "SQLServerName": "SQLServer01",
+            "DatabaseName": "AdventureWorks",
+            "UserName": "AdminUser",
+            "Password": "456"
+        },
+        {
+            "SQLServerName": "000",
+            "DatabaseName": "000",
+            "UserName": "000",
+            "Password": "000"
+        },
+        {
+            "SQLServerName": "111",
+            "DatabaseName": "111",
+            "UserName": "111",
+            "Password": "111"
+        },
+        {
+            "SQLServerName": "222",
+            "DatabaseName": "222",
+            "UserName": "222",
+            "Password": "222"
+        }
+    ]
 }

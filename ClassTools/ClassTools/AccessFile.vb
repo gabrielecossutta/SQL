@@ -3,16 +3,7 @@ Imports System.Net.Mime.MediaTypeNames
 Imports Newtonsoft.Json
 
 Public Module AccessFile
-    Public Sub WriteOnFile(par1 As String, par2 As String, par3 As String)
-
-        '-----------------------qua passerai il connection lo serializzi e lo scrivi nel file----------------
-        'Create a new instance of the Connection class
-        Dim connection As New Connections()
-
-        'Populate the Class with the values from the textboxes
-        'connection.ConnectionStrings = par1
-        connection.ServicePort = par2
-        connection.ProtocolName = par3
+    Public Sub WriteOnFile(connection As Connections)
 
         'Convert the class to a JSON string
         Dim JsonString As String = JsonConvert.SerializeObject(connection)
@@ -62,9 +53,6 @@ Public Module AccessFile
         'Deserialize the JSON string to the Connection class
         Dim connection As Connections = JsonConvert.DeserializeObject(Of Connections)(jsonString)
 
-
-
-        '---------------------------------------qua ritorna tutto il json che gestirai in unaltra funzione--magari anche popolare---------------------
         Return connection
 
     End Function
