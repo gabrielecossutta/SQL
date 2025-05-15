@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net.Mime.MediaTypeNames
+Imports System.Windows.Forms
 Imports Newtonsoft.Json
 
 Public Module AccessFile
@@ -12,10 +13,13 @@ Public Module AccessFile
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
 
         'Backtrack to the executable directory
-        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.Parent.Parent.FullName 'poi metterlo nella directory dell'eseguibile
+        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.FullName 'poi metterlo nella directory dell'eseguibile
+
+        'Enter the EXE folder path
+        Dim exeFolderPath As String = System.IO.Path.Combine(parentPath, "EXE")
 
         'Create the file path
-        Dim filePath As String = parentPath & "\FILE.json"
+        Dim filePath As String = exeFolderPath & "\FILE.json"
 
         'Create a stream writer to write the JSON string to the file
         Dim file As IO.StreamWriter
@@ -28,6 +32,9 @@ Public Module AccessFile
 
         'Close the file
         file.Close()
+        file.Dispose()
+        file = Nothing
+
 
     End Sub
 
@@ -37,10 +44,13 @@ Public Module AccessFile
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
 
         'Backtrack to the executable directory
-        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.Parent.Parent.FullName 'poi metterlo nella directory dell'eseguibile
+        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.FullName 'poi metterlo nella directory dell'eseguibile
+
+        'Enter the EXE folder path
+        Dim exeFolderPath As String = System.IO.Path.Combine(parentPath, "EXE")
 
         'Create the file path
-        Dim filePath As String = parentPath & "\Log.txt"
+        Dim filePath As String = exeFolderPath & "\Log.txt"
 
         'Create a stream writer to write on the TXT file
         Dim file As IO.StreamWriter
@@ -62,10 +72,12 @@ Public Module AccessFile
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
 
         'Backtrack to the executable directory
-        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.Parent.Parent.FullName
+        Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.FullName
+
+        Dim exeFolderPath As String = System.IO.Path.Combine(parentPath, "EXE")
 
         'Create the file path
-        Dim filePath As String = parentPath & "\FILE.json"
+        Dim filePath As String = exeFolderPath & "\FILE.json"
 
         'Check if the file exists
         If Not File.Exists(filePath) Then

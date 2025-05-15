@@ -3,12 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\f_es2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\winforms\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{5BF43223-387A-4D50-9FB3-B16EC8A2F4EA}|WinForms\\WinForms.vbproj|solutionrelative:winforms\\log.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\f_es2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|WF_Login||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|6185191f-1008-4fb2-a715-3a4e4f27e610"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,34 +35,84 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 189,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Log.txt",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Log.txt",
-              "RelativeDocumentMoniker": "WinForms\\Log.txt",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Log.txt",
-              "RelativeToolTip": "WinForms\\Log.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-14T15:48:00.004Z",
+              "DocumentIndex": 3,
+              "Title": "F_Es3.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
+              "RelativeDocumentMoniker": "WFLogin\\F_Es3.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
+              "RelativeToolTip": "WFLogin\\F_Es3.vb",
+              "ViewState": "AgIAABoAAAAAAAAAAAAqwDEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T13:49:24.053Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WF_Login",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\WF_Login.vbproj",
+              "RelativeDocumentMoniker": "WFLogin\\WF_Login.vbproj",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\WF_Login.vbproj",
+              "RelativeToolTip": "WFLogin\\WF_Login.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-15T15:56:33.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form2.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form2.vb",
-              "RelativeDocumentMoniker": "WinForms\\Form2.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WinForms\\Form2.vb",
-              "RelativeToolTip": "WinForms\\Form2.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
+              "Title": "F_Es2.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es2.vb",
+              "RelativeDocumentMoniker": "WFLogin\\F_Es2.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es2.vb",
+              "RelativeToolTip": "WFLogin\\F_Es2.vb",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAAwCQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-14T15:15:08.319Z",
+              "WhenOpened": "2025-05-15T15:55:33.696Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "F_Es2.vb [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es2.vb",
+              "RelativeDocumentMoniker": "WFLogin\\F_Es2.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es2.vb [Progettazione]",
+              "RelativeToolTip": "WFLogin\\F_Es2.vb [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T15:55:32.638Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Crud.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
+              "RelativeDocumentMoniker": "ClassTools\\Crud.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
+              "RelativeToolTip": "ClassTools\\Crud.vb",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T15:38:01.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "F_Es3.vb [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
+              "RelativeDocumentMoniker": "WFLogin\\F_Es3.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb [Progettazione]",
+              "RelativeToolTip": "WFLogin\\F_Es3.vb [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-05-15T13:21:01.389Z",
+              "EditorCaption": " [Progettazione]"
             }
           ]
         }
