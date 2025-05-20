@@ -4,7 +4,11 @@ Imports System.Windows.Forms
 Imports Newtonsoft.Json
 
 Public Module AccessFile
-    Public Sub WriteOnFile(connection As Connections)
+
+    ''' <summary>
+    ''' Write on a JSON file all the information contained in the ConnectionInfoClass
+    ''' </summary>
+    Public Sub WriteOnConfigFile(connection As Connections)
 
         'Convert the class to a JSON string
         Dim JsonString As String = JsonConvert.SerializeObject(connection)
@@ -35,9 +39,13 @@ Public Module AccessFile
         file.Dispose()
         file = Nothing
 
+        WriteLogMessage("Data saved on Json File")
 
     End Sub
 
+    ''' <summary>
+    ''' Write on a TXT file all the log messagges occurred during the execution of the program
+    ''' </summary>
     Public Sub WriteLogMessage(log As String)
 
         'Get the base path of the application
@@ -63,10 +71,14 @@ Public Module AccessFile
 
         'Close the file
         file.Close()
+        file.Dispose()
 
     End Sub
 
-    Public Function ReadFromFile() As Connections
+    ''' <summary>
+    ''' Read the JSON file and deserialize it to the Connections class to retrieve the connection information
+    ''' </summary>
+    Public Function ReadFromConfigFile() As Connections
 
         'Get the base path of the application
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
@@ -74,6 +86,7 @@ Public Module AccessFile
         'Backtrack to the executable directory
         Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.FullName
 
+        'Enter the EXE folder path
         Dim exeFolderPath As String = System.IO.Path.Combine(parentPath, "EXE")
 
         'Create the file path
@@ -89,7 +102,11 @@ Public Module AccessFile
 
         'Deserialize the JSON string to the Connection class
         Dim connection As Connections = JsonConvert.DeserializeObject(Of Connections)(jsonString)
+
+        WriteLogMessage("Data Loaded from Json File")
+
         Return connection
 
     End Function
+
 End Module

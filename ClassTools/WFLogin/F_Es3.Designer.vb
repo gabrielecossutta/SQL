@@ -24,11 +24,11 @@ Partial Class F_Es3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.TC_TablesName = New System.Windows.Forms.TabControl()
-        Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BT_Create = New System.Windows.Forms.Button()
         Me.BT_Read = New System.Windows.Forms.Button()
         Me.BT_Update = New System.Windows.Forms.Button()
         Me.BT_Delete = New System.Windows.Forms.Button()
+        Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.ConnectionStringBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,10 +39,6 @@ Partial Class F_Es3
         Me.TC_TablesName.SelectedIndex = 0
         Me.TC_TablesName.Size = New System.Drawing.Size(1373, 491)
         Me.TC_TablesName.TabIndex = 1
-        '
-        'ConnectionStringBindingSource
-        '
-        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ConnectionString)
         '
         'BT_Create
         '
@@ -83,6 +79,10 @@ Partial Class F_Es3
         Me.BT_Delete.TabIndex = 5
         Me.BT_Delete.Text = "Delete"
         Me.BT_Delete.UseVisualStyleBackColor = True
+        '
+        'ConnectionStringBindingSource
+        '
+        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ConnectionString)
         '
         'F_Es3
         '

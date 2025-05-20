@@ -27,6 +27,7 @@ Partial Class F_Es2
         Me.B_Save = New System.Windows.Forms.Button()
         Me.B_Login = New System.Windows.Forms.Button()
         Me.CB_Username = New System.Windows.Forms.ComboBox()
+        Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TB_Protocol = New System.Windows.Forms.TextBox()
         Me.TB_ServicePort = New System.Windows.Forms.TextBox()
         Me.TB_ServerName = New System.Windows.Forms.TextBox()
@@ -38,7 +39,6 @@ Partial Class F_Es2
         Me.L_DatabaseName = New System.Windows.Forms.Label()
         Me.L_ServicePort = New System.Windows.Forms.Label()
         Me.L_ProtocolName = New System.Windows.Forms.Label()
-        Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.ConnectionStringBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -79,6 +79,10 @@ Partial Class F_Es2
         Me.CB_Username.Size = New System.Drawing.Size(149, 21)
         Me.CB_Username.TabIndex = 3
         Me.CB_Username.ValueMember = "UserName"
+        '
+        'ConnectionStringBindingSource
+        '
+        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ConnectionString)
         '
         'TB_Protocol
         '
@@ -169,15 +173,11 @@ Partial Class F_Es2
         Me.L_ProtocolName.TabIndex = 16
         Me.L_ProtocolName.Text = "ProtocolName"
         '
-        'ConnectionStringBindingSource
-        '
-        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ConnectionString)
-        '
         'F_Es2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(705, 156)
         Me.Controls.Add(Me.L_ProtocolName)
         Me.Controls.Add(Me.L_ServicePort)
         Me.Controls.Add(Me.L_DatabaseName)
