@@ -59,8 +59,6 @@ Public Module AccessFile
 
         'Create the file path
         Dim filePath As String = exeFolderPath & "\Log.txt"
-C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_4\bin
-C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools
         'Create a stream writer to write on the TXT file
         Dim file As IO.StreamWriter
 

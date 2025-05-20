@@ -105,3 +105,7 @@ C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_4\bin\Debug\tr\Microsof
 C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_4\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_4\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_4\obj\Debug\Es_4.vbproj.Up2Date
+C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_4.exe.config
+C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_4.exe
+C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_4.pdb
+C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_4.xml

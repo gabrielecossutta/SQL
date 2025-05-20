@@ -389,9 +389,10 @@ Public Class F_Es3
         Dim result As DataTable = Crud.ReadRow(query, connectionToServer)
 
         WriteLogMessage("Query: " + query)
-
         'Show the result in a message box
         Dim rowData As String = String.Join(Environment.NewLine, result.Columns.Cast(Of DataColumn)().Select(Function(col, index) $"{col.ColumnName}: {result.Rows(0).ItemArray(index)}"))
+        rowData = String.Join(Environment.NewLine, result.Columns.Cast(Of DataColumn)().Select(Function(col, index) $"{col.ColumnName}: {result.Rows(0).ItemArray(index).GetType.ToString}"))
+        MessageBox.Show(rowData)
         MessageBox.Show($"Row data: {rowData}")
 
     End Sub
