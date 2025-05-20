@@ -32,7 +32,7 @@ Public Module AccessServer
         ' Create a connection string 
         Dim ConnectionStringComplite As String = "Server=" + SQLServerName + ";Database=" + DatabaseName + ";User Id=" + User + ";Password=" + Password + ";TrustServerCertificate=True"
         WriteLogMessage("Login by: " + User)
-
+        WriteLogMessage(ConnectionStringComplite)
         ' Create a connection to the SQL Server
         Dim connectionToServer As New SqlConnection(ConnectionStringComplite)
 

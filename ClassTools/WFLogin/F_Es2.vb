@@ -52,8 +52,22 @@ Public Class F_Es2
 
         'Check if the arguments are more than 1
         If args.Count > 1 Then
-            LoginByExternalArgument(args(1))
-            Me.Hide()
+
+            Dim x = 0
+
+            For Each arg As String In args
+
+                If Integer.TryParse(arg, x) Then
+
+                    LoginByExternalArgument(args(x))
+                    Me.Hide()
+
+                    Exit For
+
+                End If
+
+            Next
+
         End If
 
     End Sub

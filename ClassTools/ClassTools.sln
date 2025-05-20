@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ClassTools", "ClassTools\Cl
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WF_Login", "WFLogin\WF_Login.vbproj", "{7CE9158A-B35B-4083-AECC-F001A09F8060}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Es_4", "Es_4\Es_4.vbproj", "{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7CE9158A-B35B-4083-AECC-F001A09F8060}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CE9158A-B35B-4083-AECC-F001A09F8060}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CE9158A-B35B-4083-AECC-F001A09F8060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
