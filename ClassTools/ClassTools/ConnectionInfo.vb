@@ -1,6 +1,7 @@
 ﻿Imports System.Windows
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports Microsoft.Data.SqlClient
+Imports System.Reflection
 
 ''' <summary>
 ''' Class to store service port and protocol name and a list of strings that contain the connection information

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\accessfile.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\accessfile.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}|Es_4\\Es_4.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_4\\linq.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{7AA7B55C-1D33-446D-A0C3-AA33CBC81E23}|Es_4\\Es_4.vbproj|solutionrelative:es_4\\linq.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\connectioninfo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\accessfile.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\accessfile.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 189,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LINQ.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_4\\LINQ.vb",
               "RelativeDocumentMoniker": "Es_4\\LINQ.vb",
@@ -47,7 +47,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "F_Es3.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
               "RelativeDocumentMoniker": "WFLogin\\F_Es3.vb",
@@ -55,24 +55,24 @@
               "RelativeToolTip": "WFLogin\\F_Es3.vb",
               "ViewState": "AgIAAHgBAAAAAAAAAAAAAIkBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-20T09:01:55.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T09:01:55.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ConnectionInfo.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
               "RelativeDocumentMoniker": "ClassTools\\ConnectionInfo.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\ConnectionInfo.vb",
               "RelativeToolTip": "ClassTools\\ConnectionInfo.vb",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAxwAgAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-20T08:21:49.134Z"
+              "WhenOpened": "2025-05-20T08:21:49.134Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "AccessFile.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\AccessFile.vb",
               "RelativeDocumentMoniker": "ClassTools\\AccessFile.vb",
@@ -80,11 +80,12 @@
               "RelativeToolTip": "ClassTools\\AccessFile.vb",
               "ViewState": "AgIAAC4AAAAAAAAAAAAuwDwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-20T08:08:25.714Z"
+              "WhenOpened": "2025-05-20T08:08:25.714Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Crud.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
               "RelativeDocumentMoniker": "ClassTools\\Crud.vb",
@@ -92,8 +93,7 @@
               "RelativeToolTip": "ClassTools\\Crud.vb",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-20T08:10:42.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-20T08:10:42.081Z"
             }
           ]
         }
