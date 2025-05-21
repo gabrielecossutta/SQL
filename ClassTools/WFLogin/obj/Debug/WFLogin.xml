@@ -1,0 +1,79 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WFLogin
+</name>
+</assembly>
+<members>
+<member name="T:WFLogin.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:WFLogin.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:WFLogin.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:WFLogin.F_Es3">
+ <summary>
+ This Form is used to manage the CRUD operation on server
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es3.LoadTables">
+ <summary>
+ Load the tables name from the SQL Server and populate the TabControl with them
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es3.RefreshTables">
+ <summary>
+ Refresh the tables in the TabControl to reflect any changes made
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es3.PopulateTables">
+ <summary>
+ Populate the TabControl with the tables from the SQL Server
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es3.GetDefaultValue(System.String)">
+ <summary>
+ Return a default value for the given data type
+ </summary>
+ <param name="dataTypeFullName">Type of the variable to return a default value</param>
+</member>
+<member name="M:WFLogin.F_Es3.FindSelectedGrid">
+ <summary>
+ Find the selected DataGridView in the selected tab of the TabControl
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WFLogin.F_Es2.LoadWhenOpened">
+ <summary>
+ Load the information from the Json file when the form is opened
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es2.CheckExternalArguments">
+ <summary>
+ Check if the form is opened with an external argument, if so Login With that argument
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es2.LoginByExternalArgument(System.Int32)">
+ <summary>
+ Execute the login with the external argument
+ </summary>
+ <param name="i">ID of the User</param>
+</member>
+<member name="M:WFLogin.F_Es2.LoginPerformed">
+ <summary>
+ Hide the first form, Open the second form and pass the connection to it,
+ </summary>
+</member>
+</members>
+</doc>
