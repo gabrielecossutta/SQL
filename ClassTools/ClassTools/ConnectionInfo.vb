@@ -7,6 +7,7 @@ Imports System.Reflection
 ''' Class to store service port and protocol name and a list of strings that contain the connection information
 ''' </summary>
 Public Class Connections
+
     Public Property ServicePort As String
     Public Property ProtocolName As String
     Public Property ConnectionStrings As List(Of ConnectionString)

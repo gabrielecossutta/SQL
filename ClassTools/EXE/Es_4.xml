@@ -62,7 +62,7 @@ Es_4
  Count the number of elements in the list using LINQ
  </summary>
 </member>
-<member name="M:Es_4.LINQ.SearchSpecificValueInProperty">
+<member name="M:Es_4.LINQ.CheckSpecificValueInProperty">
  <summary>
  Check if there is an element in the list that contains a specific value in a specific property
  </summary>
