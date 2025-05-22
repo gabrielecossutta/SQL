@@ -86,16 +86,16 @@ ClassTools
 </member>
 <member name="M:ClassTools.Crud.ReadRow(System.String,Microsoft.Data.SqlClient.SqlConnection)">
  <summary>
- Read a row from the database.
+ Read a row from the database (uncommited)
  </summary>
  <param name="query">The SQL query to read the row.</param>
  <param name="connectionToServer">The connection to the SQL server.</param>
 </member>
-<member name="M:ClassTools.Crud.UpdateCell(System.String,Microsoft.Data.SqlClient.SqlConnection,System.String,System.String@)">
+<member name="M:ClassTools.Crud.UpdateCell(System.Collections.Generic.List{System.String},Microsoft.Data.SqlClient.SqlConnection,System.String,System.String@)">
  <summary>
  Update a cell in the database.
  </summary>
- <param name="query">The SQL query to delete the row.</param>
+ <param name="querys">The list of query to update the rows.</param>
  <param name="connectionToServer">The connection to the SQL server.</param>
  <param name="tableName">The name of the table to enable/disable the identityInsert.</param>          vvvv ByRef rowAffected As Integer vvvv
 </member>

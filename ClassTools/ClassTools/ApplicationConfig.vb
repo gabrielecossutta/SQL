@@ -92,7 +92,6 @@ Public Module ApplicationConfig
     ''' Containt the connection information, username, password, server name and database name
     ''' </summary>
     Public Class ConnectionString
-        Public Property Id As Integer
         Public Property SQLServerName As String
         Public Property DatabaseName As String
         Public Property UserName As String

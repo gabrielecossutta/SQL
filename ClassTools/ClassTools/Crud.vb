@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Common
 Imports System.Windows
+Imports System.Windows.Forms
 Imports System.Windows.Markup
 Imports Microsoft.Data.SqlClient
 
@@ -17,7 +18,7 @@ Public Class Crud
     Public Shared Function ConnectToTheServer(User As String, Password As String, SQLServerName As String, DatabaseName As String) As SqlConnection
 
         ' Create a connection string 
-        Dim ConnectionStringComplite As String = "Server=" + SQLServerName + ";Database=" + DatabaseName + ";User Id=" + User + ";Password=" + Password + ";TrustServerCertificate=True"
+        Dim ConnectionStringComplite As String = "Server=" + SQLServerName + ";Database=" + DatabaseName + ";User=" + User + ";Password=" + Password + ";TrustServerCertificate=True"
         WriteLogMessage("Login by: " + User, "EXE", "Log")
         WriteLogMessage(ConnectionStringComplite, "EXE", "Log")
 
@@ -143,17 +144,21 @@ Public Class Crud
         Using cmd As New SqlCommand(query, connectionToServer)
 
             Try
+                cmd.Transaction = connectionToServer.BeginTransaction()
 
                 ' Execute the command
                 cmd.ExecuteNonQuery()
                 WriteLogMessage("Row created in table: " + tableName, "EXE", "Log")
                 isOperationCompleted = True
+                cmd.Transaction.Commit()
 
             Catch ex As SqlException
 
-                Dim ErrorMessage As String = ex.Message
+                cmd.Transaction.Rollback()
 
                 ' Check for specific SQL error codes for duplicate key violation and customize the error message
+                Dim ErrorMessage As String = ex.Message
+
                 If ex.Number = 2627 Or ex.Number = 2601 Then
 
                     Dim SegmentedString = ErrorMessage.Split("(")
@@ -194,23 +199,51 @@ Public Class Crud
     End Function
 
     ''' <summary>
-    ''' Read a row from the database.
+    ''' Read a row from the database (uncommited)
     ''' </summary>
     ''' <param name="query">The SQL query to read the row.</param>
     ''' <param name="connectionToServer">The connection to the SQL server.</param>
     Public Shared Function ReadRow(query As String, connectionToServer As SqlConnection) As DataTable
 
-        Return FillTables(query, connectionToServer)
+        Dim dataTable As New DataTable()
+        Using cmd As New SqlCommand(query, connectionToServer)
+
+            Try
+                ' Apri connessione se non è già aperta
+                If connectionToServer.State = ConnectionState.Closed Then
+                    connectionToServer.Open()
+                End If
+
+                ' Avvia una transazione con isolamento ReadUncommitted
+                Using adapter As New SqlDataAdapter(cmd)
+
+                    cmd.Transaction = connectionToServer.BeginTransaction(IsolationLevel.ReadUncommitted)
+                    adapter.Fill(dataTable)
+                    cmd.Transaction.Commit()
+
+                End Using
+
+            Catch ex As Exception
+
+                cmd.Transaction.Rollback()
+                WriteLogMessage(ex.Message, "EXE", "Log")
+
+            End Try
+
+        End Using
+
+        Return dataTable
 
     End Function
 
     ''' <summary>
     ''' Update a cell in the database.
     ''' </summary>
-    ''' <param name="query">The SQL query to delete the row.</param>
+    ''' <param name="querys">The list of query to update the rows.</param>
     ''' <param name="connectionToServer">The connection to the SQL server.</param>
     ''' <param name="tableName">The name of the table to enable/disable the identityInsert.</param>          vvvv ByRef rowAffected As Integer vvvv
-    Public Shared Function UpdateCell(query As String, connectionToServer As SqlConnection, tableName As String, ByRef ErrorMsg As String) As Boolean
+    Public Shared Function UpdateCell(querys As List(Of String), connectionToServer As SqlConnection, tableName As String, ByRef ErrorMsg As String) As Boolean
+
         'rowAffected = -5
         Dim isOperationCompleted = False
 
@@ -218,29 +251,43 @@ Public Class Crud
         EnableIdentityInsert(tableName, connectionToServer)
 
         'Create a SqlCommand object to execute the query
-        Using cmd As New SqlCommand(query, connectionToServer)
+        Using cmd As New SqlCommand()
 
-            Try
-                '---------begin transaction
+            cmd.Connection = connectionToServer
+            cmd.Transaction = connectionToServer.BeginTransaction()
 
-                'Execute the command
-                cmd.ExecuteNonQuery()
-                'rowAffected = cmd.ExecuteNonQuery()
-                WriteLogMessage("Cell Updated", "EXE", "Log")
-                isOperationCompleted = True
-                '--------------commit
-            Catch ex As Exception
-                '----Rollback
-                ErrorMsg = $"Error occurred during the Update of a cell: {ex.Message}"
-                WriteLogMessage(ex.Message, "EXE", "Log")
+            For Each query As String In querys
 
-            End Try
+                Try
+
+                    cmd.CommandText = query
+                    'Execute the command
+                    cmd.ExecuteNonQuery()
+                    'rowAffected = cmd.ExecuteNonQuery()
+                    WriteLogMessage("Cell Updated", "EXE", "Log")
+                    isOperationCompleted = True
+
+
+                Catch ex As Exception
+
+                    cmd.Transaction.Rollback()
+                    ErrorMsg = $"Error occurred during the Update of a cell: {ex.Message}"
+                    WriteLogMessage(ex.Message, "EXE", "Log")
+                    Return False
+
+                End Try
+
+
+            Next
+
+            cmd.Transaction.Commit()
 
         End Using
 
         'Disable identity insert
         DisableIdentityInsert(tableName, connectionToServer)
         Return isOperationCompleted
+
     End Function
 
     ''' <summary>
@@ -255,6 +302,8 @@ Public Class Crud
         'Create a SqlCommand object to execute the query
         Using cmd As New SqlCommand(query, connectionToServer)
 
+            cmd.Transaction = connectionToServer.BeginTransaction()
+
             'Add the parameter to the command
             cmd.Parameters.AddWithValue("@ValueKey", valueKey)
 
@@ -264,8 +313,11 @@ Public Class Crud
                 cmd.ExecuteNonQuery()
                 WriteLogMessage("Row deleted", "EXE", "Log")
                 isOperationCompleted = True
+                cmd.Transaction.Commit()
 
             Catch ex As SqlException
+
+                cmd.Transaction.Rollback()
 
                 'Customize the error message
                 Dim ErrorMessage As String = ex.Message

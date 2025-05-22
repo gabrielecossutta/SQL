@@ -1,53 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\WF_Login.vbproj|solutionrelative:wflogin\\f_es3.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\ClassTools.vbproj|solutionrelative:classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 189,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "F_Es3.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
-              "RelativeDocumentMoniker": "WFLogin\\F_Es3.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\F_Es3.vb",
-              "RelativeToolTip": "WFLogin\\F_Es3.vb",
-              "ViewState": "AgIAAIcBAAAAAAAAAADwv2MAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-21T15:49:45.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Crud.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
-              "RelativeDocumentMoniker": "ClassTools\\Crud.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
-              "RelativeToolTip": "ClassTools\\Crud.vb",
-              "ViewState": "AgIAAM4AAAAAAAAAAAAmwPMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-21T14:52:28.704Z"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

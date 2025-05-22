@@ -225,13 +225,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassTools\ClassTools.vbproj">
+    <ProjectReference Include="..\ClassTools\Es_2.vbproj">
       <Project>{1cb475b5-365e-4fdd-8720-65843e3ca02f}</Project>
-      <Name>ClassTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WFLogin\WF_Login.vbproj">
-      <Project>{7ce9158a-b35b-4083-aecc-f001a09f8060}</Project>
-      <Name>WF_Login</Name>
+      <Name>Es_2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

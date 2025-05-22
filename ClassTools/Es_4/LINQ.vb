@@ -142,7 +142,7 @@ Module LINQ
             Dim segmentedString = args(1).Split(";")
             Dim SQLServerName = segmentedString(0).Replace("Server=", "")
             Dim DatabaseName = segmentedString(1).Replace("Database=", "")
-            Dim Username = segmentedString(2).Replace("UserId=", "")
+            Dim Username = segmentedString(2).Replace("User=", "")
             Dim Password = segmentedString(3).Replace("Password=", "")
 
             'connect to the SQL Server

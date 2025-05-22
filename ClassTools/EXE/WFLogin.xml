@@ -22,65 +22,65 @@ WFLogin
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="T:WFLogin.F_Es3">
+<member name="T:WFLogin.Database">
  <summary>
  This Form is used to manage the CRUD operation on server
  </summary>
 </member>
-<member name="M:WFLogin.F_Es3.PopulateTables">
+<member name="M:WFLogin.Database.PopulateTables">
 <summary>
 Populate the TabControl with the tables from the SQL Server
 </summary>
 </member>
-<member name="M:WFLogin.F_Es3.LoadTables">
+<member name="M:WFLogin.Database.LoadTables">
  <summary>
  Load the tables name from the SQL Server and populate the TabControl with them
  </summary>
 </member>
-<member name="M:WFLogin.F_Es3.RefreshTables">
+<member name="M:WFLogin.Database.RefreshTables">
  <summary>
  Refresh the tables in the TabControl to reflect any changes made
  </summary>
 </member>
-<member name="M:WFLogin.F_Es3.GetDefaultValue(System.String)">
+<member name="M:WFLogin.Database.GetDefaultValue(System.String)">
  <summary>
  Return a default value for the given data type
  </summary>
  <param name="dataTypeFullName">Type of the variable to return a default value</param>
 </member>
-<member name="M:WFLogin.F_Es3.FindSelectedGrid">
+<member name="M:WFLogin.Database.FindSelectedGrid">
  <summary>
  Find the selected DataGridView in the selected tab of the TabControl
  </summary>
  <returns></returns>
 </member>
-<member name="M:WFLogin.F_Es3.ResultOperation(System.Boolean)">
+<member name="M:WFLogin.Database.ResultOperation(System.Boolean)">
  <summary>
  Show a message box with the result of the operation
  </summary>
 </member>
-<member name="M:WFLogin.F_Es3.ResultOperation(System.Boolean,System.String)">
+<member name="M:WFLogin.Database.ResultOperation(System.Boolean,System.String)">
  <summary>
  Show a message box with the result of the operation and a specific error message
  </summary>
 </member>
-<member name="M:WFLogin.F_Es2.LoadWhenOpened">
+<member name="M:WFLogin.Login.LoadWhenOpened">
  <summary>
  Load the information from the Json file when the form is opened
  </summary>
 </member>
-<member name="M:WFLogin.F_Es2.CheckExternalArguments">
+<member name="M:WFLogin.Login.CheckExternalArguments">
  <summary>
  Check if the form is opened with an external argument, if so Login With that argument
  </summary>
 </member>
-<member name="M:WFLogin.F_Es2.LoginByExternalArgument(System.Int32)">
+<member name="M:WFLogin.Login.LoginByExternalArgument(System.Int32)">
  <summary>
  Execute the login with the external argument
  </summary>
  <param name="i">ID of the User</param>
 </member>
-<member name="M:WFLogin.F_Es2.LoginPerformed">
+<member name="M:WFLogin.Login.LoginPerformed">
  <summary>
  Hide the first form, Open the second form and pass the connection to it,
  </summary>
