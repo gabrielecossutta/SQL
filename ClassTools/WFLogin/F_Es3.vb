@@ -22,12 +22,14 @@ Public Class F_Es3
     'List of the tables names
     Private tableNames As New List(Of String)()
 
+
+    'This constructor is used to initialize the form
     Public Sub New(ByVal Form1 As F_Es2, ByVal ConnectionToServer As SqlConnection)
 
-        WriteLogMessage("Second form Created")
-
+        WriteLogMessage("Second form Created", "EXE", "Log")
         'Inizialize components
         InitializeComponent()
+        Me.Text = "Server"
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.connectionToServer = ConnectionToServer
         Me.form1 = Form1
@@ -44,55 +46,23 @@ Public Class F_Es3
 
     End Sub
 
-    ''' <summary>
-    ''' Load the tables name from the SQL Server and populate the TabControl with them
-    ''' </summary>
-    Private Sub LoadTables()
+    'This event is triggered when the form is cloased
+    Private Sub Form2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
-        Dim query As String = "SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema = 'dbo'"
+        'Show the first form when the second form is closed
+        connectionToServer.Close()
+        connectionToServer.Dispose()
+        form1.Show()
 
-        Try
-
-            'Get the tables names from the SQL Server
-            tableNames = Crud.GetDati(query, connectionToServer)
-
-        Catch ex As Exception
-
-            WriteLogMessage(ex.Message)
-
-        End Try
-
-        'Populate the TabControl
-        PopulateTables()
-
-        'Update the selected index of the TabControl
-        TC_TablesName.SelectedIndex = currentTabePageIndex
-
-        WriteLogMessage("Tables Loaded")
+        WriteLogMessage("Second form cloased", "EXE", "Log")
 
     End Sub
 
-    ''' <summary>
-    ''' Refresh the tables in the TabControl to reflect any changes made
-    ''' </summary>
-    Private Sub RefreshTables()
+#Region "FUNCTIONS"
 
-        'Clear the TabControl
-        TC_TablesName.TabPages.Clear()
-
-        'Populate the TabControl with the tables from the SQL Server
-        PopulateTables()
-
-        'Assign the selected index to the current table page index to not loose the page
-        TC_TablesName.SelectedIndex = currentTabePageIndex
-
-        WriteLogMessage("Refresh tables")
-
-    End Sub
-
-    ''' <summary>
-    ''' Populate the TabControl with the tables from the SQL Server
-    ''' </summary>
+    '''<summary>
+    '''Populate the TabControl with the tables from the SQL Server
+    '''</summary>
     Private Sub PopulateTables()
 
         'Loop through the list of table names and create a TabPage for each one
@@ -124,75 +94,54 @@ Public Class F_Es3
 
     End Sub
 
-    Private Sub Form2_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+    ''' <summary>
+    ''' Load the tables name from the SQL Server and populate the TabControl with them
+    ''' </summary>
+    Private Sub LoadTables()
 
-        'Show the first form when the second form is closed
-        connectionToServer.Close()
-        connectionToServer.Dispose()
-        form1.Show()
+        Dim query As String = "SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema = 'dbo'"
+        Dim dataTable As DataTable = Nothing
+        Try
 
-        WriteLogMessage("Second form cloased")
+            'Get the tables names from the SQL Server
+            dataTable = Crud.FillTables(query, connectionToServer)
+            'get the table names from the DataTable
+            For Each row As DataRow In dataTable.Rows
+                Dim tableName As String = row("table_name").ToString()
+                tableNames.Add(tableName)
+            Next
+
+        Catch ex As Exception
+
+            WriteLogMessage(ex.Message, "EXE", "Log")
+
+        End Try
+
+        'Populate the TabControl
+        PopulateTables()
+
+        'Update the selected index of the TabControl
+        TC_TablesName.SelectedIndex = currentTabePageIndex
+
+        WriteLogMessage("Tables Loaded", "EXE", "Log")
 
     End Sub
 
-    'Creates a new row in the selected table
-    Private Sub BT_Create_Click(sender As Object, e As EventArgs) Handles BT_Create.Click
+    ''' <summary>
+    ''' Refresh the tables in the TabControl to reflect any changes made
+    ''' </summary>
+    Private Sub RefreshTables()
 
-        WriteLogMessage("Button ""Create"" pressed")
+        'Clear the TabControl
+        TC_TablesName.TabPages.Clear()
 
-        currentTabePageIndex = TC_TablesName.SelectedIndex
+        'Populate the TabControl with the tables from the SQL Server
+        PopulateTables()
 
-        'Get the selected DataGridView and table name
-        Dim selectedGrid As DataGridView = FindSelectedGrid()
-        Dim tableName As String = Me.TC_TablesName.SelectedTab.Text
+        'Assign the selected index to the current table page index to not loose the page
+        TC_TablesName.SelectedIndex = currentTabePageIndex
 
-        If selectedGrid IsNot Nothing Then
-
-            Dim dataTable As DataTable = TryCast(selectedGrid.DataSource, DataTable)
-
-            'Show a message box to ask the user for the ID
-            Dim inputId As String = InputBox("Insert a unique ID: ", "ID Requested")
-
-            'Check if the inputId is empty
-            If String.IsNullOrEmpty(inputId) Then
-
-                MessageBox.Show("ID Cant be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-
-            End If
-
-            Dim columnNames As New List(Of String)
-            Dim nullValues As New List(Of String)
-
-            For i As Integer = 0 To dataTable.Columns.Count - 1
-
-                Dim column As DataColumn = dataTable.Columns(i)
-
-                'Insert the ID in the first column otherwise insert the default value
-                If i = 0 Then
-
-                    nullValues.Add($"'{inputId}'")
-
-                Else
-
-                    nullValues.Add(GetDefaultValue(column.DataType.FullName))
-
-                End If
-
-                columnNames.Add(column.ColumnName)
-
-            Next
-
-            'Query to insert the new row in the table
-            Dim query As String = $"INSERT INTO {tableName} ({String.Join(", ", columnNames)}) VALUES ({String.Join(", ", nullValues)});"
-            Crud.CreateRow(query, connectionToServer, tableName)
-
-            WriteLogMessage("Query: " + query)
-
-        End If
-
-        'Refresh the tables to reflect the changes
-        RefreshTables()
+        WriteLogMessage("Refresh tables", "EXE", "Log")
 
     End Sub
 
@@ -243,10 +192,167 @@ Public Class F_Es3
 
     End Function
 
+    ''' <summary>
+    ''' Find the selected DataGridView in the selected tab of the TabControl
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function FindSelectedGrid() As DataGridView
+
+        For Each ctrl As Control In Me.TC_TablesName.SelectedTab.Controls
+
+            If TypeOf ctrl Is DataGridView Then
+
+                Return DirectCast(ctrl, DataGridView)
+
+                Exit For
+
+            End If
+
+        Next
+
+        Return Nothing
+
+    End Function
+
+    ''' <summary>
+    ''' Show a message box with the result of the operation
+    ''' </summary>
+    Private Sub ResultOperation(result As Boolean)
+
+        If result Then
+
+            MessageBox.Show("Operation completed successfully")
+            Return
+
+        End If
+
+        MessageBox.Show("Operation failed")
+
+    End Sub
+
+    ''' <summary>
+    ''' Show a message box with the result of the operation and a specific error message
+    ''' </summary>
+    Private Sub ResultOperation(result As Boolean, ErrorMessage As String)
+
+        If result Then
+
+            MessageBox.Show("Operation completed successfully")
+            Return
+
+        End If
+
+        MessageBox.Show($"Operation failed{Environment.NewLine}Error occurred: {ErrorMessage}")
+
+    End Sub
+
+#End Region
+
+#Region "BUTTONS"
+
+    'Creates a new row in the selected table
+    Private Sub BT_Create_Click(sender As Object, e As EventArgs) Handles BT_Create.Click
+
+        Dim ErrorMessage As String = ""
+
+        WriteLogMessage("Button ""Create"" pressed", "EXE", "Log")
+
+        currentTabePageIndex = TC_TablesName.SelectedIndex
+
+        'Get the selected DataGridView and table name
+        Dim selectedGrid As DataGridView = FindSelectedGrid()
+        Dim tableName As String = Me.TC_TablesName.SelectedTab.Text
+
+        If selectedGrid IsNot Nothing Then
+
+            Dim dataTable As DataTable = TryCast(selectedGrid.DataSource, DataTable)
+
+            'Show a message box to ask the user for the ID
+            Dim inputId As String = InputBox("Insert a unique ID: ", "ID Requested")
+
+            'Check if the inputId is empty
+            If String.IsNullOrEmpty(inputId) Then
+
+                MessageBox.Show("ID Cant be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+
+            End If
+
+            Dim columnNames As New List(Of String)
+            Dim nullValues As New List(Of String)
+
+            For i As Integer = 0 To dataTable.Columns.Count - 1
+
+                Dim column As DataColumn = dataTable.Columns(i)
+
+                'Insert the ID in the first column otherwise insert the default value
+                If i = 0 Then
+
+                    nullValues.Add($"'{inputId}'")
+
+                Else
+
+                    nullValues.Add(GetDefaultValue(column.DataType.FullName))
+
+                End If
+
+                columnNames.Add(column.ColumnName)
+
+            Next
+
+            'Query to insert the new row in the table
+            Dim query As String = $"INSERT INTO {tableName} ({String.Join(", ", columnNames)}) VALUES ({String.Join(", ", nullValues)});"
+            Dim riuscito = Crud.CreateRow(query, connectionToServer, tableName, ErrorMessage)
+            ResultOperation(riuscito, ErrorMessage)
+            WriteLogMessage("Query: " + query, "EXE", "Log")
+
+        End If
+
+        'Refresh the tables to reflect the changes
+        RefreshTables()
+
+    End Sub
+
+    'Read the selected row in the DataGridView
+    Private Sub BT_Read_Click(sender As Object, e As EventArgs) Handles BT_Read.Click
+
+        Dim ErrorMessage As String = ""
+        Dim IsOperationCompleted As Boolean = False
+        WriteLogMessage("Button ""Read"" pressed", "EXE", "Log")
+
+        'Get the current selected tab index
+        currentTabePageIndex = TC_TablesName.SelectedIndex
+
+        'Get the selected DataGridView and table name
+        Dim selectedGrid As DataGridView = FindSelectedGrid()
+        Dim tableName As String = Me.TC_TablesName.SelectedTab.Text
+
+        If selectedGrid.SelectedRows.Count = 0 Then
+
+            MessageBox.Show("Select a row to read")
+            Return
+
+        End If
+
+        'Find the Primary Key column and value
+        Dim columnKey As String = selectedGrid.Columns(0).Name
+        Dim valueKey As Object = selectedGrid.SelectedRows(0).Cells(0).Value
+
+        'Query SQL to read the row
+        Dim query As String = $"SELECT * FROM [{tableName}]"
+        Dim result As DataTable = Crud.ReadRow(query, connectionToServer)
+        'Show the result in a message box
+        Dim rowData As String = String.Join(Environment.NewLine, result.Columns.Cast(Of DataColumn)().Select(Function(col, index) $"{col.ColumnName}: {result.Rows(0).ItemArray(index)}"))
+        MessageBox.Show($"Row data: {rowData}")
+        WriteLogMessage("Query: " + query, "EXE", "Log")
+
+    End Sub
+
     'Update the selected cell in the DataGridView
     Private Sub BT_Update_Click(sender As Object, e As EventArgs) Handles BT_Update.Click
 
-        WriteLogMessage("Button ""Update"" pressed")
+        Dim ErrorMessage As String = ""
+        WriteLogMessage("Button ""Update"" pressed", "EXE", "Log")
 
         'Get the current selected tab index
         currentTabePageIndex = TC_TablesName.SelectedIndex
@@ -276,9 +382,9 @@ Public Class F_Es3
                     Dim query As String = $"UPDATE {tableName} SET {columnName} = '{newValue}' WHERE {primaryKeyColumn} = '{primaryKeyValue}';"
 
                     'Update the cell in the database
-                    Crud.UpdateCell(query, connectionToServer, tableName)
+                    ResultOperation(Crud.UpdateCell(query, connectionToServer, tableName, ErrorMessage), ErrorMessage)
 
-                    WriteLogMessage("Query: " + query)
+                    WriteLogMessage("Query: " + query, "EXE", "Log")
 
                 End If
 
@@ -299,32 +405,11 @@ Public Class F_Es3
 
     End Sub
 
-    ''' <summary>
-    ''' Find the selected DataGridView in the selected tab of the TabControl
-    ''' </summary>
-    ''' <returns></returns>
-    Private Function FindSelectedGrid() As DataGridView
-
-        For Each ctrl As Control In Me.TC_TablesName.SelectedTab.Controls
-
-            If TypeOf ctrl Is DataGridView Then
-
-                Return DirectCast(ctrl, DataGridView)
-
-                Exit For
-
-            End If
-
-        Next
-
-        Return Nothing
-
-    End Function
-
     'Delete the selected row in the DataGridView
     Private Sub BT_Delete_Click(sender As Object, e As EventArgs) Handles BT_Delete.Click
 
-        WriteLogMessage("Button ""Delete"" pressed")
+        Dim ErrorMessage As String = ""
+        WriteLogMessage("Button ""Delete"" pressed", "EXE", "Log")
 
         'Get the current selected tab index
         currentTabePageIndex = TC_TablesName.SelectedIndex
@@ -348,53 +433,15 @@ Public Class F_Es3
         Dim query As String = $"DELETE FROM [{tableName}] WHERE [{columnKey}] = @ValueKey"
 
         'Delete the row in the database
-        Crud.DeleteRows(query, connectionToServer, valueKey)
+        ResultOperation(Crud.DeleteRows(query, connectionToServer, valueKey, ErrorMessage), ErrorMessage)
 
-        WriteLogMessage("Query: " + query)
+        WriteLogMessage("Query: " + query, "EXE", "Log")
 
         'Refresh the tables to reflect the changes
         RefreshTables()
 
     End Sub
 
-    Private Sub F_Es3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    'Read the selected row in the DataGridView
-    Private Sub BT_Read_Click(sender As Object, e As EventArgs) Handles BT_Read.Click
-
-        WriteLogMessage("Button ""Read"" pressed")
-
-        'Get the current selected tab index
-        currentTabePageIndex = TC_TablesName.SelectedIndex
-
-        'Get the selected DataGridView and table name
-        Dim selectedGrid As DataGridView = FindSelectedGrid()
-        Dim tableName As String = Me.TC_TablesName.SelectedTab.Text
-
-        If selectedGrid.SelectedRows.Count = 0 Then
-
-            MessageBox.Show("Select a row to read")
-            Return
-
-        End If
-
-        'Find the Primary Key column and value
-        Dim columnKey As String = selectedGrid.Columns(0).Name
-        Dim valueKey As Object = selectedGrid.SelectedRows(0).Cells(0).Value
-
-        'Query SQL to read the row
-        Dim query As String = $"SELECT * FROM [{tableName}]"
-        Dim result As DataTable = Crud.ReadRow(query, connectionToServer)
-
-        WriteLogMessage("Query: " + query)
-        'Show the result in a message box
-        Dim rowData As String = String.Join(Environment.NewLine, result.Columns.Cast(Of DataColumn)().Select(Function(col, index) $"{col.ColumnName}: {result.Rows(0).ItemArray(index)}"))
-        rowData = String.Join(Environment.NewLine, result.Columns.Cast(Of DataColumn)().Select(Function(col, index) $"{col.ColumnName}: {result.Rows(0).ItemArray(index).GetType.ToString}"))
-        MessageBox.Show(rowData)
-        MessageBox.Show($"Row data: {rowData}")
-
-    End Sub
+#End Region
 
 End Class

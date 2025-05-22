@@ -1,61 +1,40 @@
-﻿Imports System.Windows
-Imports Microsoft.VisualBasic.ApplicationServices
-Imports Microsoft.Data.SqlClient
-Imports System.Reflection
+﻿'Imports System.Windows
+'Imports Microsoft.VisualBasic.ApplicationServices
+'Imports Microsoft.Data.SqlClient
+'Imports System.Reflection
 
-''' <summary>
-''' Class to store service port and protocol name and a list of strings that contain the connection information
-''' </summary>
-Public Class Connections
 
-    Public Property ServicePort As String
-    Public Property ProtocolName As String
-    Public Property ConnectionStrings As List(Of ConnectionString)
+'''' <summary>
+''''This module allow to connect to the SQL Server by passing the username, password, server name and database name contained in the connection string 
+'''' </summary>
+'Public Module AccessServer
+'    Public Function ConnectToTheServer(User As String, Password As String, SQLServerName As String, DatabaseName As String) As SqlConnection
 
-End Class
+'        ' Create a connection string 
+'        Dim ConnectionStringComplite As String = "Server=" + SQLServerName + ";Database=" + DatabaseName + ";User Id=" + User + ";Password=" + Password + ";TrustServerCertificate=True"
+'        WriteLogMessage("Login by: " + User)
+'        WriteLogMessage(ConnectionStringComplite)
+'        ' Create a connection to the SQL Server
+'        Dim connectionToServer As New SqlConnection(ConnectionStringComplite)
 
-''' <summary>
-''' Containt the connection information, username, password, server name and database name
-''' </summary>
-Public Class ConnectionString
-    Public Property Id As Integer
-    Public Property SQLServerName As String
-    Public Property DatabaseName As String
-    Public Property UserName As String
-    Public Property Password As String
-End Class
+'        'Try to open the connection
+'        Try
 
-''' <summary>
-'''This module allow to connect to the SQL Server by passing the username, password, server name and database name contained in the connection string 
-''' </summary>
-Public Module AccessServer
-    Public Function ConnectToTheServer(User As String, Password As String, SQLServerName As String, DatabaseName As String) As SqlConnection
+'            connectionToServer.Open()
+'            WriteLogMessage("Connection open to: " + SQLServerName)
 
-        ' Create a connection string 
-        Dim ConnectionStringComplite As String = "Server=" + SQLServerName + ";Database=" + DatabaseName + ";User Id=" + User + ";Password=" + Password + ";TrustServerCertificate=True"
-        WriteLogMessage("Login by: " + User)
-        WriteLogMessage(ConnectionStringComplite)
-        ' Create a connection to the SQL Server
-        Dim connectionToServer As New SqlConnection(ConnectionStringComplite)
+'        Catch e As ArgumentException
 
-        'Try to open the connection
-        Try
+'            WriteLogMessage("ERROR: One of the arguments is wrong")
 
-            connectionToServer.Open()
-            WriteLogMessage("Connection open to: " + SQLServerName)
+'        Catch e As Exception
 
-        Catch e As ArgumentException
+'            WriteLogMessage("ERROR: " + e.Message)
 
-            WriteLogMessage("ERROR: One of the arguments is wrong")
+'        End Try
 
-        Catch e As Exception
+'        'Return the connection, so it can be used in the CRUD class
+'        Return connectionToServer
 
-            WriteLogMessage("ERROR: " + e.Message)
-
-        End Try
-
-        'Return the connection, so it can be used in the CRUD class
-        Return connectionToServer
-
-    End Function
-End Module
+'    End Function
+'End Module

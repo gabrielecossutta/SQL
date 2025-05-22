@@ -27,6 +27,11 @@ WFLogin
  This Form is used to manage the CRUD operation on server
  </summary>
 </member>
+<member name="M:WFLogin.F_Es3.PopulateTables">
+<summary>
+Populate the TabControl with the tables from the SQL Server
+</summary>
+</member>
 <member name="M:WFLogin.F_Es3.LoadTables">
  <summary>
  Load the tables name from the SQL Server and populate the TabControl with them
@@ -35,11 +40,6 @@ WFLogin
 <member name="M:WFLogin.F_Es3.RefreshTables">
  <summary>
  Refresh the tables in the TabControl to reflect any changes made
- </summary>
-</member>
-<member name="M:WFLogin.F_Es3.PopulateTables">
- <summary>
- Populate the TabControl with the tables from the SQL Server
  </summary>
 </member>
 <member name="M:WFLogin.F_Es3.GetDefaultValue(System.String)">
@@ -53,6 +53,16 @@ WFLogin
  Find the selected DataGridView in the selected tab of the TabControl
  </summary>
  <returns></returns>
+</member>
+<member name="M:WFLogin.F_Es3.ResultOperation(System.Boolean)">
+ <summary>
+ Show a message box with the result of the operation
+ </summary>
+</member>
+<member name="M:WFLogin.F_Es3.ResultOperation(System.Boolean,System.String)">
+ <summary>
+ Show a message box with the result of the operation and a specific error message
+ </summary>
 </member>
 <member name="M:WFLogin.F_Es2.LoadWhenOpened">
  <summary>

@@ -16,12 +16,24 @@ Public Class F_Es2
     'Connection to the SQL Server
     Dim connectionToServer As SqlConnection
 
+#Region "FORM"
+
+    'When the form is shown, load the information from the Json file and check if there are external arguments
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
 
         LoadWhenOpened()
         CheckExternalArguments()
 
     End Sub
+
+    'When the form is opened set the title of the form
+    Private Sub F_Es2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Text = "Login"
+    End Sub
+
+#End Region
+
+#Region "FUNCTIONS"
 
     ''' <summary>
     ''' Load the information from the Json file when the form is opened
@@ -38,7 +50,7 @@ Public Class F_Es2
         TB_ServicePort.Text = connection.ServicePort
         TB_Protocol.Text = connection.ProtocolName
 
-        WriteLogMessage("Data loaded from Json File")
+        WriteLogMessage("Data loaded from Json File", "EXE", "Log")
 
     End Sub
 
@@ -72,61 +84,6 @@ Public Class F_Es2
 
     End Sub
 
-    Private Sub ComboBox1_TextChanged_1(sender As Object, e As EventArgs) Handles CB_Username.TextChanged
-
-        If connection Is Nothing Then Return
-
-        'New index to check if the what
-        Dim nuovoIndice As Integer = CB_Username.SelectedIndex
-
-        'Check if the index is -1, if it is, set the index to the selected index
-        If nuovoIndice <> -1 Then
-            index = nuovoIndice
-        End If
-
-        'Set the new Username for the selected index
-        connection.ConnectionStrings(index).UserName = CB_Username.Text
-
-    End Sub
-
-    Private Sub CB_Username_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Username.SelectedIndexChanged
-
-        'Save the selected index
-        index = CB_Username.SelectedIndex
-
-        'Set the textboxes with the connection information of the selected index
-        TB_Password.Text = connection.ConnectionStrings(index).Password
-        TB_ServerName.Text = connection.ConnectionStrings(index).SQLServerName
-        TB_DatabaseName.Text = connection.ConnectionStrings(index).DatabaseName
-
-    End Sub
-
-    'When the user clicks the button Load, load the information from the Json file
-    Private Sub B_Load_Click(sender As Object, e As EventArgs) Handles B_Load.Click
-
-        'Load the information of the connections from the file
-        connection = ReadFromConfigFile()
-
-        'set the combobox with the connection strings
-        CB_Username.DataSource = connection.ConnectionStrings
-
-        'set the textboxes with the connection information
-        TB_ServicePort.Text = connection.ServicePort
-        TB_Protocol.Text = connection.ProtocolName
-
-    End Sub
-
-
-    'When the user click the button Login, check if the connection is valid and open the second form
-    Private Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
-
-        'Assign the connection to the connectionToServer variable
-        connectionToServer = ConnectToTheServer(CB_Username.Text, TB_Password.Text, TB_ServerName.Text, TB_DatabaseName.Text)
-
-        LoginPerformed()
-
-    End Sub
-
     ''' <summary>
     ''' Execute the login with the external argument
     ''' </summary>
@@ -134,8 +91,7 @@ Public Class F_Es2
     Private Sub LoginByExternalArgument(i As Integer)
 
         'Assign the connection to the connectionToServer variable
-        connectionToServer = ConnectToTheServer(connection.ConnectionStrings(i).UserName, connection.ConnectionStrings(i).Password, connection.ConnectionStrings(i).SQLServerName, connection.ConnectionStrings(i).DatabaseName)
-
+        connectionToServer = Crud.ConnectToTheServer(connection.ConnectionStrings(i).UserName, connection.ConnectionStrings(i).Password, connection.ConnectionStrings(i).SQLServerName, connection.ConnectionStrings(i).DatabaseName)
         LoginPerformed()
 
     End Sub
@@ -163,13 +119,53 @@ Public Class F_Es2
         End If
     End Sub
 
+#End Region
+
+#Region "COMBOBOXES"
+
+    'Manage the problem of the combobox when the user insert a new username
+    Private Sub CB_Username_TextChanged(sender As Object, e As EventArgs) Handles CB_Username.TextChanged
+
+        If connection Is Nothing Then Return
+
+        'New index to check if the what
+        Dim nuovoIndice As Integer = CB_Username.SelectedIndex
+
+        'Check if the index is -1, if it is, set the index to the selected index
+        If nuovoIndice <> -1 Then
+            index = nuovoIndice
+        End If
+
+        'Set the new Username for the selected index
+        connection.ConnectionStrings(index).UserName = CB_Username.Text
+
+    End Sub
+
+    'Show the information of the selected index in the textboxes
+    Private Sub CB_Username_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CB_Username.SelectedIndexChanged
+
+        'Save the selected index
+        index = CB_Username.SelectedIndex
+
+        'Set the textboxes with the connection information of the selected index
+        TB_Password.Text = connection.ConnectionStrings(index).Password
+        TB_ServerName.Text = connection.ConnectionStrings(index).SQLServerName
+        TB_DatabaseName.Text = connection.ConnectionStrings(index).DatabaseName
+
+    End Sub
+
+#End Region
+
+#Region "BUTTONS"
+
+    'When the user clicks the button Save, save the information in the Json file
     Private Sub B_Save_Click(sender As Object, e As EventArgs) Handles B_Save.Click
 
         'Skip if the connection is not initialized
         If connection Is Nothing Then Return
 
         'Message for the log
-        WriteLogMessage("Sovrascritto File JSON")
+        WriteLogMessage("Sovrascritto File JSON", "EXE", "Log")
 
         'pass the connection to the function to write it on the file
         WriteOnConfigFile(connection)
@@ -181,6 +177,35 @@ Public Class F_Es2
         CB_Username.DataSource = connection.ConnectionStrings
 
     End Sub
+
+    'When the user clicks the button Load, load the information from the Json file
+    Private Sub B_Load_Click(sender As Object, e As EventArgs) Handles B_Load.Click
+
+        'Load the information of the connections from the file
+        connection = ReadFromConfigFile()
+
+        'set the combobox with the connection strings
+        CB_Username.DataSource = connection.ConnectionStrings
+
+        'set the textboxes with the connection information
+        TB_ServicePort.Text = connection.ServicePort
+        TB_Protocol.Text = connection.ProtocolName
+
+    End Sub
+
+    'When the user click the button Login, check if the connection is valid and open the second form
+    Private Sub B_Login_Click(sender As Object, e As EventArgs) Handles B_Login.Click
+
+        'Assign the connection to the connectionToServer variable
+        connectionToServer = Crud.ConnectToTheServer(CB_Username.Text, TB_Password.Text, TB_ServerName.Text, TB_DatabaseName.Text)
+
+        LoginPerformed()
+
+    End Sub
+
+#End Region
+
+#Region "TEXTBOXES"
 
     Private Sub TB_Password_TextChanged(sender As Object, e As EventArgs) Handles TB_Password.TextChanged
 
@@ -216,5 +241,7 @@ Public Class F_Es2
         connection.ConnectionStrings(index).DatabaseName = TB_DatabaseName.Text
 
     End Sub
+
+#End Region
 
 End Class

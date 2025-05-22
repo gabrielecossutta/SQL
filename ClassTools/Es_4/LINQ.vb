@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Text
+Imports System.Windows.Forms
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 Imports ClassTools
 Imports Microsoft.Data.SqlClient
@@ -105,17 +106,17 @@ Module LINQ
         For Each dataTableRow As DataRow In dataTable.Rows
 
             Dim client As New Client()
-            client.CustomerID = dataTableRow(0).ToString()
-            client.CompanyName = dataTableRow(1).ToString()
-            client.ContactName = dataTableRow(2).ToString()
-            client.ContactTitle = dataTableRow(3).ToString()
-            client.Address = dataTableRow(4).ToString()
-            client.City = dataTableRow(5).ToString()
-            client.Region = dataTableRow(6).ToString()
-            client.PostalCode = dataTableRow(7).ToString()
-            client.Country = dataTableRow(8).ToString()
-            client.Phone = dataTableRow(9).ToString()
-            client.Fax = dataTableRow(10).ToString()
+            client.CustomerID = dataTableRow("CustomerID").ToString()
+            client.CompanyName = dataTableRow("CompanyName").ToString()
+            client.ContactName = dataTableRow("ContactName").ToString()
+            client.ContactTitle = dataTableRow("ContactTitle").ToString()
+            client.Address = dataTableRow("Address").ToString()
+            client.City = dataTableRow("City").ToString()
+            client.Region = dataTableRow("Region").ToString()
+            client.PostalCode = dataTableRow("PostalCode").ToString()
+            client.Country = dataTableRow("Country").ToString()
+            client.Phone = dataTableRow("Phone").ToString()
+            client.Fax = dataTableRow("Fax").ToString()
             ClientList.Add(client)
 
         Next
@@ -123,10 +124,41 @@ Module LINQ
     End Sub
 
 
-
-
     ''' <summary>
-    ''' Print the complete list of clients using LINQ
+    ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
+    ''' </summary>
+    Private Function ExternalArgumentsLoginCheck()
+
+        'Get the arguments from the command line
+        Dim args As String() = Environment.GetCommandLineArgs()
+
+        'connection for the SQL Server
+        Dim connection As SqlConnection = Nothing
+
+        'Check if the arguments are more than 1
+        If args.Count > 1 Then
+
+            'Split the connection string and retrive the SQLServerName, DatabaseName, Username and Password
+            Dim segmentedString = args(1).Split(";")
+            Dim SQLServerName = segmentedString(0).Replace("Server=", "")
+            Dim DatabaseName = segmentedString(1).Replace("Database=", "")
+            Dim Username = segmentedString(2).Replace("UserId=", "")
+            Dim Password = segmentedString(3).Replace("Password=", "")
+
+            'connect to the SQL Server
+            connection = Crud.ConnectToTheServer(Username, Password, SQLServerName, DatabaseName)
+
+        End If
+
+        Return connection
+
+    End Function
+
+
+
+#Region "FUNCTIONS"
+    '''<summary>
+    ''' All the functions are in this region
     ''' </summary>
     Private Sub StampCompleteList()
 
@@ -363,34 +395,6 @@ Module LINQ
 
     End Sub
 
-    ''' <summary>
-    ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
-    ''' </summary>
-    Private Function ExternalArgumentsLoginCheck()
-
-        'Get the arguments from the command line
-        Dim args As String() = Environment.GetCommandLineArgs()
-
-        'connection for the SQL Server
-        Dim connection As SqlConnection = Nothing
-
-        'Check if the arguments are more than 1
-        If args.Count > 1 Then
-
-            'Split the connection string and retrive the SQLServerName, DatabaseName, Username and Password
-            Dim segmentedString = args(1).Split(";")
-            Dim SQLServerName = segmentedString(0).Replace("Server=", "")
-            Dim DatabaseName = segmentedString(1).Replace("Database=", "")
-            Dim Username = segmentedString(2).Replace("UserId=", "")
-            Dim Password = segmentedString(3).Replace("Password=", "")
-
-            'connect to the SQL Server
-            connection = ConnectToTheServer(Username, Password, SQLServerName, DatabaseName)
-
-        End If
-
-        Return connection
-
-    End Function
+#End Region
 
 End Module

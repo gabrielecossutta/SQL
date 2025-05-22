@@ -82,7 +82,7 @@ Partial Class F_Es3
         '
         'ConnectionStringBindingSource
         '
-        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ConnectionString)
+        Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ApplicationConfig.ConnectionString)
         '
         'F_Es3
         '

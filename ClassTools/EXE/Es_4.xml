@@ -32,9 +32,14 @@ Es_4
  Populate the list with the data from the SQL Server
  </summary>
 </member>
-<member name="M:Es_4.LINQ.StampCompleteList">
+<member name="M:Es_4.LINQ.ExternalArgumentsLoginCheck">
  <summary>
- Print the complete list of clients using LINQ
+ Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
+ </summary>
+</member>
+<member name="M:Es_4.LINQ.StampCompleteList">
+<summary>
+ All the functions are in this region
  </summary>
 </member>
 <member name="M:Es_4.LINQ.OrderListBy">
@@ -70,11 +75,6 @@ Es_4
 <member name="M:Es_4.LINQ.GroupByPropertys">
  <summary>
  Scroll through the grouped list by one or more properties
- </summary>
-</member>
-<member name="M:Es_4.LINQ.ExternalArgumentsLoginCheck">
- <summary>
- Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
  </summary>
 </member>
 </members>

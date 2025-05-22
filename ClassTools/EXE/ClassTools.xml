@@ -22,34 +22,24 @@ ClassTools
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:ClassTools.AccessFile.WriteOnConfigFile(ClassTools.Connections)">
+<member name="M:ClassTools.ApplicationConfig.WriteOnConfigFile(ClassTools.ApplicationConfig.Connections)">
  <summary>
  Write on a JSON file all the information contained in the ConnectionInfoClass
  </summary>
 </member>
-<member name="M:ClassTools.AccessFile.WriteLogMessage(System.String)">
- <summary>
- Write on a TXT file all the log messagges occurred during the execution of the program
- </summary>
-</member>
-<member name="M:ClassTools.AccessFile.ReadFromConfigFile">
+<member name="M:ClassTools.ApplicationConfig.ReadFromConfigFile">
  <summary>
  Read the JSON file and deserialize it to the Connections class to retrieve the connection information
  </summary>
 </member>
-<member name="T:ClassTools.Connections">
+<member name="T:ClassTools.ApplicationConfig.Connections">
  <summary>
  Class to store service port and protocol name and a list of strings that contain the connection information
  </summary>
 </member>
-<member name="T:ClassTools.ConnectionString">
+<member name="T:ClassTools.ApplicationConfig.ConnectionString">
  <summary>
  Containt the connection information, username, password, server name and database name
- </summary>
-</member>
-<member name="T:ClassTools.AccessServer">
- <summary>
-This module allow to connect to the SQL Server by passing the username, password, server name and database name contained in the connection string 
  </summary>
 </member>
 <member name="T:ClassTools.Crud">
@@ -58,13 +48,19 @@ This module allow to connect to the SQL Server by passing the username, password
  Perform the CRUD operation, Create, Read, Update and Delete on the database
  </summary>
 </member>
-<member name="M:ClassTools.Crud.CreateRow(System.String,Microsoft.Data.SqlClient.SqlConnection,System.String)">
+<member name="M:ClassTools.Crud.ConnectToTheServer(System.String,System.String,System.String,System.String)">
  <summary>
- Create a new row in the database.
+ Connect to the SQL Server using the provided credentials and database name.
+ This method creates a connection string using the provided parameters and attempts to open a connection to the SQL Server.
+ If successful, it returns the SqlConnection object; otherwise, it returns null.
  </summary>
- <param name="query">The SQL query to create the row.</param>
- <param name="connectionToServer">The connection to the SQL server.</param>
- <param name="tableName">The name of the table where the row will be created.</param>
+</member>
+<member name="M:ClassTools.Crud.FillTables(System.String,Microsoft.Data.SqlClient.SqlConnection)">
+ <summary>
+ Return a data table with the data from the table to fill the GridView
+ </summary>
+ <param name="query">The SQL query to retrive the datatable.</param>
+ <param name="conncetionToServer">The connection to the SQL server.</param>
 </member>
 <member name="M:ClassTools.Crud.EnableIdentityInsert(System.String,Microsoft.Data.SqlClient.SqlConnection)">
  <summary>
@@ -80,6 +76,14 @@ This module allow to connect to the SQL Server by passing the username, password
  <param name="tableName">The name of the table where to disable the Identity insert</param>
  <param name="connectionToServer">The name of the column where to disable the Identity insert</param>
 </member>
+<member name="M:ClassTools.Crud.CreateRow(System.String,Microsoft.Data.SqlClient.SqlConnection,System.String,System.String@)">
+ <summary>
+ Create a new row in the database.
+ </summary>
+ <param name="query">The SQL query to create the row.</param>
+ <param name="connectionToServer">The connection to the SQL server.</param>
+ <param name="tableName">The name of the table where the row will be created.</param>
+</member>
 <member name="M:ClassTools.Crud.ReadRow(System.String,Microsoft.Data.SqlClient.SqlConnection)">
  <summary>
  Read a row from the database.
@@ -87,15 +91,15 @@ This module allow to connect to the SQL Server by passing the username, password
  <param name="query">The SQL query to read the row.</param>
  <param name="connectionToServer">The connection to the SQL server.</param>
 </member>
-<member name="M:ClassTools.Crud.UpdateCell(System.String,Microsoft.Data.SqlClient.SqlConnection,System.String)">
+<member name="M:ClassTools.Crud.UpdateCell(System.String,Microsoft.Data.SqlClient.SqlConnection,System.String,System.String@)">
  <summary>
  Update a cell in the database.
  </summary>
  <param name="query">The SQL query to delete the row.</param>
  <param name="connectionToServer">The connection to the SQL server.</param>
- <param name="tableName">The name of the table to enable/disable the identityInsert.</param>
+ <param name="tableName">The name of the table to enable/disable the identityInsert.</param>          vvvv ByRef rowAffected As Integer vvvv
 </member>
-<member name="M:ClassTools.Crud.DeleteRows(System.String,Microsoft.Data.SqlClient.SqlConnection,System.Object)">
+<member name="M:ClassTools.Crud.DeleteRows(System.String,Microsoft.Data.SqlClient.SqlConnection,System.Object,System.String@)">
  <summary>
  Delete a row from the database.
  </summary>
@@ -103,19 +107,13 @@ This module allow to connect to the SQL Server by passing the username, password
  <param name="connectionToServer">The connection to the SQL server.</param>
  <param name="valueKey">The value of the key to delete the row.</param>
 </member>
-<member name="M:ClassTools.Crud.GetDati(System.String,Microsoft.Data.SqlClient.SqlConnection)">
+<member name="M:ClassTools.Utils.WriteLogMessage(System.String,System.String,System.String)">
  <summary>
- Return the list of the tables name to populate tabpages
+ Writes a log message to a specified file in a specified folder with the current time.
  </summary>
- <param name="query">The SQL query to retrive the tablename.</param>
- <param name="conncetionToServer">The connection to the SQL server.</param>
-</member>
-<member name="M:ClassTools.Crud.FillTables(System.String,Microsoft.Data.SqlClient.SqlConnection)">
- <summary>
- Return a data table with the data from the table to fill the GridView
- </summary>
- <param name="query">The SQL query to retrive the datatable.</param>
- <param name="conncetionToServer">The connection to the SQL server.</param>
+ <param name="message">The message to log.</param>
+ <param name="folderName">The name of the folder where the log file is located.</param>
+ <param name="fileName">The name of the log file.</param>
 </member>
 </members>
 </doc>
