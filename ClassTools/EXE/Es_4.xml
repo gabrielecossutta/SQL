@@ -22,53 +22,53 @@ Es_4
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.PopulateList(System.String)">
+<member name="M:Es_4.LINQ_Entity.PopulateList(System.String)">
  <summary>
  Funzione che popola la lista di clienti usando Entity Framework.
  Aggiunto anche il debug per monitorare eventuali problemi.
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.ExternalArgumentsLoginCheck">
+<member name="M:Es_4.LINQ_Entity.ExternalArgumentsLoginCheck">
  <summary>
  Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.StampCompleteList">
+<member name="M:Es_4.LINQ_Entity.StampCompleteList">
 <summary>
  All the functions are in this region
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.OrderListBy">
+<member name="M:Es_4.LINQ_Entity.OrderListBy">
  <summary>
  Order the list by the property name using LINQ
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.SearchByPrimaryKey">
+<member name="M:Es_4.LINQ_Entity.SearchByPrimaryKey">
  <summary>
  Search for a client by primary key and print the client if found
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.SearchByValueInProperties">
+<member name="M:Es_4.LINQ_Entity.SearchByValueInProperties">
  <summary>
  Search for a value in the properties of the client and print the client if found
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.StampSingleProperty">
+<member name="M:Es_4.LINQ_Entity.StampSingleProperty">
  <summary>
  Scroll through the list and print a single property of every element
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.CountNumberOfElements">
+<member name="M:Es_4.LINQ_Entity.CountNumberOfElements">
  <summary>
  Count the number of elements in the list using LINQ
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.CheckSpecificValueInProperty">
+<member name="M:Es_4.LINQ_Entity.CheckSpecificValueInProperty">
  <summary>
  Check if there is an element in the list that contains a specific value in a specific property
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.GroupByPropertys">
+<member name="M:Es_4.LINQ_Entity.GroupByPropertys">
  <summary>
  Scroll through the grouped list by one or more properties
  </summary>

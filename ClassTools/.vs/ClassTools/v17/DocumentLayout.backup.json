@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B468BBBD-7261-430C-851D-D3A073A73364}|Es_8\\Es_8.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_8\\interfacecrud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{B468BBBD-7261-430C-851D-D3A073A73364}|Es_8\\Es_8.vbproj|solutionrelative:es_8\\interfacecrud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{0C7911A7-92CC-48E5-B8FB-BB03CEFEEF8D}|Es_12\\Es_12.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_12\\overriding.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{0C7911A7-92CC-48E5-B8FB-BB03CEFEEF8D}|Es_12\\Es_12.vbproj|solutionrelative:es_12\\overriding.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InterfaceCRUD.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_8\\InterfaceCRUD.vb",
-              "RelativeDocumentMoniker": "Es_8\\InterfaceCRUD.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_8\\InterfaceCRUD.vb",
-              "RelativeToolTip": "Es_8\\InterfaceCRUD.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "Overriding.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_12\\Overriding.vb",
+              "RelativeDocumentMoniker": "Es_12\\Overriding.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_12\\Overriding.vb",
+              "RelativeToolTip": "Es_12\\Overriding.vb",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwFEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T14:01:09.666Z",
+              "WhenOpened": "2025-05-23T14:42:24.797Z",
               "EditorCaption": ""
             }
           ]
