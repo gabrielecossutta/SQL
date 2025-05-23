@@ -43,7 +43,6 @@ Public MustInherit Class BaseTable
     End Function
 End Class
 
-
 Public Class Table1
     Inherits BaseTable
 
@@ -60,13 +59,11 @@ Public Class Table2
 
     Public Overrides Function Update(Of T)(ParamArray args() As Object) As T
         For Each arg As Object In args
-            Console.WriteLine($"UpdateOverride: {arg.ToString()} Value: {arg}")
+            Console.WriteLine($"UpdateOverride Value: {arg}")
         Next
         Return Nothing
     End Function
 End Class
-
-
 
 
 Module InterfaceCRUD
@@ -76,9 +73,8 @@ Module InterfaceCRUD
         Dim table1 As New Table1()
         Dim table2 As New Table2()
 
-        Dim intero As Integer = table1.Create(Of String)("Ciao", "cioa")
-        Dim intero3 As Integer = table1.Create(Of Object)(1, "cioa")
-
+        Dim intero As Integer = table1.Create(Of String)("Matteo", 1, 4D)
+        Dim intero3 As Integer = table1.Create(Of Object)(1, "2", 3.4F)
         Dim intero2 As Integer = table2.Update(Of Integer)(1, 2, 3)
     End Sub
 

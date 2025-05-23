@@ -5,22 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B468BBBD-7261-430C-851D-D3A073A73364}|Es_8\\Es_8.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_8\\interfacecrud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{B468BBBD-7261-430C-851D-D3A073A73364}|Es_8\\Es_8.vbproj|solutionrelative:es_8\\interfacecrud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\Es_3.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\database.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\Es_3.vbproj|solutionrelative:wflogin\\database.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\Es_2.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\Es_2.vbproj|solutionrelative:classtools\\crud.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\Es_3.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\wflogin\\database.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{7CE9158A-B35B-4083-AECC-F001A09F8060}|WFLogin\\Es_3.vbproj|solutionrelative:wflogin\\database.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4B5806A6-967C-4ED3-A339-917E2E2E67FB}|Es_7\\Es_7.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_7\\linq_entity_server.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{4B5806A6-967C-4ED3-A339-917E2E2E67FB}|Es_7\\Es_7.vbproj|solutionrelative:es_7\\linq_entity_server.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,46 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 189,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Crud.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
-              "RelativeDocumentMoniker": "ClassTools\\Crud.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\Crud.vb",
-              "RelativeToolTip": "ClassTools\\Crud.vb",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T13:54:33.989Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Database.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\Database.vb",
-              "RelativeDocumentMoniker": "WFLogin\\Database.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\Database.vb",
-              "RelativeToolTip": "WFLogin\\Database.vb",
-              "ViewState": "AgIAADsAAAAAAAAAAAASwP4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T13:54:27.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Database.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\Database.vb",
-              "RelativeDocumentMoniker": "WFLogin\\Database.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\WFLogin\\Database.vb [Progettazione]",
-              "RelativeToolTip": "WFLogin\\Database.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T13:54:25.683Z",
-              "EditorCaption": " [Progettazione]"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -78,22 +24,9 @@
               "RelativeDocumentMoniker": "Es_8\\InterfaceCRUD.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_8\\InterfaceCRUD.vb",
               "RelativeToolTip": "Es_8\\InterfaceCRUD.vb",
-              "ViewState": "AgIAACgAAAAAAAAAAAAYwDsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T13:44:32.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LINQ_Entity_Server.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_7\\LINQ_Entity_Server.vb",
-              "RelativeDocumentMoniker": "Es_7\\LINQ_Entity_Server.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_7\\LINQ_Entity_Server.vb",
-              "RelativeToolTip": "Es_7\\LINQ_Entity_Server.vb",
-              "ViewState": "AgIAAGsAAAAAAAAAAAAowHMAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-05-23T13:38:35.928Z",
+              "WhenOpened": "2025-05-23T14:01:09.666Z",
               "EditorCaption": ""
             }
           ]
