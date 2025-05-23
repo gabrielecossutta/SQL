@@ -2,6 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 Imports ClassTools
+Imports Es_2
 Imports Microsoft.Data.SqlClient
 Module LINQ
 

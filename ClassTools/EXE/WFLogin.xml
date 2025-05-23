@@ -22,67 +22,20 @@ WFLogin
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="T:WFLogin.Database">
+<member name="T:WFLogin.Database_Entity">
  <summary>
  This Form is used to manage the CRUD operation on server
  </summary>
 </member>
-<member name="M:WFLogin.Database.PopulateTables">
-<summary>
-Populate the TabControl with the tables from the SQL Server
-</summary>
-</member>
-<member name="M:WFLogin.Database.LoadTables">
+<member name="M:WFLogin.Database_Entity.PopulateList(System.String)">
  <summary>
- Load the tables name from the SQL Server and populate the TabControl with them
+ Funzione che popola la lista di clienti usando Entity Framework.
+ Aggiunto anche il debug per monitorare eventuali problemi.
  </summary>
 </member>
-<member name="M:WFLogin.Database.RefreshTables">
+<member name="M:WFLogin.Database_Entity.ExternalArgumentsLoginCheck">
  <summary>
- Refresh the tables in the TabControl to reflect any changes made
- </summary>
-</member>
-<member name="M:WFLogin.Database.GetDefaultValue(System.String)">
- <summary>
- Return a default value for the given data type
- </summary>
- <param name="dataTypeFullName">Type of the variable to return a default value</param>
-</member>
-<member name="M:WFLogin.Database.FindSelectedGrid">
- <summary>
- Find the selected DataGridView in the selected tab of the TabControl
- </summary>
- <returns></returns>
-</member>
-<member name="M:WFLogin.Database.ResultOperation(System.Boolean)">
- <summary>
- Show a message box with the result of the operation
- </summary>
-</member>
-<member name="M:WFLogin.Database.ResultOperation(System.Boolean,System.String)">
- <summary>
- Show a message box with the result of the operation and a specific error message
- </summary>
-</member>
-<member name="M:WFLogin.Login.LoadWhenOpened">
- <summary>
- Load the information from the Json file when the form is opened
- </summary>
-</member>
-<member name="M:WFLogin.Login.CheckExternalArguments">
- <summary>
- Check if the form is opened with an external argument, if so Login With that argument
- </summary>
-</member>
-<member name="M:WFLogin.Login.LoginByExternalArgument(System.Int32)">
- <summary>
- Execute the login with the external argument
- </summary>
- <param name="i">ID of the User</param>
-</member>
-<member name="M:WFLogin.Login.LoginPerformed">
- <summary>
- Hide the first form, Open the second form and pass the connection to it,
+ Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
  </summary>
 </member>
 </members>

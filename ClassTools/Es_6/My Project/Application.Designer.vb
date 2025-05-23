@@ -32,7 +32,7 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.WFLogin.Login_Entity
+            Me.MainForm = Global.WFLogin.Database_Entity
         End Sub
     End Class
 End Namespace
