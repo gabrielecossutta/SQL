@@ -105,7 +105,7 @@ Public Class Login
             If connectionToServer.State = ConnectionState.Open Then
 
                 'Create the second form and pass the connection to it and this form
-                Dim Form2 As New Database(Me, connectionToServer)
+                Dim Form2 As New Database(Me, connectionToServer, connection.ConnectionStrings(index).PathWebServer)
 
                 'Show the second form
                 Form2.Show()

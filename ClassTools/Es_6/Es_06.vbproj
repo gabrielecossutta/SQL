@@ -5,13 +5,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D79A57FB-D303-40B9-B630-177D34859DE0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <StartupObject>Es_4.LINQ_Entity</StartupObject>
-    <RootNamespace>Es_4</RootNamespace>
-    <AssemblyName>Es_4</AssemblyName>
+    <ProjectGuid>{3E4F7434-F884-4C72-93FD-029BC551206E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WFLogin.My.MyApplication</StartupObject>
+    <RootNamespace>WFLogin</RootNamespace>
+    <AssemblyName>WFLogin</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Console</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -25,7 +25,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\EXE\</OutputPath>
-    <DocumentationFile>Es_4.xml</DocumentationFile>
+    <DocumentationFile>WFLogin.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -35,7 +35,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Es_4.xml</DocumentationFile>
+    <DocumentationFile>WFLogin.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -187,13 +187,20 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LINQ_Entity.vb" />
+    <Compile Include="Database_Entity.Designer.vb">
+      <DependentUpon>Database_Entity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Database_Entity.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -211,6 +218,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Database_Entity.resx">
+      <DependentUpon>Database_Entity.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -223,6 +233,11 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\ClassTools.AccessFile.datasource" />
+    <None Include="My Project\DataSources\ClassTools.AccessServer.datasource" />
+    <None Include="My Project\DataSources\ClassTools.Connections.datasource" />
+    <None Include="My Project\DataSources\ClassTools.ConnectionString.datasource" />
+    <None Include="My Project\DataSources\ClassTools.Crud.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -232,9 +247,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassTools\Es_2.vbproj">
+    <ProjectReference Include="..\ClassTools\Es_02.vbproj">
       <Project>{1cb475b5-365e-4fdd-8720-65843e3ca02f}</Project>
-      <Name>Es_2</Name>
+      <Name>Es_02</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

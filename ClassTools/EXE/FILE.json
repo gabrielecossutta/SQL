@@ -1,1 +1,46 @@
-﻿{"ServicePort":"123344","ProtocolName":"Create","ConnectionStrings":[{"SQLServerName":"DESKTOP-6IEL0JH\\SQLEXPRESS","DatabaseName":"Northwind","UserName":"NorthwindUser","Password":"123"},{"SQLServerName":"DESKTOP-6IEL0JH\\SQLEXPRESS","DatabaseName":"Northwind","UserName":"sa","Password":"123"},{"SQLServerName":"<empty>","DatabaseName":"<empty>","UserName":"User","Password":"<empty>"},{"SQLServerName":"<empty>","DatabaseName":"<empty>","UserName":"<empty>","Password":"<empty>"},{"SQLServerName":"<empty>","DatabaseName":"<empty>","UserName":"<empty>","Password":"<empty>"}]}
+﻿{
+    "ServicePort": "123344",
+    "ProtocolName": "Create",
+    "ConnectionStrings": [
+        {
+            "ID": "0",
+            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
+            "DatabaseName": "Northwind",
+            "UserName": "NorthwindUser",
+            "Password": "123",
+            "PathWebServer": "WEB"
+        },
+        {
+            "ID": "1",
+            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
+            "DatabaseName": "Northwind",
+            "UserName": "sa",
+            "Password": "123",
+            "PathWebServer": null
+        },
+        {
+            "ID": "2",
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "User",
+            "Password": "<empty>",
+            "PathWebServer": null
+        },
+        {
+            "ID": "3",
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "<empty>",
+            "Password": "<empty>",
+            "PathWebServer": null
+        },
+        {
+            "ID": "4",
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "<empty>",
+            "Password": "<empty>",
+            "PathWebServer": null
+        }
+    ]
+}

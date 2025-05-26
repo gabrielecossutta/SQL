@@ -92,10 +92,12 @@ Public Module ApplicationConfig
     ''' Containt the connection information, username, password, server name and database name
     ''' </summary>
     Public Class ConnectionString
+        Public Property ID As String
         Public Property SQLServerName As String
         Public Property DatabaseName As String
         Public Property UserName As String
         Public Property Password As String
+        Public Property PathWebServer As String
     End Class
 
 #End Region

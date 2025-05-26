@@ -48,7 +48,7 @@ Public Class Table1
 
     Public Overrides Function Create(Of T)(ParamArray args() As Object) As T
         For Each arg As Object In args
-            Console.WriteLine($"CreateOverride: {arg.GetType.ToString()} Value: {arg}")
+            Console.WriteLine($"CreateOverride Value: {arg}")
         Next
         Return Nothing
     End Function

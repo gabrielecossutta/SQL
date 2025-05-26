@@ -29,6 +29,8 @@ Partial Class Database
         Me.BT_Update = New System.Windows.Forms.Button()
         Me.BT_Delete = New System.Windows.Forms.Button()
         Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BT_ConvertInHtml = New System.Windows.Forms.Button()
+        Me.BT_ToWeb = New System.Windows.Forms.Button()
         CType(Me.ConnectionStringBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -43,7 +45,7 @@ Partial Class Database
         'BT_Create
         '
         Me.BT_Create.Font = New System.Drawing.Font("Segoe UI", 20.25!)
-        Me.BT_Create.Location = New System.Drawing.Point(152, 497)
+        Me.BT_Create.Location = New System.Drawing.Point(35, 497)
         Me.BT_Create.Name = "BT_Create"
         Me.BT_Create.Size = New System.Drawing.Size(129, 87)
         Me.BT_Create.TabIndex = 2
@@ -53,7 +55,7 @@ Partial Class Database
         'BT_Read
         '
         Me.BT_Read.Font = New System.Drawing.Font("Segoe UI", 20.25!)
-        Me.BT_Read.Location = New System.Drawing.Point(435, 497)
+        Me.BT_Read.Location = New System.Drawing.Point(285, 497)
         Me.BT_Read.Name = "BT_Read"
         Me.BT_Read.Size = New System.Drawing.Size(129, 87)
         Me.BT_Read.TabIndex = 3
@@ -63,7 +65,7 @@ Partial Class Database
         'BT_Update
         '
         Me.BT_Update.Font = New System.Drawing.Font("Segoe UI", 20.25!)
-        Me.BT_Update.Location = New System.Drawing.Point(717, 497)
+        Me.BT_Update.Location = New System.Drawing.Point(533, 497)
         Me.BT_Update.Name = "BT_Update"
         Me.BT_Update.Size = New System.Drawing.Size(129, 87)
         Me.BT_Update.TabIndex = 4
@@ -73,7 +75,7 @@ Partial Class Database
         'BT_Delete
         '
         Me.BT_Delete.Font = New System.Drawing.Font("Segoe UI", 20.25!)
-        Me.BT_Delete.Location = New System.Drawing.Point(1000, 497)
+        Me.BT_Delete.Location = New System.Drawing.Point(780, 497)
         Me.BT_Delete.Name = "BT_Delete"
         Me.BT_Delete.Size = New System.Drawing.Size(129, 87)
         Me.BT_Delete.TabIndex = 5
@@ -84,17 +86,39 @@ Partial Class Database
         '
         Me.ConnectionStringBindingSource.DataSource = GetType(ClassTools.ApplicationConfig.ConnectionString)
         '
-        'F_Es3
+        'BT_ConvertInHtml
+        '
+        Me.BT_ConvertInHtml.Font = New System.Drawing.Font("Segoe UI", 20.25!)
+        Me.BT_ConvertInHtml.Location = New System.Drawing.Point(1192, 497)
+        Me.BT_ConvertInHtml.Name = "BT_ConvertInHtml"
+        Me.BT_ConvertInHtml.Size = New System.Drawing.Size(129, 87)
+        Me.BT_ConvertInHtml.TabIndex = 6
+        Me.BT_ConvertInHtml.Text = "Convert"
+        Me.BT_ConvertInHtml.UseVisualStyleBackColor = True
+        '
+        'BT_ToWeb
+        '
+        Me.BT_ToWeb.Font = New System.Drawing.Font("Segoe UI", 20.25!)
+        Me.BT_ToWeb.Location = New System.Drawing.Point(979, 497)
+        Me.BT_ToWeb.Name = "BT_ToWeb"
+        Me.BT_ToWeb.Size = New System.Drawing.Size(129, 87)
+        Me.BT_ToWeb.TabIndex = 7
+        Me.BT_ToWeb.Text = "ToWeb"
+        Me.BT_ToWeb.UseVisualStyleBackColor = True
+        '
+        'Database
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1372, 596)
+        Me.ClientSize = New System.Drawing.Size(1372, 587)
+        Me.Controls.Add(Me.BT_ToWeb)
+        Me.Controls.Add(Me.BT_ConvertInHtml)
         Me.Controls.Add(Me.BT_Delete)
         Me.Controls.Add(Me.BT_Update)
         Me.Controls.Add(Me.BT_Read)
         Me.Controls.Add(Me.BT_Create)
         Me.Controls.Add(Me.TC_TablesName)
-        Me.Name = "F_Es3"
+        Me.Name = "Database"
         Me.Text = "Form2"
         CType(Me.ConnectionStringBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -106,4 +130,6 @@ Partial Class Database
     Friend WithEvents BT_Update As Button
     Friend WithEvents BT_Delete As Button
     Friend WithEvents ConnectionStringBindingSource As BindingSource
+    Friend WithEvents BT_ConvertInHtml As Button
+    Friend WithEvents BT_ToWeb As Button
 End Class

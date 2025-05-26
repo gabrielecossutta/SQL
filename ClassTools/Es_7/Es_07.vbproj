@@ -232,9 +232,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassTools\Es_2.vbproj">
+    <ProjectReference Include="..\ClassTools\Es_02.vbproj">
       <Project>{1cb475b5-365e-4fdd-8720-65843e3ca02f}</Project>
-      <Name>Es_2</Name>
+      <Name>Es_02</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
