@@ -6,7 +6,9 @@ Imports System.Data.Entity
 Imports System.Data.SqlClient
 Imports System.Linq
 Module Module1
+
     Sub Main()
+
         Dim overring As New Overriding()
 
         'Populate the list of clients using Entity Framework
@@ -20,17 +22,15 @@ Module Module1
 
         Console.WriteLine(overring.ClientList.Any(Function(c) c.CustomerID = "ALFK"))
         Console.ReadKey()
+
     End Sub
+
 End Module
 
 Public Class Overriding
 
     'List of clients
     Public ClientList As List(Of Client) = New List(Of Client)()
-
-    Public Overrides Function ToString() As String
-        Return String.Join(Environment.NewLine, ClientList.Select(Function(c) $"{c.CustomerID},{c.CompanyName},{c.ContactName},{c.ContactTitle},{c.Address},{c.City},{c.Region},{c.PostalCode},{c.Country},{c.Phone},{c.Fax}"))
-    End Function
 
     'DBContext for Entity Framework
     Public Class CustomersDbContext
@@ -62,20 +62,41 @@ Public Class Overriding
 
     End Class
 
+#Region "OVERRIDES"
 
-    Public Overrides Function Equals(obj As Object) As Boolean
-        Dim other As String = TryCast(obj, String)
-        For Each customId In Me.ClientList.Select(Of String)(Function(c) c.CustomerID)
-            If customId = other Then
-                Return True
-            End If
-        Next
-        Return False
+    'Override the ToString method to return a string representation of the ClientList
+    Public Overrides Function ToString() As String
+
+        Return String.Join(Environment.NewLine, ClientList.Select(Function(c) $"{c.CustomerID},{c.CompanyName},{c.ContactName},{c.ContactTitle},{c.Address},{c.City},{c.Region},{c.PostalCode},{c.Country},{c.Phone},{c.Fax}"))
+
     End Function
 
+    'Override Equal method to compare the ClientList with a string
+    Public Overrides Function Equals(obj As Object) As Boolean
+
+        'Try to cast the object to a string
+        Dim other As String = TryCast(obj, String)
+
+        For Each customId In Me.ClientList.Select(Of String)(Function(c) c.CustomerID)
+
+            If customId = other Then
+
+                Return True
+
+            End If
+
+        Next
+
+        Return False
+
+    End Function
+
+#End Region
+
+#Region "POPULATION FUNCTIONS"
+
     ''' <summary>
-    ''' Funzione che popola la lista di clienti usando Entity Framework.
-    ''' Aggiunto anche il debug per monitorare eventuali problemi.
+    ''' Populate the list of clients using Entity Framework from the database using the connection string passed as an argument
     ''' </summary>
     Public Sub PopulateList(connectionString As String)
 
@@ -83,20 +104,18 @@ Public Class Overriding
             'Instantiate the DbContext with the connection string
             Using db As New CustomersDbContext(connectionString)
 
-                'retrive the data from the database
+                'retrive the list of clients from the datacontext and convert it to a list
                 ClientList = db.Customers.ToList()
 
             End Using
 
         Catch ex As Exception
 
-            ' Gestione errori
             Console.WriteLine($"Error during che population of the list with Entity Framework: {ex.Message}")
 
         End Try
+
     End Sub
-
-
 
     ''' <summary>
     ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
@@ -119,5 +138,7 @@ Public Class Overriding
         Return connection
 
     End Function
+
+#End Region
 
 End Class

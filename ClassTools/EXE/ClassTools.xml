@@ -115,5 +115,14 @@ ClassTools
  <param name="folderName">The name of the folder where the log file is located.</param>
  <param name="fileName">The name of the log file.</param>
 </member>
+<member name="M:ClassTools.Utils.WriteAFile(System.String,System.String,System.String,System.String)">
+ <summary>
+ Writes a file with the specified message, folder name, file name, and extension.
+ </summary>
+ <param name="message">The message to write.</param>
+ <param name="folderName">The name of the folder where the file is located.</param>
+ <param name="fileName">The name of the log file.</param>
+ <param name="extension">extenction</param>
+</member>
 </members>
 </doc>

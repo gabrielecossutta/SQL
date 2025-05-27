@@ -7,6 +7,7 @@ Imports System.Data.Common
 Imports System.Diagnostics
 Imports System.Runtime.InteropServices.WindowsRuntime
 Imports System.IO
+
 ''' <summary>
 ''' This Form is used to manage the CRUD operation on server
 ''' </summary>
@@ -26,10 +27,12 @@ Public Class Database
 
     Private webPathString As String
 
+#Region "FORM"
     'This constructor is used to initialize the form
     Public Sub New(ByVal Form1 As Login, ByVal ConnectionToServer As SqlConnection, WebPathName As String)
 
         WriteLogMessage("Second form Created", "EXE", "Log")
+
         'Inizialize components
         InitializeComponent()
         Me.Text = "Server ES9"
@@ -61,6 +64,8 @@ Public Class Database
         WriteLogMessage("Second form cloased", "EXE", "Log")
 
     End Sub
+
+#End Region
 
 #Region "FUNCTIONS"
 
@@ -468,7 +473,10 @@ Public Class Database
 
     End Sub
 
+    'Convert the selected table in HTML format and save it in the specified web path
     Private Sub BT_ConvertInHtml_Click(sender As Object, e As EventArgs) Handles BT_ConvertInHtml.Click
+
+        'Check if the webPathString is set
         If webPathString Is Nothing Then
             Return
         End If
@@ -488,37 +496,53 @@ Public Class Database
         Dim query As String = $"SELECT * FROM [{tableName}]"
         Dim rawData As DataTable = Crud.ReadRow(query, connectionToServer)
 
+        'Initialize the HTML string with the table name and headers and body
         Dim stringHTML As String = $"<html><head><title>{tableName}</title></head><body><table border='1'><tr>"
+
+        'Append every column name as a header in the HTML table
         For Each column As DataColumn In rawData.Columns
+
             stringHTML += $"<th>{column.ColumnName}</th>"
+
         Next
+
+        'For each row in the DataTable, append the values in the HTML table
         For i As Integer = 0 To rawData.Rows.Count - 1
-            If rawData.Rows.Count Mod rawData.Columns.Count Then
-                stringHTML += "</tr><tr>"
-            End If
+
+            'Start a new row in the HTML table
+            stringHTML += "</tr><tr>"
+
+            'For each column in the DataTable, append the value in the HTML table
             For Each column As DataColumn In rawData.Columns
+
                 'stamp the value of the column
                 stringHTML += $"<td>{rawData.Rows(i)(column)}</td>"
+
             Next
+
         Next
-        'append
+
+        'Close the HTML table and body tags
         stringHTML += "</tr></table></body></html>"
 
+        'Write the HTML string to a file in the specified web path
         WriteAFile(stringHTML, webPathString, tableName, "html")
 
         WriteLogMessage("Query: " + query, "EXE", "Log")
 
-
-
     End Sub
 
+    'Open the HTML file in the default web browser
     Private Sub BT_ToWeb_Click(sender As Object, e As EventArgs) Handles BT_ToWeb.Click
 
+        'Check if the webPathString is set
         If webPathString Is Nothing Then
+
             Return
+
         End If
 
-        WriteLogMessage("Button ""ConvertInHtml"" pressed", "EXE", "Log")
+        WriteLogMessage("Button ""ConvertInHtml"" pressed", "EXE", "LogEs09")
 
         'Get the current selected tab index
         currentTabePageIndex = TC_TablesName.SelectedIndex
@@ -526,27 +550,30 @@ Public Class Database
         'Table name
         Dim tableName As String = Me.TC_TablesName.SelectedTab.Text
 
-
         'Get the base path of the application
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
 
         'Backtrack to the executable directory
         Dim parentPath As String = System.IO.Directory.GetParent(basePath).Parent.FullName
 
-        'Enter the EXE folder path
+        'Combine the parent path with the web path string
         Dim FolderPath As String = System.IO.Path.Combine(parentPath, webPathString)
 
-        'Create the file path
+        'Get the full file path for the HTML file
         Dim filePath As String = $"{FolderPath}\{tableName}.html"
 
+        'Try to open the HTML file in the default web browser
         Try
+
             Process.Start(filePath)
+
         Catch ex As Exception
+
             MessageBox.Show($"First Convert the file in HTML")
 
         End Try
-    End Sub
 
+    End Sub
 
 #End Region
 

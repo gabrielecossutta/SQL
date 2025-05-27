@@ -28,6 +28,8 @@ Module LINQ
 
     End Class
 
+#Region "MAIN FUNCTIONS"
+
     Sub Main()
 
         'Connect to the SQL Server and retrive the connection string
@@ -155,9 +157,9 @@ Module LINQ
 
     End Function
 
+#End Region
 
-
-#Region "FUNCTIONS"
+#Region "FUNCTION ON TABLE"
     '''<summary>
     ''' All the functions are in this region
     ''' </summary>

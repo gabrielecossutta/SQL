@@ -37,7 +37,14 @@ Public Module Utils
 
     End Sub
 
-    Public Function WriteAFile(message As String, folderName As String, fileName As String, extenction As String) As String
+    ''' <summary>
+    ''' Writes a file with the specified message, folder name, file name, and extension.
+    ''' </summary>
+    ''' <param name="message">The message to write.</param>
+    ''' <param name="folderName">The name of the folder where the file is located.</param>
+    ''' <param name="fileName">The name of the log file.</param>
+    ''' <param name="extension">extenction</param>
+    Public Function WriteAFile(message As String, folderName As String, fileName As String, extension As String) As String
 
         'Get the base path of the application
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
@@ -49,7 +56,7 @@ Public Module Utils
         Dim FolderPath As String = System.IO.Path.Combine(parentPath, folderName)
 
         'Create the file path
-        Dim filePath As String = $"{FolderPath}\{fileName}.{extenction}"
+        Dim filePath As String = $"{FolderPath}\{fileName}.{extension}"
 
         'Create a stream writer to write on the TXT file
         Dim file As IO.StreamWriter
@@ -64,6 +71,7 @@ Public Module Utils
         file.Close()
         file.Dispose()
 
+        'return thee file path
         Return filePath
 
     End Function

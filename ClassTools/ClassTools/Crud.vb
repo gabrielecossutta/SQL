@@ -144,16 +144,21 @@ Public Class Crud
         Using cmd As New SqlCommand(query, connectionToServer)
 
             Try
+
+                'start the transaction
                 cmd.Transaction = connectionToServer.BeginTransaction()
 
                 ' Execute the command
                 cmd.ExecuteNonQuery()
                 WriteLogMessage("Row created in table: " + tableName, "EXE", "Log")
                 isOperationCompleted = True
+
+                ' Commit the transaction
                 cmd.Transaction.Commit()
 
             Catch ex As SqlException
 
+                ' If an error occurs, rollback the transaction
                 cmd.Transaction.Rollback()
 
                 ' Check for specific SQL error codes for duplicate key violation and customize the error message
@@ -211,12 +216,15 @@ Public Class Crud
             Try
                 ' Apri connessione se non è già aperta
                 If connectionToServer.State = ConnectionState.Closed Then
+
                     connectionToServer.Open()
+
                 End If
 
                 ' Avvia una transazione con isolamento ReadUncommitted
                 Using adapter As New SqlDataAdapter(cmd)
 
+                    'start transaction even if the table in under another transaction, by using the talbe before the trascastion
                     cmd.Transaction = connectionToServer.BeginTransaction(IsolationLevel.ReadUncommitted)
                     adapter.Fill(dataTable)
                     cmd.Transaction.Commit()
@@ -225,6 +233,7 @@ Public Class Crud
 
             Catch ex As Exception
 
+                ' If an error occurs, rollback the transaction
                 cmd.Transaction.Rollback()
                 WriteLogMessage(ex.Message, "EXE", "Log")
 
@@ -253,9 +262,11 @@ Public Class Crud
         'Create a SqlCommand object to execute the query
         Using cmd As New SqlCommand()
 
+            'start the transaction
             cmd.Connection = connectionToServer
             cmd.Transaction = connectionToServer.BeginTransaction()
 
+            'for each query in the list of queries
             For Each query As String In querys
 
                 Try
@@ -267,9 +278,9 @@ Public Class Crud
                     WriteLogMessage("Cell Updated", "EXE", "Log")
                     isOperationCompleted = True
 
-
                 Catch ex As Exception
 
+                    'rollback the transaction in case of error
                     cmd.Transaction.Rollback()
                     ErrorMsg = $"Error occurred during the Update of a cell: {ex.Message}"
                     WriteLogMessage(ex.Message, "EXE", "Log")
@@ -280,6 +291,7 @@ Public Class Crud
 
             Next
 
+            'Commit the transaction
             cmd.Transaction.Commit()
 
         End Using
@@ -302,6 +314,7 @@ Public Class Crud
         'Create a SqlCommand object to execute the query
         Using cmd As New SqlCommand(query, connectionToServer)
 
+            'start transaction
             cmd.Transaction = connectionToServer.BeginTransaction()
 
             'Add the parameter to the command
@@ -313,10 +326,13 @@ Public Class Crud
                 cmd.ExecuteNonQuery()
                 WriteLogMessage("Row deleted", "EXE", "Log")
                 isOperationCompleted = True
+
+                'commit the transaction
                 cmd.Transaction.Commit()
 
             Catch ex As SqlException
 
+                ' If an error occurs, rollback the transaction
                 cmd.Transaction.Rollback()
 
                 'Customize the error message

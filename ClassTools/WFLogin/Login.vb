@@ -73,7 +73,6 @@ Public Class Login
 
                     LoginByExternalArgument(args(x))
                     Me.Hide()
-
                     Exit For
 
                 End If
@@ -102,6 +101,7 @@ Public Class Login
     Private Sub LoginPerformed()
 
         If connectionToServer IsNot Nothing Then
+
             If connectionToServer.State = ConnectionState.Open Then
 
                 'Create the second form and pass the connection to it and this form
@@ -112,11 +112,13 @@ Public Class Login
                 Me.Hide()
 
             End If
+
         Else
 
             MessageBox.Show("Connection failed. Please check your credentials.")
 
         End If
+
     End Sub
 
 #End Region

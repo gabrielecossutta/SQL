@@ -11,27 +11,6 @@ Module LINQ_Entity
     'List of clients
     Dim ClientList As List(Of Client) = New List(Of Client)()
 
-    Sub Main()
-
-        'Populate the list of clients using Entity Framework
-        PopulateList(ExternalArgumentsLoginCheck())
-
-        SelectFunction()
-
-    End Sub
-
-    'DBContext for Entity Framework
-    Public Class CustomersDbContext
-        Inherits DbContext
-
-        Public Sub New(connectionString As String)
-            MyBase.New(connectionString)
-        End Sub
-
-        Public Property Customers As DbSet(Of Client)
-
-    End Class
-
     'Name of the table in the database
     <Table("Customers")>
     Public Class Client
@@ -49,6 +28,28 @@ Module LINQ_Entity
         Public Property Fax As String
     End Class
 
+    'DBContext for Entity Framework
+    Public Class CustomersDbContext
+        Inherits DbContext
+
+        Public Sub New(connectionString As String)
+            MyBase.New(connectionString)
+        End Sub
+
+        Public Property Customers As DbSet(Of Client)
+
+    End Class
+
+#Region "MAIN FUNCTION"
+
+    Sub Main()
+
+        'Populate the list of clients using Entity Framework
+        PopulateList(ExternalArgumentsLoginCheck())
+
+        SelectFunction()
+
+    End Sub
 
     ''' <summary>
     ''' Funzione che popola la lista di clienti usando Entity Framework.
@@ -67,13 +68,10 @@ Module LINQ_Entity
 
         Catch ex As Exception
 
-            ' Gestione errori
             Console.WriteLine($"Error during che population of the list with Entity Framework: {ex.Message}")
 
         End Try
     End Sub
-
-
 
     ''' <summary>
     ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
@@ -97,6 +95,9 @@ Module LINQ_Entity
 
     End Function
 
+    ''' <summary>
+    ''' Select which function to call
+    ''' </summary>
     Private Sub SelectFunction()
 
         While True
@@ -144,9 +145,10 @@ Module LINQ_Entity
 
     End Sub
 
+#End Region
 
+#Region "FUNCTIONS ON TABLE"
 
-#Region "FUNCTIONS"
     '''<summary>
     ''' All the functions are in this region
     ''' </summary>

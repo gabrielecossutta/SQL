@@ -22,7 +22,7 @@ Public Class Database
     'List of the tables names
     Private tableNames As New List(Of String)()
 
-
+#Region "FORM"
     'This constructor is used to initialize the form
     Public Sub New(ByVal Form1 As Login, ByVal ConnectionToServer As SqlConnection)
 
@@ -57,6 +57,7 @@ Public Class Database
         WriteLogMessage("Second form cloased", "EXE", "Log")
 
     End Sub
+#End Region
 
 #Region "FUNCTIONS"
 
@@ -371,10 +372,12 @@ Public Class Database
 
             If selectedGrid IsNot Nothing Then
 
+                'Open an input box to ask the user for the new value
                 Dim newValue As String = InputBox("Insert the new value: ", "Update Cell")
 
                 If Not String.IsNullOrEmpty(newValue) Then
 
+                    'Check if the user has selected cells from the same column
                     For Each cell As DataGridViewCell In selectedGrid.SelectedCells
 
                         If cell.ColumnIndex <> selectedGrid.SelectedCells(0).ColumnIndex Then
@@ -399,7 +402,7 @@ Public Class Database
                         Dim primaryKeyColumn As String = selectedGrid.Columns(0).Name
                         Dim primaryKeyValue As String = selectedGrid.Rows(rowIndex).Cells(0).Value.ToString()
 
-                        'Query SQL to update the cell
+                        'Crete the SQL query transaction to update the cell
                         query.Add($"UPDATE {tableName} SET {columnName} = '{newValue}' WHERE {primaryKeyColumn} = '{primaryKeyValue}';")
                         WriteLogMessage($"Query: UPDATE {tableName} SET {columnName} = '{newValue}' WHERE {primaryKeyColumn} = '{primaryKeyValue}';", "EXE", "Log")
 

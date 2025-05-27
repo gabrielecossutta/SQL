@@ -9,19 +9,10 @@ Imports System.Windows.Forms
 
 Module LINQ_Entity_Server
 
-    Sub Main()
-
-        'Populate the list of clients using Entity Framework
-        PopulateList(ExternalArgumentsLoginCheck())
-
-        SelectFunction()
-
-    End Sub
-
-
-    Dim db As CustomersDbContext
-
     Dim connectionString As String = ExternalArgumentsLoginCheck()
+
+    'Declare the database context
+    Dim db As CustomersDbContext
 
     'DBContext for Entity Framework
     Public Class CustomersDbContext
@@ -53,17 +44,26 @@ Module LINQ_Entity_Server
     End Class
 
 
+#Region "MAIN"
+    Sub Main()
+
+        'Populate the list of clients using Entity Framework
+        PopulateList(ExternalArgumentsLoginCheck())
+
+        'Prompt the user to select a function
+        SelectFunction()
+
+    End Sub
+
     ''' <summary>
-    ''' Funzione che popola la lista di clienti usando Entity Framework.
-    ''' Aggiunto anche il debug per monitorare eventuali problemi.
+    ''' Function to populate the list of clients using Entity Framework
+    ''' It creates a new instance of the CustomersDbContext and connects to the SQL Server using the connection string passed as parameter
     ''' </summary>
     Private Sub PopulateList(connectionString As String)
 
         db = New CustomersDbContext(connectionString)
 
     End Sub
-
-
 
     ''' <summary>
     ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
@@ -87,6 +87,9 @@ Module LINQ_Entity_Server
 
     End Function
 
+    ''' <summary>
+    ''' Function to select a function to execute
+    ''' </summary>
     Private Sub SelectFunction()
 
         While True
@@ -134,9 +137,10 @@ Module LINQ_Entity_Server
 
     End Sub
 
+#End Region
 
+#Region "FUNCTION ON TABLE"
 
-#Region "FUNCTIONS"
     '''<summary>
     ''' All the functions are in this region
     ''' </summary>
@@ -218,6 +222,7 @@ Module LINQ_Entity_Server
         Console.WriteLine("Search value by: CustomerID - CompanyName - ContactName - ContactTitle - Address - City - Region - PostalCode - Country - Phone - Fax")
         Dim criterion As String = Console.ReadLine()
         Dim propertyToSearch = GetType(Client).GetProperty(criterion)
+
         If propertyToSearch Is Nothing Then
 
             Console.WriteLine($"Property {criterion} doesn't exist")
@@ -324,6 +329,7 @@ Module LINQ_Entity_Server
         Dim StringNumberOfPropertys As String = Console.ReadLine()
         Dim numberOfPropertys As Integer = 0
         Integer.TryParse(StringNumberOfPropertys, numberOfPropertys)
+
         If numberOfPropertys < 1 Or numberOfPropertys > 11 Then
 
             Console.WriteLine("Number of propertys must be between 1 and 11")
@@ -334,6 +340,7 @@ Module LINQ_Entity_Server
         'Get the propertys to group by from the user and check if they exist
         Dim propertysToGroupBy As New List(Of String)()
         Dim propertysToGroupByString As String = ""
+
         For i As Integer = 0 To numberOfPropertys - 1
 
             Console.WriteLine("Insert the property to group by: CustomerID - CompanyName - ContactName - ContactTitle - Address - City - Region - PostalCode - Country - Phone - Fax")
