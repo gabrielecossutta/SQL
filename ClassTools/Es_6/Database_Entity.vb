@@ -87,6 +87,8 @@ Public Class Database_Entity
                 CustomerDataGrid.Rows.Add(client.CustomerID, client.CompanyName, client.ContactName, client.ContactTitle, client.Address, client.City, client.Region, client.PostalCode, client.Country, client.Phone, client.Fax)
 
             Next
+            CustomerDataGrid.DataSource = ClientList
+
 
             'Set the datagrid to auto size the columns
             CustomerDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill

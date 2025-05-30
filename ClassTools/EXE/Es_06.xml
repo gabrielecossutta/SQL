@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_06
+</name>
+</assembly>
+<members>
+<member name="T:Es_06.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_06.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_06.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_06.Database_Entity">
+ <summary>
+ This Form is used to manage the CRUD operation on server
+ </summary>
+</member>
+<member name="M:Es_06.Database_Entity.PopulateList(System.String)">
+ <summary>
+ funcion to populate the DataGridView with the data from the database using Entity Framework
+ It uses the CustomersDbContext to connect to the database and retrieve the data from the Customers table
+ </summary>
+</member>
+<member name="M:Es_06.Database_Entity.ExternalArgumentsLoginCheck">
+ <summary>
+ Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
+ </summary>
+</member>
+</members>
+</doc>

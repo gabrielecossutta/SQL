@@ -139,6 +139,12 @@ Public Class Table1
 
     End Function
 
+    Public Overrides Function Create(Of T)(ParamArray args() As Object) As T
+
+        Return MyBase.Create(Of T)(args)
+
+    End Function
+
 End Class
 
 Public Class Table2
@@ -185,6 +191,13 @@ Module InterfaceCRUD
         returnValue = table2.Update(Of Integer)("Matteo")
         returnValue = table2.Read(Of Integer)(1.0F, 2D, 3)
         returnValue = table2.Delete(Of Integer)(1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+
+        'Dim table1 As New Table1("oggetto connessione")
+        'table1.property1 = "cose"
+        'table1.property2 = "cose"
+        'table1.insert
+
 
     End Sub
 

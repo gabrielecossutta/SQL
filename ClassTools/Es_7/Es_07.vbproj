@@ -7,9 +7,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4B5806A6-967C-4ED3-A339-917E2E2E67FB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Es_4.LINQ_Entity_Server</StartupObject>
-    <RootNamespace>Es_4</RootNamespace>
-    <AssemblyName>Es_4</AssemblyName>
+    <StartupObject>Es_07.LINQ_Entity_Server</StartupObject>
+    <RootNamespace>Es_07</RootNamespace>
+    <AssemblyName>Es_07</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -25,7 +25,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\EXE\</OutputPath>
-    <DocumentationFile>Es_4.xml</DocumentationFile>
+    <DocumentationFile>Es_07.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -35,7 +35,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Es_4.xml</DocumentationFile>
+    <DocumentationFile>Es_07.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -198,6 +198,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>

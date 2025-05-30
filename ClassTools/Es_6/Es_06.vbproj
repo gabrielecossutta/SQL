@@ -7,9 +7,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3E4F7434-F884-4C72-93FD-029BC551206E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WFLogin.My.MyApplication</StartupObject>
-    <RootNamespace>WFLogin</RootNamespace>
-    <AssemblyName>WFLogin</AssemblyName>
+    <StartupObject>Es_06.My.MyApplication</StartupObject>
+    <RootNamespace>Es_06</RootNamespace>
+    <AssemblyName>Es_06</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -25,7 +25,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\EXE\</OutputPath>
-    <DocumentationFile>WFLogin.xml</DocumentationFile>
+    <DocumentationFile>Es_06.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -35,7 +35,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>WFLogin.xml</DocumentationFile>
+    <DocumentationFile>Es_06.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -205,6 +205,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -1,0 +1,3 @@
+﻿27/05/2025 14:45:57 Button "ConvertInHtml" pressed;
+27/05/2025 14:46:02 Button "ConvertInHtml" pressed;
+28/05/2025 08:25:35 Button "ConvertInHtml" pressed;

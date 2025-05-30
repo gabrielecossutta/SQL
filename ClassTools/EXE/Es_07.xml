@@ -1,0 +1,82 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_07
+</name>
+</assembly>
+<members>
+<member name="T:Es_07.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_07.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_07.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.PopulateList(System.String)">
+ <summary>
+ Function to populate the list of clients using Entity Framework
+ It creates a new instance of the CustomersDbContext and connects to the SQL Server using the connection string passed as parameter
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.ExternalArgumentsLoginCheck">
+ <summary>
+ Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.SelectFunction">
+ <summary>
+ Function to select a function to execute
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.StampCompleteList">
+<summary>
+ All the functions are in this region
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.OrderListBy">
+ <summary>
+ Order the list by the property name using LINQ
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.SearchByPrimaryKey">
+ <summary>
+ Search for a client by primary key and print the client if found
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.SearchByValueInProperties">
+ <summary>
+ Search for a value in the properties of the client and print the client if found
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.StampSingleProperty">
+ <summary>
+ Scroll through the list and print a single property of every element
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.CountNumberOfElements">
+ <summary>
+ Count the number of elements in the list using LINQ
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.CheckSpecificValueInProperty">
+ <summary>
+ Check if there is an element in the list that contains a specific value in a specific property
+ </summary>
+</member>
+<member name="M:Es_07.LINQ_Entity_Server.GroupByPropertys">
+ <summary>
+ Scroll through the grouped list by one or more properties
+ </summary>
+</member>
+</members>
+</doc>

@@ -23,6 +23,16 @@ Module Module1
         Console.WriteLine(overring.ClientList.Any(Function(c) c.CustomerID = "ALFK"))
         Console.ReadKey()
 
+        'Dim classe1 As Overriding.Client
+        'classe2.CompanyName = "lollo"
+        'Dim classe2 As Overriding.Client
+        'classe2.CompanyName = "gigi"
+
+        'If classe1.Equals(class2) Then
+        '    'ok'
+        'End If
+
+
     End Sub
 
 End Module
@@ -60,36 +70,38 @@ Public Class Overriding
         Public Property Phone As String
         Public Property Fax As String
 
+        Public Overrides Function ToString() As String
+
+            Return String.Join(Environment.NewLine, ClientList.Select(Function(c) $"{c.CustomerID},{c.CompanyName},{c.ContactName},{c.ContactTitle},{c.Address},{c.City},{c.Region},{c.PostalCode},{c.Country},{c.Phone},{c.Fax}"))
+
+        End Function
+
+        'Override Equal method to compare the ClientList with a string
+        Public Overrides Function Equals(obj As Object) As Boolean
+
+            'Try to cast the object to a string
+            Dim other As String = TryCast(obj, String)
+
+            For Each customId In Me.ClientList.Select(Of String)(Function(c) c.CustomerID)
+
+                If customId = other Then
+
+                    Return True
+
+                End If
+
+            Next
+
+            Return False
+
+        End Function
+
     End Class
 
 #Region "OVERRIDES"
 
     'Override the ToString method to return a string representation of the ClientList
-    Public Overrides Function ToString() As String
 
-        Return String.Join(Environment.NewLine, ClientList.Select(Function(c) $"{c.CustomerID},{c.CompanyName},{c.ContactName},{c.ContactTitle},{c.Address},{c.City},{c.Region},{c.PostalCode},{c.Country},{c.Phone},{c.Fax}"))
-
-    End Function
-
-    'Override Equal method to compare the ClientList with a string
-    Public Overrides Function Equals(obj As Object) As Boolean
-
-        'Try to cast the object to a string
-        Dim other As String = TryCast(obj, String)
-
-        For Each customId In Me.ClientList.Select(Of String)(Function(c) c.CustomerID)
-
-            If customId = other Then
-
-                Return True
-
-            End If
-
-        Next
-
-        Return False
-
-    End Function
 
 #End Region
 

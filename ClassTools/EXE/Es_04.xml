@@ -2,73 +2,77 @@
 <doc>
 <assembly>
 <name>
-Es_4
+Es_04
 </name>
 </assembly>
 <members>
-<member name="T:Es_4.My.Resources.Resources">
+<member name="T:Es_04.My.Resources.Resources">
 <summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
 </summary>
 </member>
-<member name="P:Es_4.My.Resources.Resources.ResourceManager">
+<member name="P:Es_04.My.Resources.Resources.ResourceManager">
 <summary>
-  Returns the cached ResourceManager instance used by this class.
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
 </summary>
 </member>
-<member name="P:Es_4.My.Resources.Resources.Culture">
+<member name="P:Es_04.My.Resources.Resources.Culture">
 <summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
 </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.PopulateList(System.String)">
+<member name="M:Es_04.LINQ.SelectFunction">
  <summary>
- Funzione che popola la lista di clienti usando Entity Framework.
- Aggiunto anche il debug per monitorare eventuali problemi.
+ Select which function to call
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.ExternalArgumentsLoginCheck">
+<member name="M:Es_04.LINQ.PopulateList">
+ <summary>
+ Populate the list with the data from the SQL Server
+ </summary>
+</member>
+<member name="M:Es_04.LINQ.ExternalArgumentsLoginCheck">
  <summary>
  Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.StampCompleteList">
+<member name="M:Es_04.LINQ.StampCompleteList">
 <summary>
  All the functions are in this region
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.OrderListBy">
+<member name="M:Es_04.LINQ.OrderListBy">
  <summary>
  Order the list by the property name using LINQ
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.SearchByPrimaryKey">
+<member name="M:Es_04.LINQ.SearchByPrimaryKey">
  <summary>
  Search for a client by primary key and print the client if found
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.SearchByValueInProperties">
+<member name="M:Es_04.LINQ.SearchByValueInProperties">
  <summary>
  Search for a value in the properties of the client and print the client if found
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.StampSingleProperty">
+<member name="M:Es_04.LINQ.StampSingleProperty">
  <summary>
  Scroll through the list and print a single property of every element
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.CountNumberOfElements">
+<member name="M:Es_04.LINQ.CountNumberOfElements">
  <summary>
  Count the number of elements in the list using LINQ
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.CheckSpecificValueInProperty">
+<member name="M:Es_04.LINQ.CheckSpecificValueInProperty">
  <summary>
  Check if there is an element in the list that contains a specific value in a specific property
  </summary>
 </member>
-<member name="M:Es_4.LINQ_Entity_Server.GroupByPropertys">
+<member name="M:Es_04.LINQ.GroupByPropertys">
  <summary>
  Scroll through the grouped list by one or more properties
  </summary>

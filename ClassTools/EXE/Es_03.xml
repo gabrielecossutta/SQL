@@ -1,0 +1,89 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_03
+</name>
+</assembly>
+<members>
+<member name="T:Es_03.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_03.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_03.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_03.Database">
+ <summary>
+ This Form is used to manage the CRUD operation on server
+ </summary>
+</member>
+<member name="M:Es_03.Database.PopulateTables">
+<summary>
+Populate the TabControl with the tables from the SQL Server
+</summary>
+</member>
+<member name="M:Es_03.Database.LoadTables">
+ <summary>
+ Load the tables name from the SQL Server and populate the TabControl with them
+ </summary>
+</member>
+<member name="M:Es_03.Database.RefreshTables">
+ <summary>
+ Refresh the tables in the TabControl to reflect any changes made
+ </summary>
+</member>
+<member name="M:Es_03.Database.GetDefaultValue(System.String)">
+ <summary>
+ Return a default value for the given data type
+ </summary>
+ <param name="dataTypeFullName">Type of the variable to return a default value</param>
+</member>
+<member name="M:Es_03.Database.FindSelectedGrid">
+ <summary>
+ Find the selected DataGridView in the selected tab of the TabControl
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Es_03.Database.ResultOperation(System.Boolean)">
+ <summary>
+ Show a message box with the result of the operation
+ </summary>
+</member>
+<member name="M:Es_03.Database.ResultOperation(System.Boolean,System.String)">
+ <summary>
+ Show a message box with the result of the operation and a specific error message
+ </summary>
+</member>
+<member name="M:Es_03.Login.LoadWhenOpened">
+ <summary>
+ Load the information from the Json file when the form is opened
+ </summary>
+</member>
+<member name="M:Es_03.Login.CheckExternalArguments">
+ <summary>
+ Check if the form is opened with an external argument, if so Login With that argument
+ </summary>
+</member>
+<member name="M:Es_03.Login.LoginByExternalArgument(System.Int32)">
+ <summary>
+ Execute the login with the external argument
+ </summary>
+ <param name="i">ID of the User</param>
+</member>
+<member name="M:Es_03.Login.LoginPerformed">
+ <summary>
+ Hide the first form, Open the second form and pass the connection to it,
+ </summary>
+</member>
+</members>
+</doc>
