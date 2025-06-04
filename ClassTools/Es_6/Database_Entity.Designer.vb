@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Database_Entity
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Database_Entity
     'NOTA: la procedura che segue è richiesta da Progettazione Windows Form
     'Può essere modificata in Progettazione Windows Form.  
     'Non modificarla mediante l'editor del codice.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.BT_Create = New System.Windows.Forms.Button()
@@ -29,17 +29,6 @@ Partial Class Database_Entity
         Me.BT_Delete = New System.Windows.Forms.Button()
         Me.ConnectionStringBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerDataGrid = New System.Windows.Forms.DataGridView()
-        Me.CustomerID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CompanyName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContactName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContactTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Address = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.City = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Region = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PostalCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Country = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Phone = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Fax = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.ConnectionStringBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -93,79 +82,11 @@ Partial Class Database_Entity
         Me.CustomerDataGrid.AllowUserToAddRows = False
         Me.CustomerDataGrid.AllowUserToDeleteRows = False
         Me.CustomerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.CustomerDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CustomerID, Me.CompanyName, Me.ContactName, Me.ContactTitle, Me.Address, Me.City, Me.Region, Me.PostalCode, Me.Country, Me.Phone, Me.Fax})
         Me.CustomerDataGrid.Location = New System.Drawing.Point(12, 12)
         Me.CustomerDataGrid.Name = "CustomerDataGrid"
         Me.CustomerDataGrid.ReadOnly = True
         Me.CustomerDataGrid.Size = New System.Drawing.Size(1348, 479)
         Me.CustomerDataGrid.TabIndex = 7
-        '
-        'CustomerID
-        '
-        Me.CustomerID.DataPropertyName = "SQLServerName"
-        Me.CustomerID.HeaderText = "CustomerID"
-        Me.CustomerID.Name = "CustomerID"
-        Me.CustomerID.ReadOnly = True
-        '
-        'CompanyName
-        '
-        Me.CompanyName.HeaderText = "CompanyName"
-        Me.CompanyName.Name = "CompanyName"
-        Me.CompanyName.ReadOnly = True
-        '
-        'ContactName
-        '
-        Me.ContactName.HeaderText = "ContactName"
-        Me.ContactName.Name = "ContactName"
-        Me.ContactName.ReadOnly = True
-        '
-        'ContactTitle
-        '
-        Me.ContactTitle.HeaderText = "ContactTitle"
-        Me.ContactTitle.Name = "ContactTitle"
-        Me.ContactTitle.ReadOnly = True
-        '
-        'Address
-        '
-        Me.Address.HeaderText = "Address"
-        Me.Address.Name = "Address"
-        Me.Address.ReadOnly = True
-        '
-        'City
-        '
-        Me.City.HeaderText = "City"
-        Me.City.Name = "City"
-        Me.City.ReadOnly = True
-        '
-        'Region
-        '
-        Me.Region.HeaderText = "Region"
-        Me.Region.Name = "Region"
-        Me.Region.ReadOnly = True
-        '
-        'PostalCode
-        '
-        Me.PostalCode.HeaderText = "PostalCode"
-        Me.PostalCode.Name = "PostalCode"
-        Me.PostalCode.ReadOnly = True
-        '
-        'Country
-        '
-        Me.Country.HeaderText = "Country"
-        Me.Country.Name = "Country"
-        Me.Country.ReadOnly = True
-        '
-        'Phone
-        '
-        Me.Phone.HeaderText = "Phone"
-        Me.Phone.Name = "Phone"
-        Me.Phone.ReadOnly = True
-        '
-        'Fax
-        '
-        Me.Fax.HeaderText = "Fax"
-        Me.Fax.Name = "Fax"
-        Me.Fax.ReadOnly = True
         '
         'Database_Entity
         '
@@ -190,15 +111,4 @@ Partial Class Database_Entity
     Friend WithEvents BT_Delete As Button
     Friend WithEvents ConnectionStringBindingSource As BindingSource
     Friend WithEvents CustomerDataGrid As DataGridView
-    Friend WithEvents CustomerID As DataGridViewTextBoxColumn
-    Friend WithEvents CompanyName As DataGridViewTextBoxColumn
-    Friend WithEvents ContactName As DataGridViewTextBoxColumn
-    Friend WithEvents ContactTitle As DataGridViewTextBoxColumn
-    Friend WithEvents Address As DataGridViewTextBoxColumn
-    Friend WithEvents City As DataGridViewTextBoxColumn
-    Friend WithEvents Region As DataGridViewTextBoxColumn
-    Friend WithEvents PostalCode As DataGridViewTextBoxColumn
-    Friend WithEvents Country As DataGridViewTextBoxColumn
-    Friend WithEvents Phone As DataGridViewTextBoxColumn
-    Friend WithEvents Fax As DataGridViewTextBoxColumn
 End Class

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_08
+</name>
+</assembly>
+<members>
+<member name="T:Es_08.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_08.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_08.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_08.ICRUD">
+ <summary>
+ Interface for CRUD operations
+ </summary>
+</member>
+<member name="T:Es_08.Base">
+ <summary>
+ Base class that implements the ICRUD interface, cant be instantiated directly.
+ It provides default implementations for Create, Read, Update, and Delete methods.
+ Derived classes can override these methods to provide specific functionality.
+ </summary>
+</member>
+</members>
+</doc>

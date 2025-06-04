@@ -27,7 +27,7 @@ Es_06
  This Form is used to manage the CRUD operation on server
  </summary>
 </member>
-<member name="M:Es_06.Database_Entity.PopulateList(System.String)">
+<member name="M:Es_06.Database_Entity.RefreshTab">
  <summary>
  funcion to populate the DataGridView with the data from the database using Entity Framework
  It uses the CustomersDbContext to connect to the database and retrieve the data from the Customers table

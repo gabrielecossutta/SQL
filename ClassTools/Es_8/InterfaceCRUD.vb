@@ -1,16 +1,23 @@
 ﻿#Region "INTERACE"
+Imports System.Reflection
+Imports Microsoft.SqlServer
+Imports Microsoft.VisualBasic.ApplicationServices
+Imports ClassTools
+Imports System.Data.SqlClient
+Imports Microsoft.Identity.Client
+
 ''' <summary>
 ''' Interface for CRUD operations
 ''' </summary>
 Public Interface ICRUD
 
-    Function Create(Of T)(ParamArray args() As Object) As T
+    Sub Create()
 
-    Function Read(Of T)(ParamArray args() As Object) As T
+    Sub Read()
 
-    Function Update(Of T)(ParamArray args() As Object) As T
+    Sub Update()
 
-    Function Delete(Of T)(ParamArray args() As Object) As T
+    Sub Delete()
 
 End Interface
 
@@ -22,186 +29,138 @@ End Interface
 ''' It provides default implementations for Create, Read, Update, and Delete methods.
 ''' Derived classes can override these methods to provide specific functionality.
 ''' </summary>
-Public MustInherit Class BaseTable
-
-    'Impleements ICRUD interface
+Public Class Base
     Implements ICRUD
 
-    ''' <summary>
-    ''' Implements the Create method from the ICRUD interface.
-    ''' This method can be overridden in derived classes to provide specific functionality.
-    ''' </summary>
-    ''' <typeparam name="T">The type of the object to be created.</typeparam>
-    ''' <param name="args">Variable number of arguments.</param>
-    ''' <returns>Returns an object of type T, default is Nothing.</returns>
-    Public Overridable Function Create(Of T)(ParamArray args() As Object) As T Implements ICRUD.Create
+    Protected tableName As String
+    Protected connectionString As String
 
-        For Each arg As Object In args
+    Public Sub New(name As String, connectionString As String)
+        tableName = name
+        Me.connectionString = connectionString
+    End Sub
 
-            Console.WriteLine($"Create: {arg.ToString()} Value: {arg}")
-
-        Next
-
-        Console.WriteLine()
-
-        Return Nothing
-
+    Public Function GetSQLColumnsAndValues() As (String, String)
+        Dim properties As PropertyInfo() = Me.GetType().GetProperties()
+        Dim columnNames As String = String.Join(",", properties.Select(Function(p) p.Name))
+        Dim paramNames As String = String.Join(",", properties.Select(Function(p) $"'{p.GetValue(Me)}'"))
+        Return (columnNames, paramNames)
     End Function
 
-    ''' <summary>
-    ''' Implements the Read method from the ICRUD interface.
-    ''' This method can be overridden in derived classes to provide specific functionality.
-    ''' </summary>
-    ''' <typeparam name="T">The type of the object to be created.</typeparam>
-    ''' <param name="args">Variable number of arguments.</param>
-    ''' <returns>Returns an object of type T, default is Nothing.</returns>
-    Public Function Read(Of T)(ParamArray args() As Object) As T Implements ICRUD.Read
+    Public Sub Create() Implements ICRUD.Create
+        Dim result = GetSQLColumnsAndValues()
+        Dim columns As String = result.Item1
+        Dim values As String = result.Item2
+        Dim sql As String = $"INSERT INTO {tableName} ({columns}) VALUES ({values});"
+        'Crud.CreateRow(sql, Crud.ConnectToTheServer(connectionString), tableName, "")
+        Console.WriteLine("Query SQL di INSERT:")
+        Console.WriteLine(sql)
+    End Sub
 
-        For Each arg As Object In args
+    Public Sub Read() Implements ICRUD.Read
+        Dim properties As PropertyInfo() = Me.GetType().GetProperties()
+        Dim columnNames As String = String.Join(",", properties.Select(Function(p) p.Name))
+        Dim sql As String = $"SELECT {columnNames} FROM {tableName};"
+        Crud.ReadRow(sql, Crud.ConnectToTheServer(connectionString))
+        Console.WriteLine("Query SQL di SELECT:")
+        Console.WriteLine(sql)
+    End Sub
 
-            Console.WriteLine($"Read: {arg.GetType.ToString()} Value: {arg}")
+    Public Sub Update() Implements ICRUD.Update
+        Dim properties As PropertyInfo() = Me.GetType().GetProperties()
+        Dim updates As String = String.Join(",", properties.Select(Function(p) $"{p.Name}='{p.GetValue(Me)}'"))
+        Dim sql As String = $"UPDATE {tableName} SET {updates} WHERE RegionID = 1 ;"
+        Crud.UpdateCell(New List(Of String) From {sql}, Crud.ConnectToTheServer(connectionString), tableName, "")
+        Console.WriteLine("Query SQL di UPDATE:")
+        Console.WriteLine(sql)
+    End Sub
 
-        Next
-
-        Console.WriteLine()
-
-        Return Nothing
-
-    End Function
-
-    ''' <summary>
-    ''' Implements the Update method from the ICRUD interface.
-    ''' This method can be overridden in derived classes to provide specific functionality.
-    ''' </summary>
-    ''' <typeparam name="T">The type of the object to be created.</typeparam>
-    ''' <param name="args">Variable number of arguments.</param>
-    ''' <returns>Returns an object of type T, default is Nothing.</returns>
-    Public Overridable Function Update(Of T)(ParamArray args() As Object) As T Implements ICRUD.Update
-
-        For Each arg As Object In args
-
-            Console.WriteLine($"Update: {arg.GetType.ToString()} Value: {arg}")
-
-        Next
-
-        Console.WriteLine()
-
-        Return Nothing
-
-    End Function
-
-    ''' <summary>
-    ''' Implements the Delete method from the ICRUD interface.
-    ''' This method can be overridden in derived classes to provide specific functionality.
-    ''' </summary>
-    ''' <typeparam name="T">The type of the object to be created.</typeparam>
-    ''' <param name="args">Variable number of arguments.</param>
-    ''' <returns>Returns an object of type T, default is Nothing.</returns>
-    Public Function Delete(Of T)(ParamArray args() As Object) As T Implements ICRUD.Delete
-
-        For Each arg As Object In args
-
-            Console.WriteLine($"Delete: {arg.GetType.ToString()} Value: {arg}")
-
-        Next
-
-        Console.WriteLine()
-
-        Return Nothing
-
-    End Function
-
+    Public Overridable Sub Delete() Implements ICRUD.Delete
+        Dim sql As String = $"DELETE FROM {tableName} WHERE ShipperID='100';"
+        Crud.DeleteRows(sql, Crud.ConnectToTheServer(connectionString), "")
+        Console.WriteLine("Query SQL di DELETE:")
+        Console.WriteLine(Sql)
+    End Sub
 End Class
 
 #End Region
 
-#Region "CLASS"
-Public Class Table1
+Public Class Tabella1
+    Inherits Base
 
-    'inherits from basetable
-    Inherits BaseTable
+    Public Property ShipperID As String
+    Public Property CompanyName As String
+    Public Property Phone As String
 
-    'Override the Create method to provide specific functionality
-    Public Overrides Function Create(Of T)(ParamArray args() As Object) As T
+    Public Sub New(connectionString As String)
 
-        For Each arg As Object In args
+        MyBase.New("Shippers", connectionString)
+        ShipperID = "100"
+        CompanyName = "FakeCompany"
+        Phone = "123 456 7890"
 
-            Console.WriteLine($"-----Override-----Create Value: {arg}")
-
-        Next
-
-        ' Call the base class Create method
-        MyBase.Create(Of T)(args)
-
-        Console.WriteLine()
-
-        Return Nothing
-
-    End Function
-
-    Public Overrides Function Create(Of T)(ParamArray args() As Object) As T
-
-        Return MyBase.Create(Of T)(args)
-
-    End Function
-
+    End Sub
 End Class
 
-Public Class Table2
+Public Class Tabella2
+    Inherits Base
+    Public Property RegionID As String
+    Public Property RegionDescription As String
 
-    Inherits BaseTable
+    Public Sub New(connectionString As String)
+        MyBase.New("Region", connectionString)
+        RegionID = "100"
+        RegionDescription = "Ugly"
+    End Sub
 
-    ''Override the Update method to provide specific functionality
-    Public Overrides Function Update(Of T)(ParamArray args() As Object) As T
-
-        For Each arg As Object In args
-
-            Console.WriteLine($"-----Override-----Update Value: {arg}")
-
-        Next
-
-        Console.WriteLine()
-
-        Return Nothing
-
-    End Function
-
+    Public Overrides Sub Delete()
+        Dim sql As String = $"DELETE FROM {tableName} WHERE RegionID='100';"
+        MyBase.Delete()
+    End Sub
 End Class
-
-#End Region
 
 Module InterfaceCRUD
 
-#Region "MAIN"
     Sub Main()
+        Dim t1 As New Tabella1(ExternalArgumentsLoginCheck())
+        Dim t2 As New Tabella2(ExternalArgumentsLoginCheck())
 
-        Dim returnValue As Integer
+        Console.WriteLine("Generazione query CRUD per Tabella1:")
+        t1.Create()
+        t1.Read()
+        t1.Update()
+        t1.Delete()
 
-        ' Create instances of Table1 and Table2
-        Dim table1 As New Table1()
-        Dim table2 As New Table2()
+        Console.WriteLine(vbCrLf & "Generazione query CRUD per Tabella2:")
+        t2.Create()
+        t2.Read()
+        t2.Update()
+        t2.Delete()
 
-        'Test the CRUD operations, the override and the number of parameters
-        returnValue = table1.Create(Of String)("Matteo", 1, 4D)
-        returnValue = table1.Update(Of String)(1, "Matteo", 1, 4D)
-        returnValue = table1.Read(Of String)("Matteo", 1.0F, 4D)
-        returnValue = table1.Delete(Of String)("Matteo", 1D, 4D)
-        Console.WriteLine("________________________________________")
-        returnValue = table2.Create(Of Integer)(1, 3)
-        returnValue = table2.Update(Of Integer)("Matteo")
-        returnValue = table2.Read(Of Integer)(1.0F, 2D, 3)
-        returnValue = table2.Delete(Of Integer)(1, 2, 3, 4, 5, 6, 7, 8, 9)
-
-
-        'Dim table1 As New Table1("oggetto connessione")
-        'table1.property1 = "cose"
-        'table1.property2 = "cose"
-        'table1.insert
-
-
+        Console.WriteLine(vbCrLf & "Premi un tasto per terminare...")
+        Console.ReadKey()
     End Sub
 
-#End Region
+    Private Function ExternalArgumentsLoginCheck()
 
+        'Get the arguments from the command line
+        Dim args As String() = Environment.GetCommandLineArgs()
+
+        'connection for the SQL Server
+        Dim connection As SqlConnection = Nothing
+
+        'Check if the arguments are more than 1
+        If args.Count > 1 Then
+
+            Return args(1)
+
+        End If
+
+        Return connection
+
+    End Function
 End Module
+
+
+
 

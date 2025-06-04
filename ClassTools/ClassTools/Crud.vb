@@ -46,6 +46,35 @@ Public Class Crud
 
     End Function
 
+    Public Shared Function ConnectToTheServer(connectionString As String) As SqlConnection
+
+
+        WriteLogMessage(connectionString, "EXE", "Log")
+
+        ' Create a connection to the SQL Server
+        Dim connectionToServer As New SqlConnection(connectionString)
+
+        'Try to open the connection
+        Try
+
+            connectionToServer.Open()
+            WriteLogMessage("Connection open", "EXE", "Log")
+
+        Catch e As ArgumentException
+
+            WriteLogMessage("ERROR: One of the arguments is wrong", "EXE", "Log")
+
+        Catch e As Exception
+
+            WriteLogMessage("ERROR: " + e.Message, "EXE", "Log")
+
+        End Try
+
+        'Return the connection, so it can be used in the CRUD class
+        Return connectionToServer
+
+    End Function
+
 #Region "OPERATIONS ON SERVER"
 
     ''' <summary>
@@ -343,6 +372,39 @@ Public Class Crud
                 SegmentsString = ErrorMessage.Split("'")
                 Dim ColumnNameString As String = SegmentsString(2)
                 ErrorMsg = $"Reference Found{Environment.NewLine} Table: {TableNameString + Environment.NewLine}Column: {ColumnNameString}"
+                WriteLogMessage(ex.Message, "EXE", "Log")
+
+            End Try
+
+        End Using
+
+        Return isOperationCompleted
+
+    End Function
+
+    Public Shared Function DeleteRows(query As String, connectionToServer As SqlConnection, ByRef ErrorMsg As String) As Boolean
+
+        Dim isOperationCompleted = False
+        'Create a SqlCommand object to execute the query
+        Using cmd As New SqlCommand(query, connectionToServer)
+
+            'start transaction
+            cmd.Transaction = connectionToServer.BeginTransaction()
+
+            Try
+
+                'Execute the command
+                cmd.ExecuteNonQuery()
+                WriteLogMessage("Row deleted", "EXE", "Log")
+                isOperationCompleted = True
+
+                'commit the transaction
+                cmd.Transaction.Commit()
+
+            Catch ex As SqlException
+
+                ' If an error occurs, rollback the transaction
+                cmd.Transaction.Rollback()
                 WriteLogMessage(ex.Message, "EXE", "Log")
 
             End Try
