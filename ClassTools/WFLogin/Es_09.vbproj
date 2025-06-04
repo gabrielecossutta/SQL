@@ -194,20 +194,6 @@
     <Compile Include="Database.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Es_9\Database.Designer.vb">
-      <DependentUpon>Database.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Es_9\Database.vb" />
-    <Compile Include="Es_9\Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Es_9\Login.vb" />
-    <Compile Include="Es_9\My Project\Application.Designer.vb" />
-    <Compile Include="Es_9\My Project\AssemblyInfo.vb" />
-    <Compile Include="Es_9\My Project\Resources.Designer.vb" />
-    <Compile Include="Es_9\My Project\Settings.Designer.vb" />
-    <Compile Include="Es_9\obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.vb" />
-    <Compile Include="Es_9\obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.vb" />
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -236,18 +222,6 @@
     <EmbeddedResource Include="Database.resx">
       <DependentUpon>Database.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Es_9\Database.resx">
-      <DependentUpon>Database.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Es_9\Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Es_9\My Project\Resources.resx" />
-    <EmbeddedResource Include="Es_9\obj\Debug\Es_03.Database.resources" />
-    <EmbeddedResource Include="Es_9\obj\Debug\Es_03.Login.resources" />
-    <EmbeddedResource Include="Es_9\obj\Debug\Es_03.Resources.resources" />
-    <EmbeddedResource Include="Es_9\obj\Debug\WFLogin.F_Es2.resources" />
-    <EmbeddedResource Include="Es_9\obj\Debug\WFLogin.F_Es3.resources" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -259,35 +233,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Es_9\.vs\WFLogin.vbproj.dtbcache.json" />
-    <None Include="Es_9\.vs\WF_Login.vbproj.dtbcache.json" />
-    <None Include="Es_9\App.config" />
-    <None Include="Es_9\Es_03.vbproj" />
-    <None Include="Es_9\My Project\DataSources\ClassTools.AccessFile.datasource" />
-    <None Include="Es_9\My Project\DataSources\ClassTools.AccessServer.datasource" />
-    <None Include="Es_9\My Project\DataSources\ClassTools.Connections.datasource" />
-    <None Include="Es_9\My Project\DataSources\ClassTools.ConnectionString.datasource" />
-    <None Include="Es_9\My Project\DataSources\ClassTools.Crud.datasource" />
-    <None Include="Es_9\My Project\Settings.settings" />
-    <None Include="Es_9\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="Es_9\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="Es_9\obj\Debug\Es_03.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\obj\Debug\Es_03.vbproj.CoreCompileInputs.cache" />
-    <None Include="Es_9\obj\Debug\Es_03.vbproj.GenerateResource.cache" />
-    <None Include="Es_9\obj\Debug\Es_10.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\obj\Debug\Es_3.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\obj\Debug\Es_3.vbproj.CoreCompileInputs.cache" />
-    <None Include="Es_9\obj\Debug\Es_3.vbproj.GenerateResource.cache" />
-    <None Include="Es_9\obj\Debug\Es_3.vbproj.Up2Date" />
-    <None Include="Es_9\obj\Debug\Es_9.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\obj\Debug\Es_9.vbproj.CoreCompileInputs.cache" />
-    <None Include="Es_9\obj\Debug\Es_9.vbproj.GenerateResource.cache" />
-    <None Include="Es_9\obj\Debug\WF_Login.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\obj\Debug\WF_Login.vbproj.CoreCompileInputs.cache" />
-    <None Include="Es_9\obj\Debug\WF_Login.vbproj.GenerateResource.cache" />
-    <None Include="Es_9\obj\Debug\WF_Login.vbproj.Up2Date" />
-    <None Include="Es_9\obj\Release\WF_Login.vbproj.AssemblyReference.cache" />
-    <None Include="Es_9\packages.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -311,21 +256,7 @@
       <Name>Es_02</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Es_9\Es_03.vbproj.user" />
-    <Content Include="Es_9\My Project\Application.myapp" />
-    <Content Include="Es_9\obj\Debug\Es_03.exe" />
-    <Content Include="Es_9\obj\Debug\Es_03.pdb" />
-    <Content Include="Es_9\obj\Debug\Es_03.vbproj.FileListAbsolute.txt" />
-    <Content Include="Es_9\obj\Debug\Es_03.xml" />
-    <Content Include="Es_9\obj\Debug\Es_3.vbproj.FileListAbsolute.txt" />
-    <Content Include="Es_9\obj\Debug\Es_9.vbproj.FileListAbsolute.txt" />
-    <Content Include="Es_9\obj\Debug\WF_Login.vbproj.FileListAbsolute.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Es_9\bin\Release\" />
-    <Folder Include="Es_9\obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
