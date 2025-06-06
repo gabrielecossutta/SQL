@@ -109,8 +109,7 @@ Public Class Login
                 Dim Form2 As New Database(Me, connectionToServer, connection.ConnectionStrings(index).Port, connection.ConnectionStrings(index).URL)
 
                 'Show the second form
-                Form2.Show()
-                Me.Hide()
+                Form2.ShowDialog()
 
             End If
         Else

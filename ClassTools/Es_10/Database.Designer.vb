@@ -114,7 +114,7 @@ Partial Class Database
         Me.Controls.Add(Me.LB_Web)
         Me.Controls.Add(Me.LB_DataBase)
         Me.Name = "Database"
-        Me.Text = "Form2"
+        Me.Text = "ES10"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

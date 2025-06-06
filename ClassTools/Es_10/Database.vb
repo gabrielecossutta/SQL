@@ -45,10 +45,13 @@ Public Class Database
     'This constructor is used to initialize the form
     Public Sub New(ByVal Form1 As Login, ByVal ConnectionToServer As SqlConnection, Port As String, Url As String)
 
+
         'Inizialize components
         InitializeComponent()
+        '---------------------------------------cambiare da proprietà -------------------------------------------------------------
         Me.Text = "ES10"
         Me.StartPosition = FormStartPosition.CenterScreen
+        '--------------------------------------------------------------------------------------------------------------------------
         Me.connectionToServer = ConnectionToServer
         Me.form1 = Form1
         Me.Url = Url
@@ -104,12 +107,12 @@ Public Class Database
         'Create a string containing the csv and write it on a file after checking if is not null
         Dim sb As New StringBuilder()
         sb = CreateCsvFile(sb, dataTableDB)
-        If sb Is Nothing Then
 
+        If dataTableDB.Columns.Count < 1 Then
             Return
-
         End If
-        Utils.WriteAFile(sb.ToString(), "EXE/CSV", TB_FileName.Text + "Db", "csv", False)
+
+        Utils.WriteAFile(sb.ToString(), "EXE/CSV", $"{TB_FileName.Text}Db", "csv", False)
 
         'Divide every line in a string to write in the ListBox
         Dim lines() As String = sb.ToString().Split(New String() {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries)
@@ -182,6 +185,11 @@ Public Class Database
                 'Trasform the datatable in a csv file and save it
                 Dim sb As New StringBuilder()
                 sb = CreateCsvFile(sb, dataTableWeb)
+
+                If dataTableWeb Is Nothing Then
+                    Return
+                End If
+
                 Utils.WriteAFile(sb.ToString(), "EXE/CSV", TB_FileName.Text + "Web", "csv", False)
 
                 'Divide every line in a string to write in the ListBox
@@ -283,15 +291,17 @@ Public Class Database
     ''' </summary>
     ''' <param name="sb"> String to save the csv file</param>
     ''' <param name="datatable"> Datatable to turn in a csv string</param>
-    Private Function CreateCsvFile(sb As StringBuilder, datatable As DataTable) As StringBuilder '''''''''''''''''è meno dispendioso passarlo per riferimento o farlo ritornare
+    Private Function CreateCsvFile(sb As StringBuilder, datatable As DataTable) As StringBuilder
+
+        If datatable.Columns.Count < 1 Then
+            Return Nothing
+        End If
 
         datatable = OrderListBy(datatable)
 
         'Append every Columnname with a ;
         For Each col As DataColumn In datatable.Columns
-
             sb.Append(col.ColumnName & ";")
-
         Next
 
         'Check is the string is not empty
