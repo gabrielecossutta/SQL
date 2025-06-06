@@ -1,0 +1,11 @@
+﻿CategoryID;CategoryName;Description;Picture
+0;empty;good;System.Byte[]
+1;Beverages;Soft drinks, coffees, teas, beers, and ales;System.Byte[]
+2;Condiments;Sweet and savory sauces, relishes, spreads, and seasonings;System.Byte[]
+3;Confections;Desserts, candies, and sweet breads;System.Byte[]
+4;Dairy Products;Cheeses;System.Byte[]
+5;Grains/Cereals;Breads, crackers, pasta, and cereal;System.Byte[]
+6;Meat/Poultry;Prepared meats;System.Byte[]
+7;Produce;Dried fruit and bean curd;System.Byte[]
+8;Seafood;Seaweed and fish;System.Byte[]
+

@@ -8,7 +8,9 @@
             "DatabaseName": "Northwind",
             "UserName": "NorthwindUser",
             "Password": "123",
-            "PathWebServer": "WEB"
+            "PathWebServer": "WEB",
+            "URL": "http://localhost:@Port/Esercizio/@FileName.html",
+            "Port": "80"
         },
         {
             "ID": "1",
@@ -16,7 +18,9 @@
             "DatabaseName": "Northwind",
             "UserName": "sa",
             "Password": "123",
-            "PathWebServer": null
+            "PathWebServer": "WEB",
+            "URL": "http://localhost:@Port/Esercizio/@FileName.html",
+            "Port": "90"
         },
         {
             "ID": "2",
@@ -24,7 +28,9 @@
             "DatabaseName": "<empty>",
             "UserName": "User",
             "Password": "<empty>",
-            "PathWebServer": null
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
         },
         {
             "ID": "3",
@@ -32,7 +38,9 @@
             "DatabaseName": "<empty>",
             "UserName": "<empty>",
             "Password": "<empty>",
-            "PathWebServer": null
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
         },
         {
             "ID": "4",
@@ -40,7 +48,9 @@
             "DatabaseName": "<empty>",
             "UserName": "<empty>",
             "Password": "<empty>",
-            "PathWebServer": null
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
         }
     ]
 }

@@ -3,34 +3,54 @@
     "ProtocolName": "Create",
     "ConnectionStrings": [
         {
+            "ID": "0",
             "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
             "DatabaseName": "Northwind",
             "UserName": "NorthwindUser",
-            "Password": "123"
+            "Password": "123",
+            "PathWebServer": "WEB",
+            "URL": "http://localhost:@Port/@FileName.html",
+            "Port": "80"
         },
         {
+            "ID": "1",
             "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
             "DatabaseName": "Northwind",
             "UserName": "sa",
-            "Password": "123"
+            "Password": "123",
+            "PathWebServer": "WEB",
+            "URL": "http://localhost:@Port/@FileName.html",
+            "Port": "90"
         },
         {
+            "ID": "2",
+            "SQLServerName": "<empty>",
+            "DatabaseName": "<empty>",
+            "UserName": "User",
+            "Password": "<empty>",
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
+        },
+        {
+            "ID": "3",
             "SQLServerName": "<empty>",
             "DatabaseName": "<empty>",
             "UserName": "<empty>",
-            "Password": "<empty>"
+            "Password": "<empty>",
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
         },
         {
+            "ID": "4",
             "SQLServerName": "<empty>",
             "DatabaseName": "<empty>",
             "UserName": "<empty>",
-            "Password": "<empty>"
-        },
-        {
-            "SQLServerName": "<empty>",
-            "DatabaseName": "<empty>",
-            "UserName": "<empty>",
-            "Password": "<empty>"
+            "Password": "<empty>",
+            "PathWebServer": "<empty>",
+            "URL": "<empty>",
+            "Port": "<empty>"
         }
     ]
 }

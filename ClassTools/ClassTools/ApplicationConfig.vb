@@ -73,7 +73,6 @@ Public Module ApplicationConfig
         Dim connection As Connections = JsonConvert.DeserializeObject(Of Connections)(jsonString)
 
         WriteLogMessage("Data Loaded from Json File", "EXE", "Log")
-
         Return connection
 
     End Function
@@ -98,6 +97,8 @@ Public Module ApplicationConfig
         Public Property UserName As String
         Public Property Password As String
         Public Property PathWebServer As String
+        Public Property URL As String
+        Public Property Port As String
     End Class
 
 #End Region

@@ -1,0 +1,2 @@
+﻿<html><head><title>CustomerCustomerDemo</title></head><body><table border='1'><tr><th>CustomerID</th><th>CustomerTypeID</th></tr></table></body></html>
+

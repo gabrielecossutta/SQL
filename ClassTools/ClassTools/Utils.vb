@@ -44,8 +44,7 @@ Public Module Utils
     ''' <param name="folderName">The name of the folder where the file is located.</param>
     ''' <param name="fileName">The name of the log file.</param>
     ''' <param name="extension">extenction</param>
-    Public Function WriteAFile(message As String, folderName As String, fileName As String, extension As String) As String
-
+    Public Function WriteAFile(message As String, folderName As String, fileName As String, extension As String, append As Boolean) As String
         'Get the base path of the application
         Dim basePath As String = AppDomain.CurrentDomain.BaseDirectory
 
@@ -55,14 +54,21 @@ Public Module Utils
         'Enter the EXE folder path
         Dim FolderPath As String = System.IO.Path.Combine(parentPath, folderName)
 
+        'Ensure the folder exists
+        If Not System.IO.Directory.Exists(FolderPath) Then
+            System.IO.Directory.CreateDirectory(FolderPath)
+        End If
+
         'Create the file path
         Dim filePath As String = $"{FolderPath}\{fileName}.{extension}"
 
-        'Create a stream writer to write on the TXT file
-        Dim file As IO.StreamWriter
+        'Create the file if it does not exist
+        If Not System.IO.File.Exists(filePath) Then
+            System.IO.File.Create(filePath).Dispose()
+        End If
 
-        'Open the file and write the log message without overwriting
-        file = My.Computer.FileSystem.OpenTextFileWriter(filePath, False)
+        'Open the file and write the log message
+        Dim file As IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(filePath, append)
 
         'Write the log message to the file with the current time
         file.WriteLine(message)
@@ -71,9 +77,8 @@ Public Module Utils
         file.Close()
         file.Dispose()
 
-        'return thee file path
+        'Return the file path
         Return filePath
-
     End Function
 
 End Module

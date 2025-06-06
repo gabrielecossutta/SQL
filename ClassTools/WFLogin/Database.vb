@@ -516,7 +516,12 @@ Public Class Database
             For Each column As DataColumn In rawData.Columns
 
                 'stamp the value of the column
-                stringHTML += $"<td>{rawData.Rows(i)(column)}</td>"
+                If TypeOf rawData.Rows(i)(column) Is String Then
+                    stringHTML += $"<td>{rawData.Rows(i)(column).TrimEnd()}</td>"
+                Else
+                    stringHTML += $"<td>{rawData.Rows(i)(column)}</td>"
+
+                End If
 
             Next
 
@@ -526,7 +531,7 @@ Public Class Database
         stringHTML += "</tr></table></body></html>"
 
         'Write the HTML string to a file in the specified web path
-        WriteAFile(stringHTML, webPathString, tableName, "html")
+        WriteAFile(stringHTML, webPathString, tableName, "html", False)
 
         WriteLogMessage("Query: " + query, "EXE", "Log")
 

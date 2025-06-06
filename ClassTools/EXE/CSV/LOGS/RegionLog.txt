@@ -1,0 +1,2 @@
+﻿<html><head><title>Region</title></head><body><table border='1'><tr><th>RegionID</th><th>RegionDescription</th></tr><tr><td>1</td><td>OVEST</td></tr><tr><td>2</td><td>WEST</td></tr><tr><td>3</td><td>NORTH</td></tr><tr><td>4</td><td>SOUTH</td></tr></table></body></html>
+

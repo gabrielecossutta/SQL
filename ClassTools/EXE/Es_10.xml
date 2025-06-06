@@ -27,41 +27,45 @@ Es_10
  This Form is used to manage the CRUD operation on server
  </summary>
 </member>
-<member name="M:Es_10.Database.PopulateTables">
-<summary>
-Populate the TabControl with the tables from the SQL Server
-</summary>
+<member name="M:Es_10.Database.StartDatabaseRequest">
+ <summary>
+ Retrice the datatable from the Local Server, creare a csv and write it on the listBox
+ </summary>
 </member>
-<member name="M:Es_10.Database.LoadTables">
+<member name="M:Es_10.Database.LoadTables(System.String)">
  <summary>
  Load the tables name from the SQL Server and populate the TabControl with them
  </summary>
 </member>
-<member name="M:Es_10.Database.RefreshTables">
+<member name="M:Es_10.Database.StartWebRequest">
  <summary>
- Refresh the tables in the TabControl to reflect any changes made
+ Retrice the datatable from the Web Server, creare a csv and write it on the listBox
  </summary>
 </member>
-<member name="M:Es_10.Database.GetDefaultValue(System.String)">
+<member name="M:Es_10.Database.HtmlToDataTable(System.String)">
  <summary>
- Return a default value for the given data type
+ Turn the HTML in a datatable
  </summary>
- <param name="dataTypeFullName">Type of the variable to return a default value</param>
-</member>
-<member name="M:Es_10.Database.FindSelectedGrid">
- <summary>
- Find the selected DataGridView in the selected tab of the TabControl
- </summary>
+ <param name="html">String html to turn in Datatable</param>
  <returns></returns>
 </member>
-<member name="M:Es_10.Database.ResultOperation(System.Boolean)">
+<member name="M:Es_10.Database.CreateCsvFile(System.Text.StringBuilder,System.Data.DataTable)">
  <summary>
- Show a message box with the result of the operation
+ Convert a datatable in a csv on a string
  </summary>
+ <param name="sb"> String to save the csv file</param>
+ <param name="datatable"> Datatable to turn in a csv string</param>
 </member>
-<member name="M:Es_10.Database.ResultOperation(System.Boolean,System.String)">
+<member name="M:Es_10.Database.OrderListBy(System.Data.DataTable)">
  <summary>
- Show a message box with the result of the operation and a specific error message
+ Randomly sort the datatable
+ </summary>
+ <param name="dataTable"></param>
+ <returns></returns>
+</member>
+<member name="M:Es_10.Database.CompareListBox">
+ <summary>
+ Compare every lines of the 2 lists
  </summary>
 </member>
 <member name="M:Es_10.Login.LoadWhenOpened">

@@ -1,3 +1,8 @@
 ﻿27/05/2025 14:45:57 Button "ConvertInHtml" pressed;
 27/05/2025 14:46:02 Button "ConvertInHtml" pressed;
 28/05/2025 08:25:35 Button "ConvertInHtml" pressed;
+04/06/2025 15:12:53 Button "ConvertInHtml" pressed;
+05/06/2025 10:54:01 Button "ConvertInHtml" pressed;
+05/06/2025 11:33:27 Button "ConvertInHtml" pressed;
+05/06/2025 11:36:10 Button "ConvertInHtml" pressed;
+05/06/2025 14:29:55 Button "ConvertInHtml" pressed;
