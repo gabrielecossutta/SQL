@@ -3,22 +3,22 @@ Imports System.Linq.Expressions
 
 Public Class PrefabItem
 
-    Dim f As F_Totem
+    Dim TotemForm As F_Totem
 
+    Public Property IdProduct As String
     Public Property ItemName As String
     Public Property ItemQuantity As Integer
-    Public Property ItemBaseprice As Decimal
+    Public Property Baseprice As Decimal
     Public Property TotalItemPrice As Decimal
-    Sub New(ItemName As String, BasePrice As Decimal, TotemForm As F_Totem)
+    Sub New(IdProduct As Integer, ItemName As String, BasePrice As Decimal)
 
         InitializeComponent()
-        
-        ItemBaseprice = BasePrice ' prezzo esterno
-        TotalItemPrice = BasePrice
+        Me.IdProduct = IdProduct
         Me.ItemName = ItemName
+        Me.Baseprice = BasePrice
+        TotalItemPrice = BasePrice
         L_ItemName.Text = ItemName
         ItemQuantity = 1
-        UpdatePrice()
 
         'controllare se esiste già un item uaguale, se si imprementarlo senza crearne un'altro
     End Sub
@@ -45,6 +45,8 @@ Public Class PrefabItem
     End Sub
 
     Private Sub PrefabItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TotemForm = TryCast(Me.ParentForm(), F_Totem)
+        TotemForm.ListaItems.Add(Me)
         UpdatePrice()
     End Sub
 
@@ -58,17 +60,13 @@ Public Class PrefabItem
     Sub UpdatePrice()
 
         L_ProductQuantity.Text = ItemQuantity
-        TotalItemPrice = ItemBaseprice * ItemQuantity
+        TotalItemPrice = Baseprice * ItemQuantity
         L_ProductPrice.Text = $"Price: {TotalItemPrice.ToString("F2")}€"
-        f = TryCast(Me.ParentForm(), F_Totem)
-        'perchè non funziona la prima volta
-        If f IsNot Nothing Then
-            f.CalculateTotalPrice()
-        End If
+        TotemForm.CalculateTotalPrice()
 
     End Sub
 
-    Private Sub P_Order_Paint(sender As Object, e As PaintEventArgs) Handles P_Order.Paint
+    Private Sub L_ProductQuantity_Click(sender As Object, e As EventArgs) Handles L_ProductQuantity.Click
 
     End Sub
 End Class

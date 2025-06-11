@@ -1,19 +1,33 @@
-﻿Public Class PrefabProduct
+﻿Imports System.IO
+Imports System.Drawing
+
+Public Class PrefabProduct
 
     Dim BasePrice As Decimal
     Dim ImageProduct As Image
     Dim NameProduct As String
-    Dim TotemForm As F_Totem
-    Sub New(NameProduct As String, BasePrice As Decimal, TotemForm As F_Totem) 'NameProduct As String, BasePrice As Decimal, ImageProduct As Image
+    Dim IdProduct As Integer
+    Sub New(IdProduct As Integer, NameProduct As String, BasePrice As Decimal, ImageProduct As Byte()) 'NameProduct As String, BasePrice As Decimal, ImageProduct As Image
 
         InitializeComponent()
         Me.BasePrice = BasePrice
         Me.NameProduct = NameProduct
-        Me.TotemForm = TotemForm
-        L_PriceProduct.Text = BasePrice
+        Me.IdProduct = IdProduct
+        L_PriceProduct.Text = BasePrice.ToString("F2")
         L_ProductName.Text = NameProduct
+        If ImageProduct IsNot Nothing Then
+            Dim _image = ByteArrayToImage(ImageProduct)
+            ' Ad esempio, assegna l'immagine a un PictureBox interno
+            PB_ImageProduct.Image = _image
+            PB_ImageProduct.SizeMode = PictureBoxSizeMode.StretchImage
 
+        End If
     End Sub
+    Private Function ByteArrayToImage(bytes() As Byte) As System.Drawing.Image
+        Using ms As New MemoryStream(bytes)
+            Return System.Drawing.Image.FromStream(ms)
+        End Using
+    End Function
     Private Sub PB_ImageProduct_Click(sender As Object, e As EventArgs) Handles PB_ImageProduct.Click
 
         Dim FindResult() As Control = Me.ParentForm.Controls.Find("FLP_OrderList", True)
@@ -32,7 +46,7 @@
         Next
 
         If needToBeCreated Or ListOfPanel.Count < 1 Then
-            FLP_OrderLIst.Controls.Add(New PrefabItem(NameProduct, BasePrice, TotemForm))
+            FLP_OrderLIst.Controls.Add(New PrefabItem(IdProduct, NameProduct, BasePrice))
         End If
 
     End Sub
