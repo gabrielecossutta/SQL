@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.CompilerServices
+Imports System.Text
 
 Public Module Utils
 
@@ -79,6 +80,53 @@ Public Module Utils
 
         'Return the file path
         Return filePath
+    End Function
+
+
+    ''' <summary>
+    ''' Convert a datatable in a csv on a string
+    ''' </summary>
+    ''' <param name="sb"> String to save the csv file</param>
+    ''' <param name="datatable"> Datatable to turn in a csv string</param>
+    Public Function CreateCsvFile(sb As StringBuilder, datatable As DataTable, separator As String) As StringBuilder
+
+        If datatable.Columns.Count < 1 Then
+            Return Nothing
+        End If
+
+        'Append every Columnname with a ;
+        For Each col As DataColumn In datatable.Columns
+            sb.Append(col.ColumnName & ";")
+        Next
+
+        'Check is the string is not empty
+        If sb.Length < 1 Then
+
+            Return Nothing
+
+        End If
+
+        'Remove the last ; and go to the next line 
+        sb.Length -= 1
+        sb.AppendLine()
+
+        'Append every Data with a ;
+        For Each row As DataRow In datatable.Rows
+
+            For Each col As DataColumn In datatable.Columns
+
+                sb.Append(row(col).ToString().TrimEnd() & separator)
+
+            Next
+
+            'Remove the last ; and go to the next line 
+            sb.Length -= 1
+            sb.AppendLine()
+
+        Next
+
+        Return sb
+
     End Function
 
 End Module

@@ -106,7 +106,8 @@ Public Class Database
 
         'Create a string containing the csv and write it on a file after checking if is not null
         Dim sb As New StringBuilder()
-        sb = CreateCsvFile(sb, dataTableDB)
+        OrderListBy(dataTableDB)
+        sb = Utils.CreateCsvFile(sb, dataTableWeb, ";")
 
         If dataTableDB.Columns.Count < 1 Then
             Return
@@ -184,7 +185,8 @@ Public Class Database
 
                 'Trasform the datatable in a csv file and save it
                 Dim sb As New StringBuilder()
-                sb = CreateCsvFile(sb, dataTableWeb)
+                OrderListBy(dataTableWeb)
+                sb = Utils.CreateCsvFile(sb, dataTableWeb, ";")
 
                 If dataTableWeb Is Nothing Then
                     Return
@@ -286,53 +288,6 @@ Public Class Database
 
 #Region "Generic Functions"
 
-    ''' <summary>
-    ''' Convert a datatable in a csv on a string
-    ''' </summary>
-    ''' <param name="sb"> String to save the csv file</param>
-    ''' <param name="datatable"> Datatable to turn in a csv string</param>
-    Private Function CreateCsvFile(sb As StringBuilder, datatable As DataTable) As StringBuilder
-
-        If datatable.Columns.Count < 1 Then
-            Return Nothing
-        End If
-
-        datatable = OrderListBy(datatable)
-
-        'Append every Columnname with a ;
-        For Each col As DataColumn In datatable.Columns
-            sb.Append(col.ColumnName & ";")
-        Next
-
-        'Check is the string is not empty
-        If sb.Length < 1 Then
-
-            Return Nothing
-
-        End If
-
-        'Remove the last ; and go to the next line 
-        sb.Length -= 1
-        sb.AppendLine()
-
-        'Append every Data with a ;
-        For Each row As DataRow In datatable.Rows
-
-            For Each col As DataColumn In datatable.Columns
-
-                sb.Append(row(col).ToString().TrimEnd() & ";")
-
-            Next
-
-            'Remove the last ; and go to the next line 
-            sb.Length -= 1
-            sb.AppendLine()
-
-        Next
-
-        Return sb
-
-    End Function
 
     ''' <summary>
     ''' Randomly sort the datatable

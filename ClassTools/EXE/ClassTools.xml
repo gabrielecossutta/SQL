@@ -124,5 +124,12 @@ ClassTools
  <param name="fileName">The name of the log file.</param>
  <param name="extension">extenction</param>
 </member>
+<member name="M:ClassTools.Utils.CreateCsvFile(System.Text.StringBuilder,System.Data.DataTable,System.String)">
+ <summary>
+ Convert a datatable in a csv on a string
+ </summary>
+ <param name="sb"> String to save the csv file</param>
+ <param name="datatable"> Datatable to turn in a csv string</param>
+</member>
 </members>
 </doc>

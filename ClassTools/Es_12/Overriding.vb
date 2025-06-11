@@ -5,33 +5,64 @@ Imports System.ComponentModel.DataAnnotations.Schema
 Imports System.Data.Entity
 Imports System.Data.SqlClient
 Imports System.Linq
+Imports System.Text
+Imports ClassTools
 Module Module1
 
     Sub Main()
 
-        Dim overring As New Overriding()
+        Dim Client1 As New Overriding.Client With {
+        .CustomerID = "aaa",
+        .CompanyName = "bbb",
+        .ContactName = "ccc",
+        .ContactTitle = "ddd",
+        .Address = "eee",
+        .City = "fff",
+        .Region = "ggg",
+        .PostalCode = "hhh",
+        .Country = "iii",
+        .Phone = 3,
+        .Fax = 4
+            }
+        Dim Client2 As New Overriding.Client With {
+        .CustomerID = "aaa",
+        .CompanyName = "lll",
+        .ContactName = "mmm",
+        .ContactTitle = "nnn",
+        .Address = "zzz",
+        .City = "xxx",
+        .Region = "ccc",
+        .PostalCode = "vvv",
+        .Country = "bbb",
+        .Phone = 1,
+        .Fax = 2
+            }
+        Dim Client3 As New Overriding.Client With {
+        .CustomerID = "bbb",
+        .CompanyName = "bbb",
+        .ContactName = "ccc",
+        .ContactTitle = "ddd",
+        .Address = "eee",
+        .City = "fff",
+        .Region = "ggg",
+        .PostalCode = "hhh",
+        .Country = "iii",
+        .Phone = 3,
+        .Fax = 4
+            }
 
-        'Populate the list of clients using Entity Framework
-        overring.PopulateList(overring.ExternalArgumentsLoginCheck())
 
-        Console.WriteLine(overring.ToString())
+        Console.WriteLine(Client1.ToString())
         Console.ReadKey()
 
-        Console.WriteLine(overring.ClientList.Any(Function(c) c.CustomerID = "ALFKI"))
+        Console.WriteLine(Client1.Equals(Client2))
         Console.ReadKey()
 
-        Console.WriteLine(overring.ClientList.Any(Function(c) c.CustomerID = "ALFK"))
+        Console.WriteLine(Client1.Equals(Client3))
         Console.ReadKey()
 
-        'Dim classe1 As Overriding.Client
-        'classe2.CompanyName = "lollo"
-        'Dim classe2 As Overriding.Client
-        'classe2.CompanyName = "gigi"
-
-        'If classe1.Equals(class2) Then
-        '    'ok'
-        'End If
-
+        Console.WriteLine(Client2.Equals(Client3))
+        Console.ReadKey()
 
     End Sub
 
@@ -70,87 +101,19 @@ Public Class Overriding
         Public Property Phone As String
         Public Property Fax As String
 
+        'Override method to String
         Public Overrides Function ToString() As String
-
-            Return String.Join(Environment.NewLine, ClientList.Select(Function(c) $"{c.CustomerID},{c.CompanyName},{c.ContactName},{c.ContactTitle},{c.Address},{c.City},{c.Region},{c.PostalCode},{c.Country},{c.Phone},{c.Fax}"))
+            Dim properties = Me.GetType().GetProperties()
+            Return String.Join(";", properties.Select(Function(p) p.GetValue(Me)?.ToString()))
 
         End Function
 
-        'Override Equal method to compare the ClientList with a string
+        'Override method Equal
         Public Overrides Function Equals(obj As Object) As Boolean
 
-            'Try to cast the object to a string
-            Dim other As String = TryCast(obj, String)
-
-            For Each customId In Me.ClientList.Select(Of String)(Function(c) c.CustomerID)
-
-                If customId = other Then
-
-                    Return True
-
-                End If
-
-            Next
-
-            Return False
+            Return Me.CustomerID = obj.CustomerID
 
         End Function
 
     End Class
-
-#Region "OVERRIDES"
-
-    'Override the ToString method to return a string representation of the ClientList
-
-
-#End Region
-
-#Region "POPULATION FUNCTIONS"
-
-    ''' <summary>
-    ''' Populate the list of clients using Entity Framework from the database using the connection string passed as an argument
-    ''' </summary>
-    Public Sub PopulateList(connectionString As String)
-
-        Try
-            'Instantiate the DbContext with the connection string
-            Using db As New CustomersDbContext(connectionString)
-
-                'retrive the list of clients from the datacontext and convert it to a list
-                ClientList = db.Customers.ToList()
-
-            End Using
-
-        Catch ex As Exception
-
-            Console.WriteLine($"Error during che population of the list with Entity Framework: {ex.Message}")
-
-        End Try
-
-    End Sub
-
-    ''' <summary>
-    ''' Check if the are arguments passed from the command line, if so split the connection string and retrive the SQLServerName, DatabaseName, Username and Password then connect to the SQL Server
-    ''' </summary>
-    Public Function ExternalArgumentsLoginCheck()
-
-        'Get the arguments from the command line
-        Dim args As String() = Environment.GetCommandLineArgs()
-
-        'connection for the SQL Server
-        Dim connection As SqlConnection = Nothing
-
-        'Check if the arguments are more than 1
-        If args.Count > 1 Then
-
-            Return args(1)
-
-        End If
-
-        Return connection
-
-    End Function
-
-#End Region
-
 End Class
