@@ -83,6 +83,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbStructure.vb" />
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KitchenForm.Designer.vb">
       <DependentUpon>KitchenForm.vb</DependentUpon>
     </Compile>
@@ -129,10 +136,19 @@
     <Compile Include="PrefabItem.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="KitchenOrder.Designer.vb">
+      <DependentUpon>KitchenOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenOrder.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BackOfficeForm.resx">
       <DependentUpon>BackOfficeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenForm.resx">
       <DependentUpon>KitchenForm.vb</DependentUpon>
@@ -151,6 +167,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KitchenOrder.resx">
+      <DependentUpon>KitchenOrder.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

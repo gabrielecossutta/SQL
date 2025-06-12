@@ -1,34 +1,32 @@
-﻿Public Class F_Kitchen
-    Private Sub Label3_Click(sender As Object, e As EventArgs)
+﻿Imports System.Data.SqlClient
 
+Public Class F_Kitchen
+
+    Private Sub F_Kitchen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim connectionString As String = "Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=McDonald;User=UserName;Password=123;"
+        Dim query As String = "SELECT IdOrders FROM Orders WHERE OrderCompleted = 0"
+        Dim listaOrdini As New List(Of Integer)
+
+        Using conn As New SqlConnection(connectionString)
+            Dim cmd As New SqlCommand(query, conn)
+
+            Try
+                conn.Open()
+                Dim reader As SqlDataReader = cmd.ExecuteReader()
+                While reader.Read()
+                    listaOrdini.Add(reader.GetInt32(0))
+                End While
+            Catch ex As Exception
+                MessageBox.Show("Errore nel caricamento degli ordini: " & ex.Message)
+            End Try
+        End Using
+
+        For Each idOrder As Integer In listaOrdini
+            FLP_KitchenOrders.Controls.Add(New KitchenOrder(idOrder))
+        Next
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs)
+    Private Sub FLP_KitchenOrders_Paint(sender As Object, e As PaintEventArgs) Handles FLP_KitchenOrders.Paint
 
     End Sub
-
-    Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Panel1_Paint_1(sender As Object, e As PaintEventArgs)
-
-    End Sub
-
-    Private Sub B_OrderComplete_Click(sender As Object, e As EventArgs) Handles B_OrderComplete.Click
-
-        ' Ottiene il controllo Panel che contiene il bottone
-        Dim bottone As Button = DirectCast(sender, Button)
-        Dim pannello As Panel = TryCast(bottone.Parent, Panel)
-
-        If pannello IsNot Nothing Then
-            ' Rimuove il pannello dal suo contenitore (ad es. il Form)
-            pannello.Parent.Controls.Remove(pannello)
-            pannello.Dispose()
-        End If
-    End Sub
-
 End Class

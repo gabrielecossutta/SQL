@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\dbstructure.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\dbstructure.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\backofficeform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\backofficeform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\kitchenform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\kitchenform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_21\\prefabitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\kitchenorder.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\kitchenorder.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\prefabitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\prefabitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\prefabitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\prefabitem.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\prefabproduct.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{A6A8DA76-C87D-4B21-BA00-D1BD2402392C}|Es_21\\Es_21.vbproj|solutionrelative:es_21\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +42,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "DbStructure.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\DbStructure.vb",
+              "RelativeDocumentMoniker": "Es_21\\DbStructure.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\DbStructure.vb",
+              "RelativeToolTip": "Es_21\\DbStructure.vb",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-12T09:53:38.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "TotemForm.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\TotemForm.vb",
               "RelativeDocumentMoniker": "Es_21\\TotemForm.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\TotemForm.vb",
               "RelativeToolTip": "Es_21\\TotemForm.vb",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAiwG4AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAIAxwDwAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:09:34.466Z",
+              "WhenOpened": "2025-06-12T09:52:58.077Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "PrefabProduct.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabProduct.vb",
               "RelativeDocumentMoniker": "Es_21\\PrefabProduct.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabProduct.vb",
               "RelativeToolTip": "Es_21\\PrefabProduct.vb",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwDAAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:08:11.655Z",
+              "WhenOpened": "2025-06-12T09:52:54.985Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "PrefabItem.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabItem.vb",
               "RelativeDocumentMoniker": "Es_21\\PrefabItem.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabItem.vb",
               "RelativeToolTip": "Es_21\\PrefabItem.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:08:58.411Z",
+              "WhenOpened": "2025-06-12T09:52:51.773Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TotemForm.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\TotemForm.vb",
-              "RelativeDocumentMoniker": "Es_21\\TotemForm.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\TotemForm.vb [Progettazione]",
-              "RelativeToolTip": "Es_21\\TotemForm.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:07:46.641Z",
-              "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PrefabProduct.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabProduct.vb",
-              "RelativeDocumentMoniker": "Es_21\\PrefabProduct.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabProduct.vb [Progettazione]",
-              "RelativeToolTip": "Es_21\\PrefabProduct.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:08:03.642Z",
-              "EditorCaption": " [Progettazione]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PrefabItem.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabItem.vb",
-              "RelativeDocumentMoniker": "Es_21\\PrefabItem.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\PrefabItem.vb [Progettazione]",
-              "RelativeToolTip": "Es_21\\PrefabItem.vb [Progettazione]",
+              "Title": "Login.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\Login.vb",
+              "RelativeDocumentMoniker": "Es_21\\Login.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\Login.vb",
+              "RelativeToolTip": "Es_21\\Login.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-10T15:08:01.811Z",
-              "EditorCaption": " [Progettazione]"
+              "WhenOpened": "2025-06-12T09:52:45.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KitchenOrder.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\KitchenOrder.vb",
+              "RelativeDocumentMoniker": "Es_21\\KitchenOrder.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\KitchenOrder.vb",
+              "RelativeToolTip": "Es_21\\KitchenOrder.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-12T09:52:41.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BackOfficeForm.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\BackOfficeForm.vb",
+              "RelativeDocumentMoniker": "Es_21\\BackOfficeForm.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\BackOfficeForm.vb",
+              "RelativeToolTip": "Es_21\\BackOfficeForm.vb",
+              "ViewState": "AgIAADAAAAAAAAAAAAAvwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-12T09:52:33.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "KitchenForm.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\KitchenForm.vb",
+              "RelativeDocumentMoniker": "Es_21\\KitchenForm.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_21\\KitchenForm.vb",
+              "RelativeToolTip": "Es_21\\KitchenForm.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-12T09:52:28.639Z",
+              "EditorCaption": ""
             }
           ]
         }

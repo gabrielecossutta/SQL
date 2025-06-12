@@ -27,20 +27,20 @@ Partial Class F_BackOffice
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.P_AddProduct = New System.Windows.Forms.Panel()
         Me.L_PanelAddProduct = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.L_Price = New System.Windows.Forms.Label()
+        Me.TB_Price = New System.Windows.Forms.TextBox()
+        Me.B_AddNewProduct = New System.Windows.Forms.Button()
         Me.L_ImageProduct = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PB_Product = New System.Windows.Forms.PictureBox()
+        Me.L_Desctiption = New System.Windows.Forms.Label()
+        Me.TB_Description = New System.Windows.Forms.TextBox()
+        Me.L_Name = New System.Windows.Forms.Label()
+        Me.TB_Name = New System.Windows.Forms.TextBox()
+        Me.P_Report = New System.Windows.Forms.Panel()
         Me.L_StampReport = New System.Windows.Forms.Label()
         Me.P_AddProduct.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
+        CType(Me.PB_Product, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.P_Report.SuspendLayout()
         Me.SuspendLayout()
         '
         'B_StampReport
@@ -69,15 +69,15 @@ Partial Class F_BackOffice
         '
         Me.P_AddProduct.BackColor = System.Drawing.Color.Gainsboro
         Me.P_AddProduct.Controls.Add(Me.L_PanelAddProduct)
-        Me.P_AddProduct.Controls.Add(Me.Label1)
-        Me.P_AddProduct.Controls.Add(Me.TextBox1)
-        Me.P_AddProduct.Controls.Add(Me.Button1)
+        Me.P_AddProduct.Controls.Add(Me.L_Price)
+        Me.P_AddProduct.Controls.Add(Me.TB_Price)
+        Me.P_AddProduct.Controls.Add(Me.B_AddNewProduct)
         Me.P_AddProduct.Controls.Add(Me.L_ImageProduct)
-        Me.P_AddProduct.Controls.Add(Me.PictureBox1)
-        Me.P_AddProduct.Controls.Add(Me.Label3)
-        Me.P_AddProduct.Controls.Add(Me.TextBox3)
-        Me.P_AddProduct.Controls.Add(Me.Label4)
-        Me.P_AddProduct.Controls.Add(Me.TextBox2)
+        Me.P_AddProduct.Controls.Add(Me.PB_Product)
+        Me.P_AddProduct.Controls.Add(Me.L_Desctiption)
+        Me.P_AddProduct.Controls.Add(Me.TB_Description)
+        Me.P_AddProduct.Controls.Add(Me.L_Name)
+        Me.P_AddProduct.Controls.Add(Me.TB_Name)
         Me.P_AddProduct.Location = New System.Drawing.Point(12, 12)
         Me.P_AddProduct.Name = "P_AddProduct"
         Me.P_AddProduct.Size = New System.Drawing.Size(382, 332)
@@ -93,32 +93,32 @@ Partial Class F_BackOffice
         Me.L_PanelAddProduct.TabIndex = 22
         Me.L_PanelAddProduct.Text = "Add Product"
         '
-        'Label1
+        'L_Price
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 84)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 20)
-        Me.Label1.TabIndex = 21
-        Me.Label1.Text = "Price"
+        Me.L_Price.AutoSize = True
+        Me.L_Price.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_Price.Location = New System.Drawing.Point(3, 84)
+        Me.L_Price.Name = "L_Price"
+        Me.L_Price.Size = New System.Drawing.Size(44, 20)
+        Me.L_Price.TabIndex = 21
+        Me.L_Price.Text = "Price"
         '
-        'TextBox1
+        'TB_Price
         '
-        Me.TextBox1.Location = New System.Drawing.Point(3, 107)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(177, 20)
-        Me.TextBox1.TabIndex = 20
+        Me.TB_Price.Location = New System.Drawing.Point(3, 107)
+        Me.TB_Price.Name = "TB_Price"
+        Me.TB_Price.Size = New System.Drawing.Size(177, 20)
+        Me.TB_Price.TabIndex = 20
         '
-        'Button1
+        'B_AddNewProduct
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(23, 266)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(332, 50)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Add New Product"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.B_AddNewProduct.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.B_AddNewProduct.Location = New System.Drawing.Point(23, 266)
+        Me.B_AddNewProduct.Name = "B_AddNewProduct"
+        Me.B_AddNewProduct.Size = New System.Drawing.Size(332, 50)
+        Me.B_AddNewProduct.TabIndex = 13
+        Me.B_AddNewProduct.Text = "Add New Product"
+        Me.B_AddNewProduct.UseVisualStyleBackColor = True
         '
         'L_ImageProduct
         '
@@ -130,61 +130,61 @@ Partial Class F_BackOffice
         Me.L_ImageProduct.TabIndex = 19
         Me.L_ImageProduct.Text = "Image"
         '
-        'PictureBox1
+        'PB_Product
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Gray
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(186, 61)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(193, 184)
-        Me.PictureBox1.TabIndex = 14
-        Me.PictureBox1.TabStop = False
+        Me.PB_Product.BackColor = System.Drawing.Color.Gray
+        Me.PB_Product.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PB_Product.Location = New System.Drawing.Point(186, 61)
+        Me.PB_Product.Name = "PB_Product"
+        Me.PB_Product.Size = New System.Drawing.Size(193, 184)
+        Me.PB_Product.TabIndex = 14
+        Me.PB_Product.TabStop = False
         '
-        'Label3
+        'L_Desctiption
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(3, 130)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(89, 20)
-        Me.Label3.TabIndex = 18
-        Me.Label3.Text = "Description"
+        Me.L_Desctiption.AutoSize = True
+        Me.L_Desctiption.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_Desctiption.Location = New System.Drawing.Point(3, 130)
+        Me.L_Desctiption.Name = "L_Desctiption"
+        Me.L_Desctiption.Size = New System.Drawing.Size(89, 20)
+        Me.L_Desctiption.TabIndex = 18
+        Me.L_Desctiption.Text = "Description"
         '
-        'TextBox3
+        'TB_Description
         '
-        Me.TextBox3.Location = New System.Drawing.Point(4, 153)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(176, 92)
-        Me.TextBox3.TabIndex = 15
+        Me.TB_Description.Location = New System.Drawing.Point(4, 153)
+        Me.TB_Description.Multiline = True
+        Me.TB_Description.Name = "TB_Description"
+        Me.TB_Description.Size = New System.Drawing.Size(176, 92)
+        Me.TB_Description.TabIndex = 15
         '
-        'Label4
+        'L_Name
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(3, 38)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(51, 20)
-        Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Name"
+        Me.L_Name.AutoSize = True
+        Me.L_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_Name.Location = New System.Drawing.Point(3, 38)
+        Me.L_Name.Name = "L_Name"
+        Me.L_Name.Size = New System.Drawing.Size(51, 20)
+        Me.L_Name.TabIndex = 17
+        Me.L_Name.Text = "Name"
         '
-        'TextBox2
+        'TB_Name
         '
-        Me.TextBox2.Location = New System.Drawing.Point(3, 61)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(176, 20)
-        Me.TextBox2.TabIndex = 16
+        Me.TB_Name.Location = New System.Drawing.Point(3, 61)
+        Me.TB_Name.Name = "TB_Name"
+        Me.TB_Name.Size = New System.Drawing.Size(176, 20)
+        Me.TB_Name.TabIndex = 16
         '
-        'Panel1
+        'P_Report
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Gainsboro
-        Me.Panel1.Controls.Add(Me.L_StampReport)
-        Me.Panel1.Controls.Add(Me.DTP_ReportDate)
-        Me.Panel1.Controls.Add(Me.B_StampReport)
-        Me.Panel1.Location = New System.Drawing.Point(12, 357)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(382, 110)
-        Me.Panel1.TabIndex = 13
+        Me.P_Report.BackColor = System.Drawing.Color.Gainsboro
+        Me.P_Report.Controls.Add(Me.L_StampReport)
+        Me.P_Report.Controls.Add(Me.DTP_ReportDate)
+        Me.P_Report.Controls.Add(Me.B_StampReport)
+        Me.P_Report.Location = New System.Drawing.Point(12, 357)
+        Me.P_Report.Name = "P_Report"
+        Me.P_Report.Size = New System.Drawing.Size(382, 110)
+        Me.P_Report.TabIndex = 13
         '
         'L_StampReport
         '
@@ -201,15 +201,15 @@ Partial Class F_BackOffice
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(406, 479)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.P_Report)
         Me.Controls.Add(Me.P_AddProduct)
         Me.Name = "F_BackOffice"
         Me.Text = "BackOffice"
         Me.P_AddProduct.ResumeLayout(False)
         Me.P_AddProduct.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        CType(Me.PB_Product, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.P_Report.ResumeLayout(False)
+        Me.P_Report.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -218,16 +218,16 @@ Partial Class F_BackOffice
     Friend WithEvents DTP_ReportDate As DateTimePicker
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents P_AddProduct As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents L_Price As Label
+    Friend WithEvents TB_Price As TextBox
+    Friend WithEvents B_AddNewProduct As Button
     Friend WithEvents L_ImageProduct As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents PB_Product As PictureBox
+    Friend WithEvents L_Desctiption As Label
+    Friend WithEvents TB_Description As TextBox
+    Friend WithEvents L_Name As Label
+    Friend WithEvents TB_Name As TextBox
     Friend WithEvents L_PanelAddProduct As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents P_Report As Panel
     Friend WithEvents L_StampReport As Label
 End Class

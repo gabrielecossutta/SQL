@@ -4,6 +4,9 @@ Imports System.Data.Entity.Core.Metadata.Edm
 Imports System.Data.Entity.Infrastructure
 Imports System.Data.SqlClient
 Imports System.Data.Common
+Imports System.Security.Cryptography
+Imports Es_21.DbStructure
+Imports System.ComponentModel.DataAnnotations.Schema
 Public Class F_Totem
 
     Property TotalPrice As Decimal
@@ -17,15 +20,6 @@ Public Class F_Totem
         TotemForm = Me
 
     End Sub
-    Sub CreateProduct()
-        'imagine
-        'nome
-        'prezzo
-        'Dim productControl As New PrefabProduct()
-        'popolo
-        'FLP_Hamburgers.Controls.Add(productControl)
-
-    End Sub
 
     Public Sub CalculateTotalPrice()
 
@@ -33,7 +27,6 @@ Public Class F_Totem
         For Each Panel As PrefabItem In ListaItems
             TotalPrice = TotalPrice + Panel.TotalItemPrice
         Next
-
         L_TotalPrice.Text = $"Total Price: {TotalPrice.ToString("F2")}€"
 
     End Sub
@@ -42,109 +35,80 @@ Public Class F_Totem
         If ListaItems.Count < 1 Then
             Return
         End If
-        Using ctx As New MyDbContext()
-            Using conn As DbConnection = ctx.Database.Connection
-                If conn.State = ConnectionState.Closed Then conn.Open()
+        Using context As New DbStructure.AppDbContext("Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=McDonald;User=UserName;Password=123;")
+            Dim Order As New DbStructure.Orders With
+            {
+            .OrderDate = DateAndTime.Now,
+            .OrderCompleted = False,
+            .OrderInsertDate = DateAndTime.Now,
+            .OrderInsertUser = "Totem"
+             }
+            context.Orders.Add(Order)
+            context.SaveChanges()
 
-                Using transaction = conn.BeginTransaction()
-                    Try
-                        Dim orderId As Integer
+            For Each Item As PrefabItem In ListaItems
+                Dim OrderDetails As New DbStructure.OrderDetails With
+                  {
+                .IdOrder = Order.IdOrders,
+                .IdProduct = Item.IdProduct,
+                .OrderQuantity = Item.ItemQuantity
+                  }
+                context.OrderDetails.Add(OrderDetails)
+                context.SaveChanges()
 
-                        ' Inserimento dell'ordine
-                        Using cmdInsertOrder As DbCommand = conn.CreateCommand()
-                            cmdInsertOrder.Transaction = transaction
-                            cmdInsertOrder.CommandText = "INSERT INTO Orders (OrderDate, OrderCompleted, OrderInsertDate, OrderInsertUser) VALUES (@date, @completed, @insertDate, @user); SELECT CAST(SCOPE_IDENTITY() AS INT)"
-                            cmdInsertOrder.Parameters.Add(New SqlParameter("@date", Date.Today))
-                            cmdInsertOrder.Parameters.Add(New SqlParameter("@completed", False))
-                            cmdInsertOrder.Parameters.Add(New SqlParameter("@insertDate", Date.Today))
-                            cmdInsertOrder.Parameters.Add(New SqlParameter("@user", "Totem"))
+                Dim existingSummary = context.Summaries.SingleOrDefault(Function(s) s.IdProduct = Item.IdProduct)
 
-                            orderId = Convert.ToInt32(cmdInsertOrder.ExecuteScalar())
-                        End Using
+                If existingSummary IsNot Nothing Then
+                    existingSummary.TotalQuantity += Item.ItemQuantity
+                    existingSummary.TotalPrice += Item.ItemQuantity * Item.Baseprice
 
-                        ' Inserimento dei dettagli dell'ordine
-                        For Each Panel As PrefabItem In ListaItems
+                Else
+                    Dim newSummary As New DbStructure.Summaries With {
+                        .IdProduct = Item.IdProduct,
+                        .RegistrationDate = Date.Now,
+                        .TotalQuantity = Item.ItemQuantity,
+                        .TotalPrice = Item.ItemQuantity * Item.Baseprice
+                    }
+                    context.Summaries.Add(newSummary)
+                End If
 
-                            Using cmdInsertDetail As DbCommand = conn.CreateCommand()
-                                cmdInsertDetail.Transaction = transaction
-                                cmdInsertDetail.CommandText = "INSERT INTO OrderDetails (IdOrder, IdProduct, OrderQuantity) VALUES (@idOrder, @idProduct, @quantity)"
-                                cmdInsertDetail.Parameters.Add(New SqlParameter("@idOrder", orderId))
-                                cmdInsertDetail.Parameters.Add(New SqlParameter("@idProduct", Panel.IdProduct))
-                                cmdInsertDetail.Parameters.Add(New SqlParameter("@quantity", Panel.ItemQuantity))
+                context.SaveChanges()
+            Next
 
-                                cmdInsertDetail.ExecuteNonQuery()
-                            End Using
-                        Next
 
-                        transaction.Commit()
-                        MessageBox.Show("Thanks!")
 
-                    Catch ex As Exception
-                        transaction.Rollback()
-                        MessageBox.Show("Something went wrong: " & ex.Message)
-                    End Try
-                End Using
-            End Using
         End Using
     End Sub
 
 
-    Private Sub StampaColonneConEntity(nomeTabella As String)
-        Using ctx As New MyDbContext()
-            Using conn As DbConnection = ctx.Database.Connection
-                If conn.State = ConnectionState.Closed Then conn.Open()
+    Private Sub PopulateForm()
+        Using context As New DbStructure.AppDbContext("Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=McDonald;User=UserName;Password=123;")
+            Dim products = context.Products.ToList()
+            For Each product In products
+                Select Case product.ProductCategory
+                    Case "Hamburgers"
+                        FLP_Hamburgers.Controls.Add(New PrefabProduct(product.IdProduct, product.ProductName, product.ProductPrice, product.ProductPicture))
 
-                Using cmd As DbCommand = conn.CreateCommand()
-                    cmd.CommandText = $"SELECT * FROM [{nomeTabella}]"
+                    Case "Appetizers"
+                        FLP_Appetizers.Controls.Add(New PrefabProduct(product.IdProduct, product.ProductName, product.ProductPrice, product.ProductPicture))
 
-                    Using reader As DbDataReader = cmd.ExecuteReader()
-                        Dim dataTable As New DataTable()
-                        dataTable.Load(reader) ' Carica i dati reali
+                    Case "Drinks"
+                        FLP_Drinks.Controls.Add(New PrefabProduct(product.IdProduct, product.ProductName, product.ProductPrice, product.ProductPicture))
 
-                        For Each row As DataRow In dataTable.Rows
-                            Select Case row(1)
-                                Case "Hamburgers"
+                    Case "Dessert"
+                        FLP_Dessert.Controls.Add(New PrefabProduct(product.IdProduct, product.ProductName, product.ProductPrice, product.ProductPicture))
 
-                                    FLP_Hamburgers.Controls.Add(New PrefabProduct(row(0), row(2), row(3), row(4)))
+                    Case "Sauce"
+                        FLP_Sauce.Controls.Add(New PrefabProduct(product.IdProduct, product.ProductName, product.ProductPrice, product.ProductPicture))
 
-                                Case "Appetizers"
-                                    FLP_Appetizers.Controls.Add(New PrefabProduct(row(0), row(2), row(3), row(4)))
-
-                                Case "Drinks"
-                                    FLP_Drinks.Controls.Add(New PrefabProduct(row(0), row(2), row(3), row(4)))
-
-                                Case "Dessert"
-                                    FLP_Dessert.Controls.Add(New PrefabProduct(row(0), row(2), row(3), row(4)))
-
-                                Case "Sauce"
-                                    FLP_Sauce.Controls.Add(New PrefabProduct(row(0), row(2), row(3), row(4)))
-
-                            End Select
-
-                        Next
-                    End Using
-                End Using
-            End Using
+                End Select
+            Next
         End Using
     End Sub
-
-    Public Class MyDbContext
-        Inherits DbContext
-
-        Public Sub New()
-            MyBase.New("Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=McDonald;User=UserName;Password=123;")
-        End Sub
-
-    End Class
 
     Private Sub F_Totem_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        StampaColonneConEntity("Products")
-
+        PopulateForm()
     End Sub
 
-    Private Sub FLP_OrderList_Paint(sender As Object, e As PaintEventArgs) Handles FLP_OrderList.Paint
-
-    End Sub
 End Class
 

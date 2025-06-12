@@ -17,7 +17,6 @@ Public Class PrefabProduct
         L_ProductName.Text = NameProduct
         If ImageProduct IsNot Nothing Then
             Dim _image = ByteArrayToImage(ImageProduct)
-            ' Ad esempio, assegna l'immagine a un PictureBox interno
             PB_ImageProduct.Image = _image
             PB_ImageProduct.SizeMode = PictureBoxSizeMode.StretchImage
 

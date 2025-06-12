@@ -20,7 +20,6 @@ Public Class PrefabItem
         L_ItemName.Text = ItemName
         ItemQuantity = 1
 
-        'controllare se esiste già un item uaguale, se si imprementarlo senza crearne un'altro
     End Sub
 
     Private Sub B_Add_Click(sender As Object, e As EventArgs) Handles B_Add.Click
@@ -36,6 +35,8 @@ Public Class PrefabItem
 
         If Integer.Parse(ItemQuantity) < 1 Then
             UpdatePrice()
+            TotemForm.ListaItems.Remove(Me)
+
             Me.Dispose()
             Return
         End If
@@ -66,7 +67,7 @@ Public Class PrefabItem
 
     End Sub
 
-    Private Sub L_ProductQuantity_Click(sender As Object, e As EventArgs) Handles L_ProductQuantity.Click
+    Private Sub P_Order_Paint(sender As Object, e As PaintEventArgs) Handles P_Order.Paint
 
     End Sub
 End Class

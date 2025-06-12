@@ -1,4 +1,6 @@
-﻿Public Class F_BackOffice
+﻿Imports Es_21.DbStructure
+
+Public Class F_BackOffice
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
     End Sub
@@ -30,7 +32,7 @@
 
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles L_Name.Click
 
     End Sub
 
@@ -38,11 +40,11 @@
 
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles L_Price.Click
 
     End Sub
 
-    Private Sub TextBox1_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+    Private Sub TextBox1_TextChanged_1(sender As Object, e As EventArgs) Handles TB_Price.TextChanged
 
     End Sub
 
@@ -54,19 +56,21 @@
 
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PB_Product.Click
         ' Crea un OpenFileDialog
         Dim ofd As New OpenFileDialog()
 
-        ' Imposta il filtro per visualizzare solo immagini comuni
         ofd.Filter = "Immagini|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
         ofd.Title = "Seleziona una foto"
 
-        ' Mostra la finestra di dialogo
         If ofd.ShowDialog() = DialogResult.OK Then
-            ' Se l'utente ha scelto un file, caricalo nel PictureBox
-            'PB_ImageProduct.Image = Image.FromFile(ofd.FileName)
-            'PB_ImageProduct.SizeMode = PictureBoxSizeMode.StretchImage
+            PB_Product.Image = Image.FromFile(ofd.FileName)
+            PB_Product.SizeMode = PictureBoxSizeMode.StretchImage
+
         End If
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles B_AddNewProduct.Click
+
     End Sub
 End Class
