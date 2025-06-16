@@ -12,21 +12,7 @@
             For Each arg As String In args
 
                 If Integer.TryParse(arg, x) Then
-
-                    Select Case x
-                        Case 1
-                            Dim TotemForm As New F_Totem
-                            TotemForm.ShowDialog()
-                        Case 2
-                            Dim KitchenForm As New F_Kitchen
-                            KitchenForm.ShowDialog()
-
-                        Case 3
-                            Dim BackOfficeForm As New F_BackOffice
-                            BackOfficeForm.ShowDialog()
-
-                    End Select
-
+                    OpenForm(x)
 
                     Exit For
 
@@ -39,17 +25,35 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles B_Totem.Click
-        Dim TotemForm As New F_Totem
-        TotemForm.ShowDialog()
+        OpenForm(1)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles B_Kitchen.Click
-        Dim KitchenForm As New F_Kitchen
-        KitchenForm.ShowDialog()
+        OpenForm(2)
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles B_BackOffice.Click
-        Dim BackOfficeForm As New F_BackOffice
-        BackOfficeForm.ShowDialog()
+        OpenForm(3)
     End Sub
+
+    Private Sub OpenForm(par As Integer)
+
+        Select Case par
+            Case 1
+                Dim TotemForm As New F_Totem
+                TotemForm.ShowDialog()
+            Case 2
+                Dim KitchenForm As New F_Kitchen
+                KitchenForm.ShowDialog()
+
+            Case 3
+                Dim BackOfficeForm As New F_BackOffice
+                BackOfficeForm.ShowDialog()
+
+            Case Else
+                MessageBox.Show("ERR")
+
+        End Select
+    End Sub
+
 End Class

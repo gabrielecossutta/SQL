@@ -24,11 +24,12 @@ Partial Class F_BackOffice
     Private Sub InitializeComponent()
         Me.B_StampReport = New System.Windows.Forms.Button()
         Me.DTP_ReportDate = New System.Windows.Forms.DateTimePicker()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.P_AddProduct = New System.Windows.Forms.Panel()
-        Me.L_PanelAddProduct = New System.Windows.Forms.Label()
-        Me.L_Price = New System.Windows.Forms.Label()
+        Me.CB_Category = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TB_Price = New System.Windows.Forms.TextBox()
+        Me.L_PanelAddProduct = New System.Windows.Forms.Label()
+        Me.L_Category = New System.Windows.Forms.Label()
         Me.B_AddNewProduct = New System.Windows.Forms.Button()
         Me.L_ImageProduct = New System.Windows.Forms.Label()
         Me.PB_Product = New System.Windows.Forms.PictureBox()
@@ -61,16 +62,14 @@ Partial Class F_BackOffice
         Me.DTP_ReportDate.Size = New System.Drawing.Size(374, 29)
         Me.DTP_ReportDate.TabIndex = 1
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'P_AddProduct
         '
         Me.P_AddProduct.BackColor = System.Drawing.Color.Gainsboro
-        Me.P_AddProduct.Controls.Add(Me.L_PanelAddProduct)
-        Me.P_AddProduct.Controls.Add(Me.L_Price)
+        Me.P_AddProduct.Controls.Add(Me.CB_Category)
+        Me.P_AddProduct.Controls.Add(Me.Label1)
         Me.P_AddProduct.Controls.Add(Me.TB_Price)
+        Me.P_AddProduct.Controls.Add(Me.L_PanelAddProduct)
+        Me.P_AddProduct.Controls.Add(Me.L_Category)
         Me.P_AddProduct.Controls.Add(Me.B_AddNewProduct)
         Me.P_AddProduct.Controls.Add(Me.L_ImageProduct)
         Me.P_AddProduct.Controls.Add(Me.PB_Product)
@@ -83,6 +82,32 @@ Partial Class F_BackOffice
         Me.P_AddProduct.Size = New System.Drawing.Size(382, 332)
         Me.P_AddProduct.TabIndex = 12
         '
+        'CB_Category
+        '
+        Me.CB_Category.FormattingEnabled = True
+        Me.CB_Category.Items.AddRange(New Object() {"Hamburgers", "Appetizers", "Dessert", "Drinks", "Sauce"})
+        Me.CB_Category.Location = New System.Drawing.Point(3, 107)
+        Me.CB_Category.Name = "CB_Category"
+        Me.CB_Category.Size = New System.Drawing.Size(176, 21)
+        Me.CB_Category.TabIndex = 25
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 139)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(44, 20)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Price"
+        '
+        'TB_Price
+        '
+        Me.TB_Price.Location = New System.Drawing.Point(3, 162)
+        Me.TB_Price.Name = "TB_Price"
+        Me.TB_Price.Size = New System.Drawing.Size(177, 20)
+        Me.TB_Price.TabIndex = 23
+        '
         'L_PanelAddProduct
         '
         Me.L_PanelAddProduct.AutoSize = True
@@ -93,22 +118,15 @@ Partial Class F_BackOffice
         Me.L_PanelAddProduct.TabIndex = 22
         Me.L_PanelAddProduct.Text = "Add Product"
         '
-        'L_Price
+        'L_Category
         '
-        Me.L_Price.AutoSize = True
-        Me.L_Price.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L_Price.Location = New System.Drawing.Point(3, 84)
-        Me.L_Price.Name = "L_Price"
-        Me.L_Price.Size = New System.Drawing.Size(44, 20)
-        Me.L_Price.TabIndex = 21
-        Me.L_Price.Text = "Price"
-        '
-        'TB_Price
-        '
-        Me.TB_Price.Location = New System.Drawing.Point(3, 107)
-        Me.TB_Price.Name = "TB_Price"
-        Me.TB_Price.Size = New System.Drawing.Size(177, 20)
-        Me.TB_Price.TabIndex = 20
+        Me.L_Category.AutoSize = True
+        Me.L_Category.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_Category.Location = New System.Drawing.Point(3, 84)
+        Me.L_Category.Name = "L_Category"
+        Me.L_Category.Size = New System.Drawing.Size(73, 20)
+        Me.L_Category.TabIndex = 21
+        Me.L_Category.Text = "Category"
         '
         'B_AddNewProduct
         '
@@ -144,7 +162,7 @@ Partial Class F_BackOffice
         '
         Me.L_Desctiption.AutoSize = True
         Me.L_Desctiption.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L_Desctiption.Location = New System.Drawing.Point(3, 130)
+        Me.L_Desctiption.Location = New System.Drawing.Point(4, 185)
         Me.L_Desctiption.Name = "L_Desctiption"
         Me.L_Desctiption.Size = New System.Drawing.Size(89, 20)
         Me.L_Desctiption.TabIndex = 18
@@ -152,10 +170,10 @@ Partial Class F_BackOffice
         '
         'TB_Description
         '
-        Me.TB_Description.Location = New System.Drawing.Point(4, 153)
+        Me.TB_Description.Location = New System.Drawing.Point(4, 208)
         Me.TB_Description.Multiline = True
         Me.TB_Description.Name = "TB_Description"
-        Me.TB_Description.Size = New System.Drawing.Size(176, 92)
+        Me.TB_Description.Size = New System.Drawing.Size(176, 37)
         Me.TB_Description.TabIndex = 15
         '
         'L_Name
@@ -216,10 +234,8 @@ Partial Class F_BackOffice
 
     Friend WithEvents B_StampReport As Button
     Friend WithEvents DTP_ReportDate As DateTimePicker
-    Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents P_AddProduct As Panel
-    Friend WithEvents L_Price As Label
-    Friend WithEvents TB_Price As TextBox
+    Friend WithEvents L_Category As Label
     Friend WithEvents B_AddNewProduct As Button
     Friend WithEvents L_ImageProduct As Label
     Friend WithEvents PB_Product As PictureBox
@@ -230,4 +246,7 @@ Partial Class F_BackOffice
     Friend WithEvents L_PanelAddProduct As Label
     Friend WithEvents P_Report As Panel
     Friend WithEvents L_StampReport As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TB_Price As TextBox
+    Friend WithEvents CB_Category As ComboBox
 End Class

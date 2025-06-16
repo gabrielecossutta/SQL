@@ -21,7 +21,18 @@ Public Module Utils
         Dim exeFolderPath As String = System.IO.Path.Combine(parentPath, folderName)
 
         'Create the file path
+        'Ensure the folder exists
+        If Not System.IO.Directory.Exists(exeFolderPath) Then
+            System.IO.Directory.CreateDirectory(exeFolderPath)
+        End If
+
+        'Create the file path
         Dim filePath As String = $"{exeFolderPath}\{fileName}.txt"
+
+        'Create the file if it does not exist
+        If Not System.IO.File.Exists(filePath) Then
+            System.IO.File.Create(filePath).Dispose()
+        End If
 
         'Create a stream writer to write on the TXT file
         Dim file As IO.StreamWriter
@@ -96,7 +107,7 @@ Public Module Utils
 
         'Append every Columnname with a ;
         For Each col As DataColumn In datatable.Columns
-            sb.Append(col.ColumnName & ";")
+            sb.Append(col.ColumnName & separator)
         Next
 
         'Check is the string is not empty

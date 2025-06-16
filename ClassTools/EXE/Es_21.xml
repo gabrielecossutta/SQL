@@ -22,5 +22,92 @@ Es_21
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Es_21.DbStructure.Summaries">
+ <summary>
+ Reppresents the summary of products sold, including total quantity and price.
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.Orders">
+ <summary>
+ Represents an order in the system
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.OrderDetails">
+ <summary>
+ Represents the details of an order
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.CopyOrders">
+ <summary>
+ Represents a copy of an order, used for tracking the cart
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.CopyOrderDetails">
+ <summary>
+ Represents the details of a copied order, used for tracking the cart items
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.Products">
+ <summary>
+ Represents a product in the system
+ </summary>
+</member>
+<member name="T:Es_21.DbStructure.MyDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_21.ConnectionString">
+ <summary>
+ Represents the connection string configuration
+ </summary>
+</member>
+<member name="M:Es_21.F_BackOffice.TB_Price_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ This method ensure that the user can only enter digits, with a single coma for the decimal separator
+ </summary>
+</member>
+<member name="M:Es_21.PrefabProduct.ByteArrayToImage(System.Byte[])">
+ <summary>
+ Convert the byte() into image
+ </summary>
+ <param name="bytes"></param>
+ <returns></returns>
+</member>
+<member name="M:Es_21.PrefabProduct.AddItemIntoCart">
+ <summary>
+ Add the item into the cart
+ </summary>
+</member>
+<member name="M:Es_21.F_Totem.CalculateTotalPrice">
+ <summary>
+ Calculate and set the price of all the items in the cart
+ </summary>
+</member>
+<member name="M:Es_21.F_Totem.PopulateForm">
+ <summary>
+ Populates the form with the products from the database and adds them to the respective FlowLayoutPanel
+ </summary>
+</member>
+<member name="M:Es_21.F_Totem.PopulateCart">
+ <summary>
+ Populates the cart with the last order from the CopyOrders table
+ </summary>
+</member>
+<member name="M:Es_21.F_Totem.ResetCart">
+ <summary>
+ Empty the cart and reset all the items
+ </summary>
+</member>
+<member name="M:Es_21.PrefabItem.IncreaseQuantityByOne">
+ <summary>
+ Increment quantity by one when there is already that product in the list
+ </summary>
+</member>
+<member name="M:Es_21.PrefabItem.UpdatePrice">
+ <summary>
+ Update the total price of the Item
+ </summary>
+</member>
 </members>
 </doc>

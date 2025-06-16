@@ -36,6 +36,7 @@ Partial Class F_Totem
         Me.TP_Sauce = New System.Windows.Forms.TabPage()
         Me.FLP_Sauce = New System.Windows.Forms.FlowLayoutPanel()
         Me.FLP_OrderList = New System.Windows.Forms.FlowLayoutPanel()
+        Me.B_EmptyCart = New System.Windows.Forms.Button()
         Me.TC_Menu.SuspendLayout()
         Me.TP_Hamburgers.SuspendLayout()
         Me.TP_Delicacies.SuspendLayout()
@@ -49,7 +50,7 @@ Partial Class F_Totem
         Me.B_Order.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.B_Order.Location = New System.Drawing.Point(1293, 644)
         Me.B_Order.Name = "B_Order"
-        Me.B_Order.Size = New System.Drawing.Size(284, 37)
+        Me.B_Order.Size = New System.Drawing.Size(201, 37)
         Me.B_Order.TabIndex = 0
         Me.B_Order.Text = "Order"
         Me.B_Order.UseVisualStyleBackColor = True
@@ -182,11 +183,22 @@ Partial Class F_Totem
         Me.FLP_OrderList.Size = New System.Drawing.Size(287, 589)
         Me.FLP_OrderList.TabIndex = 3
         '
+        'B_EmptyCart
+        '
+        Me.B_EmptyCart.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.B_EmptyCart.Location = New System.Drawing.Point(1500, 644)
+        Me.B_EmptyCart.Name = "B_EmptyCart"
+        Me.B_EmptyCart.Size = New System.Drawing.Size(77, 37)
+        Me.B_EmptyCart.TabIndex = 4
+        Me.B_EmptyCart.Text = "Empty Cart"
+        Me.B_EmptyCart.UseVisualStyleBackColor = True
+        '
         'F_Totem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1589, 693)
+        Me.Controls.Add(Me.B_EmptyCart)
         Me.Controls.Add(Me.FLP_OrderList)
         Me.Controls.Add(Me.TC_Menu)
         Me.Controls.Add(Me.L_TotalPrice)
@@ -218,4 +230,5 @@ Partial Class F_Totem
     Friend WithEvents FLP_Drinks As FlowLayoutPanel
     Friend WithEvents FLP_Sauce As FlowLayoutPanel
     Friend WithEvents FLP_Appetizers As FlowLayoutPanel
+    Friend WithEvents B_EmptyCart As Button
 End Class
