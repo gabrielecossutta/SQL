@@ -84,6 +84,16 @@ Es_21
  Calculate and set the price of all the items in the cart
  </summary>
 </member>
+<member name="M:Es_21.F_Totem.CreateCopyOrder">
+ <summary>
+ Creates a new copy order in the database to track the current order being created
+ </summary>
+</member>
+<member name="M:Es_21.F_Totem.UpdateOrderDetails">
+ <summary>
+ Create and update the Copy order details 
+ </summary>
+</member>
 <member name="M:Es_21.F_Totem.PopulateForm">
  <summary>
  Populates the form with the products from the database and adds them to the respective FlowLayoutPanel

@@ -49,13 +49,6 @@ Es_10
  <param name="html">String html to turn in Datatable</param>
  <returns></returns>
 </member>
-<member name="M:Es_10.Database.CreateCsvFile(System.Text.StringBuilder,System.Data.DataTable)">
- <summary>
- Convert a datatable in a csv on a string
- </summary>
- <param name="sb"> String to save the csv file</param>
- <param name="datatable"> Datatable to turn in a csv string</param>
-</member>
 <member name="M:Es_10.Database.OrderListBy(System.Data.DataTable)">
  <summary>
  Randomly sort the datatable

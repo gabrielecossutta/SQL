@@ -52,8 +52,8 @@ Public Class F_BackOffice
 
             ' Convert the stream to a byte array
             Dim imageBytes As Byte() = ms.ToArray()
-            Dim context As New DbStructure.MyDbContext()
-            Dim NewProduct As New DbStructure.Products With
+            Using context As New DbStructure.MyDbContext()
+                Dim NewProduct As New DbStructure.Products With
                     {
                 .ProductCategory = CB_Category.Text,
                 .ProductName = TB_Name.Text,
@@ -63,9 +63,9 @@ Public Class F_BackOffice
                 .ProductInsertDate = Date.Now,
                 .ProductInsertUser = "Gabriele"
                 }
-            context.Products.Add(NewProduct)
-            context.SaveChanges()
-
+                context.Products.Add(NewProduct)
+                context.SaveChanges()
+            End Using
         End Using
 
     End Sub
