@@ -7,12 +7,21 @@ Partial Class _Default
 
 
     'Id of the copy order, to track the current order being created
-    Public Property IdCopy As Integer
+    Private Property isCartEmpty As Boolean
         Get
-            Return If(ViewState("IdCopy") IsNot Nothing, CInt(ViewState("IdCopy")), 0)
+            Return If(Session("isCartEmpty") IsNot Nothing, CInt(Session("isCartEmpty")), 0)
+        End Get
+        Set(value As Boolean)
+            Session("isCartEmpty") = value
+        End Set
+    End Property
+    Public Property IdCopy As Integer
+
+        Get
+            Return If(Session("IdCopy") IsNot Nothing, CInt(Session("IdCopy")), 0)
         End Get
         Set(value As Integer)
-            ViewState("IdCopy") = value
+            Session("IdCopy") = value
         End Set
     End Property
 
@@ -41,6 +50,8 @@ Partial Class _Default
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            isCartEmpty = True
+
             Using context As New DbStructure.TotemDbContext()
                 RepeaterHamburgers.DataSource = context.Products.Where(Function(p) p.ProductCategory = "Hamburgers").ToList()
                 RepeaterHamburgers.DataBind()
@@ -58,9 +69,12 @@ Partial Class _Default
                 RepeaterSauce.DataBind()
 
             End Using
+            Prodotti.Clear()
+
             PopulateCart()
 
         End If
+
 
 
 
@@ -81,9 +95,23 @@ Partial Class _Default
 
         If e.CommandName = "Select" Then
             Dim prodottoId As Integer = Convert.ToInt32(e.CommandArgument)
-            Response.Write(Prodotti.Count)
             Dim create As Boolean = True
 
+            If isCartEmpty Then
+                Using context As New DbStructure.TotemDbContext()
+                    Dim newOrder As New DbStructure.CopyOrders With
+                    {
+                        .OrderDate = Date.Now,
+                        .OrderCompleted = False,
+                        .OrderInsertDate = Date.Now,
+                        .OrderInsertUser = "Totem"
+                    }
+                    context.CopyOrders.Add(newOrder)
+                    context.SaveChanges()
+                    IdCopy = newOrder.IdOrders
+                    isCartEmpty = False
+                End Using
+            End If
 
             For Each Prodotto In Prodotti
 
@@ -96,18 +124,17 @@ Partial Class _Default
                     Using context As New DbStructure.TotemDbContext()
                         Dim orderDetail = context.CopyOrderDetails.SingleOrDefault(Function(cod) cod.IdOrder = IdCopy AndAlso cod.IdProduct = prodottoId)
                         If orderDetail IsNot Nothing Then
-                            orderDetail.OrderQuantity += 1
+                            orderDetail.OrderQuantity = orderDetail.OrderQuantity + 1
                             context.SaveChanges()
                         End If
                     End Using
                 End If
             Next
-            '____________________CREARE ORDINE SE NON ESISTE O NON SI BLOCCA
+
             If create Then
                 Using context As New DbStructure.TotemDbContext()
                     Dim product = context.Products.SingleOrDefault(Function(p) p.IdProduct = prodottoId)
-                    Prodotti.Add(New With {.IdOrder = IdCopy, .IdProduct = product.IdProduct, .ProductName = product.ProductName, .ProductQuantity = 1, .TotalPrice = product.ProductPrice})
-
+                    Prodotti.Add(New With {.IdOrder = IdCopy, .IdProduct = product.IdProduct, .ProductName = product.ProductName, .ProductQuantity = 1, .BasePrice = product.ProductPrice})
                     Dim newOrderDetail As New DbStructure.CopyOrderDetails With
                     {
                         .IdOrder = IdCopy,
@@ -124,9 +151,9 @@ Partial Class _Default
 
 
 
-
-
         End If
+
+        UpdatePrice()
     End Sub
 
 
@@ -140,9 +167,8 @@ Partial Class _Default
             If lastOrder Is Nothing Then
                 Return
             End If
-            BlockUpdatePrice = True
-            CopyOrderCreated = True
             IdCopy = lastOrder.IdOrders
+            isCartEmpty = False
 
             'Retrive all the CopyOrderDetails associated with the last order and populate the FLP 
 
@@ -184,17 +210,18 @@ Partial Class _Default
             For Each OrderDetail In NewOrderDetails
                 Dim product = context.Products.SingleOrDefault(Function(p) p.IdProduct = OrderDetail.IdProduct)
                 If product IsNot Nothing Then
-                    Prodotti.Add(New With {.IdOrder = IdCopy, .IdProduct = product.IdProduct, .ProductName = product.ProductName, .ProductQuantity = OrderDetail.OrderQuantity, .TotalPrice = product.ProductPrice * OrderDetail.OrderQuantity})
+                    Prodotti.Add(New With {.IdOrder = IdCopy, .IdProduct = product.IdProduct, .ProductName = product.ProductName, .ProductQuantity = OrderDetail.OrderQuantity, .BasePrice = product.ProductPrice})
                 End If
             Next
-            Response.Write(prodotti.Count)
+            Response.Write(Prodotti.Count)
 
 
 
 
         End Using
-        RepeaterSelected.DataSource = prodotti
+        RepeaterSelected.DataSource = Prodotti
         RepeaterSelected.DataBind()
+        UpdatePrice()
 
     End Sub
 
@@ -205,8 +232,6 @@ Partial Class _Default
 
 
     Protected Sub SvuotaCarrello1()
-
-
 
         If Prodotti.Count < 1 Then
             Return
@@ -220,11 +245,11 @@ Partial Class _Default
             context.SaveChanges()
 
         End Using
-
         Prodotti.Clear()
         RepeaterSelected.DataSource = Prodotti
         RepeaterSelected.DataBind()
-
+        isCartEmpty = True
+        L_TotalPrice.Text = $"Total Price: 0,00€"
     End Sub
 
 
@@ -233,7 +258,16 @@ Partial Class _Default
 
 
 
+    Sub UpdatePrice()
 
+        Dim TotalPrice As Decimal
+        For Each prodotto In Prodotti
+
+            TotalPrice = TotalPrice + (prodotto.BasePrice * prodotto.ProductQuantity)
+        Next
+        L_TotalPrice.Text = $"Total Price: {TotalPrice.ToString("F2")}€"
+
+    End Sub
 
 
 
@@ -280,14 +314,14 @@ Partial Class _Default
                 Dim existingSummary = context.Summaries.SingleOrDefault(Function(s) s.IdProduct = idprodotto AndAlso s.RegistrationDate = Date.Today)
                 If existingSummary IsNot Nothing Then
                     existingSummary.TotalQuantity += Item.ProductQuantity
-                    existingSummary.TotalPrice += TotalPrice
+                    existingSummary.TotalPrice += Item.BasePrice * Item.ProductQuantity
                 Else
                     Dim newSummary As New DbStructure.Summaries With
                     {
                         .IdProduct = Item.IdProduct,
                         .RegistrationDate = Date.Now,
                         .TotalQuantity = Item.ProductQuantity,
-                        .TotalPrice = Item.TotalPrice
+                        .TotalPrice = Item.BasePrice * Item.ProductQuantity
                     }
                     context.Summaries.Add(newSummary)
                 End If
@@ -301,5 +335,51 @@ Partial Class _Default
         End Using
 
     End Sub
+
+    Protected Sub Button_Command(sender As Object, e As CommandEventArgs)
+        Dim IdProduct As String = e.CommandArgument
+        Using context As New DbStructure.TotemDbContext()
+
+            If e.CommandName = "Remove" Then
+                For Each Prodotto In Prodotti
+
+                    If Prodotto.IdProduct = IdProduct Then
+
+                        Prodotto.ProductQuantity = Prodotto.productQuantity - 1
+
+                        Dim orderDetail = context.CopyOrderDetails.SingleOrDefault(Function(cod) cod.IdOrder = IdCopy AndAlso cod.IdProduct = IdProduct)
+                        If orderDetail IsNot Nothing Then
+                            orderDetail.OrderQuantity = orderDetail.OrderQuantity - 1
+                            context.SaveChanges()
+                        End If
+
+
+                    End If
+                Next
+            End If
+
+            If e.CommandName = "Add" Then
+                For Each Prodotto In Prodotti
+
+                    If Prodotto.IdProduct = IdProduct Then
+
+                        Prodotto.ProductQuantity = Prodotto.productQuantity + 1
+
+                        Dim orderDetail = context.CopyOrderDetails.SingleOrDefault(Function(cod) cod.IdOrder = IdCopy AndAlso cod.IdProduct = IdProduct)
+                        If orderDetail IsNot Nothing Then
+                            orderDetail.OrderQuantity = orderDetail.OrderQuantity + 1
+                            context.SaveChanges()
+                        End If
+
+
+                    End If
+                Next
+            End If
+        End Using
+
+        RepeaterSelected.DataSource = Prodotti
+        RepeaterSelected.DataBind()
+    End Sub
+
 
 End Class

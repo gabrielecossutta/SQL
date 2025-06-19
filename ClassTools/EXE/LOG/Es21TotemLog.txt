@@ -162,3 +162,8 @@
 18/06/2025 17:40:38 Totem started;
 18/06/2025 17:44:29 Totem started;
 18/06/2025 17:45:48 Totem started;
+18/06/2025 17:59:23 Totem started;
+19/06/2025 08:21:19 Totem started;
+19/06/2025 08:21:36 Totem started;
+19/06/2025 08:22:27 Totem started;
+19/06/2025 08:22:27 Cart Populated from an old order;

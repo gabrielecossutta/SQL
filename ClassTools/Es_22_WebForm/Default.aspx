@@ -111,13 +111,14 @@
                     <div class="item2">
 
                         <%# Eval("ProductName") %>
-                        <asp:Button ID="B_Remove" runat="server" Text="-" />
+                        <asp:Button ID="B_Remove" runat="server" Text="-" CommandName="Remove" CommandArgument='<%# Eval("IdProduct") %>' OnCommand="Button_Command" />
                         <%# Eval("ProductQuantity") %>
-                        <asp:Button ID="B_Add" runat="server" Text="+" />
-                        <%# String.Format("{0:N2}€", Eval("TotalPrice")) %>
+                        <asp:Button ID="B_Add" runat="server" Text="+" CommandName="Add" CommandArgument='<%# Eval("IdProduct") %>' OnCommand="Button_Command" />
+                        <%# String.Format("{0:N2}€", Eval("BasePrice") * Eval("ProductQuantity")) %>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+        <asp:Label ID="L_TotalPrice" runat="server" Font-Bold="True" Font-Size="Large" Text="Total : 0,00€" Width="250px"></asp:Label>
         <asp:Button ID="B_Order" runat="server" Text="Order" Width="145px" />
 <asp:Button ID="B_EmptyCart" runat="server" Text="Empty Cart" Width="145px" />
         </div>

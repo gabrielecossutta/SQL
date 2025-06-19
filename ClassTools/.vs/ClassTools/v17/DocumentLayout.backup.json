@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22_webform\\default.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|solutionrelative:es_22_webform\\default.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22_webform\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|solutionrelative:es_22_webform\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_22\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "AbsoluteMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22_webform\\default.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{5685DD03-BE02-AC2B-EFC2-4C8B80AD5C9D}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm|solutionrelative:es_22_webform\\default.aspx.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|solutionrelative:es_22\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
       "RelativeMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|solutionrelative:es_22\\totemform.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
@@ -22,36 +26,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TotemForm.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\TotemForm.vb",
               "RelativeDocumentMoniker": "Es_22\\TotemForm.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\TotemForm.vb",
               "RelativeToolTip": "Es_22\\TotemForm.vb",
-              "ViewState": "AgIAABoBAAAAAAAAAAAcwCMBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAIA8wCsAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-18T12:09:12.064Z"
+              "WhenOpened": "2025-06-19T06:51:08.565Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "TotemForm.vb [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\TotemForm.vb",
+              "RelativeDocumentMoniker": "Es_22\\TotemForm.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\TotemForm.vb [Progettazione]",
+              "RelativeToolTip": "Es_22\\TotemForm.vb [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-19T06:51:06.657Z",
+              "EditorCaption": " [Progettazione]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Default.aspx.vb",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm\\Default.aspx.vb",
               "RelativeDocumentMoniker": "Es_22_WebForm\\Default.aspx.vb",
               "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm\\Default.aspx.vb",
               "RelativeToolTip": "Es_22_WebForm\\Default.aspx.vb",
-              "ViewState": "AgIAABcBAAAAAAAAAAAkwBMBAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAACcBAAAAAAAAAAAswCcBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2025-06-18T07:16:58.175Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Default.aspx",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22_WebForm\\Default.aspx",
               "RelativeDocumentMoniker": "Es_22_WebForm\\Default.aspx",
