@@ -92,6 +92,7 @@
       <DependentUpon>Synchronize.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="JsonStructure.vb" />
     <Compile Include="Synchronize.vb">
       <SubType>Form</SubType>
     </Compile>

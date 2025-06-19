@@ -67,6 +67,11 @@ Es_22
  Represents the connection string configuration
  </summary>
 </member>
+<member name="T:Es_22.JsonStructure.OrderDetails">
+ <summary>
+ Containt the connection information, username, password, server name and database name
+ </summary>
+</member>
 <member name="M:Es_22.F_BackOffice.TB_Price_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
  <summary>
  This method ensure that the user can only enter digits, with a single coma for the decimal separator
