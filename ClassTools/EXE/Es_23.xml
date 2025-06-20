@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_23
+</name>
+</assembly>
+<members>
+<member name="T:Es_23.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_23.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_23.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_23.DbStructure.Summaries">
+ <summary>
+ Reppresents the summary of products sold, including total quantity and price.
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.Orders">
+ <summary>
+ Represents an order in the system
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.OrderDetails">
+ <summary>
+ Represents the details of an order
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.CopyOrders">
+ <summary>
+ Represents a copy of an order, used for tracking the cart
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.CopyOrderDetails">
+ <summary>
+ Represents the details of a copied order, used for tracking the cart items
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.Products">
+ <summary>
+ Represents a product in the system
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.TotemDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_23.DbStructure.BackOfficeDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_23.ConnectionString">
+ <summary>
+ Represents the connection string configuration
+ </summary>
+</member>
+</members>
+</doc>

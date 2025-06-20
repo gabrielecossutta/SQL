@@ -1,10 +1,24 @@
 ﻿
+Imports System.ComponentModel
 Imports System.Data.Entity
+Imports System.IO
 Imports System.Net
 Imports System.Runtime.Remoting.Contexts
 Imports System.Text
+Imports System.Web
+Imports System.Web.Script.Serialization
+Imports ClassTools
+Imports Newtonsoft
+Imports Newtonsoft.Json.Linq
 
 Public Class F_Synchronize
+    Implements WebService.IWebServiceHandler
+    Dim IsWebServiceRunning As Boolean = False
+
+    Private Listener As HttpListener
+    Dim webService As New WebService(Me)
+
+
     Private Sub B_BackToTotem_Click(sender As Object, e As EventArgs) Handles B_BackToTotem.Click
         SyncronizeBackOfficeOnTotem()
 
@@ -114,61 +128,103 @@ Public Class F_Synchronize
 
 
         End Using
-        'syncronize the oreder on the back office
-        'write all the order and the order details and detele them
-        'manda anche il summary of the order
     End Sub
 
     Private Sub B_SendWebService_Click(sender As Object, e As EventArgs) Handles B_SendWebService.Click
 
+        If Not IsWebServiceRunning Then
+            Return
+        End If
+        Dim CompositObject As New List(Of Object)
+        Dim url As String = "http://localhost:81/ReceiveOrder/"
+        Dim jsonData As String
+        Using context As New DbStructure.TotemDbContext()
+            Dim orders = context.Orders.ToList()
+            If orders.Count < 1 Then
+                Return
+            End If
+            For Each order In orders
+                Dim details = context.OrderDetails.Where(Function(cod) cod.IdOrder = order.IdOrders).ToList()
+                Dim CompositJson = New With
+                    {
+                        Key .OrderJson = order,
+                        Key .OrderDetailsJSON = details
+                    }
+                CompositObject.Add(CompositJson)
+                context.OrderDetails.RemoveRange(details)
+            Next
+            Dim serializer As New JavaScriptSerializer()
+            jsonData = serializer.Serialize(CompositObject)
+
+            context.Orders.RemoveRange(orders)
 
 
-        Dim url As String = "http://localhost:81/OrderReceiver.ashx"
-        Dim jsonData As String = "{" &
-    """IdOrders"":123," &
-    """OrderDate"":""2025-06-17T14:30:00""," &
-    """OrderCompleted"":true," &
-    """OrderInsertDate"":""2025-06-15T09:00:00""," &
-    """OrderInsertUser"":""admin""," &
-    """OrderModificationDate"":""2025-06-16T11:20:00""," &
-    """OrderModificationUser"":""editor""," &
-    """OrderDetailsJSON"":[{" &
-        """IdOrder"":123," &
-        """IdProduct"":456," &
-        """OrderQuantity"":2" &
-    "},{" &
-        """IdOrder"":123," &
-        """IdProduct"":789," &
-        """OrderQuantity"":5" &
-    "}]" &
-"}"
+            context.SaveChanges()
+        End Using
 
         Dim request As HttpWebRequest = CType(WebRequest.Create(url), HttpWebRequest)
-            request.Method = "POST"
-            request.ContentType = "application/json"
+        request.Method = "POST"
+        request.ContentType = "application/json"
 
-            Dim byteData As Byte() = Encoding.UTF8.GetBytes(jsonData)
-            request.ContentLength = byteData.Length
+        Dim byteData As Byte() = Encoding.UTF8.GetBytes(jsondata)
+        request.ContentLength = byteData.Length
 
-            Using stream = request.GetRequestStream()
-                stream.Write(byteData, 0, byteData.Length)
-            End Using
+        Using stream = request.GetRequestStream()
+            stream.Write(byteData, 0, byteData.Length)
+        End Using
 
-            Try
-                Dim response As HttpWebResponse = CType(request.GetResponse(), HttpWebResponse)
-                Using reader As New IO.StreamReader(response.GetResponseStream())
-                    Dim result = reader.ReadToEnd()
-                MessageBox.Show("Risposta dal server: " & result)
-            End Using
-            Catch ex As WebException
-                Using reader As New IO.StreamReader(ex.Response.GetResponseStream())
-                    Dim errorResult = reader.ReadToEnd()
-                MessageBox.Show("Errore: " & errorResult)
-            End Using
-            End Try
-
-        MessageBox.Show("Premi un tasto per uscire...")
     End Sub
 
+    Private Async Sub B_StartWebService_Click(sender As Object, e As EventArgs) Handles B_WebServiceOnOff.Click
 
+        If IsWebServiceRunning Then
+            IsWebServiceRunning = False
+            B_WebServiceOnOff.Text = "START Web Service"
+            L_OnOff.BackColor = Color.Red
+            webService.StopWebService()
+        Else
+            IsWebServiceRunning = True
+            B_WebServiceOnOff.Text = "STOP Web Service"
+            L_OnOff.BackColor = Color.Green
+            Await webService.StartWebService("http://localhost:81/ReceiveOrder/")
+
+        End If
+
+    End Sub
+
+    Private Sub IWebServiceHandler_OnMessageReceived(jsonBody As String) Implements WebService.IWebServiceHandler.OnMessageReceived
+        Dim deserializer As New JavaScriptSerializer()
+        Dim jsonData = deserializer.Deserialize(Of List(Of Object))(jsonBody)
+        For Each Jsosn In jsonData
+            Dim orderJson = Jsosn("OrderJson")
+            Dim orderDetailsJson = Jsosn("OrderDetailsJSON")
+            Using context As New DbStructure.BackOfficeDbContext()
+                Dim newOrder As New DbStructure.Orders() With {
+                    .OrderCompleted = orderJson("OrderCompleted"),
+                    .OrderDate = orderJson("OrderDate"),
+                    .OrderInsertDate = orderJson("OrderInsertDate"),
+                    .OrderInsertUser = orderJson("OrderInsertUser"),
+                    .OrderModificationDate = orderJson("OrderModificationDate"),
+                    .OrderModificationUser = orderJson("OrderModificationUser")
+                }
+                context.Orders.Add(newOrder)
+                context.SaveChanges()
+                For Each detail In orderDetailsJson
+                    Dim newDetail As New DbStructure.OrderDetails() With {
+                        .IdOrder = newOrder.IdOrders,
+                        .IdProduct = detail("IdProduct"),
+                        .OrderQuantity = detail("OrderQuantity")
+                    }
+                    context.OrderDetails.Add(newDetail)
+                Next
+                context.SaveChanges()
+            End Using
+        Next
+    End Sub
+
+    Private Sub F_Synchronize_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If webService.Listener IsNot Nothing AndAlso webService.Listener.IsListening Then
+            webService.StopWebService()
+        End If
+    End Sub
 End Class

@@ -23,9 +23,10 @@ Partial Class F_Synchronize
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.B_BackToTotem = New System.Windows.Forms.Button()
-        Me.B_StartWebService = New System.Windows.Forms.Button()
+        Me.B_WebServiceOnOff = New System.Windows.Forms.Button()
         Me.B_TotemToBackOffice = New System.Windows.Forms.Button()
         Me.B_SendWebService = New System.Windows.Forms.Button()
+        Me.L_OnOff = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'B_BackToTotem
@@ -38,15 +39,15 @@ Partial Class F_Synchronize
         Me.B_BackToTotem.Text = "Sync BackOffice to Totem"
         Me.B_BackToTotem.UseVisualStyleBackColor = True
         '
-        'B_StartWebService
+        'B_WebServiceOnOff
         '
-        Me.B_StartWebService.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.B_StartWebService.Location = New System.Drawing.Point(251, 12)
-        Me.B_StartWebService.Name = "B_StartWebService"
-        Me.B_StartWebService.Size = New System.Drawing.Size(254, 46)
-        Me.B_StartWebService.TabIndex = 1
-        Me.B_StartWebService.Text = "Start web service"
-        Me.B_StartWebService.UseVisualStyleBackColor = True
+        Me.B_WebServiceOnOff.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.B_WebServiceOnOff.Location = New System.Drawing.Point(251, 12)
+        Me.B_WebServiceOnOff.Name = "B_WebServiceOnOff"
+        Me.B_WebServiceOnOff.Size = New System.Drawing.Size(254, 46)
+        Me.B_WebServiceOnOff.TabIndex = 1
+        Me.B_WebServiceOnOff.Text = "START WebService"
+        Me.B_WebServiceOnOff.UseVisualStyleBackColor = True
         '
         'B_TotemToBackOffice
         '
@@ -68,14 +69,23 @@ Partial Class F_Synchronize
         Me.B_SendWebService.Text = "Send orders with web service"
         Me.B_SendWebService.UseVisualStyleBackColor = True
         '
+        'L_OnOff
+        '
+        Me.L_OnOff.BackColor = System.Drawing.Color.Crimson
+        Me.L_OnOff.Location = New System.Drawing.Point(512, 12)
+        Me.L_OnOff.Name = "L_OnOff"
+        Me.L_OnOff.Size = New System.Drawing.Size(106, 98)
+        Me.L_OnOff.TabIndex = 4
+        '
         'F_Synchronize
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(517, 122)
+        Me.ClientSize = New System.Drawing.Size(627, 122)
+        Me.Controls.Add(Me.L_OnOff)
         Me.Controls.Add(Me.B_SendWebService)
         Me.Controls.Add(Me.B_TotemToBackOffice)
-        Me.Controls.Add(Me.B_StartWebService)
+        Me.Controls.Add(Me.B_WebServiceOnOff)
         Me.Controls.Add(Me.B_BackToTotem)
         Me.Name = "F_Synchronize"
         Me.Text = "Synchronize"
@@ -84,7 +94,8 @@ Partial Class F_Synchronize
     End Sub
 
     Friend WithEvents B_BackToTotem As Button
-    Friend WithEvents B_StartWebService As Button
+    Friend WithEvents B_WebServiceOnOff As Button
     Friend WithEvents B_TotemToBackOffice As Button
     Friend WithEvents B_SendWebService As Button
+    Friend WithEvents L_OnOff As Label
 End Class

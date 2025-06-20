@@ -1,0 +1,332 @@
+﻿Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Installazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Installazione del servizio TotemWebService in corso...
+È in corso la creazione dell'origine di EventLog TotemWebService nel log Application...
+Ripristino dello stato precedente dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Ripristino del log eventi allo stato precedente per l'origine TotemWebService.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la fase di ripristino dello stato precedente. L'eccezione verrà ignorata e il ripristino dello stato precedente continuerà, tuttavia è possibile che non venga completamente ripristinato lo stato precedente l'installazione al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Avviso: l'origine TotemWebService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemWebService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Avviso: l'origine TotemWebService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemWebService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Avviso: l'origine TotemWebService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemWebService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Avviso: l'origine TotemWebService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemWebService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemWebService.
+Avviso: l'origine TotemWebService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemWebService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.Diagnostics.EventLogInstaller.
+System.Security.SecurityException: Origine non trovata, ma non è stato possibile eseguire la ricerca in uno o più log eventi. Log non accessibili: Security, State.
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Si è verificata un'eccezione durante la disinstallazione del programma di installazione di System.ServiceProcess.ServiceInstaller.
+System.ComponentModel.Win32Exception: Il servizio specificato non esiste come servizio installato
+Si è verificata un'eccezione durante la disinstallazione. L'eccezione verrà ignorata e la disinstallazione continuerà, tuttavia è possibile che l'applicazione non venga disinstallata completamente al termine dell'operazione.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
+Disinstallazione dell'assembly 'C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe' in corso...
+I parametri interessati sono:
+   logtoconsole = 
+   logfile = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.InstallLog
+   assemblypath = C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe
+Rimozione dell'origine di EventLog TotemService.
+Avviso: l'origine TotemService non è registrata nel computer locale.
+È in corso la rimozione del servizio TotemService dal sistema...
+Rimozione del servizio TotemService dal sistema completata.
