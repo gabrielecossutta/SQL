@@ -65,6 +65,11 @@ Public Class F_BackOffice
                 context.Products.Add(NewProduct)
                 context.SaveChanges()
 
+                CB_Category.Text = ""
+                TB_Name.Text = ""
+                TB_Price.Text = ""
+                TB_Description.Text = ""
+                PB_Product.Image = Nothing
             End Using
         End Using
 
