@@ -67,5 +67,20 @@ Es_23
  Represents the connection string configuration
  </summary>
 </member>
+<member name="M:Es_23.MyService.OnStart(System.String[])">
+ <summary>
+ Initilize the service and start the listener for incoming requests
+ </summary>
+</member>
+<member name="M:Es_23.MyService.OnStop">
+ <summary>
+ Stop the windows service 
+ </summary>
+</member>
+<member name="M:Es_23.MyService.OnMessageReceived(System.String)">
+ <summary>
+ Method called when a message is received by the web service, deserializes the json data and save the order in the database
+ </summary>
+</member>
 </members>
 </doc>

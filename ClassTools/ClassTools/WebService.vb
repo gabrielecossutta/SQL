@@ -22,11 +22,8 @@ Public Class WebService
                 Dim context As HttpListenerContext = Await Listener.GetContextAsync()
                 Await ProcessRequestAsync(context)
             Catch ex As Exception
-                Utils.WriteLogMessage("errorecatch", "AAA", "aaa")
-
             End Try
         End While
-        Utils.WriteLogMessage("return listenter", "AAA", "aaa")
 
         Return Listener
     End Function
@@ -47,7 +44,6 @@ Public Class WebService
             Handler.OnMessageReceived(body)
         End Using
 
-        Utils.WriteLogMessage(body, "AAA", "aaa")
 
         Return body
     End Function

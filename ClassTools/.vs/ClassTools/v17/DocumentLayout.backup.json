@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFA1435D-F47A-4535-B342-ADF6A8F27607}|Es_23\\Es_23.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_23\\totemservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{FFA1435D-F47A-4535-B342-ADF6A8F27607}|Es_23\\Es_23.vbproj|solutionrelative:es_23\\totemservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_23\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|solutionrelative:es_23\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22\\synchronize.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|solutionrelative:es_22\\synchronize.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_23\\program.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|solutionrelative:es_23\\program.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\Es_02.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\classtools\\webservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{1CB475B5-365E-4FDD-8720-65843E3CA02F}|ClassTools\\Es_02.vbproj|solutionrelative:classtools\\webservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_22\\synchronize.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{B8A5B6E8-CDCC-4285-835E-228A048F797F}|Es_22\\Es_22.vbproj|solutionrelative:es_22\\synchronize.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_23\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{9D1D5C32-4461-4683-A792-3853956A8C80}|Es_23\\Es_23.vbproj|solutionrelative:es_23\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WebService.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\WebService.vb",
-              "RelativeDocumentMoniker": "ClassTools\\WebService.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\ClassTools\\WebService.vb",
-              "RelativeToolTip": "ClassTools\\WebService.vb",
-              "ViewState": "AgIAABEAAAAAAAAAAADwvzoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-20T15:41:05.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Synchronize.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\Synchronize.vb",
-              "RelativeDocumentMoniker": "Es_22\\Synchronize.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\Synchronize.vb",
-              "RelativeToolTip": "Es_22\\Synchronize.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Title": "Program.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\Program.vb",
+              "RelativeDocumentMoniker": "Es_23\\Program.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\Program.vb",
+              "RelativeToolTip": "Es_23\\Program.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-20T15:35:23.199Z",
+              "WhenOpened": "2025-06-23T15:28:58.246Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Synchronize.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\Synchronize.vb",
-              "RelativeDocumentMoniker": "Es_22\\Synchronize.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_22\\Synchronize.vb [Progettazione]",
-              "RelativeToolTip": "Es_22\\Synchronize.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-20T15:35:22.265Z",
-              "EditorCaption": " [Progettazione]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TotemService.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\TotemService.vb",
-              "RelativeDocumentMoniker": "Es_23\\TotemService.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\TotemService.vb",
-              "RelativeToolTip": "Es_23\\TotemService.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABvAAAAAAAAAA==",
+              "Title": "MyService.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\MyService.vb",
+              "RelativeDocumentMoniker": "Es_23\\MyService.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\MyService.vb",
+              "RelativeToolTip": "Es_23\\MyService.vb",
+              "ViewState": "AgIAAFEAAAAAAAAAAADwv2AAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-06-20T13:46:05.736Z",
+              "WhenOpened": "2025-06-23T14:51:09.83Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyService.vb [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\MyService.vb",
+              "RelativeDocumentMoniker": "Es_23\\MyService.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_23\\MyService.vb [Progettazione]",
+              "RelativeToolTip": "Es_23\\MyService.vb [Progettazione]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-06-23T15:16:51.745Z",
+              "EditorCaption": " [Progettazione]"
             }
           ]
         }

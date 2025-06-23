@@ -2,6 +2,7 @@
 Imports System.ComponentModel.DataAnnotations.Schema
 Imports System.Data.Entity
 Imports System.IO
+Imports Es_22.DbStructure
 Imports Newtonsoft.Json
 
 Public Class DbStructure
@@ -148,7 +149,7 @@ Public Class DbStructure
 
         ' Retrieves the connection string from a JSON file
         Private Shared Function GetConnectionString() As String
-            Dim jsonPath As String = "Es22b.json"
+            Dim jsonPath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Es22b.json")
             Dim jsonText As String = File.ReadAllText(jsonPath)
             Dim config As ConnectionString = JsonConvert.DeserializeObject(Of ConnectionString)(jsonText)
 

@@ -75,7 +75,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Es_26", "Es_26\", "{E08BBA6
 		SlnRelativePath = "Es_26\"
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Es_23", "Es_23\Es_23.vbproj", "{FFA1435D-F47A-4535-B342-ADF6A8F27607}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Es_23", "Es_23\Es_23.vbproj", "{9D1D5C32-4461-4683-A792-3853956A8C80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -151,10 +151,10 @@ Global
 		{E08BBA64-AFC0-4850-798D-923F80763AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E08BBA64-AFC0-4850-798D-923F80763AC9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{E08BBA64-AFC0-4850-798D-923F80763AC9}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{FFA1435D-F47A-4535-B342-ADF6A8F27607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFA1435D-F47A-4535-B342-ADF6A8F27607}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFA1435D-F47A-4535-B342-ADF6A8F27607}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFA1435D-F47A-4535-B342-ADF6A8F27607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1D5C32-4461-4683-A792-3853956A8C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1D5C32-4461-4683-A792-3853956A8C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1D5C32-4461-4683-A792-3853956A8C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1D5C32-4461-4683-A792-3853956A8C80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

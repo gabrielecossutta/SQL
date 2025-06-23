@@ -1,7 +1,7 @@
 ﻿Imports System.ServiceProcess
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class TotemService
+Partial Class MyService
     Inherits System.ServiceProcess.ServiceBase
 
     'UserService esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
@@ -28,7 +28,7 @@ Partial Class TotemService
         '
         '   ServicesToRun = New System.ServiceProcess.ServiceBase () {New Service1, New MySecondUserService}
         '
-        ServicesToRun = New System.ServiceProcess.ServiceBase() {New TotemService}
+        ServicesToRun = New System.ServiceProcess.ServiceBase() {New MyService}
 
         System.ServiceProcess.ServiceBase.Run(ServicesToRun)
     End Sub

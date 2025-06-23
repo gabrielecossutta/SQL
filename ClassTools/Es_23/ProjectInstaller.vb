@@ -1,20 +1,19 @@
 ﻿Imports System.ComponentModel
+Imports System.Configuration.Install
 Imports System.ServiceProcess
 
-<RunInstaller(True)>
 Public Class ProjectInstaller
-    Inherits System.Configuration.Install.Installer
-
-    Private serviceInstaller As New ServiceInstaller()
-    Private processInstaller As New ServiceProcessInstaller()
 
     Public Sub New()
-        processInstaller.Account = ServiceAccount.LocalSystem
-        serviceInstaller.ServiceName = "TotemService"
-        serviceInstaller.DisplayName = "TotemService"
-        serviceInstaller.StartType = ServiceStartMode.Automatic
+        ServiceProcessInstaller1.Account = ServiceAccount.LocalSystem
 
-        Installers.Add(processInstaller)
-        Installers.Add(serviceInstaller)
+        ServiceInstaller1.ServiceName = "Es23Service"
+        ServiceInstaller1.DisplayName = "Es23Service"
+        ServiceInstaller1.StartType = ServiceStartMode.Automatic
+
+        Installers.Add(ServiceProcessInstaller1)
+        Installers.Add(ServiceInstaller1)
+
     End Sub
+
 End Class

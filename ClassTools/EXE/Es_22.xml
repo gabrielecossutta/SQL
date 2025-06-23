@@ -67,6 +67,47 @@ Es_22
  Represents the connection string configuration
  </summary>
 </member>
+<member name="M:Es_22.F_Synchronize.B_BackToTotem_Click(System.Object,System.EventArgs)">
+ <summary>
+ Synchronize the products from the backoffice database to the totem database
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.SyncronizeBackOfficeOnTotem">
+ <summary>
+ Synchronizes the products from the backoffice database to the totem database
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.B_TotemToBackOffice_Click(System.Object,System.EventArgs)">
+ <summary>
+ Synchronizes the orders from the totem database to the backoffice database
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.SyncronizeTotemOnBackOffice">
+ <summary>
+ Synchronizes the orders from the Totem database to the backoffice database
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.B_SendWebService_Click(System.Object,System.EventArgs)">
+ <summary>
+ Sends the current orders from the Totem database to the web service as a Json.
+ This method retrieves all orders and their details from the Totem database and send them as a json array
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.B_StartWebService_Click(System.Object,System.EventArgs)">
+ <summary>
+ Start or stop the web service based on its current state
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.IWebServiceHandler_OnMessageReceived(System.String)">
+ <summary>
+ Method called when a message is received by the web service, deserializes the json data and saves the order in the database
+ </summary>
+</member>
+<member name="M:Es_22.F_Synchronize.F_Synchronize_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+ <summary>
+ Handles the closing event of the form to stop the web service if it is running
+ </summary>
+</member>
 <member name="M:Es_22.F_BackOffice.TB_Price_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
  <summary>
  This method ensure that the user can only enter digits, with a single coma for the decimal separator
