@@ -7,7 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9D1D5C32-4461-4683-A792-3853956A8C80}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Es_23.MyService</StartupObject>
+    <StartupObject>Es_23.Program</StartupObject>
     <RootNamespace>Es_23</RootNamespace>
     <AssemblyName>Es_23</AssemblyName>
     <FileAlignment>512</FileAlignment>

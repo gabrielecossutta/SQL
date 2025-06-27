@@ -95,4 +95,9 @@ Public Class MyService
 
     End Sub
 
+    Public Sub OnDebug()
+        OnStart(Nothing)
+    End Sub
+
+
 End Class

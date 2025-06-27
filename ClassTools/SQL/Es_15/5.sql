@@ -1,0 +1,1 @@
+CREATE TABLE  Feedback (IdClient VARCHAR(255),Testo VARCHAR(255), data DATE)

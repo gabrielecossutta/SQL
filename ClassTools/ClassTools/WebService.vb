@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Net
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
+Imports Azure.Core
 Public Class WebService
 
     Public Listener As HttpListener
@@ -16,16 +17,23 @@ Public Class WebService
         Listener = New HttpListener()
         Listener.Prefixes.Add(URL)
         Listener.Start()
+        'Select Case URL.ToLower().TrimEnd("/"c).Substring(URL.LastIndexOf("/") + 1)
 
+        '    Case "/receiveorder/"
+        '        '...
+        '    Case "/senddata/"
+        '        '...
+        '    Case Else
+        '        Return Nothing
+        'End Select
         While Listener.IsListening
-            Try
-                Dim context As HttpListenerContext = Await Listener.GetContextAsync()
+    Try
+    Dim context As HttpListenerContext = Await Listener.GetContextAsync()
                 Await ProcessRequestAsync(context)
-            Catch ex As Exception
-            End Try
-        End While
-
-        Return Listener
+    Catch ex As Exception
+    End Try
+    End While
+    Return Listener
     End Function
 
     Public Sub StopWebService()

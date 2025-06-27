@@ -1,0 +1,2 @@
+----Visualizzare gli ordini in corso
+--SELECT * FROM Ordini WHERE Stato = 'In Elaborazione' 

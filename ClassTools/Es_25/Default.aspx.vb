@@ -149,7 +149,6 @@ Partial Class _Default
                     context.SaveChanges()
                 End Using
             End If
-
         End If
 
         RepeaterSelected.DataSource = ProductsCart

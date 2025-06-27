@@ -1,12 +1,16 @@
 ﻿Imports System.ServiceProcess
+Imports System.Threading
 
 Module Program
     Sub Main()
-
-        'This module is the entry poin for the window service
-        Dim ServicesToRun() As ServiceBase
-        ServicesToRun = New ServiceBase() {New MyService()}
-        ServiceBase.Run(ServicesToRun)
+        If Environment.UserInteractive Then
+            Dim service As New MyService()
+            service.OnDebug()
+            Threading.Thread.Sleep(Timeout.Infinite)
+        Else
+            Dim ServicesToRun() As ServiceBase = {New MyService()}
+            ServiceBase.Run(ServicesToRun)
+        End If
 
     End Sub
 End Module

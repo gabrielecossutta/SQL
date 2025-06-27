@@ -1,0 +1,1 @@
+SELECT COUNT(*) CustomerID FROM Orders GROUP BY CustomerID
