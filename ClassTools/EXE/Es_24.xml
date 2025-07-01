@@ -1,0 +1,123 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_24
+</name>
+</assembly>
+<members>
+<member name="T:Es_24.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_24.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_24.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_24.DbStructure.Summaries">
+ <summary>
+ Reppresents the summary of products sold, including total quantity and price.
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.Orders">
+ <summary>
+ Represents an order in the system
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.OrderDetails">
+ <summary>
+ Represents the details of an order
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.CopyOrders">
+ <summary>
+ Represents a copy of an order, used for tracking the cart
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.CopyOrderDetails">
+ <summary>
+ Represents the details of a copied order, used for tracking the cart items
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.Products">
+ <summary>
+ Represents a product in the system
+ </summary>
+</member>
+<member name="T:Es_24.DbStructure.MyDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_24.ConnectionString">
+ <summary>
+ Represents the connection string configuration
+ </summary>
+</member>
+<member name="M:Es_24.F_BackOffice.TB_Price_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+ <summary>
+ This method ensure that the user can only enter digits, with a single coma for the decimal separator
+ </summary>
+</member>
+<member name="M:Es_24.PrefabProduct.ByteArrayToImage(System.Byte[])">
+ <summary>
+ Convert the byte() into image
+ </summary>
+ <param name="bytes"></param>
+ <returns></returns>
+</member>
+<member name="M:Es_24.PrefabProduct.AddItemIntoCart">
+ <summary>
+ Add the item into the cart
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.CalculateTotalPrice">
+ <summary>
+ Calculate and set the price of all the items in the cart
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.CreateCopyOrder">
+ <summary>
+ Creates a new copy order in the database to track the current order being created
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.UpdateOrderDetails">
+ <summary>
+ Create and update the Copy order details 
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.PopulateForm">
+ <summary>
+ Populates the form with the products from the database and adds them to the respective FlowLayoutPanel
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.PopulateCart">
+ <summary>
+ Populates the cart with the last order from the CopyOrders table
+ </summary>
+</member>
+<member name="M:Es_24.F_Totem.ResetCart">
+ <summary>
+ Empty the cart and reset all the items
+ </summary>
+</member>
+<member name="M:Es_24.PrefabItem.IncreaseQuantityByOne">
+ <summary>
+ Increment quantity by one when there is already that product in the list
+ </summary>
+</member>
+<member name="M:Es_24.PrefabItem.UpdatePrice">
+ <summary>
+ Update the total price of the Item
+ </summary>
+</member>
+</members>
+</doc>

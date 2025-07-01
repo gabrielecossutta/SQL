@@ -396,3 +396,8 @@
 30/06/2025 15:56:48 Cart Populated from an old order;
 30/06/2025 17:47:37 Totem started;
 30/06/2025 17:47:37 Cart Populated from an old order;
+01/07/2025 17:16:00 Totem started;
+01/07/2025 17:16:00 Cart Populated from an old order;
+01/07/2025 17:16:02 Order 400 Placed;
+01/07/2025 17:16:36 Totem started;
+01/07/2025 17:16:36 Cart Populated from an old order;

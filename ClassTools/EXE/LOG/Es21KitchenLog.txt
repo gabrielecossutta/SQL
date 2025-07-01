@@ -348,3 +348,9 @@
 30/06/2025 17:13:47 Order 397 Completed;
 30/06/2025 17:13:47 Order 398 Completed;
 30/06/2025 17:13:47 Order 399 Completed;
+01/07/2025 17:16:33 TotemKitchenStarted;
+01/07/2025 17:16:33 TotemKitchenStarted;
+01/07/2025 17:16:33 TotemKitchenStarted;
+01/07/2025 17:16:34 Order 400 Completed;
+01/07/2025 17:16:35 Order 401 Completed;
+01/07/2025 17:16:35 Order 402 Completed;
