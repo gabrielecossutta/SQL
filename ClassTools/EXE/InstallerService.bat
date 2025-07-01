@@ -1,3 +1,3 @@
 @echo off
-sc create Es23Service binPath= "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_23.exe" start= auto
-net start Es23Service
+sc create Es30Service binPath= "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\Es_30WINS.exe" start= auto
+net start Es30Service 

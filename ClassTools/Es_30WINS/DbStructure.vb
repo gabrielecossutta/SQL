@@ -106,7 +106,7 @@ Public Class DbStructure
 
         ' Retrieves the connection string from a JSON file
         Private Shared Function GetConnectionString() As String
-            Dim jsonPath As String = "Es22a.json"
+            Dim jsonPath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Es22a.json")
             Dim jsonText As String = File.ReadAllText(jsonPath)
             Dim config As ConnectionString = JsonConvert.DeserializeObject(Of ConnectionString)(jsonText)
 
@@ -190,3 +190,4 @@ Public Class ConnectionString
     Public Property UserName As String
     Public Property Password As String
 End Class
+

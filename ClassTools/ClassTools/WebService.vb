@@ -12,7 +12,7 @@ Public Class WebService
         Me.Handler = handler
     End Sub
 
-    'netsh http add urlacl url=http://localhost:81/ReceiveOrder/ user=Everyone
+    'netsh http add urlacl url=https://localhost:82/createorder/ user=Everyone
     Public Async Function StartWebService(URL As String) As Task(Of HttpListener)
         Listener = New HttpListener()
         Listener.Prefixes.Add(URL)
@@ -27,13 +27,13 @@ Public Class WebService
         '        Return Nothing
         'End Select
         While Listener.IsListening
-    Try
-    Dim context As HttpListenerContext = Await Listener.GetContextAsync()
+            Try
+                Dim context As HttpListenerContext = Await Listener.GetContextAsync()
                 Await ProcessRequestAsync(context)
-    Catch ex As Exception
-    End Try
-    End While
-    Return Listener
+            Catch ex As Exception
+            End Try
+        End While
+        Return Listener
     End Function
 
     Public Sub StopWebService()
@@ -60,4 +60,7 @@ Public Class WebService
         Sub OnMessageReceived(jsonBody As String)
     End Interface
 
+
+
 End Class
+

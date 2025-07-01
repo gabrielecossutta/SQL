@@ -1,0 +1,151 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Es_30WINS
+</name>
+</assembly>
+<members>
+<member name="T:Es_30WINS.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:Es_30WINS.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:Es_30WINS.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.Summaries">
+ <summary>
+ Reppresents the summary of products sold, including total quantity and price.
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.Orders">
+ <summary>
+ Represents an order in the system
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.OrderDetails">
+ <summary>
+ Represents the details of an order
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.CopyOrders">
+ <summary>
+ Represents a copy of an order, used for tracking the cart
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.CopyOrderDetails">
+ <summary>
+ Represents the details of a copied order, used for tracking the cart items
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.Products">
+ <summary>
+ Represents a product in the system
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.TotemDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_30WINS.DbStructure.BackOfficeDbContext">
+ <summary>
+ Database context for the application
+ </summary>
+</member>
+<member name="T:Es_30WINS.ConnectionString">
+ <summary>
+ Represents the connection string configuration
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.OnStart(System.String[])">
+ <summary>
+ Called when the service is started. It starts the listener add the prefixes
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.OnStop">
+ <summary>
+ Called when the service is stopped. It stops the listener and closes it
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.ListenLoop">
+ <summary>
+ Loop to listen for incoming HTTP requests asynchronously
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.ProcessRequest(System.Net.HttpListenerContext)">
+ <summary>
+ Processes the incoming HTTP request based on the URL path
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleCreateOrder(System.String)">
+ <summary>
+ Handles the creation of a new order
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleNewDetails(System.String)">
+ <summary>
+ Handles the addition of new details to an order
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleDeleteAllDetails(System.String)">
+ <summary>
+ Handles the deletion of all details for a specific order
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleDeleteDetail(System.String)">
+ <summary>
+ Handles the deletion of a specific detail from an order
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleIncreaseDetail(System.String)">
+ <summary>
+ Handles the increase of the detail quantity for a specific order and product
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleDecreaseDetail(System.String)">
+ <summary>
+ Handles the decrease of the detail quantity for a specific order and product
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.DetailSearch(System.String,System.Int32)">
+ <summary>
+ Searches for an order detail and updates the quantity based on the provided quantity parameter
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleGetOldOrder(System.String)">
+ <summary>
+ Handles the retrieval of the last order and its details
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleGetAllProducts(System.String)">
+ <summary>
+ Handles the retrieval of all products from the database
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.OnDebug">
+ <summary>
+ Method to run the service in debug mode
+ </summary>
+</member>
+<member name="T:Es_30WINS.MyService.IDs">
+ <summary>
+ Class to map the request structure for order and product IDs
+ </summary>
+</member>
+<member name="T:Es_30WINS.MyService.DeleteRequest">
+ <summary>
+ Class to map the delete request structure
+ </summary>
+</member>
+</members>
+</doc>
