@@ -73,35 +73,74 @@ Public Class MyService
     End Function
 
     ''' <summary>
+    ''' Check the Basic authentication
+    ''' </summary>
+    Private Function CheckBasicAuth(request As HttpListenerRequest) As Boolean
+
+        Dim authHeader = request.Headers("Authorization")
+        If String.IsNullOrEmpty(authHeader) OrElse Not authHeader.StartsWith("Basic ") Then
+            Return False
+        End If
+
+        'Extract the base64 part after Basic
+        Dim encodedCredentials = authHeader.Substring(6).Trim()
+        Dim credentials As String
+        Try
+            Dim credentialBytes = Convert.FromBase64String(encodedCredentials)
+            credentials = System.Text.Encoding.UTF8.GetString(credentialBytes)
+        Catch ex As Exception
+            Return False
+        End Try
+        Dim parts = credentials.Split(":"c)
+        If parts.Length <> 2 Then Return False
+        Dim username = parts(0)
+        Dim password = parts(1)
+
+        'Username and Password check
+        Return username = "admin" AndAlso password = "admin"
+    End Function
+
+
+    ''' <summary>
     ''' Processes the incoming HTTP request based on the URL path
     ''' </summary>
     Private Sub ProcessRequest(context As HttpListenerContext)
-
-        'Get the request and response objects from the context
         Dim request = context.Request
         Dim response = context.Response
 
-        'Add CORS(Cross-Origin Resource Sharing) headers to the response
-        response.AddHeader("Access-Control-Allow-Origin", "*")
-        response.AddHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
-        response.AddHeader("Access-Control-Allow-Headers", "Content-Type")
-
-        'If the request is an OPTIONS request, respond with 200 OK and return
         If request.HttpMethod = "OPTIONS" Then
             response.StatusCode = 200
+            response.Headers.Add("Access-Control-Allow-Origin", "*")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
             response.Close()
             Return
         End If
 
+        If Not CheckBasicAuth(request) Then
+            response.StatusCode = 401
+            response.Headers.Add("WWW-Authenticate", "Basic realm=""MyRealm""")
+            response.Headers.Add("Access-Control-Allow-Origin", "*")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+            response.Close()
+            Return
+        End If
+
+        'Header CORS
+        response.Headers.Add("Access-Control-Allow-Origin", "*")
+        response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
         Dim responseString As String = ""
 
-        'Read the request body
+        'Read the body
         Dim body As String = Nothing
         Using reader As New StreamReader(request.InputStream, request.ContentEncoding)
             body = reader.ReadToEnd()
         End Using
 
-        'Get the absolute path of the request URL and convert it to lowercase, then remove the / and use it to determine the action to take
+        'Retrive the absolute path and use it to select the function
         Dim path = request.Url.AbsolutePath.ToLower().Trim("/"c)
         Select Case path
             Case "getallproducts"
@@ -125,14 +164,15 @@ Public Class MyService
                 responseString = "ERROR"
         End Select
 
-        'Create the response string and write it to the response output stream
+        'Serialize the answer
         Dim buffer() As Byte = System.Text.Encoding.UTF8.GetBytes(responseString)
         response.ContentLength64 = buffer.Length
         response.ContentType = "application/json"
         response.OutputStream.Write(buffer, 0, buffer.Length)
         response.OutputStream.Close()
-
     End Sub
+
+
 
     ''' <summary>
     ''' Handles the creation of a new order

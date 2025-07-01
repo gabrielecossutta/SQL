@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|solutionrelative:es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E71EF90F-76A7-E69B-5972-780C619139EB}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_30html\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{E71EF90F-76A7-E69B-5972-780C619139EB}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML|solutionrelative:es_30html\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
@@ -14,11 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Default.aspx",
               "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML\\Default.aspx",
               "RelativeDocumentMoniker": "Es_30HTML\\Default.aspx",
@@ -26,7 +30,20 @@
               "RelativeToolTip": "Es_30HTML\\Default.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-07-01T13:43:15.291Z",
+              "WhenOpened": "2025-07-01T15:06:02.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyService.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb",
+              "RelativeDocumentMoniker": "Es_30WINS\\MyService.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb",
+              "RelativeToolTip": "Es_30WINS\\MyService.vb",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAwGIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-07-01T13:46:18.515Z",
               "EditorCaption": ""
             }
           ]

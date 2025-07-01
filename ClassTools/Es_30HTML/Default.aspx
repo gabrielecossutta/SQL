@@ -6,7 +6,17 @@
     <title>McDonald With Alpine</title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
-        // Main Alpine.js function that returns the app and logic
+
+        //Basic Auth credentials
+        var username = "admin";
+        var password = "admin";
+
+        //Function that generate the header authorization 
+        function getBasicAuthHeader() {
+            return "Basic " + btoa(username + ":" + password);
+        }
+
+        //Main Alpine.js function that returns the app and logic
         function shopApp() {
             return {
                 //Index of active tab
@@ -26,16 +36,20 @@
                     await this.loadOldOrder(); //Load last order
                 },
 
-                // Fetch all products and group them by category
+                //Fetch all products and group them by category
                 async loadProducts() {
                     try {
                         const res = await fetch("http://localhost:82/getallproducts/", {
-                            method: "POST"
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": getBasicAuthHeader()
+                            }
                         });
                         const data = await res.json();
-                        const grouped = {};
+                        var grouped = {};
                         data.forEach(p => {
-                            const category = p.ProductCategory; 
+                            var category = p.ProductCategory;
                             if (!grouped[category]) grouped[category] = [];
                             grouped[category].push({
                                 id: p.IdProduct,
@@ -55,15 +69,19 @@
                     }
                 },
 
-                //Load the last order in the cart
+                // Load the last order in the cart
                 async loadOldOrder() {
                     try {
                         const res = await fetch("http://localhost:82/getoldorder/", {
-                            method: "POST"
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": getBasicAuthHeader()
+                            }
                         });
                         const data = await res.json();
-                        orderId = data.IdOrder;
-                        const productMap = {};
+                        this.orderId = data.IdOrder; 
+                        var productMap = {};
                         this.categories.forEach(cat => {
                             cat.products.forEach(p => {
                                 productMap[p.id] = p;
@@ -72,9 +90,9 @@
 
                         //Rebuild cart from old order details
                         data.Details.forEach(detail => {
-                            const product = productMap[detail.IdProduct];
+                            var product = productMap[detail.IdProduct];
                             if (product) {
-                                let existing = this.cart.find(i => i.product.id === product.id);
+                                var existing = this.cart.find(i => i.product.id === product.id);
                                 if (!existing) {
                                     this.cart.push({
                                         product: product,
@@ -90,7 +108,7 @@
 
                 //Add a product to the cart or increase the quantity if it already exists
                 async addToCart(product) {
-                    let found = this.cart.find(i => i.product.id === product.id);
+                    var found = this.cart.find(i => i.product.id === product.id);
                     if (found) {
                         await this.increment(found);
                     } else {
@@ -98,51 +116,54 @@
                             product: product,
                             quantity: 1
                         });
-                        const payload = {
-                            IdOrder: orderId,
+                        var payload = {
+                            IdOrder: this.orderId,
                             IdProduct: product.id,
                         };
                         await fetch("http://localhost:82/newdetails/", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
+                                "Authorization": getBasicAuthHeader()
                             },
                             body: JSON.stringify(payload)
                         });
                     }
                 },
 
-                // Increase quantity of a cart item
+                //Increase quantity of a cart item
                 async increment(item) {
                     item.quantity++;
-                    const payload = {
-                        IdOrder: orderId,
+                    var payload = {
+                        IdOrder: this.orderId,
                         IdProduct: item.product.id,
                     };
                     await fetch("http://localhost:82/increasedetail/", {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
                     });
                 },
 
-                // Decrease quantity of a cart item (and remove if 0)
+                //Decrease quantity of a cart item (and remove if 0)
                 async decrement(item) {
                     item.quantity--;
-                    const payload = {
-                        IdOrder: orderId,
+                    var payload = {
+                        IdOrder: this.orderId,
                         IdProduct: item.product.id,
                     };
 
-                    // If quantity is less than 1, remove item from cart
+                    //If quantity is less than 1, remove item from cart
                     if (item.quantity <= 0) {
                         this.cart = this.cart.filter(i => i !== item);
                         await fetch("http://localhost:82/deletedetail/", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "application/json"
+                                "Content-Type": "application/json",
+                                "Authorization": getBasicAuthHeader()
                             },
                             body: JSON.stringify(payload)
                         });
@@ -151,7 +172,8 @@
                     await fetch("http://localhost:82/decreasedetail/", {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
                     });
@@ -162,11 +184,14 @@
                     return this.cart.reduce((sum, i) => sum + i.product.price * i.quantity, 0);
                 },
 
-                //Create order and reset cart
+                // Create order and reset cart
                 async order() {
                     alert('Order placed!\nTotal: ' + this.totalPrice().toFixed(2) + ' €');
                     await fetch("http://localhost:82/createorder/", {
-                        method: "POST"
+                        method: "POST",
+                        headers: {
+                            "Authorization": getBasicAuthHeader()
+                        }
                     });
                     await this.emptyCart();
                 },
@@ -174,13 +199,14 @@
                 //Empty the cart
                 async emptyCart() {
                     this.cart = [];
-                    const payload = {
-                        IdOrder: orderId
+                    var payload = {
+                        IdOrder: this.orderId
                     };
                     await fetch("http://localhost:82/deletealldetails/", {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
                     });
@@ -188,13 +214,12 @@
             }
         }
 
-        // Convert byte array to base64 image string
+        //Convert byte array to base64 image string
         function bytesToBase64(bytes) {
-            let binary = '';
-            bytes.forEach(b => binary += String.fromCharCode(b));
+            var binary = '';
+            bytes.forEach(function (b) { binary += String.fromCharCode(b); });
             return btoa(binary);
         }
-
     </script>
   </head>
   <body>
@@ -202,13 +227,13 @@
 
       <!-- Left column: tabs and products -->
       <div class="left-column">
-          
-          <!-- Create a tab for every category -->
+
+        <!-- Create a tab for every category -->
         <div class="tabs">
           <template x-for="(cat, index) in categories" :key="cat.name">
             <div class="tab" :class="{ 'active': activeTab === index }" @click="activeTab = index" x-text="cat.name"></div>
           </template>
-       </div>
+        </div>
 
         <!-- Show the products from every category -->
         <template x-for="(cat, index) in categories" :key="cat.name">
@@ -251,11 +276,10 @@
         <button id="emptyCart" @click="emptyCart()" :disabled="cart.length === 0">Empty Cart</button>
       </div>
     </div>
-
   </body>
 </html>
-<style>
 
+<style>
   body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -342,7 +366,7 @@
     font-weight: bold;
   }
 
-  .itemCart>div {
+  .itemCart > div {
     flex: 1;
   }
 

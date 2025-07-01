@@ -82,6 +82,11 @@ Es_30WINS
  Loop to listen for incoming HTTP requests asynchronously
  </summary>
 </member>
+<member name="M:Es_30WINS.MyService.CheckBasicAuth(System.Net.HttpListenerRequest)">
+ <summary>
+ Check the Basic authentication
+ </summary>
+</member>
 <member name="M:Es_30WINS.MyService.ProcessRequest(System.Net.HttpListenerContext)">
  <summary>
  Processes the incoming HTTP request based on the URL path
