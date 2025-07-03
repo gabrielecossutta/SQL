@@ -1,0 +1,3108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Viewer.Win</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.DropDownButton">
+            <summary>
+            Represents a button control that shows a dropdown menu when clicked.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar">
+            <summary>
+            Flat horizontal scrollbar used for <see cref="T:System.Windows.Forms.ScrollableControl" />.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar.ThumbColor">
+            <summary>
+            Gets or sets the color of the scrollbar thumb.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar.ThumbHeight">
+            <summary>
+            Gets or sets the height of the scrollbar.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar.#ctor">
+            <summary>
+            Initializes new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar" />.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar.Dispose(System.Boolean)">
+            <summary>
+            Clean up any CommonResources being used.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.HorizontalScrollbar.SetScrolledControl(System.Windows.Forms.ScrollableControl)">
+            <summary>
+            Sets the <see cref="T:System.Windows.Forms.ScrollableControl" /> to be scrolled.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton">
+            <summary>
+            A flat button that changes its appearance depends on its state.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.IsTextShown">
+            <summary>
+            Defines if text is shown on the button.
+            </summary>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.ActiveChanged">
+            <summary>
+            Occurs when the value of the Active property changes.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.Active">
+            <summary>
+            The state defining the fore color and background color of the button. 
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.blockClick">
+            <summary>
+            Defines if MouseClick event handling will change the state or not.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton" /> class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.Text">
+            <summary>
+            The text of the button.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.HoverButton.SetColor(System.Drawing.Color)">
+            <summary>
+            Sets the color of the button's text or background depending on its state.
+            </summary>
+            <param name="color">Color to be set.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.IColorScheme">
+            <summary>
+            Defines a class for that specified color can be set.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.IColorScheme.SetColor(System.Drawing.Color)">
+            <summary>
+            Set color of the content.
+            </summary>
+            <param name="color">Color to be set.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.IPopUp">
+            <summary>
+            Defines the contract for a popup control, providing methods for showing and hiding the popup.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown">
+            <summary>
+            Performs dropdown logic.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.Hiding">
+            <summary>
+            Performs when hiding the content control.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.IsDropDown">
+            <summary>
+            Gets or sets the value indicating than content appears under the owner control or not.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.#ctor(System.Windows.Forms.Control,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown" /> class.
+            </summary>
+            <param name="popedControl">The content control to be showed.</param>
+            <param name="verticalOffset">The vertical offset from the owner control.</param>
+            <param name="horizontalOffset">The horizontal offset from the owner control.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.#ctor(System.Windows.Forms.Control)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown" /> class.
+            </summary>
+            <param name="popedControl">The content control to be showed.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.Show(System.Windows.Forms.Control)">
+            <summary>
+            Shows the content control.
+            </summary>
+            <param name="control">The owner control rised the dropdown.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpDropDown.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpPanel">
+            <summary>
+            Control opening by dropdown.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpPanel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpPanel" /> class.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Controls.PopUpPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Controls.ToolHoverButton">
+            <summary>
+            Represents a hover button with additional functionality for tool use.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.DefaultFontFactory">
+            <summary>
+             Specify default font for entire WinForms application.
+            
+             Should be used instead of WinForms <c>GrapeCity.ActiveReports.Viewer.Win.Viewer.Font</c>.
+             </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.DefaultFontFactory.ApplicationDefaultFont">
+            <summary>
+            Gets the default WinForms font.
+            </summary>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.DefaultFontFactory.GetApplicationDefaultFont(System.Single,System.Drawing.FontStyle)">
+            <summary>
+            Gets a default WinForms font with the specified font size and style.
+            </summary>
+            <param name="fontSize">The font size.</param>
+            <param name="fontStyle">The font style.</param>
+            <returns>A default WinForms font with the specified size and style.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>
+				This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.DefaultFontFactory.SetApplicationDefaultFont(System.Func{System.Single,System.Drawing.FontStyle,System.Drawing.Font})">
+            <summary>
+            Sets a custom font factory for creating default WinForms fonts.
+            </summary>
+            <param name="fontFactory">The custom font factory function.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs">
+            <summary>
+            Provides data for the Find event.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs.#ctor(System.Boolean,System.Int32)">
+            <summary>
+            Initializes a new instance of the FindEventArgs class and sets the Found and PageIndex properties.
+            </summary>
+            <param name="found">Specifies whether the text was found.</param>
+            <param name="pageIndex">Specifies the page number where the text was found.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the FindEventArgs class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs.Found">
+            <summary>
+            Gets a value that determines whether the text was found.
+            </summary>
+            <value>True if the text was found; otherwise, false.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs.PageIndex">
+            <summary>
+            Gets the page number where the text was found.
+            </summary>
+            <value>The page number where the text was found.</value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.FindEventHandler">
+            <summary>
+            Represents the method that will handle the Find event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A FindEventArgs that contains the event data.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor">
+            <summary>
+            UITypeEditor for flag enums
+            This implementation has taken from http://www.codeproject.com/Articles/13793/A-UITypeEditor-for-easy-editing-of-flag-enum-prope
+            with minor refactoring
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor" /> class.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor.#ctor(System.Resources.ResourceManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor" /> class.
+            </summary>
+            <param name="resourceManager">Resource manager for this instance</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FlagEnumUiEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.FlatViewer">
+            <summary>
+            Viewer control with toolstrip used in FlatEUD.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.FlatViewer.AutoBackgroundColor">
+            <summary>
+            Gets or sets a property to display the background color on the whole area 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.FlatViewer.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.ExportForm">
+            <summary>
+            Form to export out an ActiveReport document to one of several formats.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.ExportForm.Show(System.Windows.Forms.Control,GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer,GrapeCity.ActiveReports.Viewer.Win.Internal.Export.ExportForm.ReportType)">
+            <summary>
+            Show - used to show the export form.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer">
+            <summary>
+            Defines the interface for exporting viewer functionalities.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.FileInfo)">
+            <summary>
+            Exports the document to a specified file.
+            </summary>
+            <param name="export">The export format.</param>
+            <param name="file">The file to export to.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.FileStream)">
+            <summary>
+            Exports the document to a specified file stream.
+            </summary>
+            <param name="export">The export format.</param>
+            <param name="stream">The file stream to export to.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.Render(GrapeCity.ActiveReports.Extensibility.Rendering.IRenderingExtension,GrapeCity.ActiveReports.Extensibility.Rendering.IO.StreamProvider,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Renders the document using a specified rendering extension.
+            </summary>
+            <param name="export">The rendering extension.</param>
+            <param name="streamProvider">The stream provider.</param>
+            <param name="settings">The settings for the rendering extension.</param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.Document">
+            <summary>
+            Gets the document to be exported.
+            </summary>
+            <value>The document.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.CanExport">
+            <summary>
+            Gets a value indicating whether exporting is possible.
+            </summary>
+            <value>
+                <c>true</c> if exporting is possible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.Owner">
+            <summary>
+            Gets the owner window of the export viewer.
+            </summary>
+            <value>The owner window.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Internal.Export.IExportViewer.HandleError(System.Exception)">
+            <summary>
+            Handles errors that occur during export.
+            </summary>
+            <param name="exception">The exception that occurred.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel">
+            <summary>
+            Represents the parameters panel within the ActiveReports Viewer.
+            </summary>
+            <remarks>
+            The parameters panel facilitates user interaction with report parameters. It provides a user interface for entering and adjusting parameters 
+            that affect the report's data and presentation. This class manages the visibility, state, and interactions of the parameters panel, ensuring 
+            that users can effectively customize their report views according to specific criteria.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel.VisibleRuntime">
+            <summary>
+            Overridden. Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel" /> is visible at runtime.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel.EnabledRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel" /> is enabled at runtime.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel.Refresh">
+            <summary>
+            Refreshes the Parameters panel, ensuring it displays the most current parameter values and options.
+            </summary>
+            <remarks>
+            This method is for updating the parameters panel to reflect any changes in the report's parameters, such as modifications 
+            to parameter values or the addition/removal of parameters. It ensures that the user interface remains in sync with the underlying report data 
+            and logic, providing an accurate and functional interface for user interaction.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ParametersPanel.Text">
+            <summary>
+            Gets or sets the caption text of the parameters panel.
+            </summary>
+            <value>A <see cref="T:System.String" /> representing the caption of the parameters panel. The default value is an empty string ("").</value>
+            <remarks>
+            This property allows for the customization of the parameters panel's caption within the ActiveReports Viewer. The caption can be set 
+            to provide users with contextual information about the parameters being adjusted or to guide them through the report customization process. 
+            Utilizing this property effectively can enhance the user experience by making the parameters panel more intuitive and easier to use.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.SearchPanel">
+            <summary>
+            Represents the search panel within the ActiveReports Viewer.
+            </summary>
+            <remarks>
+            The search panel provides functionality for users to search text within the report. It offers a user interface for entering search queries, 
+            navigating through search results, and highlighting occurrences within the report. This class manages the visibility, state, and interactions 
+            of the search panel.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SearchPanel.VisibleRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SearchPanel" /> is visible at runtime.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SearchPanel.EnabledRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SearchPanel" /> is enabled at runtime.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.SearchPanel.Clear">
+            <summary>
+            Clears the search panel user interface, resets the search parameters, and clears the search results.
+            </summary>
+            <remarks>
+            This method is essential for resetting the search functionality to its initial state. It is particularly useful when starting a new search 
+            operation or when the user needs to clear the current search results and parameters. Invoking this method ensures that the search panel 
+            is ready for a new search query, providing a clean slate for user interaction.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SearchPanel.Text">
+            <summary>
+            Gets or sets the caption of the search panel.
+            </summary>
+            <value>The caption text for the search panel. The default value is an empty string ("").</value>
+            <remarks>
+            This property allows for the customization of the search panel's caption, providing a way to label or title the panel according to the specific 
+            needs or context of the application. The caption can be set to any string value, offering flexibility in how the search panel is presented to the user.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand">
+            <summary>
+            Defines the commands available in the viewer.
+            </summary>
+            <remarks>
+            This enumeration lists all the commands that can be executed within the viewer. These commands can be associated with 
+            keyboard shortcuts or other UI elements to perform actions such as navigation, zooming, and document manipulation.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.Print">
+            <summary>
+            Initiates the print dialog.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoPreviousPage">
+            <summary>
+            Navigates to the previous page of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoNextPage">
+            <summary>
+            Navigates to the next page of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.ToggleTOC">
+            <summary>
+            Toggles the visibility of the table of contents.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.DisplayFindDialog">
+            <summary>
+            Opens the search dialog to find text within the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoFirstPage">
+            <summary>
+            Navigates to the first page of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoLastPage">
+            <summary>
+            Navigates to the last page of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoHistoryNext">
+            <summary>
+            Moves forward in the navigation history.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.GoHistoryBack">
+            <summary>
+            Moves backward in the navigation history.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.ZoomIn">
+            <summary>
+            Increases the zoom level of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.ZoomOut">
+            <summary>
+            Decreases the zoom level of the document.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.ZoomReset">
+            <summary>
+            Resets the zoom level to the default state.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.SetViewTypeContinuous">
+            <summary>
+            Sets the view type to continuous, displaying pages in a continuous vertical layout.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.SetViewTypeSinglePage">
+            <summary>
+            Sets the view type to single page, displaying one page at a time.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.SetViewTypeMultiPage">
+            <summary>
+            Sets the view type to multi-page, displaying multiple pages side by side.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.OpenReport">
+            <summary>
+            Opens a dialog to select and open a report.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.RefreshReport">
+            <summary>
+            Refreshes the currently loaded report.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.FocusOnPageNumber">
+            <summary>
+            Focuses the UI on the page number input, allowing for direct navigation.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand.CopySelection">
+            <summary>
+            Copies the currently selected text or graphics in the document.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ViewerShortcut">
+            <summary>
+            Represents a keyboard shortcut that triggers a specific command within the viewer.
+            </summary>
+            <remarks>
+            This class encapsulates the information necessary to define a keyboard shortcut for a viewer command, including 
+            the keys that must be pressed, the command to be executed, and whether the shortcut is currently enabled. 
+            It is designed for internal use within the viewer to manage keyboard interactions efficiently.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ViewerShortcut.ViewerCommand">
+            <summary>
+            Gets the viewer command associated with the shortcut.
+            </summary>
+            <value>The command that is triggered by the shortcut.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ViewerShortcut.Keys">
+            <summary>
+            Gets the keys that must be pressed to trigger the command.
+            </summary>
+            <value>The keys combination that activates the shortcut.</value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Sidebar">
+            <summary>
+            Provides a comprehensive API for managing the sidebar within the ActiveReports Viewer control.
+            </summary>
+            <remarks>
+            The Sidebar class is a component of the ActiveReports Viewer, offering a programmable interface to control the sidebar's panels, 
+            including the Table of Contents, Search, Parameters, and Thumbnails panels. This class allows developers to customize the sidebar's behavior 
+            and appearance to enhance the report viewing experience.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.TocPanel">
+            <summary>
+            Gets the Table of Contents (TOC) panel instance for the report viewer.
+            </summary>
+            <remarks>
+            The TOC panel provides a hierarchical view of the report's structure, allowing users to quickly navigate to different sections of the report. 
+            This property exposes the TOC panel so that developers can customize its appearance and behavior or interact with it programmatically.
+            </remarks>
+            <value>An instance of <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.TocPanel" /> representing the Table of Contents panel within the ActiveReports Viewer.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.SearchPanel">
+            <summary>
+            Provides access to the search panel within the ActiveReports Viewer.
+            </summary>
+            <value>
+            The search panel allows users to find specific text within the report, enhancing the interactivity and usability of the report viewing experience.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.ParametersPanel">
+            <summary>
+            Provides access to the parameters panel within the ActiveReports Viewer.
+            </summary>
+            <remarks>
+            The parameters panel allows users to input or select values for report parameters, facilitating dynamic report generation based on user input. 
+            This property enables developers to programmatically access and manipulate the parameters panel to customize its functionality or appearance
+            according to specific requirements.
+            </remarks>
+            <value>
+            An instance of <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.ParametersPanel" /> that represents the user interface for managing report parameters within the ActiveReports Viewer.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.ThumbnailsPanel">
+            <summary>
+            Provides access to the thumbnails panel within the ActiveReports Viewer.
+            </summary>
+            <remarks>
+            The thumbnails panel displays miniature versions of the report pages, allowing users to quickly navigate through the report. 
+            This property grants developers the ability to programmatically access and customize the thumbnails panel to better suit the needs of their application.
+            </remarks>
+            <value>
+            An instance of <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.ThumbnailsPanel" /> that represents the interface for viewing and navigating report 
+            pages as thumbnails within the ActiveReports Viewer.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.SelectedIndex">
+            <summary>
+            Gets or sets the index of the currently selected panel in the sidebar.
+            </summary>
+            <remarks>
+            This property controls which panel is currently visible in the sidebar. It can be used to programmatically change the active panel, 
+            enhancing the interactivity of the report viewing experience by responding to user actions or other events in the application.
+            </remarks>
+            <value>
+            The zero-based index of the active panel. The specific panels (Table of Contents, Search, Parameters, Thumbnails) are indexed in the order 
+            they are added to the sidebar. The default value is 0.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.Width">
+            <summary>
+            Gets or sets the width of the sidebar in pixels.
+            </summary>
+            <remarks>
+            This property allows for the adjustment of the sidebar's width, ensuring that it can be resized to accommodate different content sizes 
+            or user preferences. The width is constrained between minimum and maximum values to ensure that the sidebar remains usable and does not 
+            interfere with the display of the report content.
+            </remarks>
+            <value>
+            The width of the sidebar in pixels. Attempts to set this property to a value outside the allowed range will result in the width being set 
+            to the nearest boundary value (either <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.MinSidebarWidth" /> or <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.MaxSidebarWidth" />).
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Sidebar.Visible">
+            <summary>
+            Gets or sets a value indicating whether the Sidebar is visible.
+            </summary>
+            <remarks>
+            This property controls the visibility of the Sidebar, allowing it to be shown or hidden based on user interaction or other conditions 
+            within the application.
+            </remarks>
+            <value>
+                <c>true</c> if the Sidebar is visible; otherwise, <c>false</c>. The default value is <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Sidebar.ToggleVisibility">
+            <summary>
+            Toggles the visibility of the Sidebar.
+            </summary>
+            <member name="MethodForInternalUseOnly">
+                <remarks>
+				This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Sidebar.SelectedIndexChanged">
+            <summary>
+            Occurs when the index of the selected panel changes.
+            </summary>
+            <remarks>
+            This event allows for the implementation of custom logic in response to the user selecting a different panel within the Sidebar. 
+            It can be used to trigger updates or actions based on the newly activated panel, enhancing the interactivity and responsiveness of the application.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel">
+            <summary>
+            Exposes public properties of the sidebar panels.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.ViewerViewModel">
+            <summary>
+            The view model for the entire viewer.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.VisibleRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel" /> is visible in runtime.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.EnabledRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel" /> is enabled in runtime.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Visible">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel" /> is visible.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+            <remarks>Default value is <c>true</c>.</remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Enabled">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel" /> is enabled.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+            <remarks>Default value is <c>true</c>.</remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Width">
+            <summary>
+            Gets or sets the width of the entire sidebar.
+            Use Viewer.Sidebar.Width instead.
+            </summary>
+            <remarks>
+                <member name="PropertyForInternalUseOnly">
+                    <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+                </member>
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Refresh">
+            <summary>
+            Refreshes the sidebar panel.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Clear">
+            <summary>
+            Clears this instance.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.ContextMenu">
+            <summary>
+            Gets or sets the context menu for the sidebar panel.
+            </summary>
+            <value>The context menu.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.SidebarPanel.Text">
+            <summary>
+            Gets or sets the caption of the sidebar panel.
+            </summary>
+            <value>The caption text.</value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip">
+            <summary>
+            Allows to overwrite the default painting styles for ToolStrip objects.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.Instance">
+            <summary>
+            Gets the singleton instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip" /> class.
+            </summary>
+            <value>A <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip" /> object.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.GetElements">
+            <summary>
+            Gets the colorable elements.
+            </summary>
+            <value>An enumerable of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement" /> representing the colorable elements.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.GetChildControls">
+            <summary>
+            Gets the child controls.
+            </summary>
+            <value>An enumerable of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> representing the child controls.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.ReApplyColors">
+            <summary>
+            Gets or sets the action to reapply colors.
+            </summary>
+            <value>An action to reapply colors.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.InvertIcon">
+            <summary>
+            Gets or sets the function to invert icons.
+            </summary>
+            <value>A function to invert icons based on a color.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.OnRenderItemText(System.Windows.Forms.ToolStripItemTextRenderEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderItemText" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.ToolStripItemTextRenderEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderArrow" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.ToolStripArrowRenderEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderButtonBackground" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.OnRenderDropDownButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderDropDownButtonBackground" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.ToolStripItemRenderEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableToolStrip.OnRenderItemCheck(System.Windows.Forms.ToolStripItemImageRenderEventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Windows.Forms.ToolStripRenderer.RenderItemCheck" /> event.
+            </summary>
+            <param name="e">A <see cref="T:System.Windows.Forms.ToolStripItemImageRenderEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ControlExtensions">
+            <summary>
+            Provides extension methods for <see cref="T:System.ComponentModel.Component" /> objects to get colorable elements.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.ControlExtensions.GetComponentElements``1(``0)">
+            <summary>
+            Gets the colorable elements from the specified component.
+            </summary>
+            <typeparam name="TComponent">The type of the component.</typeparam>
+            <param name="source">The component from which to get the colorable elements.</param>
+            <returns>An enumerable of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement" /> representing the colorable elements.</returns>
+            <exception cref="T:System.NotImplementedException">Thrown when the method is not implemented for the specific type of component.</exception>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IThemeManager">
+            <summary>
+            Provides methods to manage the colors of controls.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.IThemeManager.AddControl(GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl)">
+            <summary>
+            Enables color management for all elements of the specified <paramref name="control" />.
+            </summary>
+            <param name="control">The control for which to enable color management.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.IThemeManager.RemoveControl(GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl)">
+            <summary>
+            Disables color management for all elements of the specified <paramref name="control" />.
+            </summary>
+            <param name="control">The control for which to disable color management.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl">
+            <summary>
+            Represents a control that contains a collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement" /> elements.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl.GetElements">
+            <summary>
+            Gets the UI elements of the control.
+            </summary>
+            <returns>An enumerable collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl.GetChildControls">
+            <summary>
+            Gets the nested controls.
+            </summary>
+            <returns>An enumerable collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> representing the nested controls.</returns>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl.ReApplyColors">
+            <summary>
+            Gets or sets the action to invoke if the control colors should be redrawn.
+            </summary>
+            <value>
+            The action to reapply colors.
+            </value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IObservableColorableControl">
+            <summary>
+            Represents a <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> with the ability to notify of changes.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.IObservableColorableControl.ColorsChanged">
+            <summary>
+            Occurs if the control colors were changed.
+            </summary>
+            <value>
+            The action to invoke when colors are changed.
+            </value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IIconicControl">
+            <summary>
+            Represents an iconic control that can have its icon inverted.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>
+				This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.IIconicControl.InvertIcon">
+            <summary>
+            Gets or sets the function to invert the icon.
+            </summary>
+            <value>
+            The function that takes a bitmap and a color, and returns an inverted bitmap.
+            </value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement">
+            <summary>
+            Represents a specific UI element of a control.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement.ControlType">
+            <summary>
+            Gets or sets the control type (text box, label, treeview, etc.).
+            </summary>
+            <value>
+            The type of the control.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement.ElementType">
+            <summary>
+            Gets or sets the color type (background color, text color, border color, etc.).
+            </summary>
+            <value>
+            The type of the element.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement.ApplyColor">
+            <summary>
+            Gets or sets the action to apply the color to the element.
+            </summary>
+            <value>
+            The action that takes a color and applies it to the element.
+            </value>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement.ReApplyColor">
+            <summary>
+            Gets or sets the action to invoke if the element color should be redrawn.
+            </summary>
+            <value>
+            The action to reapply color to the element.
+            </value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ControlType">
+            <summary>
+            Specifies the types of controls.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>
+				This enum should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ElementType">
+            <summary>
+            Specifies the types of elements within controls.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>
+				This enum should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Theming.ElementType.Background">
+            <summary>
+            Represents the background of a control.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Theming.ElementType.Text">
+            <summary>
+            Represents the text of a control.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Theming.ElementType.Border">
+            <summary>
+            Represents the border of a control.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.Theming.ElementType.Shadow">
+            <summary>
+            Represents the shadow of a control.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel">
+            <summary>
+            Represents the thumbnails panel within the ActiveReports Viewer.
+            </summary>
+            <remarks>
+            The thumbnails panel provides a visual representation of the pages in the report, allowing users to quickly navigate through the report by clicking 
+            on a thumbnail image of a page. This class manages the visibility, state, and interactions of the thumbnails panel, ensuring that users can 
+            efficiently browse through the report content.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel.VisibleRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel" /> is visible in runtime.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel.EnabledRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel" /> is enabled in runtime.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel.Text">
+            <summary>
+            Gets or sets the caption text of the thumbnails panel.
+            </summary>
+            <value>
+            A <see cref="T:System.String" /> representing the caption of the thumbnails panel. The default value is an empty string ("").
+            </value>
+            <remarks>
+            This property allows for the customization of the thumbnails panel's caption within the ActiveReports Viewer. Setting this property can help 
+            users understand the purpose of the thumbnails panel or provide any specific instructions related to the thumbnails displayed. It enhances 
+            the user experience by making the thumbnails panel more informative and intuitive.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel.Zoom">
+            <summary>
+            Gets or sets the zoom level for thumbnails displayed in the Thumbnails Panel.
+            </summary>
+            <value>
+            A <see cref="T:System.Double" /> representing the zoom level. This value determines the scale at which thumbnails are displayed, affecting their size and visibility.
+            </value>
+            <remarks>
+            Adjusting the zoom level allows users to customize their view of the thumbnails panel, making it easier to navigate through the report pages. 
+            </remarks>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.ThumbnailsPanel.ZoomChanged">
+            <summary>
+            Occurs when the zoom level of the thumbnails in the Thumbnails Panel changes.
+            </summary>
+            <remarks>
+            This event provides a way to respond to changes in the zoom level of thumbnails within the Thumbnails Panel. It can be used to trigger additional 
+            actions in the application, such as updating other UI elements to reflect the new zoom level or logging the change for analytics purposes. 
+            Listening to this event helps ensure that the application can dynamically adapt to user preferences and interactions.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.TocPanel">
+            <summary>
+            Represents the table of contents panel of the Viewer.
+            </summary>
+            <remarks>
+            This class encapsulates the functionality of the Table of Contents (TOC) panel within the ActiveReports Viewer. It allows for the display and 
+            interaction with the hierarchical structure of a report, providing users with a quick and easy way to navigate through the report's sections.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.TocPanel.VisibleRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.TocPanel" /> is visible in runtime.
+            </summary>
+            <value>
+                <c>true</c> if visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.TocPanel.EnabledRuntime">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:GrapeCity.ActiveReports.Viewer.Win.TocPanel" /> is enabled in runtime.
+            </summary>
+            <value>
+                <c>true</c> if enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.TocPanel.Clear">
+            <summary>
+            Clears the table of contents panel.
+            </summary>
+            <remarks>
+            This method provides functionality to clear all entries from the Table of Contents (TOC) panel. It can be used to reset the TOC, typically in 
+            preparation for loading a new report or when the current report's structure changes significantly.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.TocPanel.Refresh">
+            <summary>
+            Forces the table of contents panel to invalidate its client area and immediately redraw itself and any child controls.
+            </summary>
+            <remarks>
+            This method is essential for ensuring that the TOC panel reflects the most current state of the report's structure. It can be particularly 
+            useful after modifications to the report, such as adding or removing sections, to ensure that these changes are accurately represented in the TOC.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.TocPanel.ContextMenu">
+            <summary>
+            Gets or sets the context menu for the Table of Contents (TOC) panel.
+            </summary>
+            <remarks>
+            This property allows developers to assign a custom context menu to the TOC panel. When the user right-clicks on the TOC panel, this context menu 
+            is displayed, providing a customizable set of options that can enhance the user's interaction with the report's structure.
+            </remarks>
+            <value>The context menu assigned to the TOC panel. It is of type <see cref="T:System.Windows.Forms.ContextMenuStrip" />.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.TocPanel.Text">
+            <summary>
+            Gets or sets the caption of the Table of Contents (TOC) panel.
+            </summary>
+            <value>The caption text of the TOC panel. The default value is an empty string ("").</value>
+            <remarks>
+            This property allows for the customization of the TOC panel's caption, providing a way to label or title the panel according to the content 
+            or context of the report being viewed. The caption can be set to any string value, offering flexibility in how the TOC panel is presented to the user.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.TocPanel.Expanded">
+            <summary>
+            Gets or sets a value indicating whether the Table of Contents (TOC) is expanded.
+            </summary>
+            <value>
+                <c>true</c> if the TOC is expanded; otherwise, <c>false</c>.</value>
+            <remarks>
+            This property controls the expansion state of the TOC panel. When set to <c>true</c>, the TOC panel is fully expanded, displaying all available 
+            sections and subsections of the report. When set to <c>false</c>, the TOC panel is collapsed, hiding its contents. This feature allows users 
+            to manage the visibility of the report's structure for easier navigation and a cleaner workspace.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.UiFlagsTypeEditor">
+            <summary>
+            This is a generic flags enum editor.  This assumes the enum associated has FlagsAttribute
+            assigned and also that the value "0x0" is assigned.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.UiFlagsTypeEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the EditValue method.
+            </summary>
+            <param name="context">An ITypeDescriptorContext that can be used to gain additional context information.</param>
+            <returns>A UITypeEditorEditStyle value that indicates the style of editor used by EditValue. If the UITypeEditor
+             does not support this method, then GetEditStyle will return None.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.UiFlagsTypeEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the value of the specified object using the editor style indicated by GetEditStyle.
+            </summary>
+            <param name="context">An ITypeDescriptorContext that can be used to gain additional 
+            context information.</param>
+            <param name="provider">An IServiceProvider that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Viewer">
+            <summary>
+            Represents a Windows Forms user control designed to display ActiveReports report output. This control enables report readers to view and interact with the report content in various ways.
+            </summary>
+            <remarks>
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer" /> control offers a comprehensive set of features for interacting with reports, including:
+            <list type="bullet"><item><description>Navigating through report pages.</description></item><item><description>Zooming in and out of the report content for better readability.</description></item><item><description>Printing reports directly from the viewer.</description></item><item><description>Exporting reports to different formats such as PDF, Excel, and Word.</description></item><item><description>Searching text within the report.</description></item><item><description>Interacting with report elements such as drill-through links and sorting.</description></item></list>
+            It serves as a versatile component for applications that require report viewing and interaction capabilities.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.GetElements">
+            <summary>
+            Returns a collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.ColorableElement" /> objects.
+            </summary>
+            <member name="MethodForInternalUseOnly">
+                <remarks>
+				This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.GetChildControls">
+            <summary>
+            Retrieves a collection of controls within the viewer that can have their colors customized.
+            </summary>
+            <member name="MethodForInternalUseOnly">
+                <remarks>
+				This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+            <returns>A collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> that represents the color-customizable controls within the viewer.</returns>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ReApplyColors">
+            <summary>
+            Defines an action to reapply colors to a specific control that implements the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> interface.
+            </summary>
+            <value>
+            An action that takes an <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Theming.IColorableControl" /> as its parameter, allowing for color reapplication.
+            </value>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ColorsChanged">
+            <summary>
+            Gets or sets an action to be invoked when the color settings within the viewer have changed.
+            </summary>
+            <value>An action that is triggered in response to color changes within the viewer.</value>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Overridden. Processes Windows messages.
+            </summary>
+            <param name="m">The Windows message.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.OnFontChanged(System.EventArgs)">
+            <summary>
+            Overridden. Raises the <see cref="E:System.Windows.Forms.Control.FontChanged" /> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ProcessCmdKey(System.Windows.Forms.Message@,System.Windows.Forms.Keys)">
+            <summary>
+            Overridden. Processes the command key.
+            </summary>
+            <param name="msg">A <see cref="T:System.Windows.Forms.Message" />, passed by reference, that represents the window message to process.</param>
+            <param name="keyData">One of the <see cref="T:System.Windows.Forms.Keys" /> values that represents the key to process.</param>
+            <returns>
+                <c>True</c> if the character was processed by the control; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Dispose(System.Boolean)">
+            <summary> 
+            Cleans up any resources being used.
+            </summary>
+            <param name="disposing">
+                <c>True</c> if managed resources should be disposed; otherwise, <c>false</c>.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar">
+            <summary>
+            Provides a mechanism for manipulating the toolbar within the viewer. This includes access to the toolbar's properties and its constituent controls.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.MainBar">
+            <summary>
+            Gets the main tool strip.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip">
+            <summary>
+            Gets the primary <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip" /> component of the viewer's toolbar.
+            </summary>
+            <remarks>
+            This property provides direct access to the main <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip" /> object, allowing for customization and control 
+            over the toolbar's appearance and functionality.
+            </remarks>
+            <value>
+            The main <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip" /> object used in the viewer's toolbar.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.NavigationBar">
+            <summary>
+            Gets the navigation tool strip.
+            </summary>
+            <value>A <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip" /> object.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.MouseModeBar">
+            <summary>
+            Gets the mouse mode tool strip.
+            </summary>
+            <value>A <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToolStrip" /> object.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.Font">
+            <summary>
+            Gets or sets the font used to display text in the control.
+            </summary>
+            <value>The font used to display text in the control.</value>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar.ToString">
+            <summary>
+            Returns a string that represents the current <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar" /> object.
+            </summary>
+            <returns>
+            A string that represents the current <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar" />.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer" /> class.
+            </summary>
+            <remarks>
+            This constructor initializes the viewer with default settings, prepares the UI components, and sets up the necessary model-view bindings. 
+            It also handles license validation, initializes the model and view model, and configures the report panes. Additionally, it sets up context 
+            menus for mouse and touch modes, binds toolbar actions, and listens for various events to update the UI accordingly.
+            <para>
+            In design mode, it switches to touch mode directly. Otherwise, it proceeds to configure the sidebar, error panel, wait notification view, 
+            and other UI elements based on the viewer model's state. It also listens for document loading, search results, hyperlink actions, 
+            zoom changes, and sidebar pane changes to trigger the appropriate UI updates or actions.
+            </para><para>
+            The constructor also reads the print dialog style from the configuration and sets the printing settings accordingly. 
+            Finally, it switches the UI theme and touch mode based on the viewer model's settings.
+            </para></remarks>
+            <example>
+                <code>
+              // Create a new instance of the Viewer control and add it to the form.
+              Viewer reportViewer = new Viewer();
+              reportViewer.Dock = DockStyle.Fill;
+              this.Controls.Add(reportViewer);
+              // Load a report into the Viewer.
+              reportViewer.LoadDocument("path/to/your/report.rdlx");
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.HandleError(System.Exception)">
+            <summary>
+            Handles runtime errors by reporting them to the viewer's model for appropriate action.
+            </summary>
+            <param name="ex">The exception that occurred during runtime. 
+            This exception is passed to the viewer model for processing and potentially displaying an error message to the user.
+            </param>
+            <remarks>
+            This method is intended to centralize error handling within the viewer control. 
+            It allows for a consistent approach to managing exceptions, such as logging errors or informing the user through the UI. 
+            The actual handling strategy is implemented within the viewer model.
+            </remarks>
+            <example>
+                <code>
+            // Instantiating the Viewer control and adding it to a form.
+            Viewer viewer = new Viewer();
+            viewer.Dock = DockStyle.Fill;
+            this.Controls.Add(viewer);
+            // Example of handling an error that might occur during document loading.
+            try
+            {
+                viewer.LoadDocument("path/to/your/report.rdlx");
+            }
+            catch (Exception ex)
+            {
+                viewer.HandleError(ex);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.GetShortcutCommands">
+            <summary>
+            Retrieves a collection of keyboard shortcuts configured for the viewer.
+            </summary>
+            <returns>A collection of <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ViewerShortcut" /> objects, each representing 
+            a keyboard shortcut configured for various viewer actions.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if the internal storage for toolbar shortcuts is not initialized, 
+            indicating a configuration or initialization error within the viewer.
+            </exception>
+            <remarks>
+            This method provides access to the viewer's keyboard shortcuts, allowing external components or applications to display, 
+            customize, or respond to these shortcuts. It is essential for enhancing user accessibility and efficiency when interacting with the viewer.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of Viewer.
+            // Retrieving the list of shortcut commands available in the viewer.
+            var shortcutCommands = viewer.GetShortcutCommands();
+            foreach (var command in shortcutCommands)
+            {
+                Console.WriteLine($"Command: {command.Command}, Enabled: {command.Enabled}");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.SetShortcutCommandState(GrapeCity.ActiveReports.Viewer.Win.ViewerCommand,System.Boolean)">
+            <summary>
+            Sets the enabled or disabled state of a specified viewer command.
+            </summary>
+            <param name="viewerCommand">The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ViewerCommand" /> for which to set the enabled state.</param>
+            <param name="state">If <c>true</c>, the command is enabled; otherwise, it is disabled.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if the toolbar shortcut storage has not been initialized.</exception>
+            <remarks>
+            This method allows for the dynamic enabling or disabling of commands within the viewer, 
+            which can be useful for adjusting the available actions based on the current state or 
+            selection within the viewer. For example, disabling a 'Print' command when no document is loaded.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of Viewer.
+            // Enabling the Print command.
+            viewer.SetShortcutCommandState(ViewerCommand.Print, true);
+            // Disabling the ZoomIn command.
+            viewer.SetShortcutCommandState(ViewerCommand.ZoomIn, false);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.CancelRender">
+            <summary>
+            Cancels the current report rendering process.
+            </summary>
+            <remarks>
+            This method interrupts the rendering of a report that is currently in progress. It is useful in scenarios where 
+            the rendering process needs to be prematurely terminated, such as when a user chooses to close a report or load a new report 
+            before the current one has finished rendering. Calling this method does not affect the ability to start a new rendering process.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ShowFindDialog">
+            <summary>
+            Opens the Find Dialog to allow users to search for text within the report.
+            </summary>
+            <remarks>
+            This method displays the Find Dialog, enabling users to input search queries for finding specific text within the currently loaded report.
+            If the Find Dialog is already visible or if the UI is currently disabled, calling this method will have no effect.
+            This functionality is particularly useful in scenarios where users need to quickly locate specific information within large reports.
+            </remarks>
+            <example>
+                <code>
+            protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+            {
+                if (keyData == (Keys.Control | Keys.F))
+                {
+                    viewer.ShowFindDialog();
+                    return true;
+                }
+                return base.ProcessCmdKey(ref msg, keyData);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Print(System.Boolean)">
+            <summary>
+            Initiates the printing process for the currently opened document, either a section or a page report, with the option to display or bypass the print dialog.
+            </summary>
+            <param name="showPrintDialog">Specifies whether to display the print dialog before printing. 
+            Setting this to <c>true</c> shows the print dialog, allowing the user to select printer settings. 
+            Setting this to <c>false</c> bypasses the print dialog and uses the default printer settings.</param>
+            <returns>Returns <c>true</c> if the printing process is initiated successfully; otherwise, returns <c>false</c>.
+            Note that a return value of <c>true</c> does not guarantee the completion of the printing process, 
+            but rather the successful initiation of the print job.</returns>
+            <remarks>
+            This overload of the <c>Print</c> method uses default settings for showing the print progress dialog and using a printing thread.
+            To customize these settings, consider using the overload that accepts these parameters explicitly.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // This will print to the default printer without showing the print dialog
+            bool printSuccess = viewer.Print(showPrintDialog: false);
+            if (printSuccess)
+                MessageBox.Show("Printing initiated successfully.");
+            else
+                MessageBox.Show("Printing failed.");
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Print(System.Boolean,System.Boolean)">
+            <summary>
+            Initiates the printing process for the currently opened document, allowing for the display of the print dialog 
+            and the print progress dialog based on the provided parameters.
+            </summary>
+            <param name="showPrintDialog">If set to <c>true</c>, the print dialog is displayed, enabling the user to modify 
+            printer settings before printing. If set to <c>false</c>, the document is sent directly to the default printer without displaying the print dialog.</param>
+            <param name="showPrintProgressDialog">If set to <c>true</c>, a print progress dialog is displayed during the printing process, 
+            providing feedback on the print job status. If set to <c>false</c>, the printing process occurs without displaying the progress dialog.</param>
+            <returns>Returns <c>true</c> if the printing process is successfully initiated; otherwise, returns <c>false</c>. 
+            Note that a return value of <c>true</c> indicates successful initiation of the print job but does not guarantee its completion.</returns>
+            <remarks>
+            This method offers flexibility in the printing process by allowing the user to choose whether to display the print dialog and the print progress dialog. 
+            It is useful for scenarios where either direct printing with default settings is desired or user intervention is required to select specific printer settings.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // This will print the document silently without showing the print dialog or the print progress dialog
+            bool printSuccess = viewer.Print(showPrintDialog: false, showPrintProgressDialog: false);
+            if (printSuccess)
+                MessageBox.Show("Printing initiated successfully.");
+            else
+                MessageBox.Show("Printing failed.");
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Print(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initiates the printing process for the currently opened document, with options to display the print dialog, the print progress dialog, 
+            and to use a separate printing thread.
+            </summary>
+            <param name="showPrintDialog">If set to <c>true</c>, the print dialog is displayed, allowing the user to select printer settings 
+            before printing. If set to <c>false</c>, the document is printed using the default printer settings without displaying the print dialog.</param>
+            <param name="showPrintProgressDialog">If set to <c>true</c>, a print progress dialog is displayed during the printing process, 
+            providing the user with feedback on the status of the print job. If set to <c>false</c>, the document is printed without displaying the print progress dialog.</param>
+            <param name="usePrintingThread">If set to <c>true</c>, the printing process is executed on a separate thread, allowing the UI to remain responsive 
+            during printing. If set to <c>false</c>, the printing process is executed on the current thread, which may temporarily block the UI 
+            until the print job is completed.</param>
+            <returns>Returns <c>true</c> if the printing process is successfully initiated; otherwise, returns <c>false</c>. 
+            Note that a return value of <c>true</c> indicates successful initiation of the print job but does not guarantee its completion.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if the method is called while the document is not in a completed load state.</exception>
+            <remarks>
+            This method provides comprehensive control over the printing process, including whether to display dialogs and whether to use a separate printing thread. 
+            It is designed to accommodate various printing scenarios, from direct printing with default settings to interactive printing with user-selected settings.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // This will show both the print dialog and the print progress dialog to the user, and print on the UI thread
+            bool printSuccess = viewer.Print(showPrintDialog: true, showPrintProgressDialog: true, usePrintingThread: false);
+            if (printSuccess)
+                MessageBox.Show("Printing initiated successfully.");
+            else
+                MessageBox.Show("Printing failed.");
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Print(GrapeCity.Viewer.Common.PrintingSettings)">
+            <summary>
+            Initiates the printing process for the currently opened document, using the specified printing settings.
+            </summary>
+            <param name="settings">The printing settings to be used for this print job. This includes options for showing the print dialog, 
+            the print progress dialog, and whether to use a separate printing thread.</param>
+            <returns>Returns <c>true</c> if the printing process is successfully initiated; otherwise, returns <c>false</c>. 
+            Note that a return value of <c>true</c> indicates successful initiation of the print job but does not guarantee its completion.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if the method is called while the document is not in a completed load state, 
+            indicating that the document is not ready for printing.</exception>
+            <remarks>
+            This method allows for a flexible printing process by utilizing a <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PrintingSettings" /> object to specify the desired printing behavior. 
+            It is designed to accommodate various printing scenarios, from direct printing with default settings to interactive printing with user-selected settings.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // Configure printing to show print dialog, print progress dialog, and use a separate printing thread
+            viewer.Print(PrintingSettings.ShowPrintDialog | PrintingSettings.ShowPrintProgressDialog | PrintingSettings.UsePrintingThread);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(System.IO.Stream,GrapeCity.Viewer.Common.DocumentFormat)">
+            <summary>
+            Loads a document into the viewer from a provided stream, using the specified document format.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> that contains the document data to be loaded. The stream must be open and readable.</param>
+            <param name="format">The format of the document contained in the stream, specified as a <see cref="T:GrapeCity.Viewer.Common.DocumentFormat" />. 
+            This parameter determines how the stream data is interpreted during the loading process.</param>
+            <remarks>
+            This method enables the loading of documents directly from a stream, facilitating scenarios where documents are stored in memory, in a database, 
+            or retrieved from a network location, without the need for a physical file on disk.
+            Supported document formats are determined by the <see cref="T:GrapeCity.Viewer.Common.DocumentFormat" /> enumeration, which includes options 
+            for various types of reports and documents supported by ActiveReports.
+            </remarks>
+            <example>
+            Here is an example of using the <c>LoadDocument</c> method to load a report from a stream:
+            <code>
+            using (var stream = new FileStream("path/to/report.rdlx", FileMode.Open))
+            {
+                viewer.LoadDocument(stream, GrapeCity.Viewer.Common.DocumentFormat.Rdlx);
+            }
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(System.String)">
+            <summary>
+            Loads a document into the Viewer control from a specified file path.
+            </summary>
+            <param name="filePath">The path to the document file to be loaded. The file path can be absolute or relative to the application's current working directory.</param>
+            <remarks>
+            This method allows for loading documents from the file system into the Viewer control. It supports various document formats, 
+            including but not limited to PDF, DOCX, and proprietary formats of ActiveReports. 
+            Ensure that the file path points to a valid document file and that the application has the necessary permissions to read the file.
+            </remarks>
+            <example>
+            Here is an example of using the <c>LoadDocument</c> method to load a report from a file:
+            <code>
+            viewer.LoadDocument("path/to/report.rdlx");
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(GrapeCity.Viewer.Common.IDocumentLoader)">
+            <summary>
+            Loads a document into the Viewer control using the specified document loader.
+            </summary>
+            <param name="parameter">The document loader used to load the document. The loader encapsulates the logic for loading documents from various sources, 
+            such as a file, a stream, or other custom sources.</param>
+            <remarks>
+            This method provides a flexible way to load documents into the Viewer control by abstracting the source of the document. 
+            Implementations of <see cref="T:GrapeCity.Viewer.Common.IDocumentLoader" /> can vary, allowing for documents to be loaded from different sources, including but not limited 
+            to files, streams, and web services. The method delegates the loading process to the specified <see cref="T:GrapeCity.Viewer.Common.IDocumentLoader" />, 
+            which is responsible for opening the document and preparing it for viewing. It is important that the loader correctly implements the loading process 
+            for the document's source and format. This approach allows for custom loading logic to be easily integrated into the Viewer control, 
+            facilitating scenarios where documents need to be preprocessed or loaded in non-standard ways.
+            </remarks>
+            <example>
+            Implementing IDocumentLoader to Load a Document from a Stream:
+            <code>
+            public class StreamDocumentLoader : IDocumentLoader
+            {
+                public DocumentFormat DocumentFormat { get; private set; }
+            
+                public void Load(ILoadableFromFileAndStream obj)
+                {
+                    // Assuming 'documentStream' is a Stream containing the document data
+                    Stream documentStream = new MemoryStream(File.ReadAllBytes("path/to/your/document.rdlx"));
+                    obj.LoadFromStream(documentStream);
+                    // Set the document format based on the stream content or other logic
+                    DocumentFormat = DocumentFormat.Rdlx;
+                }
+            }
+            // Usage
+            // Assuming 'viewer' is an instance of the Viewer class and it has a method to accept IDocumentLoader
+            viewer.LoadDocument(new StreamDocumentLoader());
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(GrapeCity.ActiveReports.Document.PageDocument)">
+            <summary>
+            Loads the specified <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" /> into the Viewer control.
+            </summary>
+            <param name="pageDocument">The <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" /> instance to be loaded into the Viewer.</param>
+            <remarks>
+            This method enables the Viewer to display the content of a <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" />.
+            The <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" /> should be properly initialized and contain the pages that you wish to display.
+            It's important to note that loading a new document will replace any previously loaded document in the Viewer.
+            </remarks>
+            <example>
+            Here is an example of creating a <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" /> and loading it into the Viewer:
+            <code>
+            // Assuming 'viewer' is an instance of the Viewer control
+            var pageReport = new PageReport();
+            pageReport.Load(new FileInfo(@"path/to/report.rdlx"));
+            var pageDocument = pageReport.Document;
+            viewer.LoadDocument(pageDocument);
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(GrapeCity.ActiveReports.PageReport)">
+            <summary>
+            Loads the specified <see cref="T:GrapeCity.ActiveReports.PageReport" /> into the Viewer control.
+            </summary>
+            <param name="pageReport">The <see cref="T:GrapeCity.ActiveReports.PageReport" /> instance to be loaded into the Viewer.</param>
+            <remarks>
+            This method allows the Viewer to display the content of a <see cref="T:GrapeCity.ActiveReports.PageReport" />, which is a report designed in the Page Report format. 
+            The <see cref="T:GrapeCity.ActiveReports.PageReport" /> encapsulates the report definition along with its data sources, parameters, and layout information.
+            The <see cref="T:GrapeCity.ActiveReports.PageReport" /> should be properly initialized with its definition (usually a .rdlx file) and any necessary data connections.
+            It's important to note that loading a new report will replace any previously loaded document or report in the Viewer.
+            </remarks>
+            <example>
+            Here is an example of loading a <see cref="T:GrapeCity.ActiveReports.PageReport" /> into the Viewer:
+            <code>
+            // Assuming 'viewer' is an instance of the Viewer control and 'reportPath' is the path to the .rdlx file
+            PageReport pageReport = new PageReport(new FileInfo(reportPath));
+            viewer.LoadDocument(pageReport);
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(GrapeCity.ActiveReports.SectionReport)">
+            <summary>
+            Loads the specified <see cref="T:GrapeCity.ActiveReports.SectionReport" /> into the Viewer control.
+            </summary>
+            <param name="report">The <see cref="T:GrapeCity.ActiveReports.SectionReport" /> instance to be loaded into the Viewer. This report represents a document structured in sections, 
+            which can include headers, footers, and detail sections, each potentially containing data-bound elements, static content, or a combination of both.</param>
+            <remarks>
+            This method enables the Viewer to display the content of a <see cref="T:GrapeCity.ActiveReports.SectionReport" />, which is a report designed using the Section-based approach.
+            The <see cref="T:GrapeCity.ActiveReports.SectionReport" /> should be properly initialized with its layout definition and any necessary data connections or scripting logic.
+            It's important to note that loading a new report will replace any previously loaded document or report in the Viewer.
+            </remarks>
+            <example>
+            Here is an example of loading a <see cref="T:GrapeCity.ActiveReports.SectionReport" /> into the Viewer:
+            <code>
+            // Assuming 'viewer' is an instance of the Viewer control and 'reportPath' is the path to the .rpx file
+            var report = new SectionReport();
+            report.LoadLayout(XmlReader.Create(reportPath));
+            report.Document.Printer.PrinterName = string.Empty;
+            viewer.LoadDocument(report);
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadDocument(GrapeCity.ActiveReports.Document.SectionDocument)">
+            <summary>
+            Loads the specified <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" /> into the Viewer control.
+            </summary>
+            <param name="document">The <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" /> instance to be loaded into the Viewer. 
+            This document represents a compiled version of a section report, which is ready to be rendered and viewed.</param>
+            <remarks>
+            This method enables the Viewer to display the content of a <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" />, which is essentially a compiled section report.
+            It's important to note that loading a new document will replace any previously loaded document or report in the Viewer.
+            </remarks>
+            <example>
+            Here is an example of loading a <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" /> into the Viewer:
+            <code>
+            // Assuming 'viewer' is an instance of the Viewer control
+            var sectionDocument = new SectionDocument("SectionDocument1");
+            sectionDocument.Pages.Add(new Document.Section.Page());
+            Viewer.LoadDocument(sectionDocument);
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.SetParametersValues(System.Collections.Generic.IEnumerable{GrapeCity.Viewer.Common.IParameter})">
+            <summary>
+            Sets values for the parameters of the currently displayed report in the Viewer.
+            </summary>
+            <param name="parameters">A collection of <see cref="T:GrapeCity.Viewer.Common.IParameter" /> objects representing the parameters of the report and their respective values to be set.</param>
+            <remarks>
+            This method allows for dynamic modification of report parameters at runtime. By providing a collection of <see cref="T:GrapeCity.Viewer.Common.IParameter" /> objects, 
+            you can adjust the data or the appearance of the report based on user input, application state, or other criteria.
+            It's important to ensure that the names of the parameters provided match exactly with those defined in the report. 
+            Mismatched parameter names will not be recognized by the report and, as a result, will not affect the report's output.
+            </remarks>
+            <example>
+                <code>
+            public class ParameterAdapter : IParameter
+            {
+            	private string _name;
+            	private IEnumerable&lt;object&gt; _values;
+            	public ParameterAdapter(string name, IEnumerable&lt; object&gt; values)
+            	{
+            		_name = name;
+            		_values = values ?? throw new ArgumentNullException(nameof(values), "Values cannot be null.");
+            	}
+            	public string Name
+            	{
+            		get =&gt; _name;
+            		set =&gt; _name = value ?? throw new ArgumentNullException(nameof(value), "Name cannot be null.");
+            	}
+            	public IEnumerable&lt;object&gt; Values
+            	{
+            		get =&gt; _values;
+            		set =&gt; _values = value ?? throw new ArgumentNullException(nameof(value), "Values cannot be null.");
+            	}
+            }
+            // Handler for a UI control event, e.g., a button click
+            private void OnUpdateReportParametersClick(object sender, EventArgs e)
+            {
+            	// Assuming 'viewer' is an instance of the Viewer class
+            	// Assuming 'startDatePicker' and 'regionComboBox' are UI controls
+            	// Cast each element of the array to object
+            	var startDateParameter = new ParameterAdapter("StartDate", new[] { startDatePicker.Value }.Cast &lt;object&gt;());
+            	// For the region parameter, ensure that the selected item is treated as an object.
+            	// If regionComboBox.SelectedItem is not null, cast it to object; otherwise, handle the null case appropriately.
+            	var regionParameterValues = regionComboBox.SelectedItem != null ? new[] { regionComboBox.SelectedItem }.Cast&lt;object&gt;()
+            	                                                                        : Enumerable.Empty &lt;object&gt;();
+            	var regionParameter = new ParameterAdapter("Region", regionParameterValues);
+            	var parameters = new List&lt;IParameter&gt; { startDateParameter, regionParameter };
+            	// Dynamically update the report with new parameters
+            	viewer.SetParametersValues(parameters);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PreviewPages">
+            <summary>
+            Gets or sets the number of pages to preview when loading a report. 
+            Setting this property to a value less than or equal to 0 will result in all pages being loaded and available for preview.
+            </summary>
+            <remarks>
+            This property is particularly useful for improving the performance of report loading and rendering in scenarios where only a subset 
+            of the report's pages needs to be previewed initially. It is applicable when loading reports from instances of <see cref="T:GrapeCity.ActiveReports.SectionReport" /> or <see cref="T:GrapeCity.ActiveReports.Document.PageDocument" />.
+            When a report is loaded with a specific number of preview pages set, only those pages will be available for preview in the viewer. 
+            This can significantly reduce the time and resources required to load and display large reports.
+            </remarks>
+            <value>
+            The number of pages to preview. A value less than or equal to 0 indicates that all pages of the report should be loaded and available for preview.
+            </value>
+            <example>
+            This example shows how to set the PreviewPages property programmatically in a WinForms application that uses the Viewer control.
+            <code>
+            viewer.PreviewPages = 10;
+            </code></example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.AnnotationToolbarVisible">
+            <summary>
+            Gets or Sets the annotation toolbar's visibility.
+            </summary>
+            <remarks>The default value is <c>true</c>.</remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.AnnotationDropDownVisible">
+            <summary>
+            Gets or sets a value indicating whether the annotation dropdown is visible in the viewer.
+            </summary>
+            <value>
+                <c>true</c> if the annotation dropdown is visible; otherwise, <c>false</c>. The default value is <c>false</c>.
+            </value>
+            <remarks>
+            The annotation dropdown provides access to tools for adding annotations to the report.
+            Enabling the annotation dropdown can be beneficial for collaborative environments where users need to review and provide feedback on reports.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MouseModeButtonsVisible">
+            <summary>
+            Gets or sets a value indicating whether the mouse mode buttons are visible in the viewer toolbar.
+            </summary>
+            <value>
+                <c>true</c> if the mouse mode buttons are visible; otherwise, <c>false</c>. The default value is <c>true</c>.
+            </value>
+            <remarks>
+            Mouse mode buttons allow users to switch between different mouse modes for interacting with the report displayed in the viewer. 
+            These modes include pan, selection, and snapshot functionalities. 
+            Making these buttons visible provides a direct way for users to change their interaction mode according to their preference or task requirement.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.CanExport">
+            <summary>
+            Gets a value indicating whether exporting the report is permitted.
+            </summary>
+            <value>
+                <c>True</c> if export is permitted; otherwise, <c>false</c>. 
+            Exporting is permitted only if the viewer is not disposed, there is at least one page loaded in the viewer, and the underlying API supports exporting.</value>
+            <example>
+                <code>
+            // Assuming 'exportMenuItem' is a ToolStripMenuItem for exporting
+            exportMenuItem.Enabled = viewer.CanExport;
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.IsFplDocumentOpened">
+            <summary>
+            Returns a value indicating whether an Fpl document is opened.
+            </summary>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+            <returns>True if an Fpl document is opened; otherwise, false.</returns>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.AutoBackgroundColor">
+            <summary>
+            Gets or sets a value indicating whether the background color is automatically applied to the entire viewing area.
+            </summary>
+            <value>
+                <c>true</c> if the background color is automatically applied to the entire viewing area; otherwise, <c>false</c>. The default value is <c>false</c>.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.OpenedReport">
+            <summary>
+            Gets the type of the report currently opened in the viewer.
+            </summary>
+            <value>
+            The <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.OpenedReport" /> enumeration value that indicates the type of the report opened. 
+            This can be one of the predefined types such as <c>SectionReport</c>, <c>PageReport</c>, or <c>RdlReport</c>, among others, 
+            depending on the report format loaded into the viewer.
+            </value>
+            <remarks>
+            This property provides a convenient way to determine the format of the report currently being displayed by the viewer. 
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.FileInfo)">
+            <summary>
+            Exports the currently loaded report to the specified file using the given export filter.
+            </summary>
+            <param name="filter">An object that implements <see cref="T:GrapeCity.ActiveReports.Export.IDocumentExport" /> interface, providing export functionality.</param>
+            <param name="file">The <see cref="T:System.IO.FileInfo" /> object representing the file to which the report will be exported. The file extension should match 
+            the format specified by the <paramref name="filter" />.</param>
+            <remarks>
+            This method exports the entire report. The export process is determined by the capabilities of the specified <paramref name="filter" />, 
+            which includes handling various export formats and their respective options.
+            </remarks>
+            <seealso cref="T:GrapeCity.ActiveReports.Export.IDocumentExport" />
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            var pdfExport = new PdfExport();
+            var exportFilePath = new FileInfo("path/to/your/exportedFile.pdf");
+            viewer.Export(pdfExport, exportFilePath);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.FileInfo,System.String)">
+            <summary>
+            Exports the specified page range of the currently loaded report to the specified file using the given export filter.
+            </summary>
+            <param name="filter">An object that implements <see cref="T:GrapeCity.ActiveReports.Export.IDocumentExport" /> interface, providing export functionality.</param>
+            <param name="file">The <see cref="T:System.IO.FileInfo" /> object representing the file to which the report will be exported.</param>
+            <param name="pageRange">A string specifying the range of pages to be exported. The format of the range is a comma-separated list of page numbers 
+            or page ranges. If an empty string is provided, the entire report is exported.</param>
+            <remarks>
+            This method allows for selective export of pages, which can be useful when dealing with large reports or when 
+            only a specific section of a report is needed in the exported document.
+            </remarks>
+            <example>
+            Here is an example of using an export current report to pdf file:
+            <code>
+            var pdfExport = new PdfExport();
+            var exportFile = new FileInfo("report.pdf");
+            viewer.Export(pdfExport, exportFile, "1,3,5");
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.Stream)">
+            <summary>
+            Exports the currently loaded report to the specified stream using the given export filter.
+            </summary>
+            <param name="filter">An object that implements <see cref="T:GrapeCity.ActiveReports.Export.IDocumentExport" /> interface, providing export functionality.</param>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to which the report will be exported. The stream must be writable.</param>
+            <remarks>This method exports the entire report unless a specific page range is set in subsequent calls or configurations. 
+            The export process is determined by the capabilities of the specified <paramref name="filter" />, which includes handling various export formats 
+            and their respective options.
+            </remarks>
+            <example>
+            Here is an example of export report to pdf file:
+            <code>
+            using (var stream = new MemoryStream())
+            {
+            	var pdfExport = new PdfExport();
+            	viewer.Export(pdfExport, stream);
+            	// Use the stream containing the exported report
+            }
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Export(GrapeCity.ActiveReports.Export.IDocumentExport,System.IO.Stream,System.String)">
+            <summary>
+            Exports the specified page range of the currently loaded report to the specified stream using the given export filter.
+            </summary>
+            <param name="filter">An object that implements <see cref="T:GrapeCity.ActiveReports.Export.IDocumentExport" /> interface, providing export functionality.</param>
+            <param name="stream">The <see cref="T:System.IO.Stream" /> to which the report will be exported. The stream must be writable.</param>
+            <param name="pageRange">A string specifying the range of pages to be exported. The format of the range is a comma-separated list of page numbers 
+            or page ranges. If an empty string is provided, the entire report is exported.</param>
+            <example>
+            Here is an example of export report to pdf file:
+            <code>
+            using (var memoryStream = new MemoryStream())
+            {
+            	var pdfExportFilter = new PdfExport();
+            	viewer.Export(pdfExportFilter, memoryStream, "1,5");
+            	// The memoryStream now contains the first and the fifth pages of the report exported as a PDF.
+            }
+            </code></example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.Render(GrapeCity.ActiveReports.Extensibility.Rendering.IRenderingExtension,GrapeCity.ActiveReports.Extensibility.Rendering.IO.StreamProvider,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Exports the specified loaded report to the specified file (or group of files) using the specified export extension.
+            </summary>
+            <param name="extension">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.IRenderingExtension" /> object to use for exporting the report.</param>
+            <param name="streamProvider">The stream provider that manages the creation of streams for the exported document. 
+            It allows for exporting to multiple streams, supporting scenarios where the export might result in multiple files (e.g., exporting to images).</param>
+            <param name="settings">A collection of name/value pairs that specify settings for the export operation. These settings can include parameters 
+            such as page range, resolution, and other export-specific options.</param>
+            <remarks>
+            This method is intended for use with page reports only. It leverages the specified <paramref name="extension" /> to render the report 
+            into the format supported by the extension, using the streams provided by the <paramref name="streamProvider" />.
+            The <paramref name="settings" /> parameter allows for detailed control over the export process, with the available options depending 
+            on the specific rendering extension used. Common settings include "StartPage", "EndPage" for specifying page ranges, and "DpiX", "DpiY" 
+            for setting the resolution of exported images.
+            </remarks>
+            <example>
+                <code>
+            var pdfRenderingExtension = new PdfRenderingExtension();
+            var streamProvider = new FileStreamProvider(new DirectoryInfo("path/to/your/output"), string.Empty);
+            var settings = new NameValueCollection
+            {
+                { "Pagination", "True" }
+            };
+            var viewer = new Viewer();
+            viewer.Render(pdfRenderingExtension, streamProvider, settings);
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.RefreshReport">
+            <summary>
+            Occurs before the report refreshes. This event is triggered in several scenarios, including:
+            - Opening a new report.
+            - Performing actions such as toggling, sorting, or executing drill-through actions within the report.
+            - Interacting with the UI to view the report (e.g., using the parameters panel), toggling galley mode, refreshing the report, 
+            or navigating back to a parent report in a drill-through scenario.
+            In the absence of any errors, this event precedes the <see cref="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadCompleted" /> event.
+            </summary>
+            <remarks>
+            This event provides an opportunity to perform custom actions or modifications before the report is refreshed.
+            Subscribing to this event can be particularly useful in scenarios where you need to maintain a consistent state across report refreshes 
+            or when you need to prepare the application for the changes that a new or refreshed report might bring.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            viewer.RefreshReport += Viewer_RefreshReport;
+            private void Viewer_RefreshReport(object sender, EventArgs e)
+            {
+                // Custom logic upon report refresh
+                // For example, enable a 'Save' button only after the report has been refreshed
+                saveReportButton.Enabled = true;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.ErrorOccured">
+            <summary>
+            Occurs when an error occurs within the viewer. This event provides detailed information about the error, 
+            allowing for custom error handling or logging.
+            </summary>
+            <remarks>
+            The <see cref="T:GrapeCity.Viewer.Common.Model.ErrorInfo" /> object passed as a parameter to the event handler contains details about the error, including the exception object,
+            a user-friendly message, and potentially other metadata related to the error condition.
+            Subscribing to this event allows applications to gracefully handle errors, such as displaying custom error messages to the user, 
+            logging errors for diagnostics, or implementing specific recovery actions based on the type or severity of the error.
+            </remarks>
+            <example>
+                <code>
+            viewer.ErrorOccured += (sender, e) =&gt;
+            {
+                // Log error details
+                Console.WriteLine($"Error: {e.Exception.Message}");
+                // Show a user-friendly message
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.RefreshReportEvent">
+            <summary>
+            Occurs before the report refreshes.
+            </summary>
+            <remarks>
+            This event is marked as obsolete. Use the <see cref="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.RefreshReport" /> method for handling report refresh operations.
+            <para><member name="PropertyForInternalUseOnly"><remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks></member></para></remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs">
+            <summary>
+            Provides data for the Action event, encapsulating details about an action that should be performed.
+            </summary>
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            viewer.Action += Viewer_CustomActionTriggered;;
+            // Handler for the CustomActionTriggered event
+            private void Viewer_CustomActionTriggered(object sender, ActionEventArgs e)
+            {
+            	var viewer = (Viewer)sender;
+            	// Check if there's a specific action defined
+            	if (e.Action != null)
+            	{
+            	    // Handle the custom action
+            	    HandleCustomAction(e.Action);
+            	}
+            	else if (e.PageNumber &gt;= 0)
+            	{
+            	    // Navigate to the specified page number if no specific action is defined
+            	    viewer.CurrentPage = e.PageNumber;
+            	}
+            }
+            // Example method to handle a custom action
+            private void HandleCustomAction(IAction action)
+            {
+            	// Implement custom action handling logic here
+            	// This could involve checking the type of action and responding accordingly
+            	Debug.WriteLine($"Handling custom action: {action.GetType().Name}");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.PageNumber">
+            <summary>
+            Gets the page number in the current layout tree that should be navigated to.
+            This property is relevant when the action involves navigating to a specific page.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.Action">
+            <summary>
+            Gets the action that should be performed in response to this event.
+            </summary>
+            <remarks>
+            This property encapsulates the action to be taken. If no specific action is defined,
+            the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.PageNumber" /> property specifies the page to activate.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs" /> class.
+            This default constructor initializes the instance without specifying an action or page number.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.#ctor(GrapeCity.Viewer.Common.Model.Interactivity.IAction)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs" /> class with the specified action.
+            This constructor is used when an action is defined without a specific page navigation.
+            </summary>
+            <param name="action">The action associated with the event.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs.#ctor(GrapeCity.Viewer.Common.Model.Interactivity.IAction,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs" /> class with the specified action and page number.
+            This constructor is used when the action involves navigating to a specific page.
+            </summary>
+            <param name="action">The action associated with the event.</param>
+            <param name="pageNumber">The page number associated with the event.</param>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.Action">
+            <summary>
+            Occurs when a report item, configured with an interactive action, is clicked within the report preview control.
+            </summary>
+            <remarks>
+            This event is raised in response to user interactions with report items that have associated actions, such as hyperlinks or drill-through links. 
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs" /> provides details about the action to be performed, including any necessary parameters or identifiers.
+            Handlers for this event can perform custom processing, redirect actions, or cancel the default action execution 
+            by setting the <see cref="P:System.ComponentModel.CancelEventArgs.Cancel" /> property of the event arguments.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            viewer.Action += Viewer_CustomActionTriggered;;
+            // Handler for the CustomActionTriggered event
+            private void Viewer_CustomActionTriggered(object sender, ActionEventArgs e)
+            {
+            	var viewer = (Viewer)sender;
+            	// Check if there's a specific action defined
+            	if (e.Action != null)
+            	{
+            	    // Handle the custom action
+            	    HandleCustomAction(e.Action);
+            	}
+            	else if (e.PageNumber &gt;= 0)
+            	{
+            	    // Navigate to the specified page number if no specific action is defined
+            	    viewer.CurrentPage = e.PageNumber;
+            	}
+            }
+            // Example method to handle a custom action
+            private void HandleCustomAction(IAction action)
+            {
+            	// Implement custom action handling logic here
+            	// This could involve checking the type of action and responding accordingly
+            	Debug.WriteLine($"Handling custom action: {action.GetType().Name}");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Viewer.OnAction(System.Object,GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs)">
+            <summary>
+            Fires the Action event when appropriate.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ActionEventArgs" /> that contains the event data.</param>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.Find">
+            <summary>
+            Occurs when the Find dialog successfully locates the specified text within the document.
+            </summary>
+            <remarks>
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.FindEventArgs" /> associated with this event provides details about the found text, including its location and the 
+            context in which it was found.
+            </remarks>
+            <example>
+                <code>
+            public partial class MyForm : Form
+            {
+            	private Viewer viewer;
+            	public MyForm()
+            	{
+            		InitializeComponent();
+            		viewer = new Viewer();
+            		
+            		// Subscribe to the Find event
+            		viewer.Find += Viewer_Find;
+            		
+            		this.Controls.Add(viewer);
+            		viewer.Dock = DockStyle.Fill;
+            	}
+            }
+            private void Viewer_Find(object sender, FindEventArgs e)
+            {
+            	if (e.Found)
+            		MessageBox.Show($"Text found on page {e.PageIndex + 1}.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            	else
+            		MessageBox.Show("Text not found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.HyperLink">
+            <summary>
+            Occurs when the user clicks on text or an image that has a hyperlink assigned to it.
+            </summary>
+            <remarks>
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.HyperLinkEventArgs" /> provides information about the hyperlink, including its URL.
+            Event handlers can use this information to perform custom actions, such as navigating to the hyperlink or displaying it in a web browser.
+            </remarks>
+            <example>
+                <code>
+            public partial class MyForm : Form
+            {
+            	private Viewer viewer;
+            	public MyForm()
+            	{
+            		InitializeComponent();
+            		// Initialize the viewer
+            		viewer = new Viewer();
+            		this.Controls.Add(viewer);
+            		// Subscribe to the HyperLink event
+            		viewer.HyperLink += Viewer_HyperLink;
+            	}
+            	
+            	private void Viewer_HyperLink(object sender, HyperLinkEventArgs e)
+            	{
+            		// Check if the hyperlink is not null or empty
+            		if (!string.IsNullOrEmpty(e.HyperLink))
+            		{
+            		    // Open the hyperlink in the default web browser
+            		    System.Diagnostics.Process.Start(e.HyperLink);
+            		    // Optionally, set Handled to true to prevent the default behavior
+            		    e.Handled = true;
+            		}
+            	}
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.ZoomChanged">
+            <summary>
+            Occurs when the zoom level of the viewer changes.
+            </summary>
+            <remarks>
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventArgs" /> provides the new zoom level.
+            Handlers for this event can respond to zoom level changes, for example, by updating UI elements that reflect the current zoom level.
+            </remarks>
+            <example>
+                <code>
+            public partial class MyForm : Form
+            {
+            	private Viewer viewer;
+            	public MyForm()
+            	{
+            		InitializeComponent();
+            		// Initialize the viewer
+            		viewer = new Viewer();
+            		this.Controls.Add(viewer);
+            		// Subscribe to the ZoomChanged event
+            		viewer.ZoomChanged += Viewer_ZoomChanged;
+            	}
+            	private void Viewer_ZoomChanged(object sender, EventArgs e)
+            	{
+            		// Handle the ZoomChanged event
+            		// For example, update the status bar with the current zoom level
+            		statusBarLabel.Text = $"Zoom: {viewer.Zoom}%";
+            	}
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.LoadCompleted">
+            <summary>
+            Occurs after the document has been fully loaded and rendered in the viewer.
+            </summary>
+            <example>
+                <code>
+            public partial class MyForm : Form
+            {
+            	private Viewer viewer;
+            	public MyForm()
+            	{
+            		InitializeComponent();
+            		// Initialize the viewer
+            		viewer = new Viewer();
+            		this.Controls.Add(viewer);
+            		// Subscribe to the LoadCompleted event
+            		viewer.LoadCompleted += Viewer_LoadCompleted;
+            	}
+            	private void Viewer_LoadCompleted(object sender, EventArgs e)
+            	{
+            		// Handle the LoadCompleted event
+            		// For example, update the status bar with the total number of pages
+            		statusBarLabel.Text = $"Total Pages: {viewer.Document.Pages.Count}";
+            	}
+            }
+            </code>
+            </example>
+            <remarks>
+            The <see cref="T:System.EventArgs" /> may provide additional details about the load operation.
+            This event can be used to perform actions that should only occur after the entire document is available for viewing, such as 
+            enabling document navigation controls.
+            </remarks>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.TableOfContentsAfterSelect">
+            <summary>
+            Occurs after an item is selected in the table of contents treeview.
+            </summary>
+            <remarks>
+            The <see cref="T:System.Windows.Forms.TreeViewEventArgs" /> provides information about the selected item, enabling event handlers to access the item's properties 
+            and take appropriate actions, such as navigating to the corresponding section in the document.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // Subscribe to the TableOfContentsAfterSelect event
+            viewer.TableOfContentsAfterSelect += Viewer_TableOfContentsAfterSelect;
+            // Event handler for TableOfContentsAfterSelect
+            private void Viewer_TableOfContentsAfterSelect(object sender, TreeViewEventArgs e)
+            {
+            	var selectedNodeText = e.Node.Text;
+            	MessageBox.Show($"You have selected: {selectedNodeText}", "TOC Selection");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.TableOfContentsClick">
+            <summary>
+            Occurs when the user clicks an item in the table of contents treeview.
+            </summary>
+            <remarks>
+            The event handler receives an <see cref="T:System.EventArgs" /> instance, which does not provide event data but indicates that the event has occurred.
+            </remarks>
+            <example>
+                <code>
+            // Subscribe to the TableOfContentsClick event
+            viewer.TableOfContentsClick += Viewer_TableOfContentsClick;
+            // Event handler for TableOfContentsClick
+            private void Viewer_TableOfContentsClick(object sender, EventArgs e)
+            {
+            	MessageBox.Show("The Table of Contents has been clicked.", "TOC Clicked");
+            }
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Viewer.Win.Viewer.TableOfContentsSelectedIndexChanged">
+            <summary>
+            Occurs when the index of the currently selected item in the table of contents changes.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TouchModeToolbar">
+            <summary>
+            Gets the toolbar used in touch mode.
+            </summary>
+            <value>
+            The <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar" /> that is displayed when the viewer is in touch mode.
+            </value>
+            <remarks>
+            This property provides access to the toolbar that is specifically designed for touch interactions, 
+            offering larger buttons and spacing to accommodate touch input. It is only visible when the viewer is in touch mode.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TouchModeButtonVisibility">
+            <summary>
+            Gets or sets the visibility of the touch mode button on the viewer's toolbar.
+            </summary>
+            <value>
+            One of the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TouchModeButtonVisibility" /> values that determines the visibility of the touch mode button. 
+            The default is <see cref="F:GrapeCity.Viewer.Common.Model.TouchModeButtonVisibility.Auto" />.
+            </value>
+            <remarks>
+            This property controls the appearance of the touch mode toggle button on the viewer's toolbar. 
+            When set to <see cref="F:GrapeCity.Viewer.Common.Model.TouchModeButtonVisibility.Auto" />, the button's visibility is automatically determined based on the 
+            current input method (touch or mouse). Setting this property <see cref="F:GrapeCity.Viewer.Common.Model.TouchModeButtonVisibility.Hidden" /> hides the button regardless of the input method.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TouchMode">
+            <summary>
+            Gets or sets a value indicating whether the touch mode is enabled or disabled in the viewer.
+            </summary>
+            <value>
+                <c>true</c> if touch mode is enabled; otherwise, <c>false</c>. The default value is <c>false</c>.
+            </value>
+            <remarks>
+            When touch mode is enabled, the viewer optimizes its interface and behavior for touch interactions. 
+            This may include larger UI elements and different gesture handling. This setting is particularly useful on touch-enabled devices.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TouchContextMenuStrip">
+            <summary>
+            Gets or sets the context menu that appears when the user performs a long tap on the touch screen.
+            </summary>
+            <value>
+            The <see cref="T:System.Windows.Forms.ToolStripDropDown" /> that appears during a long tap in touch mode. The default value is <c>null</c>.
+            </value>
+            <remarks>
+            This property allows customization of the context menu for touch interactions, providing a way to offer 
+            additional options or functionality when the user engages with the viewer using touch gestures.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.History">
+            <summary>
+            Provides access to the history management functionality of the viewer.
+            </summary>
+            <value>
+            An <see cref="T:GrapeCity.Viewer.Common.IHistoryApi" /> instance that allows for navigating through the viewer's history.
+            </value>
+            <remarks>
+            This property enables manipulation of the viewer's navigation history, allowing for operations such as moving forward 
+            or backward through previously viewed documents or pages.
+            </remarks>
+            <example>
+                <code>
+            private void ForwardButton_Click(object sender, EventArgs e)
+            {
+                if (viewer.History.Position &lt; viewer.History.Count)
+                {
+                    viewer.History.MoveNext();
+                }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.Sidebar">
+            <summary>
+            Gets the sidebar's public API, providing access to its functionality and panels.
+            </summary>
+            <value>
+            A <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.Sidebar" /> instance that represents the sidebar in the viewer.
+            </value>
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            private void ShowSidebarButton_Click(object sender, EventArgs e)
+            {
+            	viewer.Sidebar.Visible = true;
+            }
+            private void HideSidebarButton_Click(object sender, EventArgs e)
+            {
+                viewer.Sidebar.Visible = false;
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TableOfContents">
+            <summary>
+            Gets the Table of Contents panel within the viewer's sidebar.
+            </summary>
+            <value>
+            A <see cref="T:GrapeCity.ActiveReports.Viewer.Win.TocPanel" /> instance that represents the Table of Contents panel.
+            </value>
+            <remarks>
+            The Table of Contents panel provides a structured overview of the document, allowing users to navigate to different sections easily.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is your Viewer control instance
+            var toc = viewer.TableOfContents;
+            toc.Visible = true;
+            toc.Text = "Table of Contents";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.Toolbar">
+            <summary>
+            Provides access to the viewer's toolbar, allowing for customization and control of toolbar buttons and functionality.
+            </summary>
+            <value>
+            A <see cref="T:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewerToolbar" /> instance that represents the toolbar in the viewer.
+            </value>
+            <remarks>
+            The toolbar is a key component of the viewer's user interface, offering quick access to common actions such as navigation, zoom, and print. 
+            This property allows developers to customize the toolbar to better suit their application's needs.
+            </remarks>
+            <example>
+                <code>
+            public void AddCustomButtonToViewerToolbar(Viewer viewer)
+            {
+            	// Create a new ToolStripButton
+            	var customButton = new ToolStripButton
+            	{
+            	    Name = "customButton",
+            	    Text = "Custom Action"
+            	};
+            	customButton.Click += CustomButton_Click;
+            	// Add the button to the Viewer's ToolStrip
+            	viewer.Toolbar.ToolStrip.Items.Add(customButton);
+            }
+            private void CustomButton_Click(object sender, EventArgs e)
+            {
+            	// Custom action
+            	MessageBox.Show("Custom action executed.");
+            }
+            public void RemoveButtonFromViewerToolbar(Viewer viewer, string buttonName)
+            {
+            	var item = viewer.Toolbar.ToolStrip.Items[buttonName];
+            	if (item != null)
+            	{
+            	    viewer.Toolbar.ToolStrip.Items.Remove(item);
+            	}
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.AllowSplitter">
+            <summary>
+            Gets or sets a value indicating whether the viewer allows the view to be split into multiple panes.
+            </summary>
+            <value>
+                <c>true</c> if splitting the view is allowed; otherwise, <c>false</c>. The default is <c>true</c>.
+            </value>
+            <remarks>
+            When set to <c>true</c>, users can split the viewer to compare different sections of a document side by side.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.CurrentPage">
+            <summary>
+            Gets or sets the current page number displayed in the viewer.
+            </summary>
+            <value>
+            The 1-based index of the current page displayed, or 0 if no document is loaded.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.GalleyMode">
+            <summary>
+            Gets or sets a value indicating whether the viewer is in Galley Mode.
+            </summary>
+            <value>
+                <c>true</c> if Galley Mode is enabled, allowing the report to be viewed as a continuous vertical scroll without page breaks; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            Galley Mode is useful for viewing reports in a continuous flow, eliminating the visual interruption of page breaks. 
+            This mode is particularly beneficial for reports where page breaks are arbitrary or where a continuous view enhances readability. 
+            The default value is <c>false</c>, which means the report is displayed with page breaks as defined.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.SplitView">
+            <summary>
+            Gets or sets a value indicating whether the viewer is in Split View mode.
+            </summary>
+            <value>
+                <c>true</c> if the viewer is split into two panes; otherwise, <c>false</c>. The default is <c>false</c>.
+            </value>
+            <remarks>
+            When set to <c>true</c>, the viewer divides its display area into two separate panes, allowing users to view different parts of a document 
+            simultaneously. This is particularly useful for comparing sections of a document or viewing two different documents side by side.
+            <para>
+            The split orientation (horizontal or vertical) is determined by the current orientation of the viewer's container. 
+            Changing this property to <c>true</c> will split the viewer according to its current orientation, dividing the available space equally 
+            between the two panes.
+            </para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.Zoom">
+            <summary>
+            Gets or sets the viewer's zoom level.
+            </summary>
+            <value>
+            The zoom level of the viewer, where:
+            <list type="bullet"><item><description>-1 indicates Fit Width mode,</description></item><item><description>-2 indicates Fit Whole Page mode,</description></item><item><description>A positive value indicates a specific zoom level (e.g., 1.0 for 100%).</description></item></list></value>
+            <remarks>
+            The default value is <c>1f</c>, which corresponds to 100% zoom.
+            <para>
+            Setting the zoom level to -1 or -2 adjusts the view to fit the width or the entire page within the viewer's display area, respectively. 
+            Specifying a positive value sets the zoom to that specific level.
+            </para></remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the value is less than -2 or equal to 0.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when attempting to set the zoom level while in a mode where zoom is not enabled.</exception>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            viewer.Zoom = 1f; // 100% zoom
+            viewer.Zoom = -2; // Fit Whole Page
+            viewer.Zoom = 1.5f; // 150% zoom
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewType">
+            <summary>
+            Gets or sets the view type for displaying pages within the viewer.
+            </summary>
+            <value>
+            One of the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewType" /> values that specifies how pages are displayed. 
+            The default is <see cref="F:GrapeCity.Viewer.Common.Model.ViewType.SinglePage" />, which displays one page at a time.
+            </value>
+            <remarks>
+                <para>
+            The <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ViewType" /> property controls the layout of pages in the viewer. It can be set to:
+            <list type="bullet"><item><description><see cref="F:GrapeCity.Viewer.Common.Model.ViewType.SinglePage" /> to display one page at a time.</description></item><item><description><see cref="F:GrapeCity.Viewer.Common.Model.ViewType.Continuous" /> to display pages in a continuous vertical scroll.</description></item><item><description><see cref="F:GrapeCity.Viewer.Common.Model.ViewType.MultiPage" /> to display multiple pages at a time in a grid layout.</description></item></list></para>
+                <para>Changing the view type can be useful for optimizing the reading experience based on the document type or user preference.</para>
+                <para>This property is bound to the viewer's toolbar, allowing users to change the view type through the UI.</para>
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PagesBackColor">
+            <summary>
+            Gets or sets the background color of the pages within the viewer.
+            </summary>
+            <value>
+            A <see cref="T:System.Drawing.Color" /> that represents the background color of the pages. The default value is <c>null</c>, 
+            which indicates that the default background color is used.
+            </value>
+            <remarks>
+                <para>
+            This property allows you to change the background color of the pages displayed in the viewer. Setting this property can enhance 
+            the readability of the report or match the application's theme.
+            </para>
+                <para>
+            The background color is applied to the pages themselves and does not affect the viewer's overall background. 
+            If the value is set to <c>null</c>, the viewer reverts to using the default background color.
+            </para>
+                <para>
+            Note that changing the background color does not modify the report's content or its original background settings. 
+            It only affects the display within the viewer.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ScrollbarEnabled">
+            <summary>
+            Gets or sets a value indicating whether scroll bars are enabled in the report viewer pane.
+            </summary>
+            <value>
+                <c>true</c> if scroll bars are enabled; otherwise, <c>false</c>. The default is <c>true</c>.</value>
+            <remarks>
+            When set to <c>true</c>, this property enables the display of horizontal and vertical scroll bars in the report viewer pane, 
+            allowing the user to scroll through the report content. When set to <c>false</c>, the scroll bars are hidden, and the report 
+            content may not be fully accessible if it exceeds the visible area of the viewer pane.
+            <para>
+            This property can be used to customize the viewing experience based on the specific requirements of your application or the preferences of your users.
+            </para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.HyperlinkForeColor">
+            <summary>
+            Gets or sets the foreground color of hyperlinks displayed within the report viewer.
+            </summary>
+            <value> A <see cref="T:System.Drawing.Color" /> that represents the color of the hyperlink text. The default color is Blue.</value>
+            <remarks>
+            This property is applicable only to SectionReports. It allows customization of the color of hyperlink text within the report, 
+            enhancing visual distinction or aligning with application themes.
+            <para>
+            Changing this property does not affect the functionality of the hyperlinks, only their appearance. Ensure that the chosen color 
+            provides sufficient contrast with the background for readability.
+            </para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.HyperlinkBackColor">
+            <summary>
+            Gets or sets the background color for hyperlink text areas within the report viewer. This setting applies only to SectionReports.
+            </summary>
+            <value>The background color for hyperlink text areas. The default value is Transparent.</value>
+            <remarks>
+            This property allows you to customize the appearance of hyperlinks in SectionReports by changing their background color. 
+            The default setting of Transparent means that the hyperlink background will blend with the underlying control or page background.
+            <para>
+            Adjusting this property can enhance readability or visual appeal, depending on the report design and the application's theme.
+            </para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.HyperlinkUnderline">
+            <summary>
+            Gets or sets a value indicating whether the hyperlink text within the report viewer is underlined. This property is applicable only to SectionReports.
+            </summary>
+            <value>
+                <c>true</c> if the hyperlink text is underlined; otherwise, <c>false</c>. The default is <c>true</c>.
+            </value>
+            <remarks>
+            This property allows for the customization of hyperlink appearance within SectionReports. 
+            By default, hyperlinks are underlined to distinguish them from regular text, enhancing user interaction by making links visually identifiable.
+            <para>
+            Setting this property to <c>false</c> will remove the underline from hyperlink text, which may be useful for achieving a specific design 
+            aesthetic or when hyperlink styling is handled through other means.
+            </para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.UseHyperlinkSettings">
+            <summary>
+            Gets or sets a value indicating whether the viewer should apply the specified hyperlink settings, such as color, underline, 
+            and background color, to hyperlinks within SectionReports.
+            </summary>
+            <value>
+                <c>true</c> if the viewer applies the hyperlink settings; otherwise, <c>false</c>. The default is <c>true</c>.</value>
+            <remarks>
+            Enabling this property ensures that hyperlinks in SectionReports are rendered according to the hyperlink settings specified in the viewer, 
+            providing a consistent appearance and behavior for hyperlinks. When set to <c>false</c>, hyperlinks will be displayed using the default or 
+            report-specified styles, which may not align with the viewer's hyperlink settings.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PrintingSettings">
+            <summary>
+            Gets or sets the printing settings for the Viewer, determining the behavior of the print operation.
+            </summary>
+            <value>
+            A combination of <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PrintingSettings" /> flags that control the print dialog display, print progress dialog display, 
+            and whether printing occurs on a separate thread.
+            </value>
+            <remarks>
+            The default settings enable the print dialog (<see cref="F:GrapeCity.Viewer.Common.PrintingSettings.ShowPrintDialog" />), the print progress dialog 
+            (<see cref="F:GrapeCity.Viewer.Common.PrintingSettings.ShowPrintProgressDialog" />), and printing on a separate thread (<see cref="F:GrapeCity.Viewer.Common.PrintingSettings.UsePrintingThread" />), 
+            optimizing the printing process for user experience and performance.
+            </remarks>
+            <example>
+                <code>
+            // Assuming 'viewer' is an instance of the Viewer class
+            // To disable the print dialog while keeping the print progress dialog and printing on a separate thread, you can configure the PrintingSettings property as follows:
+            viewer.PrintingSettings = PrintingSettings.ShowPrintProgressDialog | PrintingSettings.UsePrintingThread;
+            // If you want to disable the print progress dialog but keep the print dialog and printing on a separate thread, use the following configuration:
+            viewer.PrintingSettings = PrintingSettings.ShowPrintDialog | PrintingSettings.UsePrintingThread;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageRows">
+            <summary>
+            Gets or sets the number of pages that are displayed vertically in the viewer when it is in MultiPage view mode.
+            </summary>
+            <value>The number of pages to display vertically. The default value is 2.</value>
+            <remarks>
+            This property allows user to control how many pages are displayed vertically in the viewer when it is set to MultiPage view mode. 
+            It is useful for presenting multiple pages of a document simultaneously, improving the document's readability and navigation. 
+            The value must be a positive integer; otherwise, an <see cref="T:System.ArgumentOutOfRangeException" /> is thrown.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when the set value is less than or equal to 0, as the number of pages displayed vertically must be a positive integer.
+            </exception>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiPageRows">
+            <summary>
+            Gets or sets the number of pages displayed vertically when the viewer is in MultiPageMode.
+            This property is obsolete and should not be used in new development. Use <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageRows" /> instead.
+            </summary>
+            <remarks>
+            This property is provided only for backward compatibility with earlier versions of the software. 
+            It has been superseded by the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageRows" /> property, which should be used in all new development.
+            <para><member name="PropertyForInternalUseOnly"><remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks></member></para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageCols">
+            <summary>
+            Gets or sets the number of pages that are displayed horizontally in the viewer when it is in MultiPage view mode.
+            </summary>
+            <value>The number of pages to display horizontally. The default value is 3.</value>
+            <remarks>
+            This property allows you to control how many pages are displayed horizontally in the viewer when it is set to MultiPage view mode. 
+            It is useful for presenting multiple pages of a document side by side, enhancing the document's readability and navigation. 
+            The value must be a positive integer; otherwise, an <see cref="T:System.ArgumentOutOfRangeException" /> is thrown.
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when the set value is less than or equal to 0, as the number of pages displayed horizontally must be a positive integer.
+            </exception>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiPageCols">
+            <summary>
+            Gets or sets the number of horizontal pages to display when the viewer is in MultiPageMode.
+            This property is obsolete and should not be used in new development. Use <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageCols" /> instead.
+            </summary>
+            <remarks>
+            This property is provided only for backward compatibility with earlier versions of the software. It has been superseded by the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MultiplePageCols" /> property, which should be used in all new development.
+            <para><member name="PropertyForInternalUseOnly"><remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks></member></para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.RepositionPage">
+            <summary>
+            Gets or sets a value indicating whether the viewer repositions the view to the top of the page when a user navigates to another page 
+            after scrolling down on the current page.
+            </summary>
+            <value>
+                <c>true</c> if the viewer repositions the view to the top of the page upon navigation; otherwise, <c>false</c>.</value>
+            <remarks>
+            The default value is <c>false</c>. When set to <c>true</c>, this feature enhances the readability by ensuring that the user 
+            starts viewing each new page from the top.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.SearchResultsForeColor">
+            <summary>
+            Gets or sets the foreground color used to highlight text found using the search functionality in the Viewer control.
+            </summary>
+            <value>
+            A <see cref="T:System.Drawing.Color" /> representing the color of the text that is highlighted as a result of a search operation. 
+            The default value is <see cref="P:System.Drawing.Color.DarkBlue" />.
+            </value>
+            <remarks>
+            Use this property to customize the appearance of search results within the Viewer control. Changing this color can enhance 
+            readability or match the Viewer's thematic styling.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.SearchResultsBackColor">
+            <summary>
+            Gets or sets the background color used to highlight text found using the search functionality in the Viewer control.
+            </summary>
+            <value>
+            A <see cref="T:System.Drawing.Color" /> representing the background color of the text that is highlighted as a result of a search operation.
+            The default value is <see cref="P:System.Drawing.Color.Blue" />.
+            </value>
+            <remarks>
+            This property allows for the customization of the appearance of search results within the Viewer control. 
+            Adjusting this color can help in making the search results stand out or in aligning them with the overall theme of the Viewer control.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TargetView">
+            <summary>
+            Gets or sets a value indicating the current target view when the SplitView feature is enabled.
+            </summary>
+            <value>
+            The target view, either <see cref="F:GrapeCity.ActiveReports.Viewer.Win.TargetView.Primary" /> or <see cref="F:GrapeCity.ActiveReports.Viewer.Win.TargetView.Secondary" />, indicating which view is currently 
+            targeted for user actions.
+            </value>
+            <remarks>
+            When <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.SplitView" /> is enabled, the Viewer control can display two views simultaneously. This property determines 
+            which of those views is currently active or targeted for user interactions. The default value is <see cref="F:GrapeCity.ActiveReports.Viewer.Win.TargetView.Primary" />.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.PageOffset">
+            <summary>
+            Gets or sets the page offset in pixels, disregarding zoom level.
+            This property can have distinct values for each pane and is applicable only in single page view mode.
+            </summary>
+            <value>The page offset as a <see cref="T:System.Drawing.Point" />.</value>
+            <remarks>
+            This property is particularly useful for adjusting the initial viewing position of a page within the viewer.
+            It is only effective when the viewer is in single page view mode; otherwise, it returns <see cref="F:System.Drawing.Point.Empty" />.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ReportViewer">
+            <summary>
+            Provides a public API for backward compatibility reasons.
+            This property returns the current instance of the Viewer.
+            </summary>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.Document">
+            <summary>
+            Gets or sets the document displayed in the viewer.
+            </summary>
+            <remarks>
+            This property provides access to the <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" /> currently being displayed by the viewer.
+            It is intended for backward compatibility and allows direct manipulation of the document's content, structure, and properties.
+            Setting this property will load the specified document into the viewer, replacing any document that was previously displayed.
+            </remarks>
+            <value>The <see cref="T:GrapeCity.ActiveReports.Document.SectionDocument" /> that is currently displayed in the viewer.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MouseMode">
+            <summary>
+            Gets or sets the mouse interaction mode for the viewer.
+            </summary>
+            <remarks>
+            This property controls how mouse interactions within the viewer are interpreted. 
+            For example, setting this to <see cref="F:GrapeCity.Viewer.Common.Model.MouseMode.Pan" /> allows the user to click and drag to pan around the document.
+            The default mode is <see cref="F:GrapeCity.Viewer.Common.Model.MouseMode.Pan" />.
+            </remarks>
+            <value>One of the <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.MouseMode" /> values indicating the current mouse interaction mode.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ScrollingMode">
+            <summary>
+            Gets or sets the scrolling behavior for the document within the viewer.
+            </summary>
+            <remarks>
+            This property determines how the document scrolls within the viewer. The default mode, <see cref="F:GrapeCity.Viewer.Common.Model.ScrollingMode.Continuous" />, 
+            allows the document to scroll smoothly. Other modes may segment the document into discrete pages or sections for navigation.
+            </remarks>
+            <value>A <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.ScrollingMode" /> value that specifies the scrolling behavior.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.UITheme">
+            <summary>
+            Specifies the visual theme for the viewer's user interface.
+            </summary>
+            <remarks>
+            This property allows the selection of a predefined UI theme to customize the appearance of the viewer. 
+            The default theme is <see cref="F:GrapeCity.Viewer.Common.Model.UITheme.Modern" />, which provides a contemporary look and feel.
+            </remarks>
+            <value>A <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.UITheme" /> value that determines the visual theme of the viewer.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.TabTitleLength">
+            <summary>
+            This property is obsolete and not used in the current implementation of the Viewer.
+            </summary>
+            <remarks>
+            Previously, this property was used to specify the maximum length of the tab title in the Viewer. It has been retained for backward compatibility but is no longer functional. Any value set to this property will have no effect on the Viewer's behavior or appearance.
+            <para><member name="PropertyForInternalUseOnly"><remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks></member></para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.DisplayUnits">
+            <summary>
+            This property is obsolete and no longer used in the current implementation of the Viewer.
+            </summary>
+            <remarks>
+            The <see cref="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.DisplayUnits" /> property was originally intended to specify the unit of measurement for display purposes within the Viewer. However, it is now obsolete and setting this property will not affect the Viewer's behavior or appearance.
+            <para><member name="PropertyForInternalUseOnly"><remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks></member></para></remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.Viewer.RunningInsideVisualStudio">
+            <summary>
+            Gets or sets a value indicating whether the Viewer is running inside the Visual Studio IDE.
+            </summary>
+            <member name="PropertyForInternalUseOnly">
+                <remarks>
+				This property should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.TargetView">
+            <summary>
+            Specifies the active view within the Viewer control.
+            </summary>
+            <remarks>
+            The Viewer control can display reports in either a primary or secondary view. This enumeration allows you to specify or determine 
+            which view is currently active. The primary view is typically the main view used for displaying reports, while the secondary view 
+            can be used for displaying additional information or a different report.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.TargetView.Primary">
+            <summary>
+            Indicates the primary view of the Viewer control.
+            </summary>
+            <remarks>This is the default view where reports are primarily displayed.</remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.TargetView.Secondary">
+            <summary>
+            Indicates the secondary view of the Viewer control.
+            </summary>
+            <remarks>This view can be used to display additional information or a different report alongside the primary view.</remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.DisplayUnits">
+            <summary>
+            Specifies the units of measurement. This enumeration is obsolete and no longer used.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>
+				This enum should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.DisplayUnits.Inches">
+            <summary>
+            Inches.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Viewer.Win.DisplayUnits.Metric">
+            <summary>
+            Metrics.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetAttributes">
+            <summary>
+            Returns a collection of custom attributes for this instance of a component.
+            </summary>
+            <returns>
+            An <see cref="T:System.ComponentModel.AttributeCollection"></see> containing the attributes for this object.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetClassName">
+            <summary>
+            Returns the class name of this instance of a component.
+            </summary>
+            <returns>
+            The class name of the object, or null if the class does not have a name.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetComponentName">
+            <summary>
+            Returns the name of this instance of a component.
+            </summary>
+            <returns>
+            The name of the object, or null if the object does not have a name.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetConverter">
+            <summary>
+            Returns a type converter for this instance of a component.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.TypeConverter"></see> that is the converter for this object, or null if there is no <see cref="T:System.ComponentModel.TypeConverter"></see> for this object.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetDefaultEvent">
+            <summary>
+            Returns the default event for this instance of a component.
+            </summary>
+            <returns>
+            An <see cref="T:System.ComponentModel.EventDescriptor"></see> that represents the default event for this object, or null if this object does not have events.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetDefaultProperty">
+            <summary>
+            Returns the default property for this instance of a component.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptor"></see> that represents the default property for this object, or null if this object does not have properties.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetEditor(System.Type)">
+            <summary>
+            Returns an editor of the specified type for this instance of a component.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"></see> of the specified type that is the editor for this object, or null if the editor cannot be found.
+            </returns>
+            <param name="editorBaseType">A <see cref="T:System.Type"></see> that represents the editor for this object. </param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetEvents">
+            <summary>
+            Returns the events for this instance of a component.
+            </summary>
+            <returns>
+            An <see cref="T:System.ComponentModel.EventDescriptorCollection"></see> that represents the events for this component instance.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetEvents(System.Attribute[])">
+            <summary>
+            Returns the events for this instance of a component using the specified attribute array as a filter.
+            </summary>
+            <returns>
+            An <see cref="T:System.ComponentModel.EventDescriptorCollection"></see> that represents the filtered events for this component instance.
+            </returns>
+            <param name="attributes">An array of type <see cref="T:System.Attribute"></see> that is used as a filter. </param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetProperties">
+            <summary>
+            Returns the properties for this instance of a component.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptorCollection"></see> that represents the properties for this component instance.
+            </returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetProperties(System.Attribute[])">
+            <summary>
+            Returns the properties for this instance of a component using the attribute array as a filter.
+            </summary>
+            <returns>
+            A <see cref="T:System.ComponentModel.PropertyDescriptorCollection"></see> that represents the filtered properties for this component instance.
+            </returns>
+            <param name="attributes">An array of type <see cref="T:System.Attribute"></see> that is used as a filter. </param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.Views.AnnotationPropertiesForm.AnnotationWrapper.System#ComponentModel#ICustomTypeDescriptor#GetPropertyOwner(System.ComponentModel.PropertyDescriptor)">
+            <summary>
+            Returns an object that contains the property described by the specified property descriptor.
+            </summary>
+            <returns>
+            An <see cref="T:System.Object"></see> that represents the owner of the specified property.
+            </returns>
+            <param name="pd">A <see cref="T:System.ComponentModel.PropertyDescriptor"></see> that represents the property whose owner is to be found. </param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventArgs">
+            <summary>
+            Provides data for the ZoomChanged event.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventArgs.#ctor(System.Double)">
+            <summary>
+            Initializes an instance of the ZoomChangedEventArgs class and sets the Zoom property value.  
+            </summary>
+            <param name="zoom">Specifies the new zoom value.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the ZoomChangedEventArgs class with a default zoom value of 1.0.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventArgs.Zoom">
+            <summary>
+            Gets the new zoom value of the viewer.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Viewer.Win.ZoomChangedEventHandler">
+            <summary>
+            Represents the method that will handle the ZoomChanged event. 
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A ZoomChangedEventArgs that contains the event data.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Design.Win.Controls.TooltipPanel">
+            <summary>
+            Panel showed tooltips over disabled buttons.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Export.Image.Win</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Win.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Win.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Win.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Win.Resources.BigTiffExceptionMessage">
+            <summary>
+              Looks up a localized string similar to It seems what report is too big for uncompressed tiff, try to change CompressionSchemeProperty from None.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Win.Resources.Create_Bitmap_Exception">
+            <summary>
+              Looks up a localized string similar to The size of the bitmap is too large that there is not enough memory in system can be allocated to the bitmap..
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Win.Resources.Draw_Bitmap_Exception">
+            <summary>
+              Looks up a localized string similar to The size of the bitmap is too large that there is not enough memory in system can be used to draw the report on the bitmap..
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService">
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.ScalePage(System.Single,System.Single,System.Int32,System.Int32,GrapeCity.ActiveReports.Export.Image.Tiff.Section.CompressionScheme,System.Boolean)">
+            <summary>
+            Determines the scaled size of the target page based on the specified page width, height and compression scheme.
+            </summary>
+            <param name="dpiX">
+            The horizontal resolution used to convert from inches to pixels.
+            </param>
+            <param name="dpiY">
+            The vertical resolution used to convert from inches to pixels.
+            </param>
+            <param name="isLandscape">
+            If landscape is true this function will assume you want to flip the pageWidth/pageHeight values.
+            The page will be scaled as if the pageWidth is the pageHeight and pageHeight is the pageWidth.
+            </param>
+            <remarks>
+            At least some CCITT3 devices require that the output image conform to specific resolutions.
+            The page resolution should be 1728 wide 2376 heigh (pixels).
+            I did see one mention of this in the "COMMON-ISDN-API Part 1, Version 2.0". See http://www.capi.org.
+            CCITT is now www.itu.int/www.itu.org, but we have to pay 3K to read the spec :S
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo">
+            <summary>
+            Used with <see cref="M:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.ScalePage(System.Single,System.Single,System.Int32,System.Int32,GrapeCity.ActiveReports.Export.Image.Tiff.Section.CompressionScheme,System.Boolean)" /> function.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo.PageWidthPixels">
+            New page width in pixels.
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo.PageHeightPixels">
+            New page height in pixels.
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo.ScaleFactorX">
+            Horizontal scale factor that converst old page width to new page width.
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo.ScaleFactorY">
+            Vertical scale factor that converst old page height to new page height.
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Win.TiffExportService.PageSizeInfo.#ctor(System.Int32,System.Int32,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the PageScaleInfo class.
+            </summary>
+            <param name="pageWidthPixels"></param>
+            <param name="pageHeightPixels"></param>
+            <param name="scaleFactorX"></param>
+            <param name="scaleFactorY"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>GrapeCity.ActiveReports.Core.Drawing.Gc</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter">
+            <summary>
+            Converts twips to more usefull values with rounding.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.FromValue(System.Single,System.Single)">
+            <summary>
+            Converts to Twips.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.ToValue(System.Single,System.Single)">
+            <summary>
+            Converts from Twips.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.ToPoint(System.Numerics.Vector2,System.Single)">
+            <summary>
+            Converts from Twips.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.ToPoint(System.Drawing.PointF,System.Single)">
+            <summary>
+            Converts from Twips.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.ToSize(System.Drawing.SizeF,System.Single)">
+            <summary>
+            Converts from Twips.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.Canvas.Converter.ToRect(System.Drawing.RectangleF,System.Single)">
+            <summary>
+            Converts from Twips.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.FontsFactory">
+            <summary>
+            External fonts factory.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.FontsFactory.Instance">
+            <summary>
+            Default instance.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.FontsFactory.#ctor(System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Func{GrapeCity.Documents.Text.Font,System.Boolean},System.Boolean)">
+            <summary>
+            Creates new FontsFactory
+            </summary>
+            <param name="withEudc"></param>
+            <param name="fallbackFonts"></param>
+            <param name="allowFont"></param>
+            <param name="enableFontCaching">Enable caching font tables. It is necessary for optimize the rendering of text in design time.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.IFontsFactory">
+            <summary>
+            Fonts factory.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.IGlobalFontsProvider">
+            <summary>
+            All available fonts provider.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.IFontScope">
+            <summary>
+            For internal use only
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas">
+            <summary>
+            Simple implementation of base canvas things.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.CanvasSettings">
+            <summary>
+            Setting to create a new canvas.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.ImageManager">
+            <summary>
+            Image manager to process/cache images.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.ImageManager.LoadGcImage(GrapeCity.ActiveReports.Extensibility.Rendering.ImageInfo,System.String)">
+            <summary>
+            Loader to load images.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.LineBreakingAlgorithm">
+            <summary>
+            Choose line breaking algorithm.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.LineBreakingAlgorithm.Unicode">
+            <summary>
+            All rules from https://unicode.org/reports/tr14/.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.LineBreakingAlgorithm.Legacy">
+            <summary>
+            GDI-like.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.EmulateFontStyle.Always">
+            <summary>
+            Force font style emulation if necessary.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.EmulateFontStyle.Never">
+            <summary>
+            Avoid font style emulation.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.TextMetricsProvider">
+            <summary>
+            Encapsulates string measurements and related functionality using the system graphics.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.TextMetricsProvider.Default">
+            <summary>
+            Default metrics provider with system fonts.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Core.TextMetricsProvider.TextSettings">
+            <summary>
+            Setting to create a new provider.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Core.TextMetricsProvider.DefaultSettings">
+            <summary> Default text metrics provider settings. </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateSolidBrush(System.Drawing.Color)">
+            <summary>
+            Initializes a new <see cref="T:GrapeCity.ActiveReports.Drawing.BrushEx" /> solid brush object of specified color.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateLinearGradientBrush(System.Drawing.PointF,System.Drawing.PointF,System.Drawing.Color,System.Drawing.Color,GrapeCity.ActiveReports.Drawing.BlendEx)">
+            <summary>
+            Initializes a new <see cref="T:GrapeCity.ActiveReports.Drawing.BrushEx" /> linear gradient brush object.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateRadialGradientBrush(System.Drawing.PointF,System.Single,System.Single,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Creates new radial gradient <see cref="T:GrapeCity.ActiveReports.Drawing.BrushEx" />.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateHatchBrush(GrapeCity.ActiveReports.Drawing.HatchStyleEx,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Initializes a new <see cref="T:GrapeCity.ActiveReports.Drawing.BrushEx" /> using specified hatch pattern and colors.
+            </summary>
+            <param name="hatchStyle">The hatch style.</param>
+            <param name="foreColor">The foreground color.</param>
+            <param name="backColor">The background color.</param>
+            <returns>The hatch brush.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreatePen(System.Drawing.Color,System.Single)">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Drawing.PenEx" /> with the specified color and width
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreatePen(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Drawing.PenEx" /> with the specified color and default width
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateImage(GrapeCity.ActiveReports.Extensibility.Rendering.ImageInfo)">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Drawing.ImageEx" />.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#CreateImage(GrapeCity.ActiveReports.Extensibility.Rendering.ImageInfo,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Drawing.ImageEx" /> and supplies a unique id for which the 
+            <see cref="T:GrapeCity.ActiveReports.Drawing.IDrawingCanvas" /> can implement caching.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawImage(GrapeCity.ActiveReports.Drawing.ImageEx,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Draws the specified Image object with specified size, at the specified location.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawString(System.String,GrapeCity.ActiveReports.Drawing.FontInfo,GrapeCity.ActiveReports.Drawing.BrushEx,System.Drawing.RectangleF,GrapeCity.ActiveReports.Drawing.StringFormatEx)">
+            <summary>
+            Draws the specified text string at the specified location with the specified Brush and Font objects.
+            using the specified layout rectangle and formatting attributes of the specified StringFormat object.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#TextRenderingHint">
+            <summary>
+            Specifies the quality of text rendering.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#SmoothingMode">
+            <summary>
+            Specifies the rendering quality for lines, curves, and the edges of filled areas.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#IntersectClip(System.Drawing.RectangleF)">
+            <summary>
+            Sets the clipping region of this Graphics object to the rectangle specified by a RectangleF structure.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#IntersectClip(GrapeCity.ActiveReports.Drawing.PathEx)">
+            <summary>
+            Sets the clipping region of this Graphics object to the shape specified by a IDDPath structure.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#Transform">
+            <summary>
+            Gets or sets the world transformation for this object
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#PushState">
+            <summary>
+            Saves the current state on a stack.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#PopState">
+            <summary>
+            Restores the state of this <see cref="T:GrapeCity.ActiveReports.Drawing.IDrawingCanvas" /> object to the previous saved state. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawLine(GrapeCity.ActiveReports.Drawing.PenEx,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Draws the line between specified points.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawRectangle(GrapeCity.ActiveReports.Drawing.PenEx,System.Drawing.RectangleF)">
+            <summary>
+            Draws a rectangle rectangle specified by a RectangleF structure.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#FillRectangle(GrapeCity.ActiveReports.Drawing.BrushEx,System.Drawing.RectangleF)">
+            <summary>
+            Fills the interior of a rectangle specified by a RectangleF structure.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawEllipse(GrapeCity.ActiveReports.Drawing.PenEx,System.Drawing.RectangleF)">
+            <summary>
+            Draws an ellipse defined by a bounding <see cref="T:System.Drawing.RectangleF" />.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#FillEllipse(GrapeCity.ActiveReports.Drawing.BrushEx,System.Drawing.RectangleF)">
+            <summary>
+            Fills the interior of an ellipse defined by a bounding rectangle specified by a <see cref="T:System.Drawing.RectangleF" /> structure.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawPolygon(GrapeCity.ActiveReports.Drawing.PenEx,System.Drawing.PointF[])">
+            <summary>
+            Draws a polygon defined by an array of <see cref="T:System.Drawing.PointF" /> structures
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#FillPolygon(GrapeCity.ActiveReports.Drawing.BrushEx,System.Drawing.PointF[])">
+            <summary>
+            Fills the interior of a polygon defined by an array of points specified by <see cref="T:System.Drawing.PointF" /> structures
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawLines(GrapeCity.ActiveReports.Drawing.PenEx,System.Drawing.PointF[])">
+            <summary>
+            Draws a series of line segments that connect an array of <see cref="T:System.Drawing.PointF" /> structures.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Core.GraphicsCanvas.GrapeCity#ActiveReports#Drawing#IDrawingCanvas#DrawAndFillPath(GrapeCity.ActiveReports.Drawing.PenEx,GrapeCity.ActiveReports.Drawing.BrushEx,GrapeCity.ActiveReports.Drawing.PathEx)">
+            <summary>
+            Fills the path supplied with brush, and strokes it with pen. If brush or pen is null, corresponding
+            operation is omitted.
+            </summary>
+        </member>
+    </members>
+</doc>

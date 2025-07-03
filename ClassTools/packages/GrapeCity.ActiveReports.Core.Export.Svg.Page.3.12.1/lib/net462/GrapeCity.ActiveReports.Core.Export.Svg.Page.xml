@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>GrapeCity.ActiveReports.Core.Export.Svg.Page</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider">
+            <summary>
+            Interface for creating custom link provider for SVG display extension.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.BookmarkLink(System.String,System.Int32)">
+            <summary>
+            Returns a string value to use as a link in a map map.
+            </summary>
+            <param name="id">Bookmark Id</param>
+            <param name="pageNumber">Target Page Number</param>
+            <returns>A string value to use as the value of href.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.BookmarkLinkTarget(System.String)">
+            <summary>
+            Returns the string value to use as the Bookmarklink target.
+            </summary>
+            <param name="targetName">Bookmarklink A string value representing the base name of the target.</param>
+            <returns>A string value to use as the target for the value of href.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.Hyperlink(System.String)">
+            <summary>
+            Returns a string value to use as a hyperlink.
+            </summary>
+            <param name="link">hyperlink</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.DrillthroughLink(System.String,GrapeCity.ActiveReports.Extensibility.Rendering.Components.DrillthroughParameter[])">
+            <summary>
+            Returns a string value to use as a Drillthrough link.
+            </summary>
+            <param name="reportName">Report Name</param>
+            <param name="parameters">Parameters</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.VisibilityToggleLink(System.String)">
+            <summary>
+            Returns a string value to be used as a link for display switching.
+            </summary>
+            <param name="toggleUrl">Url</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.SortingToggleLink(System.String)">
+            <summary>
+            Returns the string value to use as the link to sort the switch.
+            </summary>
+            <param name="sortUrl">Url</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.IInteractiveLinkProvider">
+            <summary> Interface for creating custom interactive link provider for SVG export. </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.IInteractiveLinkProvider.GetInteractiveLink(System.String[])">
+            <summary> Generate link data for a given action keys collection. </summary>
+            <param name="actionKeys">Action keys to be represented by link. </param>
+            <returns>Generated link.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.IActionLinkProvider">
+            <summary> Interface for creating a custom link provider for arbitrary report item Action. </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.IActionLinkProvider.GetActionLink(GrapeCity.ActiveReports.Extensibility.Rendering.Components.ActionBase)">
+            <summary> Generates a string value to be used as a link for an action. </summary>
+            <param name="action">
+                <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.ActionBase" /> Action object to be represented as a string.</param>
+            <returns>String representation of action link.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory">
+            <summary> Svg pages factory. </summary>
+            <remarks>Used in JsViewer backend for the svg streaming mode.</remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage">
+            <summary> Represents RDL document page which have to be rendered in SVG format. </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Canvas">
+            <summary> SVG page canvas. </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Interactivity">
+            <summary> SVG page interactivity. </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Comment">
+            <summary> Comment to be written within svg content. </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory">
+            <summary>
+            Factory with SVG based image renderer.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.ConverterService">
+            <summary>
+            External converter service to convert unsupported image formats.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.LineBreaking">
+            <summary>
+            Line breaking algorithm.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.DrawTextAsPath">
+            <summary>
+            Draws text as path, or try as text?
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.EmbeddedImage">
+            <summary>
+            Embed images.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension">
+            <summary>
+            Export implementation to create a SVG.
+            </summary>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.PageRendered">
+            <summary>
+            This event fires when new page was rendered
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream})">
+            <summary>
+            Renders report.
+            </summary>
+            <param name="getStream">The provides a new <see cref="T:System.IO.Stream" /> to use to write the data to.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Renders report.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings)">
+            <summary>
+            Renders report.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken)">
+            <summary>
+            Renders report.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken,System.IProgress{GrapeCity.ActiveReports.Rendering.Export.ProgressInfo})">
+            <summary>
+            Renders report.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken,System.IProgress{GrapeCity.ActiveReports.Rendering.Export.ProgressInfo})">
+            <summary>
+            Renders report.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType">
+            <summary>
+            Type of the resources.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType.Page">
+            <summary>
+            SVG page.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType.DocumentMap">
+            <summary>
+            JSON table of content.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo">
+            <summary>
+            Information about requested stream.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.#ctor(System.String,GrapeCity.ActiveReports.Export.Svg.Page.ResourceType)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.Name">
+            <summary>
+            Stream name if necessary. Can be omitted.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.Type">
+            <summary>
+            Stream type.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings">
+            <summary>
+            SVG settings.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings" /> class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.DrawTextAsPath">
+            <summary>
+            Direct2D compatible output: https://docs.microsoft.com/en-us/windows/desktop/Direct2D/svg-support.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.CompressAttributes">
+            <summary>
+            Compress attributes to optimize XML size.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.EmbedImages">
+            <summary>
+            Embed images.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.Title">
+            <summary>
+            SVG document title.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.IncludePageMargins">
+            <summary>
+            Drop pages margins or not.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.InteractivitySupport">
+            <summary>
+            Renders interactivity as SGV elements or as "interactivity areas" with special custom attributes.
+            So customer can listen click event and check for attributes.
+            <remarks><html><title>test</title><script type="text/javascript">
+            window.addEventListener("load", function() {
+              var svg = document.getElementsByTagName("svg")[0];
+              svg.addEventListener("click", function(evt)
+              {
+                if (!evt.target || !evt.target.attributes || !evt.target.attributes["arsvg:data-action-type"])
+                  return;
+                if (evt.target.attributes["arsvg:data-action-type"].value === "hyperlink")
+            	  alert(evt.target.attributes["arsvg:data-action-data"].value);
+              });
+            });
+            </script><body><svg width="6cm" height="5cm" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:arsvg="http://activereports.grapecity.com/2017/svg"><circle cx="300" cy="225" r="100" fill="red" style="cursor:pointer" arsvg:data-action-type="hyperlink" arsvg:data-action-page="1" arsvg:data-action-data="http://google.com" /></svg></body></html></remarks></summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.PageSettings">
+            <summary>
+            Page settings.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.WriteEachPageInSeparateStream">
+            <summary>
+            Determines whether every page is rendered in separate stream
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.GrapeCity#ActiveReports#Extensibility#Rendering#ISettings#GetSettings">
+            <summary>
+            Returns a <see cref="T:System.Collections.Specialized.NameValueCollection" /> containing the settings for the rendering extension.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.GrapeCity#ActiveReports#Extensibility#Rendering#ISettings#ApplySettings(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Apply settings for the rendering extension.
+            </summary>
+            <param name="settings">Settings for the rendering extension.</param>
+        </member>
+    </members>
+</doc>

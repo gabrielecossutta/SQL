@@ -1,0 +1,6 @@
+<FileList>
+  <File Reference = "MESCIUS.ActiveReports.Export.Image.dll">
+    <ToolboxItems VSCategory="ActiveReports 19">
+    </ToolboxItems>
+  </File>
+</FileList>

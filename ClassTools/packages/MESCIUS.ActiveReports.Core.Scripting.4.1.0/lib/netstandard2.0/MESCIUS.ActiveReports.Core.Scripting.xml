@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.Severity">
+            <summary>
+            Represents the severity level of a compilation result message.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.CompilationResult">
+            <summary>
+            Represents a message generated as a result of script compilation, including details such as the severity of the message, the message text itself, and its 
+            location within the source code.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.Language">
+            <summary>
+            Defines the programming languages supported for scripting within the GrapeCity ActiveReports environment.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader">
+            <summary>
+            Provides an interface for dynamically loading and managing assemblies within the GrapeCity ActiveReports environment. 
+            This interface supports operations such as loading assemblies by name or stream, retrieving loaded assemblies, and instantiating types from loaded assemblies.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader.LoadFromAssemblyName(System.Reflection.AssemblyName)">
+            <summary>
+            Resolves and loads an assembly given its <see cref="T:System.Reflection.AssemblyName" />.
+            </summary>
+            <returns>Loaded <see cref="T:System.Reflection.Assembly" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader.LoadFromStream(System.IO.Stream)">
+            <summary>
+            Loads an assembly from a stream containing a Common Object File Format (COFF) image of an assembly.
+            </summary>
+            <returns>Loaded <see cref="T:System.Reflection.Assembly" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader.GetAssemblies">
+            <summary>
+            Retrieves a collection of assemblies that have been loaded into the execution context of the application domain.
+            </summary>
+            <returns>An array of loaded assemblies.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader.CreateInstanceAndUnwrap(System.String,System.String,System.Object[])">
+            <summary>
+            Creates a new instance of the specified type. Parameters specify the assembly where the type is defined, and the name of the type.
+            </summary>
+            <returns>An instance of the object specified by <paramref name="typeName" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.AssemblyLoader">
+            <summary>
+            Provides a mechanism for loading assemblies at runtime within .NET Standard environments. This class implements the <see cref="T:GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader" /> interface, 
+            facilitating the dynamic loading of assemblies from names, streams, or the current application domain's loaded assemblies.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.CodeCompiler">
+            <summary>
+            Provides functionality for compiling scripts into .NET assemblies at runtime. This class supports the dynamic compilation of C# and Visual Basic scripts, 
+            facilitating the execution of custom code or scripts within applications, particularly within the GrapeCity ActiveReports environment.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.CodeCompiler.TryCompile(GrapeCity.ActiveReports.Core.Scripting.Language,System.String,System.String[],GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader,System.Reflection.Assembly@,System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Core.Scripting.CompilationResult}@,System.Boolean)">
+            <summary>
+            Attempts to compile the provided source code into a .NET assembly using the specified language and references. Optionally, debugging information can be 
+            included in the compiled assembly.
+            </summary>
+            <returns>Returns true if the compilation succeeded; otherwise, false.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.ReportCustomCodeBuilder">
+            <summary>
+            Provides functionality to initialize custom code objects for reports. This class is responsible for compiling and setting up the environment where custom code, 
+            code modules, and class instances are made available for use within the GrapeCity ActiveReports environment.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.ReportCustomCodeBuilder.Build(GrapeCity.ActiveReports.PageReportModel.Report,GrapeCity.ActiveReports.Core.Rendering.Remote.IInstanceFactory,GrapeCity.ActiveReports.Core.Scripting.IAssemblyLoader,System.Func{GrapeCity.ActiveReports.Expressions.Remote.GlobalDataTypes.Parameters})">
+            <summary>
+            Compiles and initializes custom code objects for a given report. This includes compiling the report's embedded code, loading code modules, 
+            and instantiating custom classes defined within the report.
+            </summary>
+            <param name="report">Report definition.</param>
+            <param name="instanceFactory">The instance factory.</param>
+            <param name="assemblyLoader">The object used to load assemblies.</param>
+            <param name="parameters">The parameters for the report.</param>
+            <returns>The custom code objects.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException">
+            <summary>
+            Represents an exception that is thrown when an error occurs within the scripting code of a report or in any of the report's calculated DataField expressions. 
+            This exception is specifically designed for use within the GrapeCity ActiveReports system.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException" /> class without a message. This constructor creates an exception that indicates an error 
+            occurred within the scripting code of a report or in any of the report's calculated DataField expressions, but does not provide a specific error message.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException" /> class with a specified error message. This constructor is used when an error occurs 
+            within the scripting code of a report or in any of the report's calculated DataField expressions, and a specific error message is available to describe 
+            the issue.
+            </summary>
+            <param name="message">A message that describes the error.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException" /> class with a specified error message and a reference to the inner exception that is 
+            the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception. This message should provide a clear and concise description of the error 
+            that occurred.</param>
+            <param name="innerException">The exception that is the cause of the current exception. This parameter allows for the chaining of exceptions, providing a more 
+            detailed context for the error. If the <paramref name="innerException" /> parameter is not null, the current exception is raised in a catch block that handles 
+            the inner exception.</param>
+            <remarks>
+            This constructor enhances error handling by allowing developers to specify both a custom error message and the underlying exception that led to the error. 
+            This can be particularly helpful for debugging and logging purposes, as it provides a more comprehensive view of the error scenario.
+            <para>Use this constructor when you catch an exception that you cannot handle and you want to wrap it in a <see cref="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException" /> to provide 
+            additional context or to categorize it as a scripting-related error within the GrapeCity ActiveReports system.</para></remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException" /> class with serialized data. This constructor is used during deserialization to 
+            reconstruct the exception object transmitted over a stream.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Scripting.ReportScriptException.ErrorData">
+            <summary>
+            Gets or sets the error data associated with the exception. The error data is an array of strings that provides additional details about the error, 
+            which can vary depending on the specific error code.
+            </summary>
+            <value>
+            An array of strings containing error-specific data. This data can provide further insights into the nature of the error, such as specific values or 
+            identifiers related to the error condition.
+            </value>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Rendering.Remote.IInstanceFactory">
+            <summary>
+            Defines a factory interface for creating instances of specified types dynamically. This interface is primarily used within the GrapeCity ActiveReports 
+            system to instantiate report components and other objects at runtime without direct references to their concrete classes.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Rendering.Remote.IInstanceFactory.CreateInstance(System.Type)">
+            <summary>
+            Creates a new instance of the specified type.
+            </summary>
+            <param name="type">The type to create new instance of.</param>
+            <returns>The instance of specified type.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Expressions.Remote.GlobalDataTypes.ReportProxy">
+            <summary>
+            Acts as a proxy to facilitate access to report parameters within custom code in the GrapeCity ActiveReports environment. 
+            This class enables the manipulation and retrieval of report parameters programmatically.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Expressions.Remote.GlobalDataTypes.ReportProxy.Parameters">
+            <summary>
+            Gets the parameters of the currently rendered report, allowing for programmatic access and manipulation.
+            </summary>
+            <value>
+            An instance of <see cref="P:GrapeCity.ActiveReports.Expressions.Remote.GlobalDataTypes.ReportProxy.Parameters" /> that encapsulates the collection of parameters associated with the current report.
+            </value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.AssemblyLoader.GrapeCity#ActiveReports#Core#Scripting#IAssemblyLoader#LoadFromAssemblyName(System.Reflection.AssemblyName)">
+            <summary>
+            Resolves and loads an assembly given its <see cref="T:System.Reflection.AssemblyName" />.
+            </summary>
+            <returns>Loaded <see cref="T:System.Reflection.Assembly" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.AssemblyLoader.GrapeCity#ActiveReports#Core#Scripting#IAssemblyLoader#LoadFromStream(System.IO.Stream)">
+            <summary>
+            Loads an assembly from a stream containing a Common Object File Format (COFF) image of an assembly.
+            </summary>
+            <returns>Loaded <see cref="T:System.Reflection.Assembly" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.AssemblyLoader.GrapeCity#ActiveReports#Core#Scripting#IAssemblyLoader#GetAssemblies">
+            <summary>
+            Retrieves a collection of assemblies that have been loaded into the execution context of the application domain.
+            </summary>
+            <returns>An array of loaded assemblies.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Scripting.AssemblyLoader.GrapeCity#ActiveReports#Core#Scripting#IAssemblyLoader#CreateInstanceAndUnwrap(System.String,System.String,System.Object[])">
+            <summary>
+            Creates a new instance of the specified type. Parameters specify the assembly where the type is defined, and the name of the type.
+            </summary>
+            <returns>An instance of the object specified by <paramref name="typeName" />.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+    </members>
+</doc>

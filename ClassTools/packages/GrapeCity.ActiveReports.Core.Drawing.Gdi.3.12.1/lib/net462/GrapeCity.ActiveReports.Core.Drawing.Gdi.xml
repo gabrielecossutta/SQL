@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>GrapeCity.ActiveReports.Core.Drawing.Gdi</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory">
+            <summary>
+            Provides capabilities for retrieving drawing graphics canvas impl.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings">
+            <summary>
+            Setting to create a new canvas.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings.GraphicsUnit">
+            <summary>
+            The graphics page scale to twips if it should be modified.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.DefaultSettings">
+            <summary> Default canvas settings. </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.Create(System.Drawing.Graphics,GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings)">
+            <summary>
+            Creates graphics canvas for provided native graphics object.
+            </summary>
+            <returns>IDrawingCanvas impl for native graphics.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsExtensions">
+            <summary>
+            Some usefull extension methods. For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsExtensions.IsPrinter(System.Drawing.Graphics)">
+            <summary>
+            Is printer? For internal use only.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Rendering.GraphicsExtensions">
+            <summary> Extends <see cref="T:System.Drawing.Graphics" /> with some useful methods.</summary>
+            <remarks> For internal use.</remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.GraphicsExtensions.GetTwipsInUnit(System.Drawing.Graphics)">
+            <summary> Gets twips per graphics's unit. For internal use.</summary>
+            <remarks> For internal use.</remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.GraphicsExtensions.GetDpi(System.Drawing.Graphics)">
+            <summary> Gets the current graphics resolution in dots per inch. </summary>
+            <remarks> For internal use.</remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Rendering.PathExtensions">
+            <summary>
+            Converts path.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.PathExtensions.ToGdi(GrapeCity.ActiveReports.Drawing.PathEx)">
+            <summary>
+            To GDI path.
+            </summary>
+        </member>
+    </members>
+</doc>

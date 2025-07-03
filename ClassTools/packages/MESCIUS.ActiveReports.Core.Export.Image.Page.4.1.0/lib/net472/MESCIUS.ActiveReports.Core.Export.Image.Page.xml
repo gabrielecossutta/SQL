@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Export.Image.Page</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory">
+            <summary>
+            Represents a factory responsible for creating instances of .NET Core-based image renderers.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.ExportSettings">
+            <summary>
+            Settings used for export.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.ExportSettings.ConverterService">
+            <summary>
+            Gets or sets the image converter service.
+            </summary>
+            <value>
+            The image converter service to be used.
+            </value>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.ExportSettings.LineBreaking">
+            <summary>
+            Gets or sets the line breaking algorithm.
+            </summary>
+            <value>
+            The algorithm to be used for line breaking.
+            </value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.#ctor(GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Extensibility.Rendering.IRenderersFactory,GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.ExportSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory" /> class with specified fonts, renderers, and settings.
+            </summary>
+            <param name="fonts">The fonts factory.</param>
+            <param name="renderers">The renderers factory.</param>
+            <param name="settings">The export settings.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.BitmapRenderersFactory.GetRenderer``1(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Gets the renderer for the specified report item.
+            </summary>
+            <typeparam name="TRenderer">The type of renderer.</typeparam>
+            <param name="reportItem">The report item for which to get the renderer.</param>
+            <returns>The renderer for the specified report item.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if the renderer type is invalid.</exception>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering">
+            <summary>
+            Implements rendering of the <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object to an image of the specified format.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            IFontsFactory fontsFactory = new FontsFactory();
+            IRenderersFactory renderersFactory = RenderersFactory.Instance;
+            IImageConverterService converterService = new ImageConverterService();
+            var imageRendering = new ImageRendering(fontsFactory, renderersFactory, converterService);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.ExportSettings">
+            <summary>
+            Defines settings for exporting images.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.ExportSettings.ConverterService">
+            <summary>
+            Gets or sets the image converter service.
+            </summary>
+            <value>
+            The service is responsible for converting images.
+            </value>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.ExportSettings.LineBreaking">
+            <summary>
+            Gets or sets the line breaking algorithm.
+            </summary>
+            <value>
+            The algorithm is used for handling line breaks in text.
+            </value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.#ctor(GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Extensibility.Rendering.IRenderersFactory,GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.ExportSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering" /> class with specified settings.
+            </summary>
+            <param name="fonts">The fonts factory.</param>
+            <param name="renderers">The renderers factory.</param>
+            <param name="settings">The export settings.</param>
+            <example>
+                <code>
+            var settings = new ImageRendering.ExportSettings { ConverterService = new ImageConverterService() };
+            var imageRendering = new ImageRendering(new FontsFactory(), RenderersFactory.Instance, settings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.Int32,System.IO.Stream},GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings)">
+            <summary>
+            Renders the specified report to the provided stream.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="streamProvider">A function that provides the stream for each page.</param>
+            <param name="settings">The image rendering settings.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="report" /> or <paramref name="streamProvider" /> is null.
+            </exception>
+            <example>
+                <code>
+            IReport report = new Report();
+            Func{int, Stream} streamProvider = pageIndex =&gt; new FileStream($"page{pageIndex}.png", FileMode.Create);
+            var settings = new ImageRenderingSettings { OutputFormat = ImageFormats.Png };
+            imageRendering.Render(report, streamProvider, settings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.Int32,System.IO.Stream},GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings,System.Threading.CancellationToken)">
+            <summary>
+            Renders the specified report to the provided stream with cancellation support.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="streamProvider">A function that provides the stream for each page.</param>
+            <param name="settings">The image rendering settings.</param>
+            <param name="cancel">A <see cref="T:System.Threading.CancellationToken" /> to cancel the rendering operation.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="report" /> or <paramref name="streamProvider" /> is null.
+            </exception>
+            <example>
+                <code>
+            IReport report = new Report();
+            Func{int, Stream} streamProvider = pageIndex =&gt; new FileStream($"page{pageIndex}.png", FileMode.Create);
+            var settings = new ImageRenderingSettings { OutputFormat = ImageFormats.Png };
+            imageRendering.Render(report, streamProvider, settings, CancellationToken.None);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.Int32,System.IO.Stream},GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings,System.Threading.CancellationToken,System.IProgress{GrapeCity.ActiveReports.Rendering.Export.ProgressInfo})">
+            <summary>
+            Renders the specified report to the provided stream with cancellation support and progress reporting.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="streamProvider">A function that provides the stream for each page.</param>
+            <param name="settings">The image rendering settings.</param>
+            <param name="cancel">A <see cref="T:System.Threading.CancellationToken" /> to cancel the rendering operation.</param>
+            <param name="progress">An optional progress reporter.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="report" /> or <paramref name="streamProvider" /> is null.
+            </exception>
+            <example>
+                <code>
+            IReport report = new Report();
+            Func{int, Stream} streamProvider = pageIndex =&gt; new FileStream($"page{pageIndex}.png", FileMode.Create);
+            var settings = new ImageRenderingSettings { OutputFormat = ImageFormats.Png };
+            var progress = new Progress&lt;ProgressInfo&gt;();
+            imageRendering.Render(report, streamProvider, settings, CancellationToken.None, progress);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings">
+            <summary>
+            Provides settings to configure the <see cref="T:GrapeCity.ActiveReports.Export.Image.Page.ImageRendering" />.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.PageSettings">
+            <summary>
+            Gets or sets the settings for the page controller.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.Watermark">
+            <summary>
+            Gets or sets the watermark settings.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.BackgroundColor">
+            <summary>
+            Gets or sets the paper color.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.OutputFormat">
+            <summary>
+            Gets or sets the output format for the image.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.Target">
+            <summary>
+            Gets or sets the target device type.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.DpiX">
+            <summary>
+            Gets or sets the horizontal resolution of the result image in pixels per inch.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.DpiY">
+            <summary>
+            Gets or sets the vertical resolution of the result image in pixels per inch.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.TiffCompression">
+            <summary>
+            Gets or sets the TIFF compression type
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Image.Page.ImageRenderingSettings.JpegQuality">
+            <summary>
+            Specifies the desired image fidelity.
+            0 indicates the lowest possible fidelity.
+            100 specifies the highest fidelity.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.ImageFormats">
+            <summary>
+            Represents the supported output image formats.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Image.Page.TiffCompressionType">
+            <summary>
+            Represents the Tagged Image File Format (TIFF) compression options.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+    </members>
+</doc>

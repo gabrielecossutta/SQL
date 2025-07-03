@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Export.Text.Page</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.CsvExport">
+            <summary>
+            Provides export of rendered Page and RDL reports to CSV format.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            using(var writer = new StreamWriter("export.csv"))
+            {
+                CsvExport.Export(report, writer);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.CsvExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object to the given <see cref="T:System.IO.StreamWriter" /> in CSV format. 
+            </summary>
+            <param name="report">The report to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to export the report to.</param>
+            <param name="settings">Optional export settings.</param>
+            <example>
+                <code>
+            CsvExport.Export(report, writer, new CsvExportSettings { NoHeader = true });
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.CsvExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,System.Threading.CancellationToken,GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object to the given <see cref="T:System.IO.StreamWriter" /> in CSV format. 
+            </summary>
+            <param name="report">The report to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to export the report to.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows to interrupt export.</param>
+            <param name="settings">Optional export settings.</param>
+            <example>
+                <code>
+            CsvExport.Export(report, writer, CancellationToken.None, new CsvExportSettings { QuotationMode = QuotationMode.AlwaysQuote });
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings">
+            <summary>
+            Encapsulates all settings required for CSV export, including delimiters, header inclusion, and formatting options.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            var settings = new CsvExportSettings
+            {
+                NoHeader = true,
+                ColumnsDelimiter = ";",
+                DateTimeFormat = "yyyy-MM-dd"
+            };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.NoHeader">
+            <summary>
+            Gets or sets a value indicating whether CSV Header should be omitted.
+            </summary>
+            <value>
+                <c>true</c> if CSV header should be omitted; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            When set to <c>true</c>, headers will not be included in the CSV export.
+            </remarks>
+            <example>
+                <code>
+            settings.NoHeader = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.ColumnsDelimiter">
+            <summary>
+            Gets or sets the string to be placed between fields in data rows.
+            </summary>
+            <value>
+            The string delimiter used to separate fields.
+            </value>
+            <remarks>
+            By default, the delimiter is set to a comma (,).
+            </remarks>
+            <example>
+                <code>
+            settings.ColumnsDelimiter = ";";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.RowsDelimiter">
+            <summary>
+            Gets or sets the string to be placed between data rows.
+            </summary>
+            <value>
+            The string delimiter used to separate rows.
+            </value>
+            <remarks>
+            By default, the delimiter is set to Carriage Return and Line Feed (\r\n).
+            </remarks>
+            <example>
+                <code>
+            settings.RowsDelimiter = "\n";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.QuotationSymbol">
+            <summary>
+            Gets or sets the quotation symbol.
+            </summary>
+            <value>
+            The character representing the quotation symbol.
+            </value>
+            <remarks>
+            By default, the quotation symbol is set to a double quote (").
+            </remarks>
+            <example>
+                <code>
+            settings.QuotationSymbol = '\'';
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.QuotationMode">
+            <summary>
+            Gets or sets the quotation mode.
+            </summary>
+            <value>
+            The desired quotation mode.
+            </value>
+            <remarks>
+            The default quotation mode is <see cref="F:GrapeCity.ActiveReports.Export.Text.Page.QuotationMode.AutoQuote" />.
+            </remarks>
+            <example>
+                <code>
+            settings.QuotationMode = QuotationMode.AlwaysQuote;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.DateTimeFormat">
+            <summary>
+            Gets or sets the default format for date values.
+            </summary>
+            <value>
+            The date format string.
+            </value>
+            <remarks>
+            See also <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings">"Custom date and time format strings"</a>.
+            Suggested to specify something like "yyyy-MM-dd".
+            </remarks>
+            <example>
+                <code>
+            settings.DateTimeFormat = "yyyy-MM-dd";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.NumericFormat">
+            <summary>
+            Gets or sets the default format for numeric values.
+            </summary>
+            <value>
+            The numeric format string.
+            </value>
+            <remarks>
+            See also <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings">"Custom numeric format strings"</a>.
+            Suggested to specify something like "0.####".
+            </remarks>
+            <example>
+                <code>
+            settings.NumericFormat = "0.####";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.CsvExportSettings.Target">
+            <summary>
+            Gets or sets the target device type.
+            </summary>
+            <value>
+            The target device for layers filtration hint.
+            </value>
+            <remarks>
+            By default, the target is set to <see cref="F:GrapeCity.ActiveReports.PageReportModel.TargetDeviceKind.Export" />.
+            </remarks>
+            <example>
+                <code>
+            settings.Target = TargetDeviceKind.Print;
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.DataType">
+            <summary>
+            Represents a type of <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember">Data member</see>.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.DataType.Object">
+            <summary>
+            Object data member.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.DataType.Field">
+            <summary>
+            Field data member.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.DataType.Collection">
+            <summary>
+            Collection of data members.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember">
+            <summary>
+            Represents a data member that build a data structure for csv and json exports.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Type">
+            <summary>
+            Gets a type of member.
+            </summary>
+            <value>A <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataType" /> value representing the type of member.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Name">
+            <summary>
+            Gets a name of member.
+            </summary>
+            <value>A <see cref="T:System.String" /> value representing the name of member.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Value">
+            <summary>
+            Gets a value of member.
+            </summary>
+            <value>A <see cref="T:System.Object" /> value representing the value of member.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Children">
+            <summary>
+            Gets a collection of members contained within this member.
+            </summary>
+            <value>A collection of the <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" /> objects contained within this member.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Object(System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Export.Text.Page.DataMember})">
+            <summary>
+            Create data member of object type with specified collection of the children members.
+            </summary>
+            <param name="fields">A collection of children <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" /> objects.</param>
+            <returns>A new instance of <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Object(System.String,System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Export.Text.Page.DataMember})">
+            <summary>
+            Create data member of object type with specified name and collection of the children members.
+            </summary>
+            <param name="name">A <see cref="T:System.String" /> value representing the name of data member.</param>
+            <param name="fields">A collection of children <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" /> objects.</param>
+            <returns>A new instance of <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Field(System.String,System.Object)">
+            <summary>
+            Create data member of field type with specified name and value.
+            </summary>
+            <param name="name">A <see cref="T:System.String" /> value representing the name of data member.</param>
+            <param name="value">An <see cref="T:System.Object" /> value representing the value of data member.</param>
+            <returns>A new instance of <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.DataMember.Collection(System.String,System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Export.Text.Page.DataMember})">
+            <summary>
+            Create data member of collection type with specified name and collection of the children members.
+            </summary>
+            <param name="name">A <see cref="T:System.String" /> value representing the name of data member.</param>
+            <param name="children">A collection of children <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" /> objects.</param>
+            <returns>A new instance of <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.DataMember.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.IDataRenderer">
+            <summary>
+            Renderer base interface that ReportItems can use to build a data structure for csv and json exports.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.IDataRenderer.GetData(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Get a data structure of <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem">ReportItem</see>.
+            </summary>
+            <param name="item">A report item to render for.</param>
+            <returns>A <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.DataMember" /> object with data structure of the ReportItem.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.JsonExport">
+            <summary>
+            Provides methods to export <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object to JSON format.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.JsonExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object data as a JSON object using the given <see cref="T:System.IO.TextWriter" />.
+            </summary>
+            <param name="report">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to be report exported to.</param>
+            <param name="settings">Optional settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when report or writer is null.</exception>
+            <example>
+                <code>
+            IReport report = ...;
+            using TextWriter writer = new StreamWriter("output.json");
+            JsonExport.Export(report, writer);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.JsonExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,System.Threading.CancellationToken,GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object data as a JSON object using the given <see cref="T:System.IO.TextWriter" />.
+            </summary>
+            <param name="report">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to be report exported to.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows interrupting rendering.</param>
+            <param name="settings">Optional settings.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when report or writer is null.</exception>
+            <example>
+                <code>
+            IReport report = ...;
+            using TextWriter writer = new StreamWriter("output.json");
+            CancellationToken cancellationToken = new CancellationToken();
+            JsonExport.Export(report, writer, cancellationToken, settings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.JsonExport.IsNumericTypeOrBoolean(System.Object)">
+            <summary>
+            Determines whether the specified object is a numeric or boolean type.
+            </summary>
+            <param name="o">The object to check.</param>
+            <returns>True if the object is of a numeric type or a boolean; otherwise, false.</returns>
+            <example>
+            The following example demonstrates the use of the <see cref="M:GrapeCity.ActiveReports.Export.Text.Page.JsonExport.IsNumericTypeOrBoolean(System.Object)" /> method:
+            <code>
+            bool result1 = IsNumericTypeOrBoolean(123);  // returns true
+            bool result2 = IsNumericTypeOrBoolean(true);  // returns true
+            bool result3 = IsNumericTypeOrBoolean("Hello");  // returns false
+            </code></example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings">
+            <summary>
+            Stores the settings that control JSON export behavior.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            JsonExportSettings settings = new JsonExportSettings
+            {
+                Formatted = true,
+                QuotePropertyNames = false
+            };
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings" /> class.
+            </summary>
+            <example>
+                <code>
+            var settings = new JsonExportSettings();
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings.Formatted">
+            <summary>
+            Gets or sets a value indicating whether the output JSON text should be formatted to be more readable.
+            </summary>
+            <value>
+                <c>true</c> if the JSON output should be formatted; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            This property controls whether the output JSON will be pretty-printed with indentation.
+            </remarks>
+            <example>
+                <code>
+            settings.Formatted = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings.QuotePropertyNames">
+            <summary>
+            Gets or sets a value indicating whether property names should be enclosed in quotation marks.
+            </summary>
+            <value>
+                <c>true</c> if property names should be quoted; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            This property controls whether property names in the output JSON will be enclosed in quotes.
+            </remarks>
+            <example>
+                <code>
+            settings.QuotePropertyNames = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.JsonExportSettings.Target">
+            <summary>
+            Gets or sets the target device type used for exporting the report.
+            </summary>
+            <example>
+                <code>
+            settings.Target = TargetDeviceKind.Export;
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.QuotationMode">
+            <summary>
+            The quotation mode for export settings.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.QuotationMode.AutoQuote">
+            <summary>
+            Specifies that simple values will be exported without quotes.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.QuotationMode.AlwaysQuote">
+            <summary>
+            Specifies that the all exported values will always be quoted.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.PaddingsType">
+            <summary>
+             Stores values that can be used to specify how the item's paddings should be handled.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.PaddingsType.Adjust">
+            <summary> Adjust the paddings so that they become a multiple of the size of the font. </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.PaddingsType.Remove">
+            <summary>Remove paddings. </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.PaddingsType.Keep">
+            <summary>Keeps the paddings as is.</summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings">
+            <summary>
+            Provides various options to configure the rendering of a TXT export.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            var settings = new TxtSettings
+            {
+                CharWidthInTwips = 130,
+                CharHeightInTwips = 280,
+                HorizontalPaddings = PaddingsType.Keep,
+                LineEnding = "\r\n"
+            };
+            </code>
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings.CharWidthInTwips">
+            <summary>
+            Gets or sets character width in twips.
+            </summary>
+            <value>
+            The default value is 120 (6 points).
+            </value>
+            <remarks>
+            This property specifies the width of the character.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings.CharHeightInTwips">
+            <summary>
+            Gets or sets character height in twips.
+            </summary>
+            <value>
+            The default value is 257 (12.85 points).
+            </value>
+            <remarks>
+            This property specifies the height of the character.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings.HorizontalPaddings">
+            <summary>
+            Gets or sets value that describes how the item's paddings should be handled.
+            </summary>
+            <value>
+            The default value is <see cref="F:GrapeCity.ActiveReports.Export.Text.Page.PaddingsType.Adjust" />.
+            </value>
+            <remarks>
+            This property specifies the method of handling horizontal paddings.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings.LineEnding">
+            <summary>
+            Gets or sets the end of a line.
+            </summary>
+            <value>
+            The line ending characters. The default is <see cref="P:System.Environment.NewLine" />.
+            </value>
+            <remarks>
+            This property specifies the line ending characters.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.TxtExport">
+            <summary>
+            Provides methods to export reports to TXT format using various settings.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            var report = // Obtain the report
+            var settings = new TxtSettings();
+            using (var writer = new StreamWriter("output.txt"))
+            {
+                TxtExport.Export(report, writer, settings);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.TxtExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,GrapeCity.ActiveReports.Export.Text.Page.TxtSettings)">
+            <summary>
+            Exports the specified report to a TXT file.
+            </summary>
+            <param name="report">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to which the TXT content will be written.</param>
+            <param name="settings">The <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings" /> for the export.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="report" /> is null.</exception>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.TxtExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,GrapeCity.ActiveReports.Export.Text.Page.TxtSettings,System.Threading.CancellationToken)">
+            <summary>
+            Exports the specified report to a TXT file.
+            </summary>
+            <param name="report">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> to be exported.</param>
+            <param name="writer">The <see cref="T:System.IO.TextWriter" /> to which the TXT content will be written.</param>
+            <param name="settings">The <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.TxtSettings" /> for the export.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows interrupting rendering.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="report" /> is null.</exception>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.TxtExport.PrepareReport(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,GrapeCity.ActiveReports.Export.Text.Page.TxtSettings,GrapeCity.ActiveReports.ResourceLocator)">
+            <summary>
+            Performs preliminary processing of the report based on the settings.
+            </summary>
+            <param name="report">The report to be prepared.</param>
+            <param name="settings">The settings specify how the report is to be prepared.</param>
+            <param name="resourceLocator">Resource locator used for preparing the report.</param>
+            <returns>A prepared report object.</returns>
+            <remarks>
+            This method processes the report definition before the actual export.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.XmlExport">
+            <summary>
+             Provides static methods to export reports to XML format using specified settings. 
+             </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+             using System.IO;
+             using GrapeCity.ActiveReports.Extensibility.Rendering.Components;
+            
+             class Program
+             {
+                 static void Main()
+                 {
+                     IReport report = GetReport();
+                     using (var writer = new StreamWriter("report.xml"))
+                     {
+                         XmlExport.Export(report, writer);
+                     }
+                 }
+            
+                 static IReport GetReport()
+                 {
+                     // Stub for getting an IReport instance.
+                 }
+             }
+             </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.XmlExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object data as XML object using the given <see cref="T:System.IO.TextWriter" />.
+            </summary>
+            <param name="report">The report to be exported.</param>
+            <param name="writer">The writer to be report exported to.</param>
+            <param name="settings">Optional settings.</param>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { Formatted = true };
+            XmlExport.Export(report, writer, settings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Text.Page.XmlExport.Export(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.IO.TextWriter,System.Threading.CancellationToken,GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings)">
+            <summary>
+            Writes the given <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object data as XML object using the given <see cref="T:System.IO.TextWriter" />.
+            </summary>
+            <param name="report">The report to be exported.</param>
+            <param name="writer">The writer to be report exported to.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows interrupting rendering.</param>
+            <param name="settings">Optional settings.</param>
+            <exception cref="T:System.OperationCanceledException">
+            Thrown when the export is interrupted by a cancellation request.
+            </exception>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { Formatted = true };
+            var cancelTokenSource = new CancellationTokenSource();
+            XmlExport.Export(report, writer, cancelTokenSource.Token, settings);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings">
+            <summary>
+            Contains various properties to configure the settings for XML export, such as 
+            XSL stylesheet path, formatting options, and output behaviors.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            var settings = new XmlExportSettings
+            {
+                XslStylesheet = "stylesheet.xsl",
+                Formatted = true
+            };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.XslStylesheet">
+            <summary>
+            Gets or sets the path of the XSL Stylesheet used during rendering process.
+            </summary>
+            <value>
+            The path to the XSL stylesheet file.
+            </value>
+            <remarks>
+            If this property is set, the specified stylesheet will be applied to the XML data during the export process.
+            </remarks>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { XslStylesheet = "output.xsl" };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.Formatted">
+            <summary>
+            Gets or sets a value indicating whether the output XML text should be formatted to increase readability.
+            </summary>
+            <value>
+                <c>true</c> if the XML text should be formatted; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            The default value is <c>false</c>.
+            </remarks>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { Formatted = true };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.WriteEmptyAttributes">
+            <summary>
+            Gets or sets the current WriteEmptyAttributes setting.
+            </summary>
+            <value>
+                <c>true</c> if empty attributes should be written; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            The default value is <c>false</c>.
+            </remarks>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { WriteEmptyAttributes = true };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.OutputHiddenMatrixMembers">
+            <summary>
+            Specifies if any hidden members in a Matrix ReportItem are written out.
+            </summary>
+            <value>
+                <c>true</c> if hidden matrix members should be written; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            The default value is <c>true</c>.
+            </remarks>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { OutputHiddenMatrixMembers = false };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.OutputTextboxConstantValues">
+            <summary>
+            Specifies the setting name that determines if a <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.ITextBox" /> that has a value that is 
+            literal will write that value.
+            </summary>
+            <value>
+                <c>true</c> if the constant values should be output; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            The default value is <c>false</c>.
+            </remarks>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { OutputTextboxConstantValues = true };
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings.DefaultDateFormat">
+            <summary>
+            Internal value for date settings.
+            </summary>
+            <value>
+            The default date format.
+            </value>
+            <example>
+                <code>
+            var settings = new XmlExportSettings { DefaultDateFormat = "yyyy-MM-dd" };
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults">
+            <summary>
+            Specifies the result of rendering a ReportItem to XML.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.Default">
+            <summary>
+            Specifies a default value.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.NoContent">
+            <summary>
+            Indicates the rendering output contains no content.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.StaticContent">
+            <summary>
+            Indicates that only static content will be rendered. Cannot be combined with <see cref="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.DynamicContent" />.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.XmlAttribute">
+            <summary>
+            Indicates that content will be rendered as an XML attribute only.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.XmlElement">
+            <summary>
+            Indicates that content will be rendered as an XML element.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.DynamicContent">
+            <summary>
+            Indicates that dynamic content will be rendered. Cannot be combined with <see cref="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.StaticContent" />.
+            Must be combined with either <see cref="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.XmlElement" /> or <see cref="F:GrapeCity.ActiveReports.Export.Xml.Page.DataElementOutputResults.XmlAttribute" />.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Xml.Page.IXmlDataRenderer">
+            <summary>
+            Renderer base interface that ReportItems can use to dump content or its part as a xml.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Xml.Page.IXmlDataRenderer.Render(GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext,GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Renders the specified <paramref name="reportItem" /> to the specified <paramref name="context" />.
+            </summary>
+            <param name="context">The context used for the current rendering process.</param>
+            <param name="reportItem">A report item to render for.</param>
+            <returns>A value indicating if, and in what form any content was rendered for the specified <paramref name="reportItem" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Xml.Page.IXmlDataRenderer.GetRenderResultHint(GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext,GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Allows derrived classes to provide an optimized way to inform the caller of how the specified <paramref name="reportItem" /> will be rendered without requiring the ReportItem to be rendered.
+            </summary>
+            <param name="context">A context used for the current rendering process.</param>
+            <param name="reportItem">A report item to render for.</param>
+            <returns>A value indicating if, and in what form any content will be rendered for the specified <paramref name="reportItem" />.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext">
+            <summary>
+            Provides a context in to the XML rendering process.
+            <seealso cref="T:GrapeCity.ActiveReports.Export.Xml.Page.ReportItemXmlRenderer" /><seealso cref="T:GrapeCity.ActiveReports.Export.Text.Page.XmlExport" /></summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext.Cancel">
+            <summary>
+            Gets a cancellation token for a text rendering process.
+            </summary>
+            <value>
+            A <see cref="T:System.Threading.CancellationToken" /> object for breaking the rendering process.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext.Writer">
+            <summary>
+            Gets a writer to render the ReportItem's content to.
+            </summary>
+            <value>
+            A <see cref="T:System.Xml.XmlWriter" /> object to render the ReportItem's content to.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext.XmlExportSettings">
+            <summary>
+            Gets the current settings for a renderer process.
+            </summary>
+            <value>
+            A <see cref="T:GrapeCity.ActiveReports.Export.Text.Page.XmlExportSettings" /> object representing the settings for a renderer process.
+            </value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext.RenderReportItem(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Provides a helper method to obtain a renderer and render the specified report item.
+            <seealso cref="M:GrapeCity.ActiveReports.Export.Xml.Page.ReportItemXmlRenderer.Render(GrapeCity.ActiveReports.Export.Xml.Page.XmlExportContext,GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)" /></summary>
+            <param name="reportItem">The <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem" /> to be rendered.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

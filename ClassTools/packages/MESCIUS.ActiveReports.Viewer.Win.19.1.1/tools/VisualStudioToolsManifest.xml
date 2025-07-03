@@ -1,0 +1,7 @@
+<FileList>
+  <File Reference = "MESCIUS.ActiveReports.Viewer.Win.dll">
+    <ToolboxItems VSCategory="ActiveReports 19">
+      <Item Type="GrapeCity.ActiveReports.Viewer.Win.Viewer" />
+    </ToolboxItems>
+  </File>
+</FileList>

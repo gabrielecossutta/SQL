@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Export.Tiff.Section</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException">
+            <summary>
+            Represents an exception that occurs when an internal error occurs.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCodes">
+            <summary>
+            Represents the error codes.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCodes.BigTiffExceptionMessage">
+            <summary>
+            The Big tiff exception message code.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCodes.CreateBitmapExceptionMessage">
+            <summary>
+            The exception message code when creating a bitmap.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCode">
+            <summary>
+            Gets the error code.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.#ctor(System.String,GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCodes)">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException" />.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="errorCode">The eroor code.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.#ctor(System.String,System.Exception,GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.ErrorCodes)">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException" />.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="errorCode">The eroor code.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExportException" /> class with serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport">
+            <summary>
+            Represents the TIFF export.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport.ExportSettings">
+            <summary>
+            Represents the export settings.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport.ExportSettings.LineBreaking">
+            <summary>
+            The line breaking algorithm.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport.Fonts">
+            <summary>
+            Gets or sets the custom fonts factory.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport.Export(System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Core.Document.Page},System.IO.Stream,GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings)">
+            <summary>
+            Exports the specified pages to a stream.
+            </summary>
+            <param name="pages">The pages to export.</param>
+            <param name="stream">The stream to export to.</param>
+            <param name="settings">The TIFF settings.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport.Export(System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Core.Document.Page},System.String,GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings)">
+            <summary>
+            Exports the specified pages to a file.
+            </summary>
+            <param name="pages">The pages to export.</param>
+            <param name="path">The path of the file to export to.</param>
+            <param name="settings">The TIFF settings.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme">
+            <summary>
+            Specifies the compression schemes used in the resulting TIFF image of the <see cref="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffExport" /> component.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme.None">
+            <summary>
+            Specifies no compression.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme.Rle">
+            <summary>
+            Specifies the RLE compression scheme.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme.Ccitt3">
+            <summary>
+            Specifies the CCITT3 compression scheme.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme.Ccitt4">
+            <summary>
+            Specifies the CCITT4 compression scheme.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Export.Tiff.Section.CompressionScheme.Lzw">
+            <summary>
+            Specifies the LZW compression scheme. This compression can be used for 1, 4, and 8-bit color depths.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings">
+            <summary>
+            Represents the TIFF export settings.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.#ctor">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings" />.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.CompressionScheme">
+            <summary>
+            Gets or sets the compression scheme to be used when exporting a TIFF file.
+            </summary>
+            <value>
+            The compression scheme as a <see cref="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.CompressionScheme" />.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.Dither">
+            <summary>
+            Gets or sets a value indicating whether the image should be dithered when saving to a black and white output format such as CCITT3.
+            If <see cref="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.CompressionScheme" /> is Rle or None (indicating color output), this property has no effect.
+            </summary>
+            <value>
+            A <see cref="T:System.Boolean" /> value. <c>true</c> to dither the image; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.DpiX">
+            <summary>
+            Gets or sets the horizontal resolution value when exporting a TIFF.
+            </summary>
+            <value>
+            The horizontal resolution as an <see cref="T:System.Int32" />.
+            </value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Tiff.Section.TiffSettings.DpiY">
+            <summary>
+            Gets or sets the vertical resolution value when exporting a TIFF.
+            </summary>
+            <value>
+            The vertical resolution as an <see cref="T:System.Int32" />.
+            </value>
+        </member>
+    </members>
+</doc>

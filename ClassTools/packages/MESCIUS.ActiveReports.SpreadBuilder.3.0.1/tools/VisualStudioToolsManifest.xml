@@ -1,0 +1,6 @@
+<FileList>
+  <File Reference = "MESCIUS.ActiveReports.SpreadBuilder.dll">
+    <ToolboxItems VSCategory="SpreadBuilder">
+    </ToolboxItems>
+  </File>
+</FileList>

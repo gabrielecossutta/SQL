@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Chart.Win</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.DefaultFontFactory">
+            <summary>
+            Specify default font for entire application.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.DefaultFontFactory.DefaultWinFormsFont">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.DefaultFontFactory.DefaultTabsFont">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.DefaultFontFactory.GetDefaultWinFormsFont(System.Single,System.Drawing.FontStyle)">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.DefaultFontFactory.SetDefaultWinFormsFont(System.Func{System.Single,System.Drawing.FontStyle,System.Drawing.Font})">
+            <summary>
+            Sets the font if necessary.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.AxesSelectEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.AxesSelectEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.AxesSelectEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.AxesSelectEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.AxesSelectEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.ComponentlessCollectionEditor">
+            <summary>
+            This editor will not register components created in container
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DoubleArrayEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Indicates whether the specified context supports painting a representation of an object's value within the specified context.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>true if <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)" /> is implemented; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.PaintValue(System.Drawing.Design.PaintValueEventArgs)">
+            <summary>
+            Paints a representation of the value of an object using the specified <see cref="T:System.Drawing.Design.PaintValueEventArgs" />.
+            </summary>
+            <param name="e">A <see cref="T:System.Drawing.Design.PaintValueEventArgs" /> that indicates what to paint and where to paint it.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.DropDownEditor.PaintValueImpl(System.Object,System.Object,System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Paint value.
+            </summary>
+            <param name="value">The value to paint.</param>
+            <param name="currentValue">Is equal to value for simple draw, and represents selected item in listbox</param>
+            <param name="g">Context to paint.</param>
+            <param name="bounds">Bounds to paint.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.GradientEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.GradientEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.GradientEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.GradientEditor.PaintValueImpl(System.Object,System.Object,System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Paint value.
+            </summary>
+            <param name="value">The value to paint.</param>
+            <param name="currentValue">Is equal to value for simple draw, and represents selected item in listbox</param>
+            <param name="g">Context to paint.</param>
+            <param name="bounds">Bounds to paint.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:GrapeCity.ActiveReports.Chart.Win.Editors.LabelsCollectionEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.PatternEditor">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.PatternEditor.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:GrapeCity.ActiveReports.Chart.Win.Editors.PatternEditor" /> Class. 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.PatternEditor.PaintValueImpl(System.Object,System.Object,System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Paint value.
+            </summary>
+            <param name="value">The value to paint.</param>
+            <param name="currentValue">Is equal to value for simple draw, and represents selected item in listbox</param>
+            <param name="g">Context to paint.</param>
+            <param name="bounds">Bounds to paint.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.PictureEditor">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.PictureEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.PictureEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Editors.StyleEditor">
+            <summary>
+            Internal class for chart designer
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.StyleEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets the editor style used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <returns>A <see cref="T:System.Drawing.Design.UITypeEditorEditStyle" /> value that indicates the style of editor used by the <see cref="M:System.Drawing.Design.UITypeEditor.EditValue(System.IServiceProvider,System.Object)" /> method. If the <see cref="T:System.Drawing.Design.UITypeEditor" /> does not support this method, then <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> will return <see cref="F:System.Drawing.Design.UITypeEditorEditStyle.None" />.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Editors.StyleEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Edits the specified object's value using the editor style indicated by the <see cref="M:System.Drawing.Design.UITypeEditor.GetEditStyle" /> method.
+            </summary>
+            <param name="context">An <see cref="T:System.ComponentModel.ITypeDescriptorContext" /> that can be used to gain additional context information.</param>
+            <param name="provider">An <see cref="T:System.IServiceProvider" /> that this editor can use to obtain services.</param>
+            <param name="value">The object to edit.</param>
+            <returns>The new value of the object. If the value of the object has not changed, this should return the same object it was passed.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.Serialization.NodeSerializer">
+            <summary>
+            The custom serializer for objects that are referenced from other chart objects
+            Serializer supresses redundant declaration of the same object
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Serialization.NodeSerializer.Deserialize(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)">
+            <summary>
+            Deserializator
+            </summary>
+            <param name="manager"></param>
+            <param name="codeObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.Serialization.NodeSerializer.Serialize(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)">
+            <summary>
+            Serializator
+            </summary>
+            <param name="manager"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.SharpGraph">
+            <summary>
+            Datadynamics SharpGraph control for WinForms
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.SharpGraph.IChartDesigner">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.IChartDesigner.RaiseChanging">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.IChartDesigner.RaiseChanged">
+            <summary>
+            For internal use.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.SetCultureProvider(System.Func{System.Globalization.CultureInfo})">
+            <summary>
+            Sets the culture provider.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.SetCanvasFactory(System.Func{System.Drawing.Graphics,GrapeCity.ActiveReports.Chart.Graphics.Canvas})">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.#ctor(GrapeCity.ActiveReports.Chart.SharpGraphCore)">
+            <summary>
+            Initializes new instance of the SharpGraph control
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.DataSourceDirect">
+            <summary>
+            Gets or sets the data source direct.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.RegisteredComponents">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the Component and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.RefreshData">
+            <summary>
+            Clears internal caches, so that chart will load all that data when it will be drawn next time
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.DrawContent(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            DrawContent is provided primary for usage with ARNet2. However, by providing this function, it also
+            allows some other usages to non-display canvases. OnPaint now calls this.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnPaint</code></summary>
+            <param name="pe"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnPaintBackground</code></summary>
+            <param name="pe"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnResize(System.EventArgs)">
+            <summary>
+            This member overrides <code>Control.OnResize</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Backdrop">
+            <summary>
+            Main chart's backdrop, spans all chart control area
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Border">
+            <summary>
+            Main chart's border, spans all chart control area
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Titles">
+            <summary>
+            Gets control's Titles collection
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Series">
+            <summary>
+            Where chart gets it's data to display
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.DataSource">
+            <summary>
+            Global graph's data source
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.SaveCredentials(System.String,System.String)">
+            <summary>
+            For internal use only!
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ChartAreas">
+            <summary>
+            Chart Areas
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.GridLayout">
+            <summary>
+            Chart Areas Columns
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Legends">
+            <summary>
+            Gets control's Legend object
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.AutoRefresh">
+            <summary>
+            If true chart will be automatically refreshed(redrawn) on each property change
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.UIOptions">
+            <summary>
+            Enables specific UI features
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.DeviceMode">
+            <summary>
+            Gets or sets graphics device specific options
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ChartCustomBorderDrawer">
+            <summary>
+            Gets or sets custom border drawer object for entire control
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.AreaCustomBorderDrawer">
+            <summary>
+            Gets or sets custom border drawer object for chart areas
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ColorPalette">
+            <summary>
+            Global color palette. May be overrided on series level
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.IsDesignMode">
+            <summary>
+            Gets or sets a value indicating whether this instance is design mode.
+            </summary>
+            <value>
+                <c>true</c> if this instance is design mode; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.SetDesignMode(System.Boolean)">
+            <summary>
+            Enable or disable the design mode.
+            </summary>
+            <param name="isDesignMode">
+                <c>true</c> to enable design mode.</param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.CurrentDesigner">
+            <summary>
+            Gets or sets the current designer.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.BackColor">
+            <summary>
+            Gets or sets the background color for the control.
+            </summary>
+            <value>The color of the back.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.AccessibleDescription">
+            <summary>
+            Gets or sets the description of the control used by accessibility client applications.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.AccessibleName">
+            <summary>
+            Gets or sets the name of the control used by accessibility client applications.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.AccessibleRole">
+            <summary>
+            Gets or sets the accessible role of the control
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.BackgroundImage">
+            <summary>
+            Gets or sets the background image displayed in the control.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Font">
+            <summary>
+            Gets or sets the font of the text displayed by the control.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ForeColor">
+            <summary>
+            Gets or sets the foreground color of the control.
+            </summary>
+            <value>The color of the fore.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.RightToLeft">
+            <summary>
+            Gets or sets a value indicating whether control's elements are aligned to support locales using right-to-left fonts.
+            </summary>
+            <value>The right to left.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Text">
+            <summary>
+            Gets or sets the text associated with this control.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.Cursor">
+            <summary>
+            This member overrides <code>Control.Cursor</code></summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ImeMode">
+            <summary>
+            Gets or sets the Input Method Editor (IME) mode of the control.
+            </summary>
+            <value>The IME mode.</value>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.SharpGraph.CausesValidation">
+            <summary>
+            Gets or sets a value indicating whether the control causes validation to be performed on any controls that require validation when it receives focus.
+            </summary>
+            <value>
+                <c>true</c> if [causes validation]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.WriteXml(System.Xml.XmlElement)">
+            <summary>
+            Writes the XML.
+            </summary>
+            <param name="controlNode">The control node.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ReadXml(System.Xml.XmlElement)">
+            <summary>
+            Reads the XML.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.QuickSave(System.IO.BinaryWriter)">
+            <summary>
+            Serialize this object to binary writer in XML format.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.QuickLoad(System.IO.BinaryReader)">
+            <summary>
+            Deserialize the data from XMl format.
+            </summary>
+            <param name="binReader">The bin reader.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnContextMenu(System.Drawing.Point)">
+            <summary>
+            Called when context menu requested.
+            </summary>
+            <param name="p">The p.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ClearInvalidBindings">
+            <summary>
+            Clears the invalid bindings.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Chart.Win.SharpGraph.ParentHost">
+            <summary>
+            is set to DataDyanmics.ActiveReports.ChartControl from ChartControl : CHART_WIZARD_DATASOURCE
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.DoCommand(GrapeCity.ActiveReports.Chart.UICommand,System.Object[])">
+            <summary>
+            Executes command
+            </summary>
+            <param name="command">command to execute</param>
+            <param name="parameters">optional parameters</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.HitTest(System.Int32,System.Int32)">
+            <summary>
+            Returns info about graph item that is placed in specified coordinates.
+            Please consider using UIOptions.ForceHitTesting before calling HitTest function.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns>reference to HitTestInfo or null if item is not found</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnMouseMove</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnMouseDown</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnMouseUp</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnMouseWheel(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            This member overrides <code>Control.OnMouseWheel</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.OnMouseLeave(System.EventArgs)">
+            <summary>
+            This member overrides <code>Control.OnMouseLeave</code></summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Chart.Win.SharpGraph.SetDirtyFired">
+            <summary>
+            Occurs when SetDirty called.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.BeginInit">
+            <summary>
+             Signals the object that initialization is starting.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.EndInit">
+            <summary>
+            Signals the object that initialization is complete.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Win.SharpGraph.FixReferences">
+            <summary>
+            Fixes the references between chart object.
+            This method is used when chart is partially deserialized.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Win.HitTest">
+            <summary>
+            Represents the properties of the HitTest object
+            For a list of all members of this type, see the HitTest member
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.HitTest.Item">
+            <summary>
+            Graph item that was under specified coordinates
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Chart.Win.HitTest.ItemCount">
+            <summary>
+            Ordinal number of item, applicable only for series views, and denotes column(sector etc) number
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Chart.Graphics.Devices.CanvasGdi">
+            <summary>
+            Complete GDI implementation of the graphics.
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Graphics.Devices.CanvasGdi.#ctor(System.Drawing.Graphics)">
+            <summary>
+            Creates new canvas.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Graphics.Devices.CanvasGdi.FillPath(GrapeCity.ActiveReports.Chart.Drawing.Drawing2D.GraphicsPath,GrapeCity.ActiveReports.Chart.Drawing.Image,System.Boolean,System.Single,System.Numerics.Matrix3x2)">
+            <summary>
+            Fills the path with texture.
+            </summary>
+            <param name="path">The graphic path whose interior will be filled</param>
+            <param name="image">The image for brush that uses to fill the interior of a graphics path</param>
+            <param name="repeat">If true, then tiles the texture is used.</param>
+            <param name="opacity">The level of opacity. The opacity value is in the range from 0 to 1.</param>
+            <param name="brushTransform">The Matrix3x2 object that represents the local geometric transformation.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Graphics.Devices.CanvasGdi.DrawText(System.String,GrapeCity.ActiveReports.Chart.Graphics.TextStyle,System.Drawing.RectangleF,System.Drawing.PointF)">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Chart.Graphics.Devices.CanvasGdi.DrawTextInternal(System.String,GrapeCity.ActiveReports.Chart.Graphics.TextStyle,System.Drawing.RectangleF)">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Export.Svg.Page</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider">
+            <summary>
+            Interface for creating custom link provider for SVG display extension.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.BookmarkLink(System.String,System.Int32)">
+            <summary>
+            Returns a string value to use as a link in a map map.
+            </summary>
+            <param name="id">Bookmark Id</param>
+            <param name="pageNumber">Target Page Number</param>
+            <returns>A string value to use as the value of href.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.BookmarkLinkTarget(System.String)">
+            <summary>
+            Returns the string value to use as the Bookmarklink target.
+            </summary>
+            <param name="targetName">Bookmarklink A string value representing the base name of the target.</param>
+            <returns>A string value to use as the target for the value of href.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.Hyperlink(System.String)">
+            <summary>
+            Returns a string value to use as a hyperlink.
+            </summary>
+            <param name="link">hyperlink</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.DrillthroughLink(System.String,GrapeCity.ActiveReports.Extensibility.Rendering.Components.DrillthroughParameter[])">
+            <summary>
+            Returns a string value to use as a drill-through link.
+            </summary>
+            <param name="reportName">Report Name</param>
+            <param name="parameters">Parameters</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.VisibilityToggleLink(System.String)">
+            <summary>
+            Returns a string value to be used as a link for display switching.
+            </summary>
+            <param name="toggleUrl">Url</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider.SortingToggleLink(System.String)">
+            <summary>
+            Returns the string value to use as the link to sort the switch.
+            </summary>
+            <param name="sortUrl">Url</param>
+            <returns>String value to use as the value of href</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.IInteractiveLinkProvider">
+            <summary> Interface for creating custom interactive link provider for SVG export. </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.IInteractiveLinkProvider.GetInteractiveLink(System.String[])">
+            <summary> Generate link data for a given action keys collection. </summary>
+            <param name="actionKeys">Action keys to be represented by link. </param>
+            <returns>Generated link.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.IActionLinkProvider">
+            <summary> Interface for creating a custom link provider for arbitrary report item Action. </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.IActionLinkProvider.GetActionLink(GrapeCity.ActiveReports.Extensibility.Rendering.Components.ActionBase)">
+            <summary> Generates a string value to be used as a link for an action. </summary>
+            <param name="action">
+                <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.ActionBase" /> Action object to be represented as a string.</param>
+            <returns>String representation of action link.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactorySettings">
+            <summary>
+            Settings for the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory" />.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactorySettings.DrawTextAsPath">
+            <summary>
+            Gets or sets a value indicating whether to draw text as a path.
+            </summary>
+            <value>
+                <c>true</c> if text should be drawn as a path; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            Useful for ensuring text looks the same for all viewers.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactorySettings.LineBreakingAlgorithm">
+            <summary>
+            Gets or sets the line-breaking algorithm.
+            </summary>
+            <value>
+            The line-breaking algorithm.
+            </value>
+            <remarks>
+            Determines how lines are broken in the SVG output.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory">
+            <summary>
+            Represents the SVG pages factory used in JsViewer backend for the SVG streaming mode.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory.#ctor(GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Export.Svg.Page.ILinkProvider,GrapeCity.ActiveReports.Drawing.Core.ImageManager,GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactorySettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory" /> class.
+            </summary>
+            <param name="fonts">The fonts factory.</param>
+            <param name="linkProvider">The link provider.</param>
+            <param name="imageManager">The image manager.</param>
+            <param name="settings">The SVG page factory settings.</param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory.Fonts">
+            <summary>
+            Gets the fonts factory.
+            </summary>
+            <value>
+            The fonts factory.
+            </value>
+            <remarks>
+            Used to handle custom fonts in the SVG output.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory.Settings">
+            <summary>
+            Gets the SVG page factory settings.
+            </summary>
+            <value>
+            The SVG page factory settings.
+            </value>
+            <remarks>
+            Provides settings that control how the SVG pages are generated.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgPageFactory.CreatePage(System.Drawing.SizeF)">
+            <summary>
+            Creates a new SVG document page.
+            </summary>
+            <param name="size">The size of the page.</param>
+            <returns>
+            A new instance of <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage" />.
+            </returns>
+            <remarks>
+            The page is created with default canvas settings.
+            </remarks>
+            <example>
+                <code>
+            var factory = new SvgPageFactory(...);
+            var page = factory.CreatePage(new SizeF(800, 600));
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage">
+            <summary>
+            Represents an RDL document page that has to be rendered in SVG format.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Canvas">
+            <summary>
+            Gets the SVG page canvas.
+            </summary>
+            <value>
+            The SVG page canvas.
+            </value>
+            <remarks>
+            Used to draw graphics onto the SVG page.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Interactivity">
+            <summary>
+            Gets the SVG page interactivity.
+            </summary>
+            <value>
+            The SVG page interactivity.
+            </value>
+            <remarks>
+            Manages interactivity features such as links and bookmarks.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Comment">
+            <summary>
+            Gets or sets the comment to be written within the SVG content.
+            </summary>
+            <value>
+            The comment to be written within the SVG content.
+            </value>
+            <remarks>
+            This comment is included in the output SVG file for documentation or debugging purposes.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgDocumentPage.Flush(System.IO.Stream)">
+            <summary>
+            Writes the SVG page to the specified stream.
+            </summary>
+            <param name="stream">The stream to which the SVG page will be written.</param>
+            <remarks>
+            Use this method to save the generated SVG content to a file or other output stream.
+            </remarks>
+            <example>
+                <code>
+            using (var stream = new FileStream("output.svg", FileMode.Create))
+            {
+                svgDocumentPage.Flush(stream);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity">
+            <summary>
+            Provides interactivity features for SVG pages.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity.AddAction(GrapeCity.ActiveReports.Extensibility.Rendering.Components.ActionBase,System.Drawing.RectangleF)">
+            <summary>
+            Adds an action to the interactive area.
+            </summary>
+            <param name="action">The action to be added.</param>
+            <param name="bounds">The bounds of the action area.</param>
+            <returns>
+                <c>true</c> if the action is successfully added; otherwise, <c>false</c>.
+            </returns>
+            <example>
+                <code>
+            var action = new ClickAction(...);
+            var added = svgInteractivity.AddAction(action, new RectangleF(0, 0, 100, 100));
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity.AddInteractivity(System.String,System.Drawing.RectangleF)">
+            <summary>
+            Adds interactivity link to the specified area.
+            </summary>
+            <param name="link">The link URL.</param>
+            <param name="area">The area of the link.</param>
+            <example>
+                <code>
+            svgInteractivity.AddInteractivity("http://example.com", new RectangleF(0, 0, 100, 100));
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity.AddGoToBookmark(System.Int32,System.Drawing.RectangleF,System.String)">
+            <summary>
+            Adds a go-to bookmark action to the specified area.
+            </summary>
+            <param name="pageNumber">The page number to go to.</param>
+            <param name="bounds">The bounds of the area.</param>
+            <param name="link">The bookmark link.</param>
+            <example>
+                <code>
+            svgInteractivity.AddGoToBookmark(1, new RectangleF(0, 0, 100, 100), "bookmark");
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity.AddBookmarkTarget(System.String,System.Int32,System.Drawing.RectangleF)">
+            <summary>
+            Adds a bookmark target to the specified area.
+            </summary>
+            <param name="key">The bookmark key.</param>
+            <param name="pageNumber">The page number.</param>
+            <param name="targetArea">The target area.</param>
+            <example>
+                <code>
+            svgInteractivity.AddBookmarkTarget("bookmarkKey", 1, new RectangleF(0, 0, 100, 100));
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgInteractivity.RenderInteractiveArea(GrapeCity.ActiveReports.Rendering.Components.InteractiveArea)">
+            <summary>
+            Renders the interactive area.
+            </summary>
+            <param name="area">The interactive area.</param>
+            <remarks>
+            This method enables the rendering of regions that respond to user actions.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory">
+            <summary>
+            Represents a factory that produces SVG-based image renderers.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings">
+            <summary>
+            Represents the settings used for exporting data.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            ExportSettings settings = new ExportSettings();
+            settings.FilePath = "C:\\export\\data.svg";
+            settings.IncludeHeaders = true;
+            </code>
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.ConverterService">
+            <summary>
+            Gets or sets the image converter service to convert unsupported image formats.
+            </summary>
+            <value>
+            Holds a reference to an implementation of <see cref="T:GrapeCity.ActiveReports.Rendering.Image.IImageConverterService" />.
+            </value>
+            <remarks>
+            This service is used for converting images that are not supported by the default system.
+            </remarks>
+            <example>
+            var converter = new ImageConverterService();
+            var mySettings = new ExportSettings { ConverterService = converter };
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.LineBreaking">
+            <summary>
+            Gets or sets the <see cref="T:GrapeCity.ActiveReports.Drawing.Core.LineBreakingAlgorithm" />.
+            </summary>
+            <value>
+            Holds the algorithm used for line breaking in the text.
+            </value>
+            <remarks>
+            The algorithm determines how text lines are broken within the system.
+            </remarks>
+            <example>
+            var mySettings = new ExportSettings { LineBreaking = LineBreakingAlgorithm.Greedy };
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.DrawTextAsPath">
+            <summary>
+            Gets or sets a value indicating whether text should be drawn as a path.
+            </summary>
+            <value>
+                <c>true</c> if text should be drawn as a path; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            This property determines whether the text rendering should be treated as a graphical path 
+            instead of standard text rendering.
+            </remarks>
+            <example>
+                <code>
+            var mySettings = new ExportSettings { DrawTextAsPath = true };
+            </code>
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings.EmbeddedImage">
+            <summary>
+            Gets or sets a value indicating whether images should be embedded to SVG.
+            </summary>
+            <value>
+            Indicates whether images are embedded.
+            </value>
+            <remarks>
+            This property controls the embedding of images within the SVG.
+            </remarks>
+            <example>
+                <code>
+            MyClass instance = new MyClass();
+            instance.EmbeddedImage = true;
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.#ctor(GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Extensibility.Rendering.IRenderersFactory,GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.ExportSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory" /> class.
+            </summary>
+            <param name="fonts">The font factory to be used.</param>
+            <param name="renderers">The renderers factory to be used.</param>
+            <param name="settings">The export settings to be applied.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderersFactory.GetRenderer``1(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReportItem)">
+            <summary>
+            Gets the renderer for the specified report item.
+            </summary>
+            <typeparam name="TRenderer">The type of the renderer.</typeparam>
+            <param name="reportItem">The report item to get the renderer for.</param>
+            <returns>An instance of the renderer.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if the renderer cannot be created.</exception>
+            <example>
+                <code>
+            var rendererFactory = new SvgRenderersFactory();
+            var renderer = rendererFactory.GetRenderer{MyRenderer}(reportItem);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension">
+            <summary>
+            This class is responsible for exporting reports to SVG format.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+            <example>
+                <code>
+            var svgRenderer = new SvgRenderingExtension(fonts, renderers, exportSettings);
+            svgRenderer.Render(report, getStreamFunc);
+            </code>
+            </example>
+        </member>
+        <member name="E:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.PageRendered">
+            <summary>
+            This event fires when a new page is rendered.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.ExportSettings">
+            <summary>
+            Export settings for the SVG rendering extension.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.ExportSettings.ConverterService">
+            <summary>
+            Gets or sets the image converter service.
+            </summary>
+            <value>
+            The converter service.
+            </value>
+            <remarks>
+            This service is used to convert images within the report.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.ExportSettings.LineBreaking">
+            <summary>
+            Gets or sets the line breaking algorithm.
+            </summary>
+            <value>
+            The line breaking setting.
+            </value>
+            <remarks>
+            This setting determines how lines should be broken within text elements.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.ExportSettings.LinkProvider">
+            <summary>
+            Gets or sets the link provider.
+            </summary>
+            <value>
+            The link provider.
+            </value>
+            <remarks>
+            The link provider creates hyperlink targets within the SVG.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.#ctor(GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Extensibility.Rendering.IRenderersFactory,GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.ExportSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension" /> class.
+            </summary>
+            <param name="fonts">Fonts factory.</param>
+            <param name="renderers">Renderers factory.</param>
+            <param name="settings">Export settings.</param>
+            <example>
+                <code>
+            var extension = new SvgRenderingExtension(fonts, renderers, exportSettings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream})">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <param name="settings">The settings to use for rendering.</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc, settings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings)">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <param name="settings">The settings to use for rendering.</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc, svgSettings);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken)">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <param name="settings">The settings to use for rendering.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows rendering to be interrupted.</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc, svgSettings, cancellationToken);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{System.String,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken,System.IProgress{GrapeCity.ActiveReports.Rendering.Export.ProgressInfo})">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <param name="settings">The settings to use for rendering.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows rendering to be interrupted.</param>
+            <param name="progress">Progress indicator.</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc, svgSettings, cancellationToken, progressIndicator);
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgRenderingExtension.Render(GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport,System.Func{GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo,System.IO.Stream},GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings,System.Threading.CancellationToken,System.IProgress{GrapeCity.ActiveReports.Rendering.Export.ProgressInfo})">
+            <summary>
+            Renders the specified <see cref="T:GrapeCity.ActiveReports.Extensibility.Rendering.Components.IReport" /> object.
+            </summary>
+            <param name="report">The report to render.</param>
+            <param name="getStream">Function providing a new stream for data writing .</param>
+            <param name="settings">The settings to use for rendering.</param>
+            <param name="cancel">The <see cref="T:System.Threading.CancellationToken" /> object allows rendering to be interrupted.</param>
+            <param name="progress">Progress indicator.</param>
+            <example>
+                <code>
+            extension.Render(report, getStreamFunc, svgSettings, cancellationToken, progressIndicator);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType">
+            <summary>
+            Enumerates the types of resources that can be requested.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType.Page">
+            <summary>
+            SVG page.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.ResourceType.DocumentMap">
+            <summary>
+            JSON table of content.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo">
+            <summary>
+            Provides information about the requested stream.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This structure should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.#ctor(System.String,GrapeCity.ActiveReports.Export.Svg.Page.ResourceType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo" /> struct.
+            </summary>
+            <param name="name">The name of the stream.</param>
+            <param name="type">The type of the stream.</param>
+            <example>
+                <code>
+            var streamInfo = new StreamInfo("page1.svg", ResourceType.Page);
+            </code>
+            </example>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.Name">
+            <summary>
+            Gets the stream name if necessary. Can be omitted.
+            </summary>
+            <value>
+            The name of the stream.
+            </value>
+            <remarks>
+            The name is used to identify the stream uniquely.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Export.Svg.Page.StreamInfo.Type">
+            <summary>
+            Gets the type of the stream.
+            </summary>
+            <value>
+            The type of the stream.
+            </value>
+            <remarks>
+            The type indicates the purpose of the stream.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings">
+            <summary>
+            Provides various configurable parameters for optimizing SVG export, 
+            including text rendering, embedding images, and interactivity support.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings" /> class.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings" /> class 
+            using the specified settings.
+            </summary>
+            <param name="settings">Settings for the rendering extension.</param>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.DrawTextAsPath">
+            <summary>
+            Gets or sets a value indicating whether text should be rendered as a path
+            for Direct2D compatibility.
+            </summary>
+            <value>
+                <c>true</c> if text should be rendered as a path; otherwise, <c>false</c>.</value>
+            <example>
+                <code>
+            settings.DrawTextAsPath = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.Title">
+            <summary>
+            Gets or sets the SVG document title.
+            </summary>
+            <value>The title of the SVG document.</value>
+            <example>
+                <code>
+            settings.Title = "My SVG Document";
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.IncludePageMargins">
+            <summary>
+            Gets or sets a value indicating whether to include page margins.
+            </summary>
+            <value>
+                <c>true</c> if page margins should be included; otherwise, <c>false</c>.</value>
+            <example>
+                <code>
+            settings.IncludePageMargins = true;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.InteractivitySupport">
+            <summary>
+            Gets or sets the type of interactivity support.
+            Renders interactivity as SVG elements or as "interactivity areas" with special custom attributes.
+            </summary>
+            <value>The type of interactivity support.</value>
+            <remarks>
+                <html>
+                    <title>test</title>
+                    <script type="text/javascript">
+            window.addEventListener("load", function() {
+              var svg = document.getElementsByTagName("svg")[0];
+              svg.addEventListener("click", function(evt)
+              {
+                if (!evt.target || !evt.target.attributes || !evt.target.attributes["arsvg:data-action-type"])
+                  return;
+                if (evt.target.attributes["arsvg:data-action-type"].value === "hyperlink")
+            	  alert(evt.target.attributes["arsvg:data-action-data"].value);
+              });
+            });
+            </script>
+                    <body>
+                        <svg width="6cm" height="5cm" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:arsvg="http://activereports.grapecity.com/2017/svg">
+                            <circle cx="300" cy="225" r="100" fill="red" style="cursor:pointer" arsvg:data-action-type="hyperlink" arsvg:data-action-page="1" arsvg:data-action-data="http://google.com" />
+                        </svg>
+                    </body>
+                </html>
+            </remarks>
+            <example>
+                <code>
+            settings.InteractivitySupport = InteractivityType.BuiltinHyperlinks;
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.PageSettings">
+            <summary>
+            Gets or sets the page settings.
+            </summary>
+            <value>An instance of <see cref="T:GrapeCity.ActiveReports.ImageRenderers.PageControl.PageControllerSettings" /> containing page settings.</value>
+            <example>
+                <code>
+            settings.PageSettings = new PageControllerSettings();
+            </code>
+            </example>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.WriteEachPageInSeparateStream">
+            <summary>
+            Gets or sets a value indicating whether each page should be rendered in a separate stream.
+            </summary>
+            <value>
+                <c>true</c> if each page should be rendered in a separate stream; otherwise, <c>false</c>.</value>
+            <example>
+                <code>
+            settings.WriteEachPageInSeparateStream = true;
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.GrapeCity#ActiveReports#Extensibility#Rendering#ISettings#GetSettings">
+            <summary>
+            Returns a <see cref="T:System.Collections.Specialized.NameValueCollection" /> containing the settings for the rendering extension.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Specialized.NameValueCollection" /> containing the settings for the rendering extension.</returns>
+            <example>
+                <code>
+            NameValueCollection settings = ((ISettings)svgSettings).GetSettings();
+            </code>
+            </example>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Svg.Page.SvgSettings.GrapeCity#ActiveReports#Extensibility#Rendering#ISettings#ApplySettings(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Applies the specified settings to the rendering extension.
+            </summary>
+            <param name="settings">Settings for the rendering extension.</param>
+            <example>
+                <code>
+            NameValueCollection settings = new NameValueCollection();
+            ((ISettings)svgSettings).ApplySettings(settings);
+            </code>
+            </example>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.ISvgGroupStore">
+            <summary>
+            Represents a group store that should be rendered to the SVG canvas.
+            Used in JsViewer backend for the SVG streaming mode.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.ISvgGroupStore.AddGroup(GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup)">
+            <summary>
+            Adds a group to the store.
+            </summary>
+            <param name="group">The group to add.</param>
+            <returns>The ID of the added group as a string.</returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.ISvgGroupStore.GetGroup(System.String)">
+            <summary>
+            Retrieves a group by its ID.
+            </summary>
+            <param name="id">The ID of the group to retrieve.</param>
+            <returns>The <see cref="T:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup" /> corresponding to the specified ID.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup">
+            <summary>
+            Represents SVG group.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup.Action">
+            <summary>
+            Gets or sets the action associated with the group.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup.BookmarkTarget">
+            <summary>
+            Gets or sets the bookmark target of the group.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup.CustomCSSClasses">
+            <summary>
+            Gets or sets the custom CSS class names.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgGroup.IsEmpty">
+            <summary>
+            Gets a value indicating whether the group is empty.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Export.Svg.Internal.SvgMetaCanvas.SvgReportMetaCanvas">
+            <summary>
+            MetaCanvas which implements SVG specified features.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+    </members>
+</doc>

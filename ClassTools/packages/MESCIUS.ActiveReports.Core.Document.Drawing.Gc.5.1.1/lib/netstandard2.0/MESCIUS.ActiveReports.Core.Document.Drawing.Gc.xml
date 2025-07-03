@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Document.Drawing.Gc</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer">
+            <summary>
+            Represents the gc canvas item renderer.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.WithEudc">
+            <summary>
+            Loads EUDC settings from Windows registry.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.UseHyperLinkSettings">
+            <summary>
+            Allows to use hyperlink settings.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.FontStyleEmulation">
+            <summary>
+            Allows fonts bold/italic emulation.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.AllowIvs">
+            <summary>
+            Allows IVS characters in output.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.TextLayoutService">
+            <summary>
+            Gets text layout service. Represents the text layout abstraction.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.BeforeItemStart">
+            <summary>
+            Called before any canvas element.
+            If true is returned, the canvas element will be ignored during rendering.
+            </summary>
+            <remarks>
+            This delegate should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.OnItemEnd">
+            <summary>
+            Called after any canvas element.
+            </summary>
+            <remarks>
+            This delegate should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.ConvertToOpaque">
+            <summary>
+            Determines whether to remove transparency from images when rendering.
+            </summary>
+            <remarks>
+            This property should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.RendererSettings">
+            <summary>
+            Represents the renderrer settings.
+            </summary>
+            <remarks>
+            This structure should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.#ctor(GrapeCity.Documents.Drawing.GcGraphics,GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory,GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer.RendererSettings)">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcCanvasItemRenderer" />.
+            </summary>
+            <remarks>
+            This constructor should not be used directly in application code. It is designed for internal operations
+            within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService">
+            <summary>
+            Represents the service for converting image data to another format through GcDoc.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService.#ctor(GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory)">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService" />.
+            </summary>
+            <param name="fontsFactory">The document fonts factory.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService.#ctor(GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory,System.Func{System.IO.MemoryStream,System.IO.MemoryStream})">
+            <summary>
+            Initializes an instance of class <see cref="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService" />.
+            </summary>
+            <param name="fontsFactory">The document fonts factory.</param>
+            <param name="emfToPngConverter">The EMF to PNG converter.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcImageConverterService.Convert(System.IO.MemoryStream,GrapeCity.ActiveReports.Document.Drawing.Imaging.ImageFormat[],System.Boolean)">
+            <summary>
+            Converts image to one of allowed image format if needed.
+            </summary>
+            <param name="imageStream">A stream that contains the image data.</param>
+            <param name="allowedFormats">Allowed image formats. The conversion will not be performed if the image have one of these formats.</param>
+            The conversion will be performed to the first of these format If image format is not allowed.
+            <param name="fixRotation">Specifies whether to rotate the image according to the EXIF orientation.</param><returns>The ImageData struct which contains the data stream from which the image can be loaded and the format of the image.</returns></member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.LineBreakingAlgorithm">
+            <summary>
+            Represents the line breaking algorithms.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.LineBreakingAlgorithm.Unicode">
+            <summary>
+            The unicode line breaking algorithm.
+            All rules from https://unicode.org/reports/tr14/.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.LineBreakingAlgorithm.Legacy">
+            <summary>
+            The GDI-like line breaking algorithm.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcTextLayoutService">
+            <summary>
+            Represents the gc text layout service.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.GcTextLayoutService.GetLineHeight(GrapeCity.ActiveReports.Document.Drawing.Font)">
+            <summary>
+            Calculates line height without line spacing, in inches.
+            </summary>
+            <param name="font">Text font</param>
+            <returns>Line height in inches</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory">
+            <summary>
+            Represents the document fonts factory.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory.GetFonts(GrapeCity.ActiveReports.Document.Drawing.Font)">
+            <summary>
+            Retrieves a collection of fonts based on the specified font.
+            </summary>
+            <param name="font">The font used as a reference to get the collection.</param>
+            <returns>A collection of fonts related to the specified font.</returns>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentFontsFactory.Scope">
+            <summary>
+            Allows access to system fonts or not.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentGlobalFontsProvider">
+            <summary>
+            Represents the global fonts factory.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Core.Document.Drawing.Gc.IDocumentGlobalFontsProvider.GetFonts">
+            <summary>
+            Gets fonts.
+            </summary>
+            <returns>Returns the specified fonts.</returns>
+        </member>
+    </members>
+</doc>
