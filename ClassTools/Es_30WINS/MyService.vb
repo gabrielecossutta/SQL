@@ -26,19 +26,19 @@ Public Class MyService
     ''' </summary>
     Protected Overrides Sub OnStart(args() As String)
 
-        'ServicePointManager.ServerCertificateValidationCallback = Function(sender, certificate, chain, sslPolicyErrors) True
+        ServicePointManager.ServerCertificateValidationCallback = Function(sender, certificate, chain, sslPolicyErrors) True
 
         'Initialize the HttpListener and add the prefixes to listen fro requests
         Listener = New HttpListener()
         Listener.Prefixes.Clear()
-        Listener.Prefixes.Add("http://localhost:82/getallproducts/")
-        Listener.Prefixes.Add("http://localhost:82/getoldorder/")
-        Listener.Prefixes.Add("http://localhost:82/increasedetail/")
-        Listener.Prefixes.Add("http://localhost:82/decreasedetail/")
-        Listener.Prefixes.Add("http://localhost:82/deletedetail/")
-        Listener.Prefixes.Add("http://localhost:82/deletealldetails/")
-        Listener.Prefixes.Add("http://localhost:82/newdetails/")
-        Listener.Prefixes.Add("http://localhost:82/createorder/")
+        Listener.Prefixes.Add("https://localhost:82/getallproducts/")
+        Listener.Prefixes.Add("https://localhost:82/getoldorder/")
+        Listener.Prefixes.Add("https://localhost:82/increasedetail/")
+        Listener.Prefixes.Add("https://localhost:82/decreasedetail/")
+        Listener.Prefixes.Add("https://localhost:82/deletedetail/")
+        Listener.Prefixes.Add("https://localhost:82/deletealldetails/")
+        Listener.Prefixes.Add("https://localhost:82/newdetails/")
+        Listener.Prefixes.Add("https://localhost:82/createorder/")
         Listener.Start()
 
         'Start the listener loop in a separate task

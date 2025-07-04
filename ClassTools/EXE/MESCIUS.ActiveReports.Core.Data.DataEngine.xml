@@ -1,0 +1,1909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Data.DataEngine</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate">
+            <summary> Represents the state of the aggregate function. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Function">
+            <summary> Aggregate function. </summary>
+            <remarks> It is public to be used in ar.core for snapshot serialization.</remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Create(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction,GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant[])">
+            <summary> Creates aggregate with a given state. </summary>
+            <param name="function">Aggregate function.</param>
+            <param name="state">Initial aggregate state.</param>
+            <remarks>Used by 'Lancer' (data provider for the semantic reports) and by ar.core in snapshot serializer</remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.GetValue">
+            <summary> Gets the aggregate function result. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Create(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction)">
+            <summary>Creates aggregate for the specified function type with initial state.</summary>
+            <param name="function">Aggregate function.</param>
+            <remarks>Used in ar.core for cumulative totals evaluation.</remarks>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.IsSingleArgument">
+            <summary> Returns <c>True</c> if the aggregate function requires single argument. </summary>
+            <remarks>This getter is used in CumulativeTotalImp in ar.core</remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Accumulate(GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant)">
+            <summary> Accumulates value into aggregate state. </summary>
+            <remarks>Used by ar.core for cumulative totals evaluation.</remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Combine(GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate@)">
+            <summary> Combines two aggregates into one. </summary>
+            <remarks>Used by ar.core for cumulative totals evaluation.</remarks>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.State">
+            <summary> Variant-based aggregate state representation.
+            This state can be used with <see cref="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate.Create(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction,GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant[])" /> method.</summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction">
+            <summary>
+            Specifies the available intrinsic aggregate function names
+            </summary>
+            <member name="TypeForInternalUseOnly">
+                <remarks>This type should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Empty">
+            <summary> Represents an undefined aggregate function. This value is used to indicate the absence of a function. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Sum">
+            <summary>
+            Calculates sum of non-null values for each record in a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Avg">
+            <summary>
+            Uses Sum+Count to calculate average
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Max">
+            <summary>
+            Max of all values in a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Min">
+            <summary>
+            Min of all values in a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Count">
+            <summary>
+            Counts non-null values for each record in a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.CountDistinct">
+            <summary>
+            Counts based on distinct values of an expression for each record in a list of Facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.CountRows">
+            <summary>
+            Counts all records
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.StDev">
+            <summary>
+            Borrows from Var (Square Root of Var)
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.StDevP">
+            <summary>
+            Borrows from VarP (Square Root of VarP)
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Var">
+            <summary>
+            Borrows from SumSquare, Sum, &amp; Count
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.VarP">
+            <summary>
+            Borrows from SumSquare, Sum, &amp; Count
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.First">
+            <summary>
+             Determines the first value of a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Last">
+            <summary>
+             Determines the last value of a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Aggregate">
+            <summary>
+            Returns an aggregate defined by the data provider
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Median">
+            <summary>
+            Determines the median value for a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Mode">
+            <summary>
+            Determines the mode value for a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.DistinctSum">
+            <summary>
+            Determines the DistinctSum value for a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.AggregateIf">
+            <summary>
+            Determines the AggregateIf value for a list of facts
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.ToArray">
+            <summary>
+            Returns records as array
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunctions">
+            <summary>
+            Mapper for aggregate functions names.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunctions.Parse(System.String)">
+            <summary>
+            Gets AggregateFunction by name
+            </summary>
+            <param name="name">Aggregate function name </param>
+            <returns>AggregateFunction by name</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunctions.Name(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction)">
+            <summary>
+            Gets name of the given AggregateFunction
+            </summary>
+            <param name="f">Aggregate function </param>
+            <returns>name of the given AggregateFunction</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo">
+            <summary>
+            Represents an aggregate function in an expression.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.Func">
+            <summary> Gets the aggregate function. </summary>
+            <value>An <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction" /> item.</value>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.Arguments">
+            <summary>
+            Returns a new <see cref="T:GrapeCity.Enterprise.Data.Expressions.ExpressionInfo" /> that represents the portion of the expression that is aggregated by the aggregate function.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.ScopeName">
+            <summary> Gets the aggregate function scope name. </summary>
+            <value>A <see cref="T:System.String" /> value represents the name of the scope.</value>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.IsNothingScope">
+            <summary>
+            Gets an indication that the aggregate function scope is not limited.
+            </summary>
+            <value>
+                <c>True</c> if the scope name is not specified for the aggregate.</value>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.IsRecursive">
+            <summary> Gets an indication that an aggregate is calculated recursively in recursive hierarchies (aka parent-child hierarchies).</summary>
+            <value>
+                <c>True</c> if the aggregate is calculated recursively, <c>False</c> otherwise.</value>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.IsScopeSpecified">
+            <summary>
+            Gets an indication that an aggregate function scope is specified.
+            </summary>
+            <value>
+                <c>True</c> if the scope argument is specified for the aggregate function and it is not empty.</value>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.ToString">
+            <summary> Converts the aggregate to the string representation.</summary>
+            <returns>A <see cref="T:System.String" /> value representing aggregate expression.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.op_Equality(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo,GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo)">
+            <summary> Performs equality operation. </summary>
+            <param name="right">The left operand to be compared.</param>
+            <param name="left">The right operand to be compared.</param>
+            <returns>A <see cref="T:System.Boolean" /> value indicates if the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo" /> instances are equal.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.op_Inequality(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo,GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo)">
+            <summary> Performs inequality operation. </summary>
+            <param name="left">The left operand.</param>
+            <param name="right">The right operand.</param>
+            <returns>A <see cref="T:System.Boolean" /> value of inequality operation result.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.Equals(GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo)">
+            <summary>
+            Determines whether the specified AggregateInfo object represents the same aggregation as this one.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object represents the same aggregation as this one.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateInfo.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateHelper">
+            <summary>
+            Provides utility methods for working with aggregate functions in conjunction with the <see cref="T:GrapeCity.Enterprise.Data.Expressions.ExpressionInfo" /> instances.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateHelper.GetAggregates(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo,System.Boolean)">
+            <summary>
+            Gets aggregates from a given expression
+            </summary>
+            <param name="e">expression</param>
+            <param name="withFieldRefs">if field references should be resolved</param>
+            <returns>aggregates taken from a given expression</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateHelper.IsAggregate(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary> Checks if the given expression is a known aggregate function. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider">
+            <summary>
+            Contract for the describing ot the aggregate fields in semantic data provider.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider.GetAggregateFunction(System.String)">
+            <summary>
+            Gets aggregate function type for the specified field.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateDataProviderExtension">
+            <summary>
+            Contains operations over IAggregateDataProvider
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateDataProviderExtension.NoAggregate">
+            <summary>
+            Represents Aggregate function with no aggregate
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateDataProviderExtension.ResolveAggregateFunction(GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider,GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Gets aggregate function by its name
+            </summary>
+            <param name="provider">aggregate data provider</param>
+            <param name="expr">expression</param>
+            <returns>Aggregate function type</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProviderFactory">
+            <summary>
+            For internal use. Creates instances of a class that implements IAggregateDataProvider interface.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProviderFactory.GetAggregateProvider(System.String)">
+            <summary>
+            Returns a new instance of the class that implements IAggregateDataProvider interface.
+            </summary>
+            <param name="commandText">The text of the command.</param>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataProcessing.TablixExtensions">
+            <summary>
+            Helper methods for tablix members hierarchy.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessing.TablixExtensions.CollectLeafNodes``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,System.Collections.Generic.IEnumerable{``0}},System.Boolean)">
+            <summary>
+            Returns a set of leaves for tablix member.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="members">members</param>
+            <param name="isLeaf">function that checks whether the current tablix member is a leaf.</param>
+            <param name="getChildren">function that gets the children of the current tablix member.</param>
+            <param name="leavesFirst">if true, returns leaves first to speed first page loading.</param>
+            <returns>A set of leaves for tablix member.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ReportContext">
+            <summary>
+            Represents the context for the data query execution.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.ReportContext.DataSets">
+            <summary> Data set provider. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.ReportContext.ExpressionContext">
+            <summary> Expression evaluation context. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ReportContext.#ctor(GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider,GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.IExpressionContext)">
+            <summary> Creates new instance if <see cref="T:GrapeCity.Enterprise.Data.DataEngine.ReportContext" /></summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataParameter">
+            <summary>
+            Represents the data query parameter.
+            </summary>
+            <member name="StructForInternalUseOnly">
+                <remarks>This struct should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataParameter.Name">
+            <summary> Parameter name. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataParameter.Value">
+            <summary> Parameter value. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataParameter.#ctor(System.String,System.Object)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataParameter" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataParameter.Equals(GrapeCity.Enterprise.Data.DataEngine.DataParameter)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataParameter.Equals(System.Object)">
+            <summary>Indicates whether this instance and a specified object are equal.</summary>
+            <param name="obj">The object to compare with the current instance. </param>
+            <returns>
+                <see langword="true" /> if <paramref name="obj" /> and this instance are the same type and represent the same value; otherwise, <see langword="false" />. </returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataParameter.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary>
+            <returns>A 32-bit signed integer that is the hash code for this instance.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ReportContextFn">
+            <summary>
+            Declares the function type ofr the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.ReportContext" /> creation during the data processing. 
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataProcessor">
+            <summary>
+            Represents the data tree building and transformation functions.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result">
+            <summary>
+            Represents the result of data processing.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result.AggregateTree">
+            <summary>
+            An intermediate tree that contains the states of the aggregation functions
+            and is used to construct the resulting tree applying filters and sorts.
+            </summary>
+            <remarks>
+            Using this tree you can build the result data tree multiple times applying interactive state.
+            See <see cref="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Transform(GrapeCity.Enterprise.Data.DataEngine.DataTree{GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate}.Snapshot,GrapeCity.Enterprise.Data.DataEngine.Def.Report,GrapeCity.Enterprise.Data.DataEngine.InteractiveState,GrapeCity.Enterprise.Data.DataEngine.ReportContextFn)" /> method. 
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result.DataTree">
+            <summary> The actual result data tree. </summary>
+            <remarks>
+            This tree is based on the <see cref="F:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result.AggregateTree" /> and contains
+            filtered and sorted data with the final expressions values.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate}.Snapshot,GrapeCity.Enterprise.Data.DataEngine.DataTree{System.Object}.Snapshot)">
+            <summary> Creates new data processing result structure. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Run(GrapeCity.Enterprise.Data.DataEngine.Def.Report,GrapeCity.Enterprise.Data.DataEngine.ReportContextFn,GrapeCity.Enterprise.Data.DataEngine.InteractiveState)">
+            <summary> Executes specified report. </summary>
+            <param name="report">The data query definition for entire report.</param>
+            <param name="makeContext">The function to make report context.</param>
+            <param name="interactiveState">The interactive sort state.</param>
+            <returns>The <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Result" /> object which represents the pair of aggregate and result trees.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Run(GrapeCity.Enterprise.Data.DataEngine.Def.Report,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Record}})">
+            <summary> Executes the specified query. </summary>
+            <param name="report">The data query to be executed.</param>
+            <param name="dataset">Source table-like data sets.</param>
+            <returns>The data tree.</returns>
+            <remarks>For internal use.</remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataProcessor.Transform(GrapeCity.Enterprise.Data.DataEngine.DataTree{GrapeCity.Enterprise.Data.DataEngine.Aggregates.Aggregate}.Snapshot,GrapeCity.Enterprise.Data.DataEngine.Def.Report,GrapeCity.Enterprise.Data.DataEngine.InteractiveState,GrapeCity.Enterprise.Data.DataEngine.ReportContextFn)">
+            <summary>Transforms aggregate tree into result data tree applying interactivity (sorting, slicers). </summary>
+            <param name="aggregateTree">Original aggregate tree.</param>
+            <param name="query">Result query definition.</param>
+            <param name="interactiveState">Interactive state to be applied.</param>
+            <param name="makeContext">Callback function which creates evaluation context.</param>
+            <returns>Result data tree.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1">
+            <summary>
+            Defines data tree result structures.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Snapshot">
+            <summary>
+            Defines data tree with its definition.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Snapshot.Definition">
+            <summary> Initial Query definition. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Snapshot.Data">
+            <summary> The data. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Snapshot.#ctor(GrapeCity.Enterprise.Data.DataEngine.Def.Report,GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Snapshot" /> instance. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.DataRegion">
+            <summary>
+            Base class for data regions.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.DataRegion.Scope">
+            <summary>
+            DataRegion's scope.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.DataRegion.Name">
+            <summary>
+            DataRegion's name. For debugging purposes.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.DataRegion.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,System.String)">
+            <summary> Initializes data region base fields. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.DataRegion.ShouldSerializeScope">
+            <summary>
+            If the scope should be serialized.
+            </summary>
+            <returns>True, if the scope should be serialized, false otherwise.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope">
+            <summary>
+            Data scope.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.Null">
+            <summary> Empty data scope. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.IsEmpty">
+            <summary>
+            Gets true if this instance represents scope without any data.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.IsNull">
+            <summary>
+            Gets true if this instance represents null scope.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.Id">
+            <summary>
+            Gets unique id of this scope. For non-interactive reports it could be zero valued.
+            </summary>
+            <remarks>
+            This property is added primarily to simplify implementation of interactivity features.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.Values">
+            <summary> Scope values. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.Regions">
+            <summary> Scope child regions. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.#ctor(`0[],System.Int32)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.#ctor(`0[],GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.DataRegion[],System.Int32)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.#ctor(`0[],System.Func{GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.DataRegion[]},System.Int32)">
+            <summary>
+            Ctor for lazy instantiated scope.
+            </summary>
+            <param name="values">The scope values.</param>
+            <param name="makeRegions">The function to make regions.</param>
+            <param name="id">The scope identifier.</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.ShouldSerializeValues">
+            <summary>
+            If the values should be serialized.
+            </summary>
+            <returns>True if the values should be serialized, false otherwise.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope.ShouldSerializeRegions">
+            <summary>
+            If the regions should be serialized.
+            </summary>
+            <returns>True if the regions should be serialized, false otherwise.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List">
+            <summary>
+            List data region.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.Empty">
+            <summary>
+            Empty list instance.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope[],System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List" /> data region with the specified scope, groups, and optional name.
+            </summary>
+            <param name="scope">The scope associated with this list data region.</param>
+            <param name="groups">An array of <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope" /> objects representing the groups within this list. If null, an empty array is used.</param>
+            <param name="name">An optional name for debugging purposes. If null, the list is unnamed.</param>
+            <remarks>
+            This constructor creates a list data region, which is a collection of groups under a specific scope. Each group is represented by a <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Scope" /> object.
+            </remarks>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,System.Func{System.Collections.Generic.IReadOnlyList{GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope}},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List" /> data region with the specified scope, a function to dynamically create groups, and an optional name.
+            </summary>
+            <param name="scope">The scope associated with this list data region.</param>
+            <param name="makeGroups">A function that returns an <see cref="T:System.Collections.Generic.IReadOnlyList`1" /> representing the groups within this list.</param>
+            <param name="name">An optional name for debugging purposes. If null, the list is unnamed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="makeGroups" /> is null.</exception>
+            <remarks>
+            This constructor allows for the lazy initialization of groups within the list data region. The groups are created dynamically using the provided <paramref name="makeGroups" /> function. This can be useful for optimizing memory usage and performance when the groups are not immediately required or when they depend on runtime data.
+            </remarks>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.Groups">
+            <summary> List data region groups. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.ShouldSerializeGroups">
+            <summary> Determines whether the <see cref="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.List.Groups" /> property should be serialized. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix">
+            <summary>
+            Tablix data.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.Empty">
+            <summary> Empty Tablix instance. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.ColumnMembers">
+            <summary> Tablix column members. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.RowMembers">
+            <summary> Tablix row members. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.Body">
+            <summary> Tablix body (rows). </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember[],GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember[],GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixRow[],System.String)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix" /> data region instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember[],GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember[],System.Func{System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixRow}},System.String)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix" /> data region instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.ShouldSerializeColumnMembers">
+            <summary> Determines whether the <see cref="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.ColumnMembers" /> should be serialized. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.ShouldSerializeRowMembers">
+            <summary> Determines whether the <see cref="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.RowMembers" /> should be serialized. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.ShouldSerializeBody">
+            <summary> Determines whether the <see cref="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.Tablix.Body" /> should be serialized. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow">
+            <summary>
+            Tablix row data
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow.Cells">
+            <summary>
+            Row cells scopes.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope[])">
+            <summary> Crates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow" /> instance. </summary>
+            <param name="cells">Tablix row cells.</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow.ShouldSerializeCells">
+            <summary> Determines whether the <see cref="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixRow.Cells" /> should be serialized. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember">
+            <summary>
+            Tablix member data.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.IsCollection">
+            <summary>
+                <c>True</c> if the member is collection. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.Id">
+            <summary>
+            Member identifier.-1 for non-leaf members, zero-based for leaf members
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.Header">
+            <summary> Tablix header data. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.Members">
+            <summary> Tablix members. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember[],System.Boolean,System.Int32)">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.#ctor(GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.Scope,System.Boolean,System.Int32,System.Func{System.Collections.Generic.IReadOnlyList{GrapeCity.Enterprise.Data.DataEngine.DataTree{`0}.TablixMember}})">
+            <summary> Creates new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.ShouldSerializeHeader">
+            <summary> Determines whether the <see cref="F:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.Header" /> should be serialized. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.ShouldSerializeMembers">
+            <summary> Determines whether the <see cref="P:GrapeCity.Enterprise.Data.DataEngine.DataTree`1.TablixMember.Members" /> should be serialized. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def">
+            <summary>
+            Defines data query definition classes.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Filter">
+            <summary>
+            Defines filter.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.Expression">
+            <summary>
+            Filter expression.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.Op">
+            <summary>
+            Filter operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.Values">
+            <summary>
+            Filter values.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.#ctor(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo,GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator,GrapeCity.Enterprise.Data.Expressions.ExpressionInfo[])">
+            <summary> Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Filter" /> class with the specified expression, operator, and values.</summary>
+            <param name="expression">The expression on the left side of the filter condition.</param>
+            <param name="op">The operator that defines the type of comparison to be performed between the left expression and the right values.</param>
+            <param name="values">An array of expressions on the right side of the filter condition.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="expression" /> is null or <paramref name="values" /> is null or empty.</exception>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Filter)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.Equals(System.Object)">
+            <summary>Determines whether the specified object is equal to the current object.</summary>
+            <param name="other">The object to compare with the current object. </param>
+            <returns>
+                <see langword="true" /> if the specified object  is equal to the current object; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Filter.GetHashCode">
+            <summary>Serves as the default hash function. </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator">
+            <summary>
+            Specifies the available filter operators.
+            </summary>
+            <remarks>See RDL specification for details.</remarks>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.Equal">
+            <summary>
+            Equality operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.Like">
+            <summary>
+            Wild-card comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.NotEqual">
+            <summary>
+            Non-equality operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.GreaterThan">
+            <summary>
+            '$gt;' comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.GreaterThanOrEqual">
+            <summary>
+            '$gt;=' comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.LessThan">
+            <summary>
+            '$lt;' comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.LessThanOrEqual">
+            <summary>
+            '$lt;=' comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.TopN">
+            <summary>
+            First N items.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.BottomN">
+            <summary>
+            Last N items.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.TopPercent">
+            <summary>
+            First % items.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.BottomPercent">
+            <summary>
+            Last % items.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.In">
+            <summary>
+            Checks for occurrences in the set operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.Between">
+            <summary>
+            Checks if the value falls in a given range.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.NotBetween">
+            <summary>
+            Checks if the value does not fall in a given range, begin and end values are included. 
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.NotLike">
+            <summary>
+            Wild-card comparison operator.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.FilterOperator.BetweenExclusive">
+            <summary>
+            Checks if the value does not fall in a given range, begin and end values are excluded. 
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Sort">
+            <summary>
+            Specifies how to sort members.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.#ctor(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo,GrapeCity.Enterprise.Data.DataEngine.Def.SortDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Sort" /> class.
+            </summary>
+            <param name="expression">The sort expression.</param>
+            <param name="direction">The sort direction.</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.Direction">
+            <summary>
+            Returns a value that is used to determine which direction data should be sorted by according to this object's sort expression.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.Expression">
+            <summary>
+            Gets the sort expression.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Sort)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.Equals(System.Object)">
+            <summary>Determines whether the specified object is equal to the current object.</summary>
+            <param name="obj">The object to compare with the current object. </param>
+            <returns>
+                <see langword="true" /> if the specified object  is equal to the current object; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Sort.GetHashCode">
+            <summary>Serves as the default hash function. </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.SortDirection">
+            <summary>
+            Defines the directions in which data can be sorted.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.SortDirection.Ascending">
+            <summary>
+            Sorting should be in ascending order.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.SortDirection.Descending">
+            <summary>
+            Sorting should be in descending order.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group">
+            <summary>
+            Group definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Empty">
+            <summary>
+            Empty instance of class <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" /></summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Name">
+            <summary>
+            Group name
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Group.GroupExpressions">
+            <summary>
+            A set expressions for group 
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Filters">
+            <summary>
+            A set filters for group 
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Parent">
+            <summary>
+            An expression that identifies the parent group in a recursive hierarchy.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.#ctor(System.String,GrapeCity.Enterprise.Data.Expressions.ExpressionInfo[],GrapeCity.Enterprise.Data.DataEngine.Def.Filter[],GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" /> class
+            </summary>
+            <param name="name">Group name.</param>
+            <param name="groupExpressions">A set expressions for group </param>
+            <param name="filters">A set filters for group </param>
+            <param name="parent">An expression that identifies the parent group in a recursive hierarchy.</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with the current <see cref="T:System.Object" />.</param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Group)">
+            <summary>
+            Determines whether the specified <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" /> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" /> to compare with the current <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" />.</param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Group" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.GetHashCode">
+            <summary>
+             Returns a hash code for this instance
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.ShouldSerializeGroupExpressions">
+            <summary>
+            If the group expressions should be serialized
+            </summary>
+            <returns>True if the group expressions should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.ShouldSerializeFilters">
+            <summary>
+            If the filters should be serialized
+            </summary>
+            <returns>True if the filters should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Group.ShouldSerializeParent">
+            <summary>
+            If the parent should be serialized
+            </summary>
+            <returns>True if the parent should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content">
+            <summary>
+            Content definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Content.Empty">
+            <summary>
+            Empty instance of class <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" /></summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Content.Fields">
+            <summary>
+            A set expressions for content 
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Content.Regions">
+            <summary>
+            A set the regions for content 
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.#ctor(System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.Expressions.ExpressionInfo},System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Region})">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" /> class
+            </summary>
+            <param name="fields">A set expressions for content.</param>
+            <param name="regions">A set the regions for content.</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Def.Content.IsEmpty">
+            <summary>
+            Indicates that the content does not contain expressions and regions
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary>
+            Determines whether the specified <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" /> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" /> to compare with the current <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" />.</param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Content" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with the current <see cref="T:System.Object" />.</param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.GetHashCode">
+            <summary>
+            Returns a hash code for this instance
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.ShouldSerializeFields">
+            <summary>
+            If the fields should be serialized
+            </summary>
+            <returns>True if the fields should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Content.ShouldSerializeRegions">
+            <summary>
+            If the regions should be serialized
+            </summary>
+            <returns>True if the regions should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Region">
+            <summary>
+            Base class for regions definitions
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Region.Name">
+            <summary>
+            The name of the region.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Region.Content">
+            <summary>
+            The content of the region.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Region.Filters">
+            <summary>
+            The filters defined for the region.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.#ctor(System.String,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter},GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary> Initializes base region fields. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.IsApplicable(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Check if the region is applicable to the other region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.PropertiesEquals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Checks the equality of this and other Region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.Equals(System.Object)">
+            <summary>Determines whether the specified object is equal to the current object.</summary>
+            <param name="obj">The object to compare with the current object. </param>
+            <returns>
+                <see langword="true" /> if the specified object  is equal to the current object; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.GetHashCode">
+            <summary>Serves as the default hash function. </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.ShouldSerializeContent">
+            <summary>
+            If the content should be serialized
+            </summary>
+            <returns>True if the content should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Region.ShouldSerializeFilters">
+            <summary>
+            If the filters should be serialized
+            </summary>
+            <returns>True if the filters should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.SimpleRegion">
+            <summary>
+            Simple data region definition
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.SimpleRegion.#ctor(System.String,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter},GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary> Initializes base region fields. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.SimpleRegion.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.SimpleRegion)">
+            <summary>
+             Determines whether the specified SimpleRegion object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet">
+            <summary>
+            DataSet region definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.FieldNames">
+            <summary>
+            Dataset's fields names collection.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.Parameters">
+            <summary>
+            Dataset's parameters collection.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.#ctor(System.String,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter},GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.String[],System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Parameter})">
+            <summary> Initializes dataset fields. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.DataSet)">
+            <summary>
+             Determines whether the specified DataSet object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.PropertiesEquals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Checks the equality of this and other Region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.DataSet.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.List">
+            <summary>
+            List region definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.List.Group">
+            <summary>
+            Group definition.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.List.Sort">
+            <summary>
+            Sorting definitions.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.List.GroupContent">
+            <summary>
+            Content definition.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.List.HandleEmptyGroups">
+            <summary>
+            Specifies whether the empty groups should be handled.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter},GrapeCity.Enterprise.Data.DataEngine.Def.Group,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Sort},GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.Boolean)">
+            <summary>
+                <summary>Initializes list fields. </summary>
+            </summary>
+            <param name="name">list name</param>
+            <param name="content">list content</param>
+            <param name="filters">list filters</param>
+            <param name="group">list group</param>
+            <param name="sort">list sorts</param>
+            <param name="groupContent">list group's content </param>
+            <param name="handleEmptyGroups">true to handle empty groups.  False by default.</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter})">
+            <summary>
+            Creates a list without groupings
+            </summary>
+            <param name="name">List name</param>
+            <param name="content">content</param>
+            <param name="filters">filters</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.List)">
+            <summary>
+             Determines whether the specified List object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.PropertiesEquals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Checks the equality of this and other Region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.ShouldSerializeSort">
+            <summary>
+            If the sorting definitions should be serialized
+            </summary>
+            <returns>True if the sorting definitions should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.List.ShouldSerializeGroupContent">
+            <summary>
+            If the content definition should be serialized
+            </summary>
+            <returns>True if the content definition should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember">
+            <summary>
+            Tablix member data definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Group">
+            <summary>
+            Grouping defintion
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Sort">
+            <summary>
+            Sorting definitions.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Header">
+            <summary>
+            Header
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Members">
+            <summary>
+            Members
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.#ctor(GrapeCity.Enterprise.Data.DataEngine.Def.Group,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Sort},GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember})">
+            <summary>
+             Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember" /> class with the specified group, sorts, header and members
+            </summary>
+            <param name="group">group</param>
+            <param name="sort">sorts</param>
+            <param name="header">header</param>
+            <param name="members">members</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember)">
+            <summary>
+             Determines whether the specified TablixMember object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.Equals(System.Object)">
+            <summary></summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.ShouldSerializeSort">
+            <summary>
+             If the sorting definitions should be serialized
+            </summary>
+            <returns>True if the sorting definitions should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.ShouldSerializeHeader">
+            <summary>
+            If the header should be serialized
+            </summary>
+            <returns>True if the header should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember.ShouldSerializeMembers">
+            <summary>
+            If the members should be serialized
+            </summary>
+            <returns>True if the members should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow">
+            <summary>
+            Tablix row data definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.Cells">
+            <summary>
+            Row cells definitions.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.#ctor(System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Content})">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow" /> class with the specified cells
+            </summary>
+            <param name="cells">cells</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow)">
+            <summary>
+             Determines whether the specified TablixRow object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.Equals(System.Object)">
+            <summary>
+             Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow.ShouldSerializeCells">
+            <summary>
+            If the cells should be serialized
+            </summary>
+            <returns>True if the cells should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix">
+            <summary>
+            Tablix data region definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.ColumnMembers">
+            <summary>
+            Column Members
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.RowMembers">
+            <summary>
+            Row Members
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.Body">
+            <summary>
+            Body
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.Sorts">
+            <summary>
+            Sorting definitions.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.#ctor(System.String,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Filter},System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember},System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.TablixMember},GrapeCity.Enterprise.Data.DataEngine.Def.Content,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.TablixRow},System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Sort})">
+            <summary>
+            Tablix constructor
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Tablix)">
+            <summary>
+             Determines whether the specified Tablix object is equal to the current object.
+            </summary>
+            <param name="other">The object to compare with the current object.</param>
+            <returns>true if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.PropertiesEquals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Checks the equality of this and other Region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.GetHashCode">
+            <summary>
+            Generates a HashCode for this expression.  
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.ShouldSerializeColumnMembers">
+            <summary>
+            If the column members should be serialized
+            </summary>
+            <returns>True if the column members should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.ShouldSerializeRowMembers">
+            <summary>
+            If the row members should be serialized
+            </summary>
+            <returns>True if the row members should be serialized, false otherwise</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Tablix.ShouldSerializeBody">
+            <summary>
+            If the body should be serialized
+            </summary>
+            <returns>True if the body should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Report">
+            <summary>
+            Report data region definition
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Report.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary> Creates new data query instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Report.#ctor(GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary> Creates new data query instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Report.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Report)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter">
+            <summary>
+            Parameter definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.Name">
+            <summary> Parameter name. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.Value">
+            <summary> Parameter value expression. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.#ctor(System.String,GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary> Initializes new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter" /> instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Parameter)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.Equals(System.Object)">
+            <summary>Determines whether the specified object is equal to the current object.</summary>
+            <param name="obj">The object to compare with the current object. </param>
+            <returns>
+                <see langword="true" /> if the specified object  is equal to the current object; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Parameter.GetHashCode">
+            <summary>Serves as the default hash function. </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport">
+            <summary>
+            Subreport definition
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.Report">
+            <summary> Query definition. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.Parameters">
+            <summary> Sub-query parameters. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.Def.Report,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Parameter},System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.Expressions.ExpressionInfo})">
+            <summary> Initializes new sub-query (<see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport" />) instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.Def.Report,System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Def.Parameter},GrapeCity.Enterprise.Data.DataEngine.Def.Content)">
+            <summary> Initializes new sub-query (<see cref="T:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport" />) instance. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.Equals(GrapeCity.Enterprise.Data.DataEngine.Def.Subreport)">
+            <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+                <see langword="true" /> if the current object is equal to the <paramref name="other" /> parameter; otherwise, <see langword="false" />.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.PropertiesEquals(GrapeCity.Enterprise.Data.DataEngine.Def.Region)">
+            <summary> Checks the equality of this and other Region. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.GetHashCode">
+            <summary>Serves as the default hash function. </summary>
+            <returns>A hash code for the current object.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Def.Subreport.ShouldSerializeParameters">
+            <summary>
+            If the parameters should be serialized
+            </summary>
+            <returns>True if the parameters should be serialized, false otherwise</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.DataEngineException">
+            <summary> Base class for data engine exceptions. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.DataEngineException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the DataEngineException class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.InvalidDefinitionException">
+            <summary> Raised when data query definition (filters, sorting, etc.) is not valid in specific scope. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.InvalidDefinitionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the InvalidDefinitionException class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval">
+            <summary>
+            Expression evaluation facility based on compilation of expression to lambda function.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.IContext">
+            <summary>
+            Defines expression evaluation context.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.IContext.Data">
+            <summary>
+            Gets a data over which the expression is to be evaluated.
+            </summary>
+            <value>
+            The data as a <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSet" />, which can represent a collection of records or a single record.
+            </value>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.IContext.App">
+            <summary>
+            Application context.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.GlobalContext">
+            <summary> Represents empty context. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CreateContext(GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.IExpressionContext)">
+            <summary> Creates no-data expression evaluation context. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CreateContext(GrapeCity.Enterprise.Data.DataEngine.Record,GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.IExpressionContext)">
+            <summary> Creates single-record based expression evaluation context. </summary>
+            <param name="record">The data record on which to evaluate expression.</param>
+            <param name="expressionContext">Additional variables.</param>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.EvalFn">
+            <summary>
+            Signature of eval function.
+            </summary>
+            <param name="context">The function context.</param>
+            <returns>evaluation result</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CompileContext">
+            <summary>
+            Defines expression compilation context.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CompileContext.FieldNameIndex">
+            <summary>
+            Index of fields.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CompileContext.#ctor">
+            <summary>
+            Creates new instance on CompileContext
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CompileContext.GetAggregateFunction(System.String)">
+            <summary>
+            Gets aggregate function for semantic field.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.Compile(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo,GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.CompileContext)">
+            <summary>
+            Compiles given expression to be evaluated within <see cref="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Eval.Context" />.
+            </summary>
+            <param name="expression">The expression to compile.</param>
+            <param name="context">The compile context.</param>
+            <returns>Evaluation function.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.IExpressionContext">
+            <summary>
+            Defines application context used to extend expression evaluation context.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.IExpressionContext.Culture">
+            <summary>
+            Gets application culture.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Field">
+            <summary>
+            Defines field proxy class to be used in the expression computation process.
+            </summary>
+            <member name="InterfaceForInternalUseOnly">
+                <remarks>This interface should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Field.#ctor(System.String,System.Object)">
+            <summary>
+            Constructs new field from given name and value.
+            </summary>
+            <param name="name">The name of the field.</param>
+            <param name="value">The value of the field.</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Field.Name">
+            <summary>
+            Field name.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Field.Value">
+            <summary>
+            Field value.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.ExpressionEvaluation.Field.Properties(System.String)">
+            <summary>
+            Allows to acces Name and Value by case-insensitive key (name and value respectively).
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Extensions.MemoizeEnumerableExtensions">
+            <summary>
+            Represents Memoize methods to work with collection buffers
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Extensions.MemoizeEnumerableExtensions.Memoize``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates a buffer with a view over the source sequence, causing each enumerator to obtain access to all of the sequence's elements without causing multiple enumerations over the source.
+            </summary>
+            <typeparam name="TSource">Source sequence element type.</typeparam>
+            <param name="source">Source sequence.</param>
+            <returns>Buffer enabling each enumerator to retrieve all elements from the shared source sequence, without duplicating source enumeration side-effects.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Extensions.IBuffer`1">
+            <summary>
+            Represents a buffer exposing a shared view over an underlying enumerable sequence.
+            </summary>
+            <typeparam name="T">Element type.</typeparam>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Extensions.IBuffer`1.BufferizeAll">
+            <summary>
+            Puts all underlying data to the buffer
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Expressions.ExpressionExtensions">
+            <summary>
+            Provides additional methods to work with expressions
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Expressions.ExpressionExtensions.HasFieldRefs(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Indicates whether the expression contains fields
+            </summary>
+            <param name="e">expression</param>
+            <returns>
+                <c>true</c>, if expression contains fields</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Expressions.ExpressionExtensions.GetAggregateFunction(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Returns the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction" /> enum value describing the root expression's function
+            or ('<see cref="F:GrapeCity.Enterprise.Data.DataEngine.Aggregates.AggregateFunction.Empty" />' if a given expression is not a function).
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Expressions.ExpressionExtensions.GetFieldName(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Extracts field name from the expression which looks like Fields!SomeField.Value.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Expressions.ExpressionExtensions.ResolveFieldReference(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo)">
+            <summary>
+            Resolves name of referenced field in given expression.
+            </summary>
+            <param name="expression">The expression to search for reference.</param>
+            <returns>expression that contains Fields reference </returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.InteractiveSortState">
+            <summary>
+            Dictionary with state of all interactive sorts.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.InteractiveSortState.Get(System.Int32)">
+            <summary>
+            Gets array InteractiveSort by key
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.InteractiveSortState.Set(System.Int32,GrapeCity.Enterprise.Data.DataEngine.InteractiveSort[])">
+            <summary>
+            Adds an array InteractiveSort to the dictionary by key
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.InteractiveSortState.Set(System.Int32,GrapeCity.Enterprise.Data.DataEngine.InteractiveSort)">
+            <summary>
+            Adds an object InteractiveSort to the dictionary by key
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort">
+            <summary>
+            Defines interactive sorting.
+            Represents a single interactive sorting operation, including the sort expression, its scope, and the direction of sorting.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort.SortExpression">
+            <summary>
+            Gets the expression used for sorting.
+            </summary>
+            <value>
+            The expression that determines the values to sort by.
+            </value>
+            <remarks>
+            The sort expression is evaluated within the context defined by <see cref="F:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort.SortExpressionScope" /> to produce the values that are used for sorting.
+            </remarks>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort.SortExpressionScope">
+            <summary>
+            Gets the name of the data region, grouping, or scope within which the sort expression is evaluated.
+            </summary>
+            <value>
+            The name of the scope for evaluating the sort expression.
+            </value>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort.Direction">
+            <summary>
+            Gets the direction of the sort operation.
+            </summary>
+            <value>
+            The direction in which the data should be sorted.
+            </value>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort.#ctor(GrapeCity.Enterprise.Data.Expressions.ExpressionInfo,System.String,GrapeCity.Enterprise.Data.DataEngine.Def.SortDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort" /> structure with the specified sort expression, scope, and direction.
+            </summary>
+            <param name="sortExpression">The expression to sort on.</param>
+            <param name="sortExpressionScope">The name of the data region, grouping, or scope to evaluate the expression in.</param>
+            <param name="direction">The direction of the sort.</param>
+            <remarks>
+            This constructor creates a new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.InteractiveSort" /> instance that encapsulates all the information needed to perform an interactive sorting operation.
+            </remarks>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.InteractiveState">
+            <summary> Represents the state of the interactive levers. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.InteractiveState.Sorting">
+            <summary> Sorting state. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.InteractiveState.Slicers">
+            <summary> Slicers state. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.Record">
+            <summary> Defines single data record. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Record.Empty">
+            <summary> The Empty record instance. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.Record.Index">
+            <summary>
+            The index of the record.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Record.#ctor(System.Int32,System.Collections.Generic.IDictionary{System.String,System.Int32},System.Collections.Generic.IList{GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant})">
+            <summary>
+            Initializes a new instance of the Record.
+            </summary>
+            <param name="index">The index of the record.</param>
+            <param name="fieldNames">The dictionary which maps field names to field indexes.</param>
+            <param name="data">The list of record's fields values</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Record.Count">
+            <summary> Gets the record's fields count. </summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Record.Item(System.Int32)">
+            <summary>
+            Gets the value of field specified by index.
+            </summary>
+            <param name="index">Index of field.</param>
+            <returns>A <see cref="T:GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant" /> object representing record's field value.</returns>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.Record.Item(System.String)">
+            <summary> Gets the value of field specified by name. </summary>
+            <param name="name">Name of field.</param>
+            <returns>A <see cref="T:GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant" /> object representing record's field value.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.RecordSet">
+            <summary> Defines the source records collection. </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.RecordSet.AggregateDataProvider">
+            <summary> Gets <see cref="P:GrapeCity.Enterprise.Data.DataEngine.RecordSet.AggregateDataProvider" /> connected with the record set (semantic reports). </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.RecordSet.Empty">
+            <summary>
+            Represents empty record set
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSet.#ctor(System.Collections.Generic.IEnumerable{GrapeCity.Enterprise.Data.DataEngine.Record},System.Func{GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider})">
+            <summary>
+            Initializes a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSet" /> class
+            </summary>
+            <param name="records">The records collection.</param>
+            <param name="getAggregateDataProvider">function returning AggregateDataProvider</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.RecordSet.Records">
+            <summary>
+            Gets record collection
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSet.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection
+            </summary>
+            <returns>An enumerator that can be used to iterate through the collection</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSet.Dispose">
+            <summary>
+            Releases the resources used by the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSet" />.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs">
+            <summary> Contains information which is necessary to provide appropriate data set. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs.Name">
+            <summary> The name of the requested data set. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs.Parameters">
+            <summary> Evaluated parameters of the requested data set. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs.ParentRecordSet">
+            <summary> Current record set (which is parent for the requested data set). </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs.ParentDataSetName">
+            <summary> Current data set name. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs.#ctor(System.String,GrapeCity.Enterprise.Data.DataEngine.DataParameter[],GrapeCity.Enterprise.Data.DataEngine.RecordSet,System.String)">
+            <summary> Creates new GetRecordSetArgs object. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.GetAggregateDataProviderArgs">
+            <summary> Contains information which is necessary to get the IAggregateDataProvider object. </summary>
+        </member>
+        <member name="F:GrapeCity.Enterprise.Data.DataEngine.GetAggregateDataProviderArgs.Name">
+            <summary> The data set name for which aggregate data provider is requested. </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider">
+            <summary>
+            Defines report scope.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider.Create(System.Func{GrapeCity.Enterprise.Data.DataEngine.GetRecordSetArgs,GrapeCity.Enterprise.Data.DataEngine.RecordSet},GrapeCity.Enterprise.Data.DataEngine.RecordSet,System.Func{GrapeCity.Enterprise.Data.DataEngine.GetAggregateDataProviderArgs,GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider})">
+            <summary>
+            Creates a new instance of the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider" /> class
+            </summary>
+            <param name="getDataSet">A function that returns a recordset for the specified dataset.</param>
+            <param name="rootData">An <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSet" /> object represents set of records of the dataset.</param>
+            <param name="agg">The function that returns aggregate data provider for the specified data set.</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider.Data">
+            <summary>
+            Gets a recordset
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider.Dispose">
+            <summary>
+            Releases the resources used by the <see cref="T:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider" />.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSetProvider.GetAggregateDataProvider(System.String)">
+            <summary>
+            Returns <see cref="T:GrapeCity.Enterprise.Data.DataEngine.Aggregates.IAggregateDataProvider" /> object which describes data set fields of semantic data provider.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.SlicerKey">
+            <summary>
+            Represents a unique identifier for a slicer within a data tree.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.SlicerKey.#ctor(System.String)">
+            <summary>
+            Represents a unique identifier for a slicer within a data tree.
+            </summary>
+            <param name="Name">The name of the slicer.</param>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.SlicerKey.Name">
+            <summary>The name of the slicer.</summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.SlicerKey.op_Implicit(System.String)~GrapeCity.Enterprise.Data.DataEngine.SlicerKey">
+            <summary> Implicitly creates a new <see cref="T:GrapeCity.Enterprise.Data.DataEngine.SlicerKey" /> instance from a string. </summary>
+            <param name="slicerString">The string representation of the slicer key.</param>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.SlicerKey.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary>
+            <returns>The fully qualified type name.</returns>
+        </member>
+        <member name="T:GrapeCity.Enterprise.Data.DataEngine.SlicerState">
+            <summary> Describes state of the specific slicer. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.SlicerState.#ctor(GrapeCity.Enterprise.Data.DataEngine.SlicerKey,GrapeCity.Enterprise.Data.Expressions.Evaluation.Variant)">
+            <summary> Describes state of the specific slicer. </summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.SlicerState.ToString">
+            <summary>Returns the fully qualified type name of this instance.</summary>
+            <returns>The fully qualified type name.</returns>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.SlicerState.Key">
+            <summary>Slicer identifier.</summary>
+        </member>
+        <member name="P:GrapeCity.Enterprise.Data.DataEngine.SlicerState.Value">
+            <summary>Slicer value.</summary>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Record.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String,GrapeCity#Enterprise#Data#Expressions#Evaluation#Variant}}#GetEnumerator">
+            <summary>Returns an enumerator that iterates through the collection.</summary>
+            <returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.Record.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary>
+            <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:GrapeCity.Enterprise.Data.DataEngine.RecordSet.System#Collections#IEnumerable#GetEnumerator">
+            <summary>Returns an enumerator that iterates through a collection.</summary>
+            <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
+        </member>
+    </members>
+</doc>

@@ -39,10 +39,9 @@
                 //Fetch all products and group them by category
                 async loadProducts() {
                     try {
-                        const res = await fetch("http://localhost:82/getallproducts/", {
-                            method: "POST",
+                        const res = await fetch("https://localhost:82/getallproducts/", {
+                            method: "GET",
                             headers: {
-                                "Content-Type": "application/json",
                                 "Authorization": getBasicAuthHeader()
                             }
                         });
@@ -72,10 +71,9 @@
                 // Load the last order in the cart
                 async loadOldOrder() {
                     try {
-                        const res = await fetch("http://localhost:82/getoldorder/", {
-                            method: "POST",
+                        const res = await fetch("https://localhost:82/getoldorder/", {
+                            method: "GET",
                             headers: {
-                                "Content-Type": "application/json",
                                 "Authorization": getBasicAuthHeader()
                             }
                         });
@@ -120,7 +118,7 @@
                             IdOrder: this.orderId,
                             IdProduct: product.id,
                         };
-                        await fetch("http://localhost:82/newdetails/", {
+                        await fetch("https://localhost:82/newdetails/", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -138,7 +136,7 @@
                         IdOrder: this.orderId,
                         IdProduct: item.product.id,
                     };
-                    await fetch("http://localhost:82/increasedetail/", {
+                    await fetch("https://localhost:82/increasedetail/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -159,7 +157,7 @@
                     //If quantity is less than 1, remove item from cart
                     if (item.quantity <= 0) {
                         this.cart = this.cart.filter(i => i !== item);
-                        await fetch("http://localhost:82/deletedetail/", {
+                        await fetch("https://localhost:82/deletedetail/", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -169,7 +167,7 @@
                         });
                         return;
                     }
-                    await fetch("http://localhost:82/decreasedetail/", {
+                    await fetch("https://localhost:82/decreasedetail/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -187,7 +185,7 @@
                 // Create order and reset cart
                 async order() {
                     alert('Order placed!\nTotal: ' + this.totalPrice().toFixed(2) + ' €');
-                    await fetch("http://localhost:82/createorder/", {
+                    await fetch("https://localhost:82/createorder/", {
                         method: "POST",
                         headers: {
                             "Authorization": getBasicAuthHeader()
@@ -202,7 +200,7 @@
                     var payload = {
                         IdOrder: this.orderId
                     };
-                    await fetch("http://localhost:82/deletealldetails/", {
+                    await fetch("https://localhost:82/deletealldetails/", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

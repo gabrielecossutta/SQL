@@ -27,6 +27,7 @@ Partial Class Form1
         Me.B_Create = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Viewer1 = New GrapeCity.ActiveReports.Viewer.Win.Viewer()
         Me.SuspendLayout()
         '
         'DTP_Start
@@ -72,11 +73,47 @@ Partial Class Form1
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "To:"
         '
+        'Viewer1
+        '
+        Me.Viewer1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Viewer1.Location = New System.Drawing.Point(25, 149)
+        Me.Viewer1.Name = "Viewer1"
+        Me.Viewer1.PagesBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.ParametersPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.ParametersPanel.Text = "Parameters"
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.SearchPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.SearchPanel.Text = "Search results"
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.ThumbnailsPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.ThumbnailsPanel.Text = "Page thumbnails"
+        Me.Viewer1.Sidebar.ThumbnailsPanel.Zoom = 0.1R
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.TocPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.TocPanel.Expanded = True
+        Me.Viewer1.Sidebar.TocPanel.Text = "Document map"
+        Me.Viewer1.Sidebar.Width = 200
+        Me.Viewer1.Size = New System.Drawing.Size(983, 357)
+        Me.Viewer1.TabIndex = 5
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(261, 95)
+        Me.ClientSize = New System.Drawing.Size(1105, 628)
+        Me.Controls.Add(Me.Viewer1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.B_Create)
@@ -94,4 +131,5 @@ Partial Class Form1
     Friend WithEvents B_Create As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Viewer1 As GrapeCity.ActiveReports.Viewer.Win.Viewer
 End Class

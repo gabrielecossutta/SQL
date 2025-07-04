@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_27\\report.rdlx||{0AFEB4AD-0950-456E-9487-1FD1189F4330}",
-      "RelativeMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|solutionrelative:es_27\\report.rdlx||{0AFEB4AD-0950-456E-9487-1FD1189F4330}"
+      "AbsoluteMoniker": "D:0:0:{E71EF90F-76A7-E69B-5972-780C619139EB}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_30html\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{E71EF90F-76A7-E69B-5972-780C619139EB}|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML|solutionrelative:es_30html\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_27\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|solutionrelative:es_27\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|solutionrelative:es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_27\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|solutionrelative:es_27\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{BC1749E1-DD67-4D7F-9321-DEF9549C2FFB}|Es_30WINS\\Es_30WINS.vbproj|solutionrelative:es_30wins\\myservice.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form1.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Form1.vb",
-              "RelativeDocumentMoniker": "Es_27\\Form1.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Form1.vb [Progettazione]",
-              "RelativeToolTip": "Es_27\\Form1.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-07-03T09:55:16.097Z",
-              "EditorCaption": " [Progettazione]"
+              "DocumentIndex": 0,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML\\Default.aspx",
+              "RelativeDocumentMoniker": "Es_30HTML\\Default.aspx",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30HTML\\Default.aspx",
+              "RelativeToolTip": "Es_30HTML\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-07-03T15:23:43.398Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Report.rdlx[Design]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Report.rdlx",
-              "RelativeDocumentMoniker": "Es_27\\Report.rdlx",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Report.rdlx[Design]",
-              "RelativeToolTip": "Es_27\\Report.rdlx[Design]",
-              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACPSURBVDhPY2SAAuuE/f\u002BhTILg6AJHiL7//xF6QAYQAjA1yJYxQWmSwJH5DnAXk2yATeIBMMYABL0gIADBUEC2C9ABXgMYbzGDMT6AYQAjIycYEwuo74X//7\u002BDMZit9heMweD9ewhGAyxQGg6wRhEaAKUDDEAwGtEALBpJcgFWm2GAXBeQlRthAJ4ryQcMDAAVKeBFSoiTHQAAAABJRU5ErkJgggAAAAAAAA==",
-              "WhenOpened": "2025-07-03T09:41:11.455Z",
-              "EditorCaption": "[Design]"
+              "DocumentIndex": 2,
+              "Title": "MyService.vb",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb",
+              "RelativeDocumentMoniker": "Es_30WINS\\MyService.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb",
+              "RelativeToolTip": "Es_30WINS\\MyService.vb",
+              "ViewState": "AgIAADEBAAAAAAAAAAA6wD4BAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-07-03T14:20:28.099Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form1.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Form1.vb",
-              "RelativeDocumentMoniker": "Es_27\\Form1.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\Form1.vb",
-              "RelativeToolTip": "Es_27\\Form1.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABKAAAAAAAAAA==",
+              "Title": "MyService.vb [Progettazione]",
+              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb",
+              "RelativeDocumentMoniker": "Es_30WINS\\MyService.vb",
+              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_30WINS\\MyService.vb [Progettazione]",
+              "RelativeToolTip": "Es_30WINS\\MyService.vb [Progettazione]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-07-03T09:39:32.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T14:20:26.934Z"
             }
           ]
         }

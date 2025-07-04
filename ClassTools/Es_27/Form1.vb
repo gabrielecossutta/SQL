@@ -20,12 +20,13 @@ Public Class Form1
         Dim pdfExport As New PdfRenderingExtension()
         Dim reportoutputPath As String = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\PDF"
         Dim outputDir As New DirectoryInfo(reportoutputPath)
-        Dim provider As New FileStreamProvider(outputDir, $"From{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}To{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}")
+        Dim provider As New FileStreamProvider(outputDir, $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}")
         provider.OverwriteOutputFile = True
         document.Render(pdfExport, provider)
 
         'Open the PDF
-        Process.Start(Path.Combine(reportoutputPath, $"From{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}To{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}.pdf"))
+        Process.Start(Path.Combine(reportoutputPath, $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}.pdf"))
+
 
     End Sub
 

@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Es_27a.My.MyApplication</StartupObject>
-    <RootNamespace>Es_27a</RootNamespace>
-    <AssemblyName>Es_27a</AssemblyName>
+    <StartupObject>Es_27.My.MyApplication</StartupObject>
+    <RootNamespace>Es_27</RootNamespace>
+    <AssemblyName>Es_27</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -21,8 +21,8 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Es_27a.xml</DocumentationFile>
+    <OutputPath>..\EXE\</OutputPath>
+    <DocumentationFile>Es_27.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Es_27a.xml</DocumentationFile>
+    <DocumentationFile>Es_27.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -63,6 +63,9 @@
     <Reference Include="MESCIUS.ActiveReports.Chart, Version=19.0.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Chart.19.0.1\lib\net472\MESCIUS.ActiveReports.Chart.dll</HintPath>
     </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Chart.Win, Version=19.0.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Chart.Win.19.0.1\lib\net472\MESCIUS.ActiveReports.Chart.Win.dll</HintPath>
+    </Reference>
     <Reference Include="MESCIUS.ActiveReports.Core.Data.DataEngine, Version=5.0.2.0, Culture=neutral, PublicKeyToken=0b5e1563d2869208, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Core.Data.DataEngine.5.0.2\lib\net472\MESCIUS.ActiveReports.Core.Data.DataEngine.dll</HintPath>
     </Reference>
@@ -81,8 +84,14 @@
     <Reference Include="MESCIUS.ActiveReports.Core.Document.Drawing.Gc, Version=5.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Core.Document.Drawing.Gc.5.1.1\lib\net472\MESCIUS.ActiveReports.Core.Document.Drawing.Gc.dll</HintPath>
     </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Core.Document.Drawing.Gdi, Version=5.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Core.Document.Drawing.Gdi.5.1.1\lib\net472\MESCIUS.ActiveReports.Core.Document.Drawing.Gdi.dll</HintPath>
+    </Reference>
     <Reference Include="MESCIUS.ActiveReports.Core.Drawing.Gc, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Core.Drawing.Gc.4.1.0\lib\net472\MESCIUS.ActiveReports.Core.Drawing.Gc.dll</HintPath>
+    </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Core.Drawing.Gdi, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Core.Drawing.Gdi.4.1.0\lib\net472\MESCIUS.ActiveReports.Core.Drawing.Gdi.dll</HintPath>
     </Reference>
     <Reference Include="MESCIUS.ActiveReports.Core.Export.Pdf.Page, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Core.Export.Pdf.Page.4.1.0\lib\net472\MESCIUS.ActiveReports.Core.Export.Pdf.Page.dll</HintPath>
@@ -102,11 +111,26 @@
     <Reference Include="MESCIUS.ActiveReports.Core.Scripting, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Core.Scripting.4.1.0\lib\net472\MESCIUS.ActiveReports.Core.Scripting.dll</HintPath>
     </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Design.Win, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Design.Win.19.1.1\lib\net472\MESCIUS.ActiveReports.Design.Win.dll</HintPath>
+    </Reference>
     <Reference Include="MESCIUS.ActiveReports.Export.Pdf, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Export.Pdf.19.1.1\lib\net472\MESCIUS.ActiveReports.Export.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="MESCIUS.ActiveReports.Export.Pdf.Win, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.Export.Pdf.19.1.1\lib\net472\MESCIUS.ActiveReports.Export.Pdf.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="MESCIUS.ActiveReports.QueryDesigner, Version=2.0.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.QueryDesigner.2.0.1\lib\net472\MESCIUS.ActiveReports.QueryDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Serializer, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Serializer.VS2022.19.1.1\lib\net472\MESCIUS.ActiveReports.Serializer.dll</HintPath>
+    </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Viewer.Common, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Viewer.Common.19.1.1\lib\net472\MESCIUS.ActiveReports.Viewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MESCIUS.ActiveReports.Viewer.Win, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
+      <HintPath>..\packages\MESCIUS.ActiveReports.Viewer.Win.19.1.1\lib\net472\MESCIUS.ActiveReports.Viewer.Win.dll</HintPath>
     </Reference>
     <Reference Include="MESCIUS.ActiveReports.Win, Version=19.1.1.0, Culture=neutral, PublicKeyToken=cc4967777c49a3ff, processorArchitecture=MSIL">
       <HintPath>..\packages\MESCIUS.ActiveReports.19.1.1\lib\net472\MESCIUS.ActiveReports.Win.dll</HintPath>
@@ -120,7 +144,10 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
     </Reference>
@@ -143,6 +170,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -175,6 +203,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -185,6 +214,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SectionReport1.Designer.vb">
+      <DependentUpon>SectionReport1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SectionReport1.vb">
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

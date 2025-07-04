@@ -38,7 +38,7 @@ Partial Class F_BackOffice
         Me.L_Name = New System.Windows.Forms.Label()
         Me.TB_Name = New System.Windows.Forms.TextBox()
         Me.P_Report = New System.Windows.Forms.Panel()
-        Me.L_StampReport = New System.Windows.Forms.Label()
+        Me.L_Report = New System.Windows.Forms.Label()
         Me.P_AddProduct.SuspendLayout()
         CType(Me.PB_Product, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_Report.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class F_BackOffice
         'B_StampReport
         '
         Me.B_StampReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.B_StampReport.Location = New System.Drawing.Point(7, 70)
+        Me.B_StampReport.Location = New System.Drawing.Point(4, 66)
         Me.B_StampReport.Name = "B_StampReport"
         Me.B_StampReport.Size = New System.Drawing.Size(372, 36)
         Me.B_StampReport.TabIndex = 0
@@ -57,7 +57,7 @@ Partial Class F_BackOffice
         'DTP_ReportDate
         '
         Me.DTP_ReportDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DTP_ReportDate.Location = New System.Drawing.Point(5, 38)
+        Me.DTP_ReportDate.Location = New System.Drawing.Point(4, 31)
         Me.DTP_ReportDate.Name = "DTP_ReportDate"
         Me.DTP_ReportDate.Size = New System.Drawing.Size(374, 29)
         Me.DTP_ReportDate.TabIndex = 1
@@ -196,29 +196,29 @@ Partial Class F_BackOffice
         'P_Report
         '
         Me.P_Report.BackColor = System.Drawing.Color.Gainsboro
-        Me.P_Report.Controls.Add(Me.L_StampReport)
+        Me.P_Report.Controls.Add(Me.L_Report)
         Me.P_Report.Controls.Add(Me.DTP_ReportDate)
         Me.P_Report.Controls.Add(Me.B_StampReport)
         Me.P_Report.Location = New System.Drawing.Point(12, 357)
         Me.P_Report.Name = "P_Report"
-        Me.P_Report.Size = New System.Drawing.Size(382, 110)
+        Me.P_Report.Size = New System.Drawing.Size(382, 118)
         Me.P_Report.TabIndex = 13
         '
-        'L_StampReport
+        'L_Report
         '
-        Me.L_StampReport.AutoSize = True
-        Me.L_StampReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.L_StampReport.Location = New System.Drawing.Point(4, 4)
-        Me.L_StampReport.Name = "L_StampReport"
-        Me.L_StampReport.Size = New System.Drawing.Size(72, 24)
-        Me.L_StampReport.TabIndex = 2
-        Me.L_StampReport.Text = "Report"
+        Me.L_Report.AutoSize = True
+        Me.L_Report.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.L_Report.Location = New System.Drawing.Point(4, 4)
+        Me.L_Report.Name = "L_Report"
+        Me.L_Report.Size = New System.Drawing.Size(72, 24)
+        Me.L_Report.TabIndex = 2
+        Me.L_Report.Text = "Report"
         '
         'F_BackOffice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(406, 479)
+        Me.ClientSize = New System.Drawing.Size(406, 483)
         Me.Controls.Add(Me.P_Report)
         Me.Controls.Add(Me.P_AddProduct)
         Me.Name = "F_BackOffice"
@@ -245,7 +245,7 @@ Partial Class F_BackOffice
     Friend WithEvents TB_Name As TextBox
     Friend WithEvents L_PanelAddProduct As Label
     Friend WithEvents P_Report As Panel
-    Friend WithEvents L_StampReport As Label
+    Friend WithEvents L_Report As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents TB_Price As TextBox
     Friend WithEvents CB_Category As ComboBox

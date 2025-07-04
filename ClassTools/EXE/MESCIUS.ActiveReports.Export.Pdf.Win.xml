@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Export.Pdf.Win</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Export.Pdf.Win.AR.FontFactorySectionHandler">
+            <summary>
+            A <see cref="T:System.Configuration.IConfigurationSectionHandler" /> for the FontFolders configuration section.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.AR.FontFactorySectionHandler.ReadFolderPath(System.Xml.XmlNode)">
+            <summary>
+            Reads the folder path from XML node.
+            </summary>
+            <param name="node">The XML node.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Pdf.Win.AR.Config.FontFactoryConfiguration">
+            <summary>
+            Folder font factory configuration
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.AR.Config.FontFactoryConfiguration.#ctor">
+            <summary>
+            Initializes a new configuration for GDI font factory
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:GrapeCity.ActiveReports.Export.Pdf.Win.AR.TraceHelper" -->
+        <member name="T:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport">
+            <summary>
+            Provides PDF document creation functionality for ActiveReports documents.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>
+				This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+			</remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport.Export(GrapeCity.ActiveReports.Document.SectionDocument,GrapeCity.ActiveReports.Export.Pdf.Section.Internal.RenderingSettings,System.IO.Stream)">
+            <summary>
+            Exports the specified document using Gdi.
+            </summary>
+            <param name="document">The document.</param>
+            <param name="stream">The stream.</param>
+            <param name="pageRange">The page range.</param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport.ExportImpl(GrapeCity.ActiveReports.Document.SectionDocument,GrapeCity.ActiveReports.Export.Pdf.Section.Internal.RenderingSettings,System.IO.Stream,System.String,System.Boolean,GrapeCity.ActiveReports.Export.Pdf.Win.AR.PDFRender.IPdfDocumentOptions@)">
+            <summary>
+            Exports the specified document to a PDF stream.
+            </summary>
+            <param name="document">The ActiveReports <c>GrapeCity.ActiveReports.Document.SectionDocument</c> object to export.</param>
+            <param name="stream">The stream to save the PDF document to.</param>
+            <param name="pageRange"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport.CreateAndInitializeFontFactory(System.Boolean)">
+            <summary>
+            Reads configuration and returns initialized FontFactory instance
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport.ExportPage(DataDynamics.DDLib.PdfEngine.PdfRender,GrapeCity.ActiveReports.Export.Pdf.Section.PdfVersion,GrapeCity.ActiveReports.Document.Section.Document.Filters.IFilteredPage,System.Drawing.Graphics,DataDynamics.ActiveReports.Export.InternalC.ExportContext,System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Document.Section.Bookmark},System.Collections.Generic.IDictionary{System.Int32,System.Int32})">
+            <summary>
+            Renders the specified page to a new page in the current PDF document.
+            </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Export.Pdf.Win.PdfExport.RenderCanvasItems(DataDynamics.DDLib.PdfEngine.PdfRender,System.Collections.Generic.IEnumerator{GrapeCity.ActiveReports.Document.Section.CanvasItem},DataDynamics.DDLib.PdfEngine.PsPage,System.Drawing.PointF,System.Drawing.Graphics,DataDynamics.ActiveReports.Export.InternalC.ExportContext,System.Collections.Generic.IEnumerable{GrapeCity.ActiveReports.Document.Section.Bookmark},System.Collections.Generic.IDictionary{System.Int32,System.Int32})">
+            <summary>
+            Renders the specified canvas items to the specified <see cref="T:DataDynamics.DDLib.PdfEngine.PsPage" />.
+            </summary>
+            <param name="canvasItems">The canvas items that are to be rendered.</param>
+            <param name="pdfPage">The destination that the page is to be rendered to.</param>
+            <param name="offset">The amount to offset rendering of the contents of the page horizontally and vertically. This params is udes for rendering table because table/cell has its own page.</param>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Export.Pdf.Win.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Pdf.Win.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Pdf.Win.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Pdf.Win.Resources.EvalMessageFontFamily">
+            <summary>
+              Looks up a localized string similar to Arial.
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Pdf.Win.Resources.PdfProEvaluation">
+            <summary>
+              Looks up a localized string similar to PDF/A and PDF/UA conformance, PDF digital signature and related APIs are only applicable with Professional Edition of ActiveReports Developer..
+            </summary>
+        </member>
+        <member name="P:GrapeCity.ActiveReports.Export.Pdf.Win.Resources.ProductName">
+            <summary>
+              Looks up a localized string similar to ActiveReports 19.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GrapeCity.ActiveReports.Rendering.Text.BidiOrder.DetermineParagraphEmbeddingLevel" -->
+        <!-- Badly formed XML comment ignored for member "M:GrapeCity.ActiveReports.Rendering.Text.BidiOrder.DetermineExplicitEmbeddingLevels" -->
+        <!-- Badly formed XML comment ignored for member "M:GrapeCity.ActiveReports.Rendering.Text.BidiOrder.GetLevels(System.Int32[])" -->
+        <member name="T:DataDynamics.GDI.Win32PenStyles">
+            <summary>
+            Represents the Win32 PSDK PS_XXX pens style constants.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.TypeCosmetic">
+            The pen is cosmetic.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.TypeGeometric">
+            The pen is geometric.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.TypeMask">
+            The bitwise AND mask used to determine a pen's type.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleSolid">
+            The pen is solid.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleDash">
+            The pen is dashed.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleDot">
+            The pen is dotted.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleDashDot">
+            The pen has alternating dashes and dots.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleDashDotDot">
+            The pen has alternating dashes and double dots.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleNull">
+            The pen is invisible.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleInsideFrame">
+            The pen is solid. When this pen is used in any GDI drawing function that takes a bounding rectangle, the dimensions of the figure are shrunk so that it fits entirely in the bounding rectangle, taking into account the width of the pen. 
+            This applies only to <see cref="!:Win32PenStyles.Geomtric" /> pens.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleUserStyle">
+            The pen uses a styling array supplied by the user.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.StyleMask">
+            The bitwise AND mask used to determine pen's dash style.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.EndCapRound">
+            Line end caps are round.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.EndCapSquare">
+             Line end caps are square. 
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.EndCapFlat">
+            Line end caps are flat.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.EndCapMask">
+            The bitwise AND mask used to determine pen's end cap style.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.JoinRound">
+            Line joins are round.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.JoinBevel">
+            Line joins are beveled.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.JoinMiter">
+            Line joins are mitered when they are within the current limit set by the SetMiterLimit function. A join is beveled when it would exceed the limit.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32PenStyles.JoinMask">
+            The bitwise AND mask used to determine a pen's line join style.
+        </member>
+        <member name="T:DataDynamics.GDI.Win32BrushStyle">
+            <summary>
+            Represents the Win32 PSDK BS_XXX brush style constants.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Solid">
+            Solid brush.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Null">
+            Same as BS_HOLLOW.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Hollow">
+            Hollow brush.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Hatched">
+            Hatched brush.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Pattern">
+            Pattern brush defined by a memory bitmap.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.DibPattern">
+            A pattern brush defined by a device-independent bitmap (DIB) specification. 
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.DibPatternPt">
+            A pattern brush defined by a device-independent bitmap (DIB) specification. 
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.Pattern8x8">
+            Same as BS_PATTERN.
+        </member>
+        <member name="F:DataDynamics.GDI.Win32BrushStyle.DibPattern8x8">
+            Same as BS_DIBPATTERN.
+        </member>
+        <member name="T:DataDynamics.GDI.Win32HatchStyle">
+            <summary>
+            Specifies the Win32 PSDK HS_xxxx hatch style constants.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.Horizontal">
+            -----
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.Vertical">
+            |||||
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.FDiagonal">
+            \\\\\
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.BDiagonal">
+            /////
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.Cross">
+            +++++
+        </member>
+        <member name="F:DataDynamics.GDI.Win32HatchStyle.DiagCross">
+            xxxxx
+        </member>
+        <member name="T:DataDynamics.GDI.GdiStockObject">
+            <summary>
+            Specifies the stock GDI object contants.  These are pens, brushes, and fonts that are assumed "built-in" to be in the rendering implementation.
+            </summary>
+        </member>
+        <member name="T:DataDynamics.GDI.GdiObjectKind">
+            <summary>
+            Specifies the kind of <see cref="!:IGDIObject" />.
+            </summary>
+        </member>
+        <member name="T:DataDynamics.GDI.MapMode">
+            <summary>
+            Specifies the mapping mode for a GDI device.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.AnIsotropic">
+            Logical units are mapped to arbitrary units with arbitrarily scaled axes. Use the SetWindowExtEx and SetViewportExtEx functions to specify the units, orientation, and scaling. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.HiEnglish">
+            Each logical unit is mapped to 0.001 inch. Positive x is to the right; positive y is up. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.HiMetric">
+            Each logical unit is mapped to 0.01 millimeter. Positive x is to the right; positive y is up. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.Isotropic">
+            Logical units are mapped to arbitrary units with equally scaled axes; that is, one unit along the x-axis is equal to one unit along the y-axis. Use the SetWindowExtEx and SetViewportExtEx functions to specify the units and the orientation of the axes. Graphics device interface (GDI) makes adjustments as necessary to ensure the x and y units remain the same size (When the window extent is set, the viewport will be adjusted to keep the units isotropic). 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.LoEnglish">
+            Each logical unit is mapped to 0.01 inch. Positive x is to the right; positive y is up. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.LoMetric">
+            Each logical unit is mapped to 0.1 millimeter. Positive x is to the right; positive y is up. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.Text">
+            Each logical unit is mapped to one device pixel. Positive x is to the right; positive y is down. 
+        </member>
+        <member name="F:DataDynamics.GDI.MapMode.Twips">
+            Each logical unit is mapped to one twentieth of a printer's point (1/1440 inch, also called a twip). Positive x is to the right; positive y is up. 
+        </member>
+        <member name="F:DataDynamics.GDI.DibColorTableType.RgbColors">
+            color table in RGBs
+        </member>
+        <member name="F:DataDynamics.GDI.DibColorTableType.PaletteColors">
+            color table in palette indices
+        </member>
+        <member name="T:DataDynamics.GDI.GdiRasterOperation">
+            <summary>
+            The Win32 "Ternary raster operations". Used with <see cref="!:BitBlt.dwRop" />, <see cref="!:StretchDIBits.dwRop" />.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.SrcCopy">
+            Copies the source rectangle directly to the destination rectangle.
+            dest = source
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.SrcPaint">
+            Combines the colors of the source and destination rectangles by using the Boolean OR operator.
+            dest = source OR dest
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.SrceAnd">
+            Combines the colors of the source and destination rectangles by using the Boolean AND operator.
+            dest = source AND dest
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.SrcInvert">
+            Combines the colors of the source and destination rectangles by using the Boolean XOR operator.
+            dest = source XOR dest
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.SrcErase">
+            Combines the inverted colors of the destination rectangle with the colors of the source rectangle by using the Boolean AND operator.
+            dest = source AND (NOT dest )
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.NotSrcCopy">
+            Copies the inverted source rectangle to the destination.
+            dest = (NOT source)
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.NotSrcErase">
+            Combines the colors of the source and destination rectangles by using the Boolean OR operator and then inverts the resultant color.
+            dest = (NOT src) AND (NOT dest)
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.MergeCopy">
+            Merges the colors of the source rectangle with the brush currently selected in hdcDest, by using the Boolean AND operator.
+            dest = (source AND pattern)
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.MergePaint">
+            Merges the colors of the inverted source rectangle with the colors of the destination rectangle by using the Boolean OR operator.
+            dest = (NOT source) OR dest
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.PatCopy">
+            Copies the brush currently selected in hdcDest, into the destination bitmap.
+            dest = pattern
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.PatPaint">
+            Combines the colors of the brush currently selected in hdcDest, with the colors of the inverted source rectangle by using the Boolean OR operator. The result of this operation is combined with the colors of the destination rectangle by using the Boolean OR operator.
+            dest = DPSnoo
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.PatInvert">
+            Combines the colors of the brush currently selected in hdcDest, with the colors of the destination rectangle by using the Boolean XOR operator.
+            dest = pattern XOR dest
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.DstInvert">
+            Inverts the destination rectangle.
+            dest = (NOT dest)
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.Blackness">
+            Fills the destination rectangle using the color associated with index 0 in the physical palette. (This color is black for the default physical palette.)
+            dest = BLACK
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.Whiteness">
+            Fills the destination rectangle using the color associated with index 1 in the physical palette. (This color is white for the default physical palette.)
+            dest = WHITE
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.NoMirrorBitmap">
+            Windows 98/Me, Windows 2000/XP: Prevents the bitmap from being mirrored.
+            Do not Mirror the bitmap in this call
+        </member>
+        <member name="F:DataDynamics.GDI.GdiRasterOperation.CaptureBlt">
+            Windows 98/Me, Windows 2000/XP: Includes any windows that are layered on top of your window in the resulting image. By default, the image only contains your window.
+            Include layered windows
+        </member>
+        <member name="T:DataDynamics.GDI.GdiTextAlign">
+            <summary>
+            Text alignment options used with SetTextAlign EMF record.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_BASELINE">
+            The reference point will be on the base line of the text. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_BOTTOM">
+            The reference point will be on the bottom edge of the bounding rectangle. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_TOP">
+            The reference point will be on the top edge of the bounding rectangle. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_CENTER">
+            The reference point will be aligned horizontally with the center of the bounding rectangle. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_LEFT">
+            The reference point will be on the left edge of the bounding rectangle. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_RIGHT">
+            The reference point will be on the right edge of the bounding rectangle. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_NOUPDATECP">
+            The current position is not updated after each text output call. The reference point is passed to the text output function. 
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_RTLREADING">
+            Middle East language edition of Windows: The text is laid out in right to left reading order, as opposed to the default left to right order. This applies only when the font selected into the device context is either Hebrew or Arabic. 	
+        </member>
+        <member name="F:DataDynamics.GDI.GdiTextAlign.TA_UPDATECP">
+            The current position is updated after each text output call. The current position is used as the reference point. 
+        </member>
+        <member name="T:DataDynamics.GDI.GdiBackgroundFillMode">
+            <summary>
+            Background mode Used with SetBkMode record.
+            </summary>
+        </member>
+        <member name="T:DataDynamics.GDI.GdiPolyFillMode">
+            <summary>
+            Poly Fill Mode used with SetPolyFillMode record.
+            </summary>
+        </member>
+        <member name="T:DataDynamics.GDI.ClippingMode">
+            <summary>
+            Specifies the way to use the path.
+            </summary>
+        </member>
+        <member name="F:DataDynamics.GDI.ClippingMode.And">
+            The new clipping region includes the intersection (overlapping areas) 
+            of the current clipping region and the current path. 
+        </member>
+        <member name="F:DataDynamics.GDI.ClippingMode.Or">
+            The new clipping region includes the union (combined areas) of the current 
+            clipping region and the current path. 
+        </member>
+        <member name="F:DataDynamics.GDI.ClippingMode.Xor">
+            The new clipping region includes the union of the current clipping region and 
+            the current path but without the overlapping areas. 
+        </member>
+        <member name="F:DataDynamics.GDI.ClippingMode.Diff">
+            The new clipping region includes the areas of the current clipping region with 
+            those of the current path excluded.
+        </member>
+        <member name="F:DataDynamics.GDI.ClippingMode.Copy">
+            The new clipping region is the current path. 
+        </member>
+        <member name="T:DataDynamics.GDI.Metafiles.Records.EmfRecordType">
+            <summary>
+            Specifies the records available in a metafile.
+            </summary>
+        </member>
+    </members>
+</doc>

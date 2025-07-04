@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+    <assembly>
+        <name>MESCIUS.ActiveReports.Core.Drawing.Gdi</name>
+    </assembly>
+    <members>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.FontHinting">
+            <summary>
+            Specifies the algorithm used for font hinting in text layout.
+            </summary>
+            <member name="EnumForInternalUseOnly">
+                <remarks>This enumeration should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.FontHinting.Default">
+            <summary>
+            Default.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.FontHinting.TrueType">
+            <summary>
+            WIC-based.
+            </summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory">
+            <summary>
+            Provides a factory for creating instances of <see cref="T:GrapeCity.ActiveReports.Drawing.IDrawingCanvas" />, which are used for rendering graphics in various environments. 
+            This factory supports the creation of graphics canvases tailored to specific rendering settings, including text and image quality, and line breaking algorithms.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings">
+            <summary>
+            Represents settings for creating a new canvas.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings.GraphicsUnit">
+            <summary>
+            The graphics unit to convert to twips if modification is needed.
+            </summary>
+        </member>
+        <member name="F:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.DefaultSettings">
+            <summary> Default canvas settings. </summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.Create(System.Drawing.Graphics,GrapeCity.ActiveReports.Drawing.Core.IFontsFactory,GrapeCity.ActiveReports.Drawing.Gdi.GraphicsCanvasFactory.CanvasSettings)">
+            <summary>
+            Creates a graphics canvas for the provided native graphics object.
+            </summary>
+            <returns>An IDrawingCanvas implementation for the native graphics.</returns>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Drawing.Graphics" /> class, enhancing its functionality with additional features such as device 
+            capability checks.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Drawing.Gdi.GraphicsExtensions.IsPrinter(System.Drawing.Graphics)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Drawing.Graphics" /> object is associated with a printer device.
+            </summary>
+            <param name="graphics">The <see cref="T:System.Drawing.Graphics" /> object to check.</param>
+            <returns>
+                <c>true</c> if the <see cref="T:System.Drawing.Graphics" /> object is associated with a printer device; otherwise, <c>false</c>.</returns>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Rendering.GraphicsExtensions">
+            <summary> Extends <see cref="T:System.Drawing.Graphics" /> with some useful methods.</summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.GraphicsExtensions.GetTwipsInUnit(System.Drawing.Graphics)">
+            <summary> Gets twips per graphics's unit.</summary>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.GraphicsExtensions.GetDpi(System.Drawing.Graphics)">
+            <summary> Gets the current graphics resolution in dots per inch.</summary>
+        </member>
+        <member name="T:GrapeCity.ActiveReports.Rendering.PathExtensions">
+            <summary>
+            Provides extension methods for converting <see cref="T:GrapeCity.ActiveReports.Drawing.PathEx" /> instances to their GDI <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> equivalents.
+            </summary>
+            <member name="ClassForInternalUseOnly">
+                <remarks>This class should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+        <member name="M:GrapeCity.ActiveReports.Rendering.PathExtensions.ToGdi(GrapeCity.ActiveReports.Drawing.PathEx)">
+            <summary>
+            Converts a <see cref="T:GrapeCity.ActiveReports.Drawing.PathEx" /> instance to a GDI <see cref="T:System.Drawing.Drawing2D.GraphicsPath" /> object.
+            </summary>
+            <member name="MethodForInternalUseOnly">
+                <remarks>This method should not be used directly in application code. It is designed for internal operations within the product libraries and may change or be removed in future versions without notice.
+            </remarks>
+            </member>
+        </member>
+    </members>
+</doc>
