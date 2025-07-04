@@ -1,0 +1,212 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Totem API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/getallproducts": {
+            "get": {
+                "summary": "Retrive all the produts",
+                "responses": {
+                    "200": {
+                        "description": "List populated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": { "$ref": "#/components/schemas/Product" }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/createorder": {
+            "put": {
+                "summary": "Create a new order",
+                "responses": {
+                    "200": {
+                        "description": "Order created successfully"
+                    },
+                    "400": {
+                        "description": "Order not created"
+                    }
+                }
+            }
+        },
+        "/getoldorder": {
+            "get": {
+                "summary": "Retrive the last order",
+                "responses": {
+                    "200": {
+                        "description": "Order retrived successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/OrderDetailsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/increasedetail": {
+            "patch": {
+                "summary": "Increase the quantity of an product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": { "$ref": "#/components/schemas/IDs" }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Quantity modified successfully"
+                    },
+                    "400": {
+                        "description": "Quantity not modified"
+                    }
+                }
+            }
+        },
+        "/decreasedetail": {
+            "patch": {
+                "summary": "Decrease the quantity of an product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": { "$ref": "#/components/schemas/IDs" }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Quantity modified successfully"
+                    },
+                    "400": {
+                        "description": "Quantity not modified"
+                    }
+                }
+            }
+        },
+        "/deletedetail": {
+            "delete": {
+                "summary": "Detele a specific product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": { "$ref": "#/components/schemas/IDs" }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Detail deleted successfully"
+                    },
+                    "400": {
+                        "description": "Detail not deleted"
+                    }
+                }
+            }
+        },
+        "/deletealldetails": {
+            "delete": {
+                "summary": "Detele all the products",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": { "$ref": "#/components/schemas/DeleteRequest" }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "All details deleted successfully"
+                    },
+                    "400": {
+                        "description": "Details not deleted"
+                    }
+                }
+            }
+        },
+        "/newdetails": {
+            "put": {
+                "summary": "Add a new product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": { "$ref": "#/components/schemas/IDs" }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Detail created successfully"
+                    },
+                    "400": {
+                        "description": "Detail not created"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "IdProduct": { "type": "integer" },
+                    "ProductName": { "type": "string" },
+                    "ProductCategory": { "type": "string" },
+                    "ProductPrice": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "ProductPicture": { "type": "string" }
+                }
+            },
+            "IDs": {
+                "type": "object",
+                "properties": {
+                    "IdOrder": { "type": "integer" },
+                    "IdProduct": { "type": "integer" }
+                },
+                "required": [ "IdOrder", "IdProduct" ]
+            },
+            "DeleteRequest": {
+                "type": "object",
+                "properties": {
+                    "IdOrder": { "type": "integer" }
+                },
+                "required": [ "IdOrder" ]
+            },
+            "OrderDetail": {
+                "type": "object",
+                "properties": {
+                    "IdOrder": { "type": "integer" },
+                    "IdProduct": { "type": "integer" },
+                    "OrderQuantity": { "type": "integer" }
+                }
+            },
+            "OrderDetailsResponse": {
+                "type": "object",
+                "properties": {
+                    "IdOrder": { "type": "integer" },
+                    "Details": {
+                        "type": "array",
+                        "items": { "$ref": "#/components/schemas/OrderDetail" }
+                    }
+                }
+            }
+        }
+    }
+}

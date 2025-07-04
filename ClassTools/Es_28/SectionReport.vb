@@ -1,6 +1,6 @@
 Imports GrapeCity.ActiveReports
 Imports GrapeCity.ActiveReports.Document
 
-Public Class SectionReport1
+Public Class SectionReport
 
 End Class

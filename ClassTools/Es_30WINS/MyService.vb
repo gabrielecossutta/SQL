@@ -9,6 +9,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ListView
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
 Imports ClassTools
 
+
 'Public Class SslConfig
 '    Public Const SslAppId As String = "{e5557ab2-260b-44c1-b81c-b955cf7fcd37}"
 'End Class
@@ -31,6 +32,7 @@ Public Class MyService
         'Initialize the HttpListener and add the prefixes to listen fro requests
         Listener = New HttpListener()
         Listener.Prefixes.Clear()
+        Listener.Prefixes.Add("https://localhost:82/")
         Listener.Prefixes.Add("https://localhost:82/getallproducts/")
         Listener.Prefixes.Add("https://localhost:82/getoldorder/")
         Listener.Prefixes.Add("https://localhost:82/increasedetail/")
@@ -107,22 +109,22 @@ Public Class MyService
     Private Sub ProcessRequest(context As HttpListenerContext)
         Dim request = context.Request
         Dim response = context.Response
-
         If request.HttpMethod = "OPTIONS" Then
             response.StatusCode = 200
             response.Headers.Add("Access-Control-Allow-Origin", "*")
             response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
             response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+            response.Headers.Remove("Content-Security-Policy")
             response.Close()
             Return
         End If
 
         If Not CheckBasicAuth(request) Then
             response.StatusCode = 401
-            response.Headers.Add("WWW-Authenticate", "Basic realm=""MyRealm""")
-            response.Headers.Add("Access-Control-Allow-Origin", "*")
-            response.Headers.Add("Access-Control-Allow-Methods", "GET")
+            response.AddHeader("WWW-Authenticate", "Basic realm=""MyRealm""")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
             response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+            response.Headers.Remove("Content-Security-Policy")
             response.Close()
             Return
         End If
@@ -131,6 +133,8 @@ Public Class MyService
         response.Headers.Add("Access-Control-Allow-Origin", "*")
         response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
         response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+        response.Headers.Remove("Content-Security-Policy")
+        response.Headers("Content-Security-Policy") = "default-src 'self'; connect-src 'self' https://localhost:82"
 
         Dim responseString As String = ""
 
@@ -142,6 +146,24 @@ Public Class MyService
 
         'Retrive the absolute path and use it to select the function
         Dim path = request.Url.AbsolutePath.ToLower().Trim("/"c)
+
+        ' Serve Swagger UI statici
+        If path.StartsWith("swagger-ui") Then
+            Dim relativePath = path.Substring("swagger-ui".Length).TrimStart("/"c)
+            Dim fullPath = System.IO.Path.Combine("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI", relativePath)
+
+            If String.IsNullOrWhiteSpace(relativePath) Then
+                fullPath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\index.html"
+            End If
+
+            If ServeStaticFile(fullPath, response) Then Return
+        End If
+
+        If path = "swagger.json" Then
+            Dim swaggerJsonPath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json"
+            If ServeStaticFile(swaggerJsonPath, response) Then Return
+        End If
+
         Select Case path
             Case "getallproducts"
                 responseString = HandleGetAllProducts(body)
@@ -159,6 +181,15 @@ Public Class MyService
                 responseString = HandleNewDetails(body)
             Case "createorder"
                 responseString = HandleCreateOrder(body)
+            Case "swagger.json"
+                Dim json = File.ReadAllText("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json")
+                Dim swaggerBuffer() As Byte = System.Text.Encoding.UTF8.GetBytes(json)
+                response.ContentType = "application/json"
+                response.ContentLength64 = swaggerBuffer.Length
+                response.StatusCode = 200
+                response.OutputStream.Write(swaggerBuffer, 0, swaggerBuffer.Length)
+                response.OutputStream.Close()
+                Return
             Case Else
                 responseString = "{""status"": ""error"",""message"":""Not found""}"
         End Select
@@ -185,6 +216,40 @@ Public Class MyService
         End Try
     End Sub
 
+    Private Function ServeStaticFile(filePath As String, response As HttpListenerResponse) As Boolean
+        Try
+            If Not File.Exists(filePath) Then
+                Return False
+            End If
+
+            Dim extension = Path.GetExtension(filePath).ToLower()
+            Dim contentType As String = "application/octet-stream"
+            Select Case extension
+                Case ".html"
+                    contentType = "text/html"
+                Case ".css"
+                    contentType = "text/css"
+                Case ".js"
+                    contentType = "application/javascript"
+                Case ".json"
+                    contentType = "application/json"
+                Case ".png"
+                    contentType = "image/png"
+            End Select
+
+            Dim buffer As Byte() = File.ReadAllBytes(filePath)
+            response.ContentType = contentType
+            response.ContentLength64 = buffer.Length
+            response.StatusCode = 200
+            response.OutputStream.Write(buffer, 0, buffer.Length)
+            response.OutputStream.Close()
+            Return True
+        Catch ex As Exception
+            response.StatusCode = 500
+            response.OutputStream.Close()
+            Return True
+        End Try
+    End Function
 
 
     ''' <summary>
@@ -320,7 +385,7 @@ Public Class MyService
 
             End Using
 
-            Return "{""status"":""success"",""message"":""detail deleted successfully""}"
+            Return "{""status"":""success"",""message"":""Detail deleted successfully""}"
         Catch ex As Exception
             Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
         End Try

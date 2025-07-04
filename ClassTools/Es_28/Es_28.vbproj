@@ -259,10 +259,10 @@
     <Compile Include="PrefabProduct.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SectionReport1.Designer.vb">
-      <DependentUpon>SectionReport1.vb</DependentUpon>
+    <Compile Include="SectionReport.Designer.vb">
+      <DependentUpon>SectionReport.vb</DependentUpon>
     </Compile>
-    <Compile Include="SectionReport1.vb">
+    <Compile Include="SectionReport.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="TotemForm.vb">
@@ -318,8 +318,8 @@
     <EmbeddedResource Include="PrefabProduct.resx">
       <DependentUpon>PrefabProduct.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SectionReport1.resx">
-      <DependentUpon>SectionReport1.vb</DependentUpon>
+    <EmbeddedResource Include="SectionReport.resx">
+      <DependentUpon>SectionReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TotemForm.resx">
       <DependentUpon>TotemForm.vb</DependentUpon>

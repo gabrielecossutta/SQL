@@ -145,6 +145,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="TotemSwaggerUI\swagger.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -174,6 +175,20 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TotemSwaggerUI\favicon-16x16.png" />
+    <Content Include="TotemSwaggerUI\favicon-32x32.png" />
+    <Content Include="TotemSwaggerUI\index.css" />
+    <Content Include="TotemSwaggerUI\index.html" />
+    <Content Include="TotemSwaggerUI\oauth2-redirect.html" />
+    <Content Include="TotemSwaggerUI\swagger-initializer.js" />
+    <Content Include="TotemSwaggerUI\swagger-ui-bundle.js" />
+    <Content Include="TotemSwaggerUI\swagger-ui-es-bundle-core.js" />
+    <Content Include="TotemSwaggerUI\swagger-ui-es-bundle.js" />
+    <Content Include="TotemSwaggerUI\swagger-ui-standalone-preset.js" />
+    <Content Include="TotemSwaggerUI\swagger-ui.css" />
+    <Content Include="TotemSwaggerUI\swagger-ui.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
