@@ -119,13 +119,15 @@
                             IdProduct: product.id,
                         };
                         await fetch("https://localhost:82/newdetails/", {
-                            method: "POST",
+                            method: "PUT",
                             headers: {
                                 "Content-Type": "application/json",
                                 "Authorization": getBasicAuthHeader()
                             },
                             body: JSON.stringify(payload)
-                        });
+                        }).then(res => res.json())
+                            .then(json => console.log("createorder:", json))
+                            .catch(err => console.error("Errore createorder:", err));
                     }
                 },
 
@@ -137,13 +139,15 @@
                         IdProduct: item.product.id,
                     };
                     await fetch("https://localhost:82/increasedetail/", {
-                        method: "POST",
+                        method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
                             "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
-                    });
+                    }).then(res => res.json())
+                        .then(json => console.log("createorder:", json))
+                        .catch(err => console.error("Errore createorder:", err));
                 },
 
                 //Decrease quantity of a cart item (and remove if 0)
@@ -158,23 +162,27 @@
                     if (item.quantity <= 0) {
                         this.cart = this.cart.filter(i => i !== item);
                         await fetch("https://localhost:82/deletedetail/", {
-                            method: "POST",
+                            method: "DELETE",
                             headers: {
                                 "Content-Type": "application/json",
                                 "Authorization": getBasicAuthHeader()
                             },
                             body: JSON.stringify(payload)
-                        });
+                        }).then(res => res.json())
+                            .then(json => console.log("createorder:", json))
+                            .catch(err => console.error("Errore createorder:", err));
                         return;
                     }
                     await fetch("https://localhost:82/decreasedetail/", {
-                        method: "POST",
+                        method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
                             "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
-                    });
+                    }).then(res => res.json())
+                        .then(json => console.log("createorder:", json))
+                        .catch(err => console.error("Errore createorder:", err));
                 },
 
                 //Calculate total price of the cart
@@ -186,11 +194,13 @@
                 async order() {
                     alert('Order placed!\nTotal: ' + this.totalPrice().toFixed(2) + ' €');
                     await fetch("https://localhost:82/createorder/", {
-                        method: "POST",
+                        method: "PUT",
                         headers: {
                             "Authorization": getBasicAuthHeader()
                         }
-                    });
+                    }).then(res => res.json())
+                        .then(json => console.log("createorder:", json))
+                        .catch(err => console.error("Errore createorder:", err));
                     await this.emptyCart();
                 },
 
@@ -201,13 +211,15 @@
                         IdOrder: this.orderId
                     };
                     await fetch("https://localhost:82/deletealldetails/", {
-                        method: "POST",
+                        method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
                             "Authorization": getBasicAuthHeader()
                         },
                         body: JSON.stringify(payload)
-                    });
+                    }).then(res => res.json())
+                        .then(json => console.log("createorder:", json))
+                        .catch(err => console.error("Errore createorder:", err));
                 }
             }
         }

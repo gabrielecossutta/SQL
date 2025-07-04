@@ -111,7 +111,7 @@ Public Class MyService
         If request.HttpMethod = "OPTIONS" Then
             response.StatusCode = 200
             response.Headers.Add("Access-Control-Allow-Origin", "*")
-            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
             response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
             response.Close()
             Return
@@ -121,7 +121,7 @@ Public Class MyService
             response.StatusCode = 401
             response.Headers.Add("WWW-Authenticate", "Basic realm=""MyRealm""")
             response.Headers.Add("Access-Control-Allow-Origin", "*")
-            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET")
             response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
             response.Close()
             Return
@@ -129,7 +129,7 @@ Public Class MyService
 
         'Header CORS
         response.Headers.Add("Access-Control-Allow-Origin", "*")
-        response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
         response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
         Dim responseString As String = ""
@@ -148,28 +148,41 @@ Public Class MyService
             Case "getoldorder"
                 responseString = HandleGetOldOrder(body)
             Case "increasedetail"
-                HandleIncreaseDetail(body)
+                responseString = HandleIncreaseDetail(body)
             Case "decreasedetail"
-                HandleDecreaseDetail(body)
+                responseString = HandleDecreaseDetail(body)
             Case "deletedetail"
-                HandleDeleteDetail(body)
+                responseString = HandleDeleteDetail(body)
             Case "deletealldetails"
-                HandleDeleteAllDetails(body)
+                responseString = HandleDeleteAllDetails(body)
             Case "newdetails"
-                HandleNewDetails(body)
+                responseString = HandleNewDetails(body)
             Case "createorder"
-                HandleCreateOrder(body)
+                responseString = HandleCreateOrder(body)
             Case Else
-                response.StatusCode = 404
-                responseString = "ERROR"
+                responseString = "{""status"": ""error"",""message"":""Not found""}"
         End Select
+
+
+        If responseString.Contains("error") Then
+            response.StatusCode = 400
+        Else
+            response.StatusCode = 200
+
+        End If
+
+
 
         'Serialize the answer
         Dim buffer() As Byte = System.Text.Encoding.UTF8.GetBytes(responseString)
-        response.ContentLength64 = buffer.Length
         response.ContentType = "application/json"
-        response.OutputStream.Write(buffer, 0, buffer.Length)
-        response.OutputStream.Close()
+        response.ContentLength64 = buffer.Length
+
+        Try
+            response.OutputStream.Write(buffer, 0, buffer.Length)
+        Finally
+            response.OutputStream.Close()
+        End Try
     End Sub
 
 
@@ -177,7 +190,7 @@ Public Class MyService
     ''' <summary>
     ''' Handles the creation of a new order
     ''' </summary>
-    Private Sub HandleCreateOrder(body As String)
+    Private Function HandleCreateOrder(body As String) As String
         Using context As New DbStructure.TotemDbContext()
 
             'Create the order
@@ -224,117 +237,145 @@ Public Class MyService
             Next
 
         End Using
-    End Sub
+        Try
+            Return "{""status"":""success"",""message"":""Order created successfully""}"
+        Catch ex As Exception
+            Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+            End Try
+    End Function
 
     ''' <summary>
     ''' Handles the addition of new details to an order
     ''' </summary>
-    Private Sub HandleNewDetails(body As String)
+    Private Function HandleNewDetails(body As String) As String
+        Try
+            Using context As New DbStructure.TotemDbContext()
 
-        Using context As New DbStructure.TotemDbContext()
+                'Deserialize the request body to get the order and product Ids
+                Dim serializer As New JavaScriptSerializer()
+                Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
+                Dim IdOrder As Integer = filter.IdOrder
+                Dim IdProduct As Integer = filter.IdProduct
 
-            'Deserialize the request body to get the order and product Ids
-            Dim serializer As New JavaScriptSerializer()
-            Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
-            Dim IdOrder As Integer = filter.IdOrder
-            Dim IdProduct As Integer = filter.IdProduct
-
-            'Create a new copy order detail
-            Dim NewOrderDetail As New DbStructure.CopyOrderDetails With {
+                'Create a new copy order detail
+                Dim NewOrderDetail As New DbStructure.CopyOrderDetails With {
                 .IdOrder = IdOrder,
                 .IdProduct = IdProduct,
                 .OrderQuantity = 1
             }
-            context.CopyOrderDetails.Add(NewOrderDetail)
-            context.SaveChanges()
+                context.CopyOrderDetails.Add(NewOrderDetail)
+                context.SaveChanges()
 
-        End Using
+            End Using
 
-    End Sub
+            Return "{""status"":""success"",""message"":""Detail created successfully""}"
+        Catch ex As Exception
+            Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+        End Try
+
+    End Function
 
     ''' <summary>
     ''' Handles the deletion of all details for a specific order
     ''' </summary>
-    Private Sub HandleDeleteAllDetails(body As String)
+    Private Function HandleDeleteAllDetails(body As String) As String
+        Try
+            Using context As New DbStructure.TotemDbContext()
 
-        Using context As New DbStructure.TotemDbContext()
+                'Deserialize the request body to get the order id
+                Dim serializer As New JavaScriptSerializer()
+                Dim DeleteRequest = serializer.Deserialize(Of DeleteRequest)(body)
 
-            'Deserialize the request body to get the order id
-            Dim serializer As New JavaScriptSerializer()
-            Dim DeleteRequest = serializer.Deserialize(Of DeleteRequest)(body)
+                'Delete all details for the specified order
+                Dim orders = context.CopyOrderDetails.Where(Function(cod) cod.IdOrder = DeleteRequest.IdOrder).ToList()
+                context.CopyOrderDetails.RemoveRange(orders)
+                context.SaveChanges()
 
-            'Delete all details for the specified order
-            Dim orders = context.CopyOrderDetails.Where(Function(cod) cod.IdOrder = DeleteRequest.IdOrder).ToList()
-            context.CopyOrderDetails.RemoveRange(orders)
-            context.SaveChanges()
+            End Using
 
-        End Using
+            Return "{""status"":""success"",""message"":""All details deleted successfully""}"
+        Catch ex As Exception
+            Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+        End Try
 
-    End Sub
+    End Function
 
     ''' <summary>
     ''' Handles the deletion of a specific detail from an order
     ''' </summary>
-    Private Sub HandleDeleteDetail(body As String)
+    Private Function HandleDeleteDetail(body As String) As String
+        Try
+            Using context As New DbStructure.TotemDbContext()
 
-        Using context As New DbStructure.TotemDbContext()
+                'Deserialize the request body to get the order and product Ids
+                Dim serializer As New JavaScriptSerializer()
+                Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
+                Dim IdOrder As Integer = filter.IdOrder
+                Dim IdProduct As Integer = filter.IdProduct
 
-            'Deserialize the request body to get the order and product Ids
-            Dim serializer As New JavaScriptSerializer()
-            Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
-            Dim IdOrder As Integer = filter.IdOrder
-            Dim IdProduct As Integer = filter.IdProduct
+                'Retrive the existing order detail and remove it
+                Dim existingOrder = context.CopyOrderDetails.FirstOrDefault(Function(cod) cod.IdOrder = IdOrder AndAlso cod.IdProduct = IdProduct)
+                context.CopyOrderDetails.Remove(existingOrder)
+                context.SaveChanges()
 
-            'Retrive the existing order detail and remove it
-            Dim existingOrder = context.CopyOrderDetails.FirstOrDefault(Function(cod) cod.IdOrder = IdOrder AndAlso cod.IdProduct = IdProduct)
-            context.CopyOrderDetails.Remove(existingOrder)
-            context.SaveChanges()
+            End Using
 
-        End Using
-    End Sub
+            Return "{""status"":""success"",""message"":""detail deleted successfully""}"
+        Catch ex As Exception
+            Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+        End Try
+    End Function
 
     ''' <summary>
     ''' Handles the increase of the detail quantity for a specific order and product
     ''' </summary>
-    Private Sub HandleIncreaseDetail(body As String)
-        DetailSearch(body, 1)
-    End Sub
+    Private Function HandleIncreaseDetail(body As String) As String
+        Return DetailSearch(body, 1)
+    End Function
 
     ''' <summary>
     ''' Handles the decrease of the detail quantity for a specific order and product
     ''' </summary>
-    Private Sub HandleDecreaseDetail(body As String)
-        DetailSearch(body, -1)
-    End Sub
+    Private Function HandleDecreaseDetail(body As String) As String
+        Return DetailSearch(body, -1)
+    End Function
 
     ''' <summary>
     ''' Searches for an order detail and updates the quantity based on the provided quantity parameter
     ''' </summary>
-    Private Sub DetailSearch(body As String, quantity As Integer)
-        Using context As New DbStructure.TotemDbContext()
+    Private Function DetailSearch(body As String, quantity As Integer) As String
+        Try
+            Using context As New DbStructure.TotemDbContext()
 
-            'Deserialize the request body to get the order and product Ids
-            Dim serializer As New JavaScriptSerializer()
-            Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
-            Dim IdOrder As Integer = filter.IdOrder
-            Dim IdProduct As Integer = filter.IdProduct
+                'Deserialize the request body to get the order and product Ids
+                Dim serializer As New JavaScriptSerializer()
+                Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
+                Dim IdOrder As Integer = filter.IdOrder
+                Dim IdProduct As Integer = filter.IdProduct
 
-            'Retrieve the existing order detail and update the quantity
-            Dim existingOrder = context.CopyOrderDetails.FirstOrDefault(Function(cod) cod.IdOrder = IdOrder AndAlso cod.IdProduct = IdProduct)
-            existingOrder.OrderQuantity = existingOrder.OrderQuantity + quantity
-            context.SaveChanges()
+                'Retrieve the existing order detail and update the quantity
+                Dim existingOrder = context.CopyOrderDetails.FirstOrDefault(Function(cod) cod.IdOrder = IdOrder AndAlso cod.IdProduct = IdProduct)
+                If existingOrder Is Nothing Then
+                    Return "{""status"":""error"",""message"":""Order detail not found""}"
+                End If
+                existingOrder.OrderQuantity = existingOrder.OrderQuantity + quantity
+                context.SaveChanges()
 
-        End Using
-    End Sub
+            End Using
+
+            Return "{""status"":""success"",""message"":""Quantity modified successfully""}"
+        Catch ex As Exception
+            Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+        End Try
+    End Function
 
     ''' <summary>
     ''' Handles the retrieval of the last order and its details
     ''' </summary>
     Private Function HandleGetOldOrder(body As String) As String
-
         Try
-            Using context As New DbStructure.TotemDbContext()
 
+            Using context As New DbStructure.TotemDbContext()
                 'Retrieve the last order and its details
                 Dim lastOrder = context.CopyOrders.OrderByDescending(Function(co) co.IdOrders).FirstOrDefault()
                 Dim details = context.CopyOrderDetails.Where(Function(cod) cod.IdOrder = lastOrder.IdOrders AndAlso cod.OrderQuantity > 0).Select(Function(p) New With {
@@ -356,7 +397,7 @@ Public Class MyService
 
         Catch ex As Exception
             Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
-        End Try
+            End Try
 
     End Function
 
@@ -383,8 +424,10 @@ Public Class MyService
                 Return serializer.Serialize(productList)
 
             End Using
+
         Catch ex As Exception
             Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
+
         End Try
 
     End Function
