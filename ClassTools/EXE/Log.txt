@@ -7567,3 +7567,7 @@ L'istruzione è stata interrotta.;
 23/06/2025 08:13:06 Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=Northwind;User=sa;Password=123;TrustServerCertificate=True;;
 23/06/2025 08:13:06 Connection open;
 23/06/2025 08:13:06 Il nome di colonna 'ShipperID' non è valido.;
+08/07/2025 17:39:30 Data Loaded from Json File;
+08/07/2025 17:39:30 Data loaded from Json File;
+08/07/2025 17:39:30 Login by: sa;
+08/07/2025 17:39:30 Server=DESKTOP-6IEL0JH\SQLEXPRESS;Database=Northwind;User=sa;Password=123;TrustServerCertificate=True;

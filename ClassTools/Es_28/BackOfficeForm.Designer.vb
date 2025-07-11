@@ -41,6 +41,7 @@ Partial Class F_BackOffice
         Me.L_EndReport = New System.Windows.Forms.Label()
         Me.DTP_End = New System.Windows.Forms.DateTimePicker()
         Me.L_StartReport = New System.Windows.Forms.Label()
+        Me.Viewer1 = New GrapeCity.ActiveReports.Viewer.Win.Viewer()
         Me.P_AddProduct.SuspendLayout()
         CType(Me.PB_Product, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.P_Report.SuspendLayout()
@@ -59,6 +60,7 @@ Partial Class F_BackOffice
         'DTP_Start
         '
         Me.DTP_Start.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DTP_Start.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DTP_Start.Location = New System.Drawing.Point(4, 31)
         Me.DTP_Start.Name = "DTP_Start"
         Me.DTP_Start.Size = New System.Drawing.Size(374, 29)
@@ -221,6 +223,7 @@ Partial Class F_BackOffice
         'DTP_End
         '
         Me.DTP_End.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DTP_End.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DTP_End.Location = New System.Drawing.Point(5, 90)
         Me.DTP_End.Name = "DTP_End"
         Me.DTP_End.Size = New System.Drawing.Size(374, 29)
@@ -236,11 +239,47 @@ Partial Class F_BackOffice
         Me.L_StartReport.TabIndex = 2
         Me.L_StartReport.Text = "Start Report"
         '
+        'Viewer1
+        '
+        Me.Viewer1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Viewer1.Location = New System.Drawing.Point(400, 12)
+        Me.Viewer1.Name = "Viewer1"
+        Me.Viewer1.PagesBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.ParametersPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.ParametersPanel.Text = "Parameters"
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.SearchPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.SearchPanel.Text = "Search results"
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.ThumbnailsPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.ThumbnailsPanel.Text = "Page thumbnails"
+        Me.Viewer1.Sidebar.ThumbnailsPanel.Zoom = 0.1R
+        '
+        '
+        '
+        Me.Viewer1.Sidebar.TocPanel.ContextMenu = Nothing
+        Me.Viewer1.Sidebar.TocPanel.Expanded = True
+        Me.Viewer1.Sidebar.TocPanel.Text = "Document map"
+        Me.Viewer1.Sidebar.Width = 200
+        Me.Viewer1.Size = New System.Drawing.Size(1250, 518)
+        Me.Viewer1.TabIndex = 14
+        '
         'F_BackOffice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(406, 542)
+        Me.ClientSize = New System.Drawing.Size(1654, 542)
+        Me.Controls.Add(Me.Viewer1)
         Me.Controls.Add(Me.P_Report)
         Me.Controls.Add(Me.P_AddProduct)
         Me.Name = "F_BackOffice"
@@ -273,4 +312,5 @@ Partial Class F_BackOffice
     Friend WithEvents CB_Category As ComboBox
     Friend WithEvents DTP_End As DateTimePicker
     Friend WithEvents L_EndReport As Label
+    Friend WithEvents Viewer1 As GrapeCity.ActiveReports.Viewer.Win.Viewer
 End Class

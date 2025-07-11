@@ -499,7 +499,7 @@
 	<DataSources>
 		<DataSource Name="DataSource1">
 			<ConnectionProperties>
-				<ConnectString>Data Source=DESKTOP-6IEL0JH\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=False;User ID=sa;Password=123</ConnectString>
+				<ConnectString>Data Source=EIDF014641\\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=False;User ID=sa;Password=123</ConnectString>
 				<DataProvider>SQL</DataProvider>
 			</ConnectionProperties>
 		</DataSource>

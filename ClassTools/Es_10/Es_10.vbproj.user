@@ -3,4 +3,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>1 Server=DESKTOP-6IEL0JH\SQLEXPRESS%3bDatabase=Northwind%3bUser=sa%3bPassword=123%3bTrustServerCertificate=True%3b</StartArguments>
   </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
 </Project>

@@ -6,33 +6,28 @@ Imports System.ServiceProcess
 Imports System.Threading.Tasks
 Imports System.Web.Script.Serialization
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ListView
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Tab
-Imports ClassTools
+Imports System.IdentityModel.Tokens.Jwt
+Imports Microsoft.IdentityModel.Tokens
+Imports System.Security.Claims
+Imports System.Text
 
-
-'Public Class SslConfig
-'    Public Const SslAppId As String = "{e5557ab2-260b-44c1-b81c-b955cf7fcd37}"
-'End Class
 Public Class MyService
     Inherits ServiceBase
 
-    'Listener to handle HTTP requests
+    Private ListenerTask As Task
     Private Listener As HttpListener
 
-    'Task to run the listener loop
-    Private ListenerTask As Task
-
-    ''' <summary>
-    ''' Called when the service is started. It starts the listener add the prefixes
-    ''' </summary>
     Protected Overrides Sub OnStart(args() As String)
 
+        'Ignore certificate validation
         ServicePointManager.ServerCertificateValidationCallback = Function(sender, certificate, chain, sslPolicyErrors) True
 
-        'Initialize the HttpListener and add the prefixes to listen fro requests
+        'Setup the listener and add all the prefixes
         Listener = New HttpListener()
         Listener.Prefixes.Clear()
         Listener.Prefixes.Add("https://localhost:82/")
+        Listener.Prefixes.Add("https://localhost:82/swagger-ui/")
+        Listener.Prefixes.Add("https://localhost:82/login/")
         Listener.Prefixes.Add("https://localhost:82/getallproducts/")
         Listener.Prefixes.Add("https://localhost:82/getoldorder/")
         Listener.Prefixes.Add("https://localhost:82/increasedetail/")
@@ -43,14 +38,10 @@ Public Class MyService
         Listener.Prefixes.Add("https://localhost:82/createorder/")
         Listener.Start()
 
-        'Start the listener loop in a separate task
+        ' Start the async listening loop
         ListenerTask = Task.Run(AddressOf ListenLoop)
-
     End Sub
 
-    ''' <summary>
-    ''' Called when the service is stopped. It stops the listener and closes it
-    ''' </summary>
     Protected Overrides Sub OnStop()
         If Listener IsNot Nothing AndAlso Listener.IsListening Then
             Listener.Stop()
@@ -59,56 +50,103 @@ Public Class MyService
     End Sub
 
     ''' <summary>
-    ''' Loop to listen for incoming HTTP requests asynchronously
+    ''' JWT Token generator
+    ''' </summary>
+    Private Function GenerateJwt(username As String) As String
+
+        Dim secretKey = "01234567891011121314151617181920"
+        Dim key = New SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        Dim credentials = New SigningCredentials(key, SecurityAlgorithms.HmacSha256)
+
+        'Define claims in the token (subject, unique ID, issued-at)
+        Dim claims = New List(Of Claim) From {
+            New Claim(JwtRegisteredClaimNames.Sub, username),
+            New Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            New Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64)
+        }
+
+        'Create and return the signed JWT
+        Dim token = New JwtSecurityToken(
+            issuer:="TotemService",
+            audience:="TotemClient",
+            claims:=claims,
+            notBefore:=Date.UtcNow,
+            expires:=Date.UtcNow.AddHours(1),
+            signingCredentials:=credentials
+        )
+
+        Return New JwtSecurityTokenHandler().WriteToken(token)
+
+    End Function
+
+    ''' <summary>
+    ''' Main asynchronous loop for handling HTTP requests
     ''' </summary>
     Private Async Function ListenLoop() As Task
-
-        'Loop to continuously listen fot incoming requests
         While True
             Try
                 Dim context = Await Listener.GetContextAsync()
                 ProcessRequest(context)
             Catch ex As Exception
+                ' Optional: log exception
             End Try
         End While
-
     End Function
 
     ''' <summary>
-    ''' Check the Basic authentication
+    ''' Check if the token is valid
     ''' </summary>
-    Private Function CheckBasicAuth(request As HttpListenerRequest) As Boolean
+    Private Function IsTokenValid(token As String) As Boolean
 
-        Dim authHeader = request.Headers("Authorization")
-        If String.IsNullOrEmpty(authHeader) OrElse Not authHeader.StartsWith("Basic ") Then
-            Return False
-        End If
-
-        'Extract the base64 part after Basic
-        Dim encodedCredentials = authHeader.Substring(6).Trim()
-        Dim credentials As String
         Try
-            Dim credentialBytes = Convert.FromBase64String(encodedCredentials)
-            credentials = System.Text.Encoding.UTF8.GetString(credentialBytes)
-        Catch ex As Exception
-            Return False
-        End Try
-        Dim parts = credentials.Split(":"c)
-        If parts.Length <> 2 Then Return False
-        Dim username = parts(0)
-        Dim password = parts(1)
 
-        'Username and Password check
-        Return username = "admin" AndAlso password = "admin"
+            Dim secretKey = "01234567891011121314151617181920"
+            Dim key = New SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+            Dim tokenHandler As New JwtSecurityTokenHandler()
+
+            'Define validation parameters
+            Dim validationParams As New TokenValidationParameters With {
+                .ValidateIssuer = True,
+                .ValidIssuer = "TotemService",
+                .ValidateAudience = True,
+                .ValidAudience = "TotemClient",
+                .ValidateIssuerSigningKey = True,
+                .IssuerSigningKey = key,
+                .ValidateLifetime = True,
+                .ClockSkew = TimeSpan.Zero
+            }
+
+            'Check the token
+            Dim principal As ClaimsPrincipal = tokenHandler.ValidateToken(token, validationParams, Nothing)
+            Return True
+
+        Catch ex As Exception
+
+            Return False
+
+        End Try
+
     End Function
 
+    ''' <summary>
+    ''' Checks for Bearer Authorization header
+    ''' </summary>
+    Private Function CheckBearerToken(request As HttpListenerRequest) As Boolean
+        Dim authHeader = request.Headers("Authorization")
+        If String.IsNullOrEmpty(authHeader) OrElse Not authHeader.StartsWith("Bearer ") Then Return False
+        Dim token = authHeader.Substring(7).Trim()
+        Return IsTokenValid(token)
+    End Function
 
     ''' <summary>
-    ''' Processes the incoming HTTP request based on the URL path
+    ''' Main request handler
     ''' </summary>
     Private Sub ProcessRequest(context As HttpListenerContext)
+
         Dim request = context.Request
         Dim response = context.Response
+
+        'Handle CORS
         If request.HttpMethod = "OPTIONS" Then
             response.StatusCode = 200
             response.Headers.Add("Access-Control-Allow-Origin", "*")
@@ -119,70 +157,94 @@ Public Class MyService
             Return
         End If
 
-        If Not CheckBasicAuth(request) Then
-            response.StatusCode = 401
-            response.AddHeader("WWW-Authenticate", "Basic realm=""MyRealm""")
-            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
-            response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
-            response.Headers.Remove("Content-Security-Policy")
-            response.Close()
-            Return
+        'Retrive the username for the token
+        Dim authHeader As String = request.Headers("Authorization")
+        Dim username As String = ""
+        If Not String.IsNullOrEmpty(authHeader) AndAlso authHeader.StartsWith("Basic ") Then
+            Dim encoded = authHeader.Substring(6)
+            Dim decoded = Text.Encoding.UTF8.GetString(Convert.FromBase64String(encoded))
+            Dim parts = decoded.Split(":"c)
+            If parts.Length = 2 Then
+                username = parts(0)
+            End If
         End If
 
-        'Header CORS
-        response.Headers.Add("Access-Control-Allow-Origin", "*")
-        response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
-        response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
-        response.Headers.Remove("Content-Security-Policy")
-        response.Headers("Content-Security-Policy") = "default-src 'self'; connect-src 'self' https://localhost:82"
-
-        Dim responseString As String = ""
-
-        'Read the body
-        Dim body As String = Nothing
-        Using reader As New StreamReader(request.InputStream, request.ContentEncoding)
-            body = reader.ReadToEnd()
-        End Using
-
-        'Retrive the absolute path and use it to select the function
+        'Get the requested URL path
         Dim path = request.Url.AbsolutePath.ToLower().Trim("/"c)
+
+        'Gneretare the token
+        If path = "login" Then
+            Dim loginResponse As String = HandleLogin(username)
+            Dim loginBuffer() As Byte = System.Text.Encoding.UTF8.GetBytes(loginResponse)
+            response.ContentType = "application/json"
+            response.ContentLength64 = loginBuffer.Length
+            response.StatusCode = If(loginResponse.Contains("token"), 200, 401)
+            response.Headers.Add("Access-Control-Allow-Origin", "*")
+            response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
+            response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+            response.OutputStream.Write(loginBuffer, 0, loginBuffer.Length)
+            response.OutputStream.Close()
+            Return
+        End If
 
         ' Serve Swagger UI statici
         If path.StartsWith("swagger-ui") Then
             Dim relativePath = path.Substring("swagger-ui".Length).TrimStart("/"c)
-            Dim fullPath = System.IO.Path.Combine("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI", relativePath)
+            Dim fullPath = System.IO.Path.Combine("C:\Users\Gabriele\Desktop\SQL\ClassTools\Es_30WINS\TotemSwaggerUI", relativePath)
 
             If String.IsNullOrWhiteSpace(relativePath) Then
-                fullPath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\index.html"
+                fullPath = "C:\Users\Gabriele\Desktop\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\index.html"
             End If
 
             If ServeStaticFile(fullPath, response) Then Return
         End If
 
         If path = "swagger.json" Then
-            Dim swaggerJsonPath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json"
+            Dim swaggerJsonPath = "C:\Users\Gabriele\Desktop\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json"
             If ServeStaticFile(swaggerJsonPath, response) Then Return
         End If
 
+        'Check the Token to block the request
+        If Not CheckBearerToken(request) Then
+            response.StatusCode = 401
+            response.Close()
+            Return
+        End If
+
+        'Apply security headers
+        response.Headers.Add("Access-Control-Allow-Origin", "*")
+        response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT, PATCH")
+        response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization")
+        response.Headers.Remove("Content-Security-Policy")
+        response.Headers("Content-Security-Policy") = "default-src 'self'; connect-src 'self' https://localhost:82"
+
+        'Read request body
+        Dim requestBodyOther As String = Nothing
+        Using reader As New StreamReader(request.InputStream, request.ContentEncoding)
+            requestBodyOther = reader.ReadToEnd()
+        End Using
+
+        'Route the request
+        Dim responseString As String = ""
         Select Case path
             Case "getallproducts"
-                responseString = HandleGetAllProducts(body)
+                responseString = HandleGetAllProducts(requestBodyOther)
             Case "getoldorder"
-                responseString = HandleGetOldOrder(body)
+                responseString = HandleGetOldOrder(requestBodyOther)
             Case "increasedetail"
-                responseString = HandleIncreaseDetail(body)
+                responseString = HandleIncreaseDetail(requestBodyOther)
             Case "decreasedetail"
-                responseString = HandleDecreaseDetail(body)
+                responseString = HandleDecreaseDetail(requestBodyOther)
             Case "deletedetail"
-                responseString = HandleDeleteDetail(body)
+                responseString = HandleDeleteDetail(requestBodyOther)
             Case "deletealldetails"
-                responseString = HandleDeleteAllDetails(body)
+                responseString = HandleDeleteAllDetails(requestBodyOther)
             Case "newdetails"
-                responseString = HandleNewDetails(body)
+                responseString = HandleNewDetails(requestBodyOther)
             Case "createorder"
-                responseString = HandleCreateOrder(body)
+                responseString = HandleCreateOrder(requestBodyOther)
             Case "swagger.json"
-                Dim json = File.ReadAllText("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json")
+                Dim json = File.ReadAllText("C:\Users\Gabriele\Desktop\SQL\ClassTools\Es_30WINS\TotemSwaggerUI\swagger.json")
                 Dim swaggerBuffer() As Byte = System.Text.Encoding.UTF8.GetBytes(json)
                 response.ContentType = "application/json"
                 response.ContentLength64 = swaggerBuffer.Length
@@ -194,28 +256,28 @@ Public Class MyService
                 responseString = "{""status"": ""error"",""message"":""Not found""}"
         End Select
 
-
-        If responseString.Contains("error") Then
-            response.StatusCode = 400
-        Else
-            response.StatusCode = 200
-
-        End If
-
-
-
-        'Serialize the answer
+        'Send response
+        response.StatusCode = If(responseString.Contains("error"), 400, 200)
         Dim buffer() As Byte = System.Text.Encoding.UTF8.GetBytes(responseString)
         response.ContentType = "application/json"
         response.ContentLength64 = buffer.Length
-
         Try
             response.OutputStream.Write(buffer, 0, buffer.Length)
         Finally
             response.OutputStream.Close()
         End Try
+
     End Sub
 
+    ''' <summary>
+    ''' Generate the token
+    ''' </summary>
+    Private Function HandleLogin(username As String) As String
+        Dim token = GenerateJwt(username)
+        Return "{""token"":""" & token & """}"
+    End Function
+
+    'Swagger
     Private Function ServeStaticFile(filePath As String, response As HttpListenerResponse) As Boolean
         Try
             If Not File.Exists(filePath) Then
@@ -250,7 +312,6 @@ Public Class MyService
             Return True
         End Try
     End Function
-
 
     ''' <summary>
     ''' Handles the creation of a new order
@@ -306,7 +367,7 @@ Public Class MyService
             Return "{""status"":""success"",""message"":""Order created successfully""}"
         Catch ex As Exception
             Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
-            End Try
+        End Try
     End Function
 
     ''' <summary>
@@ -415,6 +476,9 @@ Public Class MyService
                 'Deserialize the request body to get the order and product Ids
                 Dim serializer As New JavaScriptSerializer()
                 Dim filter As IDs = serializer.Deserialize(Of IDs)(body)
+                If filter Is Nothing Then
+                    Return "{""status"":""error""}"
+                End If
                 Dim IdOrder As Integer = filter.IdOrder
                 Dim IdProduct As Integer = filter.IdProduct
 
@@ -462,7 +526,7 @@ Public Class MyService
 
         Catch ex As Exception
             Return "{""status"":""error"",""message"":""" & ex.Message.Replace("""", "'") & """}"
-            End Try
+        End Try
 
     End Function
 

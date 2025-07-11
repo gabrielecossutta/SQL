@@ -2,7 +2,6 @@
 Imports System.IO
 Imports ClassTools
 Imports System.Drawing
-Imports Es_21.DbStructure
 Imports ClosedXML.Excel
 Imports GrapeCity.ActiveReports.Document
 Imports GrapeCity.ActiveReports.Rendering.IO
@@ -83,9 +82,9 @@ Public Class F_BackOffice
 
     Private Sub B_StampReport_Click(sender As Object, e As EventArgs) Handles B_StampReport.Click
 
-        ConvertInHtml()
         CreateReport()
         ConverInExcel()
+        ConvertInHtml()
 
     End Sub
 
@@ -122,7 +121,7 @@ Public Class F_BackOffice
 
             'Write the HTML string to a file in the specified web path
             Utils.WriteAFile(stringHTML, "WEB\McDonald", "Summary", "html", False)
-            Process.Start("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\WEB\McDonald\Summary.html")
+            Process.Start("C:\Users\Gabriele\Desktop\SQL\ClassTools\WEB\McDonald\Summary.html")
 
         End Using
     End Sub
@@ -134,7 +133,7 @@ Public Class F_BackOffice
 
             Dim summaryList = context.Summaries.Where(Function(s) s.RegistrationDate >= DTP_Start.Value.Date AndAlso s.RegistrationDate <= DTP_End.Value.Date).ToList()
 
-            Dim filePath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\EXL\" & $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}.xlsx"
+            Dim filePath = "C:\Users\Gabriele\Desktop\SQL\ClassTools\EXE\EXL\" & $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}.xlsx"
 
             Dim totalPrice As Decimal = 0
             'Create a workbook Excel
@@ -197,28 +196,23 @@ Public Class F_BackOffice
 
     End Sub
 
+    ''' <summary>
+    ''' Create the report rdlx and rdx
+    ''' </summary>
     Private Sub CreateReport()
 
-        'Retrive the report and assign the dates
-        Dim reportPath As String = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\Es_28\Report.rdlx"
-        Dim report As New PageReport(New FileInfo(reportPath))
-        report.Report.ReportParameters.Item(0).DefaultValue.Values.Clear()
-        report.Report.ReportParameters.Item(0).DefaultValue.Values.Add(DTP_Start.Value.Date.ToString("MM/dd/yyyy"))
-        report.Report.ReportParameters.Item(1).DefaultValue.Values.Clear()
-        report.Report.ReportParameters.Item(1).DefaultValue.Values.Add(DTP_End.Value.Date.ToString("MM/dd/yyyy"))
+        'Load the report in the viewer
+        Dim report As New SectionReport(DTP_Start.Value.Date.ToString("dd/MM/yyyy"), DTP_End.Value.Date.ToString("dd/MM/yyyy"))
+        Viewer1.LoadDocument(report)
+        Viewer1.Dock = DockStyle.Fill
 
-        'Export the report in PFD
-        Dim document As New PageDocument(report)
-        Dim pdfExport As New PdfRenderingExtension()
-        Dim reportoutputPath As String = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\PDF"
-        Dim outputDir As New DirectoryInfo(reportoutputPath)
-        Dim provider As New FileStreamProvider(outputDir, $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}")
-        provider.OverwriteOutputFile = True
-        document.Render(pdfExport, provider)
 
-        'Open the PDF
-        Process.Start(Path.Combine(reportoutputPath, $"From-{DTP_Start.Value.Day}-{DTP_Start.Value.Month}-{DTP_Start.Value.Year}-To-{DTP_End.Value.Day}-{DTP_End.Value.Month}-{DTP_End.Value.Year}.pdf"))
-
+        Dim reportPath As String = "C:\Users\Gabriele\Desktop\SQL\ClassTools\Es_28\Report.rdlx"
+        Dim report2 As New PageReport(New FileInfo(reportPath))
+        report2.Report.ReportParameters.Item(0).DefaultValue.Values.Clear()
+        report2.Report.ReportParameters.Item(0).DefaultValue.Values.Add(DTP_Start.Value.Date.ToString("MM/dd/yyyy"))
+        report2.Report.ReportParameters.Item(1).DefaultValue.Values.Clear()
+        report2.Report.ReportParameters.Item(1).DefaultValue.Values.Add(DTP_End.Value.Date.ToString("MM/dd/yyyy"))
 
     End Sub
 
@@ -243,6 +237,10 @@ Public Class F_BackOffice
     End Sub
 
     Private Sub DTP_Start_ValueChanged(sender As Object, e As EventArgs) Handles DTP_Start.ValueChanged
+
+    End Sub
+
+    Private Sub Viewer1_Load(sender As Object, e As EventArgs) Handles Viewer1.Load
 
     End Sub
 End Class

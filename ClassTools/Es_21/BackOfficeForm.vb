@@ -115,7 +115,7 @@ Public Class F_BackOffice
 
             'Write the HTML string to a file in the specified web path
             Utils.WriteAFile(stringHTML, "WEB\McDonald", "Summary", "html", False)
-            Process.Start("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\WEB\McDonald\Summary.html")
+            Process.Start("C:\Users\Gabriele\Desktop\SQL\ClassTools\WEB\McDonald\Summary.html")
 
         End Using
     End Sub

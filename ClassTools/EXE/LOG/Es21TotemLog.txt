@@ -404,3 +404,7 @@
 03/07/2025 14:24:56 Totem started;
 03/07/2025 14:27:05 Totem started;
 03/07/2025 14:27:08 Order 403 Placed;
+09/07/2025 08:46:35 Totem started;
+09/07/2025 08:46:35 Cart Populated from an old order;
+09/07/2025 08:46:47 Totem started;
+09/07/2025 08:46:47 Cart Populated from an old order;

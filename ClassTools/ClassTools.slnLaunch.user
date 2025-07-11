@@ -3,11 +3,11 @@
     "Name": "Es_30",
     "Projects": [
       {
-        "Path": "Es_30HTML\\",
+        "Path": "Es_30WINS\\Es_30WINS.vbproj",
         "Action": "Start"
       },
       {
-        "Path": "Es_30WINS\\Es_30WINS.vbproj",
+        "Path": "http://localhost:83",
         "Action": "Start"
       }
     ]

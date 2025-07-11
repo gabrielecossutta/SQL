@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ActiveReportsLayout Version="3.6" PrintWidth="9360" DocumentName="ActiveReports Document" ScriptLang="C#" MasterReport="0" CompatibilityMode="CrossPlatform">
+  <StyleSheet>
+    <Style Name="Normal" Value="font-family: Arial; font-style: normal; text-decoration: none; font-weight: normal; font-size: 10pt; background-color: transparent; color: Black; text-align: left; vertical-align: top; ddo-char-set: 1" />
+    <Style Name="Heading1" Value="font-family: Arial; font-size: 16pt; font-style: normal; font-weight: bold" />
+    <Style Name="Heading2" Value="font-family: Times New Roman; font-size: 14pt; font-style: italic; font-weight: bold" />
+    <Style Name="Heading3" Value="font-family: Arial; font-size: 13pt; font-style: normal; font-weight: bold" />
+  </StyleSheet>
+  <Sections>
+    <Section Type="PageHeader" Name="PageHeader" Height="360" BackColor="16777215">
+      <Control Type="AR.Label" Name="Label1" Left="4305.601" Top="72" Width="1440" Height="288" Caption="Label1" />
+    </Section>
+    <Section Type="Detail" Name="Detail" Height="2880" BackColor="16777215" />
+    <Section Type="PageFooter" Name="PageFooter" Height="360" BackColor="16777215">
+      <Control Type="AR.Label" Name="Label2" Left="4305.601" Top="72" Width="1440" Height="288" Caption="Label2" />
+    </Section>
+  </Sections>
+  <ReportComponentTray />
+  <PageSettings />
+  <Parameters />
+</ActiveReportsLayout>

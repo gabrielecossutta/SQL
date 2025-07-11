@@ -117,7 +117,7 @@ Public Class F_BackOffice
 
             'Write the HTML string to a file in the specified web path
             Utils.WriteAFile(stringHTML, "WEB\McDonald", "Summary", "html", False)
-            Process.Start("C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\WEB\McDonald\Summary.html")
+            Process.Start("C:\Users\Gabriele\Desktop\SQL\ClassTools\WEB\McDonald\Summary.html")
 
         End Using
     End Sub
@@ -129,7 +129,7 @@ Public Class F_BackOffice
 
             Dim summaryList = context.Summaries.Where(Function(s) s.RegistrationDate = DTP_ReportDate.Value.Date).ToList()
 
-            Dim filePath = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\EXL\Summaries_" & DTP_ReportDate.Value.Day.ToString("00") & "_" & DTP_ReportDate.Value.Month.ToString("00") & "_" & DTP_ReportDate.Value.Year.ToString() & ".xlsx"
+            Dim filePath = "C:\Users\Gabriele\Desktop\SQL\ClassTools\EXE\EXL\Summaries_" & DTP_ReportDate.Value.Day.ToString("00") & "_" & DTP_ReportDate.Value.Month.ToString("00") & "_" & DTP_ReportDate.Value.Year.ToString() & ".xlsx"
 
             Dim totalPrice As Decimal = 0
             'Create a workbook Excel

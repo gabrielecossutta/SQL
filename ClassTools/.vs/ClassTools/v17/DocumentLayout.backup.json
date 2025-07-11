@@ -1,53 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_27\\sectionreport.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|solutionrelative:es_27\\sectionreport.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|c:\\users\\gabriele cossutta\\desktop\\sql\\sql\\classtools\\es_27\\sectionreport.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{CA8FECA4-E750-41F4-A57A-A21DC2A9C401}|Es_27\\Es_27.vbproj|solutionrelative:es_27\\sectionreport.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Gabriele\\Desktop\\SQL\\ClassTools\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 190,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SectionReport.vb",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\SectionReport.vb",
-              "RelativeDocumentMoniker": "Es_27\\SectionReport.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\SectionReport.vb",
-              "RelativeToolTip": "Es_27\\SectionReport.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-07-04T09:02:48.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SectionReport.vb [Progettazione]",
-              "DocumentMoniker": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\SectionReport.vb",
-              "RelativeDocumentMoniker": "Es_27\\SectionReport.vb",
-              "ToolTip": "C:\\Users\\Gabriele Cossutta\\Desktop\\SQL\\SQL\\ClassTools\\Es_27\\SectionReport.vb [Progettazione]",
-              "RelativeToolTip": "Es_27\\SectionReport.vb [Progettazione]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2025-07-04T08:56:59.452Z",
-              "EditorCaption": " [Progettazione]"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

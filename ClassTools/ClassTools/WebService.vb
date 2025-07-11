@@ -13,6 +13,7 @@ Public Class WebService
     End Sub
 
     'netsh http add urlacl url=https://localhost:82/createorder/ user=Everyone
+    'netsh http add urlacl url=https://localhost:82/swagger-ui/ user=Everyone
     Public Async Function StartWebService(URL As String) As Task(Of HttpListener)
         Listener = New HttpListener()
         Listener.Prefixes.Add(URL)

@@ -19,30 +19,48 @@
         //Main Alpine.js function that returns the app and logic
         function shopApp() {
             return {
-                //Index of active tab
                 activeTab: 0,
-
-                //Array of product categories
                 categories: [],
-
-                //Cart items
                 cart: [],
-
-                //Current Order Id
                 orderId: 0,
+                token: null,
 
                 async init() {
-                    await this.loadProducts(); //Load Products from the database
-                    await this.loadOldOrder(); //Load last order
+                    await this.login();
+                    await this.loadProducts();
+                    await this.loadOldOrder();
                 },
 
-                //Fetch all products and group them by category
+                //Login with the password and return a token
+                async login() {
+                    try {
+                        const res = await fetch("https://localhost:82/login/", {
+                            method: "POST",
+                            headers: {
+                                "Authorization": "Basic " + btoa(username + ":" + password),
+                                "Content-Type": "application/json"
+
+                            },
+                            body: JSON.stringify({
+                                username: this.username
+                            })
+                        });
+                        if (!res.ok) throw new Error("Login failed");
+
+                        const data = await res.json();
+                        this.token = data.token;  // salva il token ricevuto
+                    } catch (err) {
+                        console.error("Login error:", err);
+                    }
+                },
+
+                //Load all the products
                 async loadProducts() {
                     try {
                         const res = await fetch("https://localhost:82/getallproducts/", {
                             method: "GET",
                             headers: {
-                                "Authorization": getBasicAuthHeader()
+                                "Authorization": "Bearer " + this.token
                             }
                         });
                         const data = await res.json();
@@ -68,13 +86,14 @@
                     }
                 },
 
-                // Load the last order in the cart
+                //Load the last order in the cart
                 async loadOldOrder() {
                     try {
                         const res = await fetch("https://localhost:82/getoldorder/", {
                             method: "GET",
                             headers: {
-                                "Authorization": getBasicAuthHeader()
+                                "Authorization": "Bearer " + this.token
+
                             }
                         });
                         const data = await res.json();
@@ -122,7 +141,8 @@
                             method: "PUT",
                             headers: {
                                 "Content-Type": "application/json",
-                                "Authorization": getBasicAuthHeader()
+                                "Authorization": "Bearer " + this.token
+
                             },
                             body: JSON.stringify(payload)
                         }).then(res => res.json())
@@ -142,7 +162,8 @@
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": getBasicAuthHeader()
+                            "Authorization": "Bearer " + this.token
+
                         },
                         body: JSON.stringify(payload)
                     }).then(res => res.json())
@@ -165,7 +186,8 @@
                             method: "DELETE",
                             headers: {
                                 "Content-Type": "application/json",
-                                "Authorization": getBasicAuthHeader()
+                                "Authorization": "Bearer " + this.token
+
                             },
                             body: JSON.stringify(payload)
                         }).then(res => res.json())
@@ -177,7 +199,8 @@
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": getBasicAuthHeader()
+                            "Authorization": "Bearer " + this.token
+
                         },
                         body: JSON.stringify(payload)
                     }).then(res => res.json())
@@ -196,7 +219,8 @@
                     await fetch("https://localhost:82/createorder/", {
                         method: "PUT",
                         headers: {
-                            "Authorization": getBasicAuthHeader()
+                            "Authorization": "Bearer " + this.token
+
                         }
                     }).then(res => res.json())
                         .then(json => console.log("createorder:", json))
@@ -214,7 +238,8 @@
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": getBasicAuthHeader()
+                            "Authorization": "Bearer " + this.token
+
                         },
                         body: JSON.stringify(payload)
                     }).then(res => res.json())

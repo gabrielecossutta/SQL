@@ -12,7 +12,7 @@ Public Class Form1
     Dim password As String = "3663"
 
     'Folder where files are going to be downloaded
-    Dim DestinationFolder As String = "C:\Users\Gabriele Cossutta\Desktop\SQL\SQL\ClassTools\EXE\DWL\"
+    Dim DestinationFolder As String = "C:\Users\Gabriele\Desktop\SQL\ClassTools\EXE\DWL\"
 
     Private Sub B_Download_Click(sender As Object, e As EventArgs) Handles B_Download.Click
 

@@ -67,29 +67,34 @@ Es_30WINS
  Represents the connection string configuration
  </summary>
 </member>
-<member name="M:Es_30WINS.MyService.OnStart(System.String[])">
+<member name="M:Es_30WINS.MyService.GenerateJwt(System.String)">
  <summary>
- Called when the service is started. It starts the listener add the prefixes
- </summary>
-</member>
-<member name="M:Es_30WINS.MyService.OnStop">
- <summary>
- Called when the service is stopped. It stops the listener and closes it
+ JWT Token generator
  </summary>
 </member>
 <member name="M:Es_30WINS.MyService.ListenLoop">
  <summary>
- Loop to listen for incoming HTTP requests asynchronously
+ Main asynchronous loop for handling HTTP requests
  </summary>
 </member>
-<member name="M:Es_30WINS.MyService.CheckBasicAuth(System.Net.HttpListenerRequest)">
+<member name="M:Es_30WINS.MyService.IsTokenValid(System.String)">
  <summary>
- Check the Basic authentication
+ Check if the token is valid
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.CheckBearerToken(System.Net.HttpListenerRequest)">
+ <summary>
+ Checks for Bearer Authorization header
  </summary>
 </member>
 <member name="M:Es_30WINS.MyService.ProcessRequest(System.Net.HttpListenerContext)">
  <summary>
- Processes the incoming HTTP request based on the URL path
+ Main request handler
+ </summary>
+</member>
+<member name="M:Es_30WINS.MyService.HandleLogin(System.String)">
+ <summary>
+ Generate the token
  </summary>
 </member>
 <member name="M:Es_30WINS.MyService.HandleCreateOrder(System.String)">

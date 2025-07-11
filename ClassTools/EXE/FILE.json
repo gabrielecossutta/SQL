@@ -2,26 +2,26 @@
     "ServicePort": "123344",
     "ProtocolName": "Create",
     "ConnectionStrings": [
-        {
-            "ID": "0",
-            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
-            "DatabaseName": "Northwind",
-            "UserName": "NorthwindUser",
-            "Password": "123",
-            "PathWebServer": "WEB",
-            "URL": "http://localhost:@Port/Esercizio/@FileName.html",
-            "Port": "80"
-        },
-        {
-            "ID": "1",
-            "SQLServerName": "DESKTOP-6IEL0JH\\SQLEXPRESS",
-            "DatabaseName": "Northwind",
-            "UserName": "sa",
-            "Password": "123",
-            "PathWebServer": "WEB",
-            "URL": "http://localhost:@Port/Esercizio/@FileName.html",
-            "Port": "90"
-        },
+      {
+        "ID": "0",
+        "SQLServerName": "EIDF014641\\SQLEXPRESS",
+        "DatabaseName": "Northwind",
+        "UserName": "NorthwindUser",
+        "Password": "123",
+        "PathWebServer": "WEB",
+        "URL": "http://localhost:@Port/Esercizio/@FileName.html",
+        "Port": "80"
+      },
+      {
+        "ID": "1",
+        "SQLServerName": "EIDF014641\\SQLEXPRESS",
+        "DatabaseName": "Northwind",
+        "UserName": "sa",
+        "Password": "123",
+        "PathWebServer": "WEB",
+        "URL": "http://localhost:@Port/Esercizio/@FileName.html",
+        "Port": "90"
+      },
         {
             "ID": "2",
             "SQLServerName": "<empty>",
